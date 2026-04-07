@@ -134,6 +134,39 @@ Does NOT touch: Email content, pricing strategy, test methodology.
 
 ---
 
+# 4b. Global Pre-flight Rules
+
+These rules apply to ALL requests, not just slash commands. Even for isolated
+questions or ad-hoc tasks, follow these before responding:
+
+### Before drafting any email or supplier communication:
+1. Read .claude/config/writing-style.md
+2. Read .claude/config/strategy.md
+3. Read .claude/agents/supplier-comms.md
+4. Read context/{project}/suppliers.md for the relevant supplier
+
+### Before any Notion write:
+1. Read .claude/agents/notion-ops.md
+2. Fetch the current page content from Notion before proposing changes
+3. Follow SHOW BEFORE WRITE (Section 5)
+
+### Before any cost analysis or price comparison:
+1. Read .claude/config/strategy.md Section 3 (Cost Analysis Rules)
+2. Read .claude/agents/analyst.md
+3. Never compare FOB and landed without flagging
+
+### Before any test review update:
+1. Read .claude/agents/testing.md
+2. Read context/pulse/suppliers.md for device context
+
+### For any request, always:
+- Check which project it relates to (Pulse, Kaia, M-Band)
+- Load the relevant context/{project}/suppliers.md
+- Follow the writing style rules (no em dashes, short sentences, EN in Notion)
+- Log any Notion writes to outputs/change-log.md
+
+---
+
 # 5. Safety Rules
 
 ## LEVEL 1 — TECHNICALLY IMPOSSIBLE
@@ -268,6 +301,7 @@ sanmina.com -> Sanmina
 keenfinity.com -> Keenfinity
 transpak.com -> TransPak
 carfi.pt -> Carfi Plastics
+shxwatch.com -> SHX Watch
 
 ---
 

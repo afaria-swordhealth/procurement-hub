@@ -37,7 +37,34 @@ description: Audit Notion workspace against Maintenance Rules for compliance iss
    - **Field completeness:** Required fields populated (Status, Device, Region, Contact)
    - **Duplicates:** No duplicate supplier entries across DBs
 
-6. Present findings to André. André decides what to fix.
+6. Present Phase 1 findings to André.
+
+---
+
+## Phase 2: Content Quality
+
+For each project page (Pulse, Kaia, M-Band):
+
+1. Fetch the project page and all child pages.
+2. Check: are key sections populated and current?
+   - Overview/status up to date?
+   - Shortlist or pricing tables reflect latest data?
+   - Links to subpages working?
+3. For each active supplier page:
+   - Does it have all 5 sections (Contact, Profile, Quote, Outreach, Open Items)?
+   - Is Quote section populated if status is "Quote Received" or higher?
+   - Are Open Items resolved or clearly flagged?
+   - Would someone unfamiliar understand the supplier's status from reading the page alone?
+4. Flag:
+   - Excessive content (Outreach section too long, needs archiving)
+   - Missing context (no Quote section despite "Quote Received" status)
+   - Outdated info (prices from >30 days ago without update note)
+5. Present findings with severity:
+   - **Critical:** Blocks decisions (missing data needed for shortlist, incorrect status)
+   - **Warning:** Confusing for outsiders (missing sections, inconsistent information)
+   - **Info:** Cosmetic (formatting, ordering, verbose content)
+
+6. Present all findings (Phase 1 + Phase 2) to André. André decides what to fix.
 
 ## Safety Rules
 - **Maintenance Rules page is READ-ONLY.** Never modify it.

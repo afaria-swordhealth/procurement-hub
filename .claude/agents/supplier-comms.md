@@ -69,7 +69,15 @@ Before drafting any email or response:
 - kimballelectronics.com -> Kimball Electronics
 - transpak.com -> TransPak
 - carfi.pt -> Carfi Plastics
+- shxwatch.com -> SHX Watch
 
 ## Write Permissions
 - Notion: Supplier page ## Outreach section only
 - Gmail: Draft only (no send)
+- Gmail drafts: ONE draft per thread maximum. If rewriting a draft in a thread where one already exists, replace it instead of creating a second. Multiple drafts in the same thread break access in the Gmail desktop app.
+
+## Outreach Condensation
+When writing to ## Outreach, follow the condensation rules defined in notion-ops.md:
+- >7 entries: archive older entries into toggle "📁 Outreach Archive (Mon YYYY - Mon YYYY)"
+- Keep 7 most recent visible
+- Maintain summary line at top of section
