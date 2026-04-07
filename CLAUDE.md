@@ -89,7 +89,7 @@ Does NOT touch: Email content, pricing strategy, test methodology.
 
 # 4. Slash Commands
 
-## /morning-scan
+## /mail-scan
 1. supplier-comms scans Gmail for new emails (filter by domains in Section 7)
 2. logistics checks for DHL/tracking emails
 3. Cross-reference with context/ state files
