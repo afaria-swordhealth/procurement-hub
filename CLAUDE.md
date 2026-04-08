@@ -275,7 +275,7 @@ urionsz.com -> Urion Technology
 daxinhealth.com -> Daxin Health
 ullwin.com -> Ullwin
 finicare.com -> Finicare
-andonline.com -> A&D Medical
+andonline.com, andmedical.com -> A&D Medical
 hingmed.com -> Hingmed (rejected)
 zewa.com -> Zewa Inc
 xrmould.com -> Xinrui Group
@@ -302,6 +302,7 @@ keenfinity.com -> Keenfinity
 transpak.com -> TransPak
 carfi.pt -> Carfi Plastics
 shxwatch.com -> SHX Watch
+lihuadirect.com -> Lihua Direct
 
 ---
 
@@ -322,9 +323,9 @@ Incoming: -from:a.faria@swordhealth.com -from:notifications@swordhealth.ziphq.co
 Sent (always scan separately): from:a.faria@swordhealth.com after:YYYY/MM/DD
 
 Per-project domain filters:
-Pulse: from:(transtekcorp.com OR lefu.cc OR finicare.com OR urionsz.com OR daxinhealth.com OR ullwin.com OR andonline.com OR xrmould.com OR ipadv.net)
+Pulse: from:(transtekcorp.com OR lefu.cc OR finicare.com OR urionsz.com OR daxinhealth.com OR ullwin.com OR andonline.com OR andmedical.com OR xrmould.com OR ipadv.net)
 Kaia: from:(tigerfitness.net.cn OR proimprint.com OR secondpageyoga.com)
-M-Band: from:(conkly.com OR jxwatchband.com OR ribermold.pt OR vangest.com OR uartronica.pt OR mcm.com.pt OR quantal.pt OR kimballelectronics.com OR transpak.com OR carfi.pt)
+M-Band: from:(conkly.com OR jxwatchband.com OR ribermold.pt OR vangest.com OR uartronica.pt OR mcm.com.pt OR quantal.pt OR kimballelectronics.com OR transpak.com OR carfi.pt OR shxwatch.com OR lihuadirect.com)
 
 ---
 

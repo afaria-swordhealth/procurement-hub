@@ -49,7 +49,7 @@ Before drafting any email or response:
 - daxinhealth.com -> Daxin Health
 - ullwin.com -> Ullwin
 - finicare.com -> Finicare
-- andonline.com -> A&D Medical
+- andonline.com, andmedical.com -> A&D Medical
 - xrmould.com -> Xinrui Group
 - ipadv.net -> IPADV
 
@@ -70,6 +70,7 @@ Before drafting any email or response:
 - transpak.com -> TransPak
 - carfi.pt -> Carfi Plastics
 - shxwatch.com -> SHX Watch
+- lihuadirect.com -> Lihua Direct
 
 ## Write Permissions
 - Notion: Supplier page ## Outreach section only
