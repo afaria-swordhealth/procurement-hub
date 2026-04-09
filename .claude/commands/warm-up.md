@@ -31,8 +31,13 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 ### Phase 5: Calendar Check
 8. Check Google Calendar for today's meetings (if calendar MCP available). Flag any meetings related to procurement (Pulse, Kaia, M-Band, supplier names, key stakeholders).
 
-### Phase 6: Day Briefing
-9. Present a single briefing covering all phases.
+### Phase 6: Maintenance Status
+9. Check outputs/change-log.md for last housekeeping and cross-check dates.
+10. Count unpushed commits: `git log --oneline origin/main..HEAD | wc -l`.
+11. Check context file "Last synced" headers for staleness (>24h = warn).
+
+### Phase 7: Day Briefing
+12. Present a single briefing covering all phases.
 
 ## Output Format
 
@@ -41,6 +46,7 @@ Single briefing, organized by:
 2. NEW: Emails, Slack messages, and notifications since last session
 3. TODAY: Meetings and deadlines
 4. PRIORITIES: Top 3 recommended actions for today
+5. MAINTENANCE: Housekeeping/cross-check recency, unpushed commits, context staleness
 
 ## Rules
 - Read-only. No writes until Andre approves actions from the briefing.
