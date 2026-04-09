@@ -1,5 +1,20 @@
 # Change Log
 
+## 2026-04-10
+
+### Housekeeping (Session B)
+
+#### Outreach Maintenance (AUTO)
+- **Transtek Medical** (311b4a7d-7207-8110-83dc-ce0e90e4de5f): Outreach reordered chronologically (Apr 8 Sent moved before Apr 9 entries).
+- **Unique Scales** (311b4a7d-7207-8130-9be9-cfcfa4254f1e): Outreach reordered chronologically (Apr 9 DHL moved after Apr 8 entries).
+- **CONKLY** (311b4a7d-7207-8107-8901-f47e23282d84): Outreach reordered chronologically (Apr 9 follow-up moved to bottom). Archive toggle consolidated. 7 visible entries.
+- **JXwearable** (311b4a7d-7207-8185-adf3-c22bcc2a330d): Archive toggle expanded (Feb 26 - Mar 6). 7 visible entries (was 8).
+
+#### DB Fields Fixed (AUTO)
+- **Falcon Electronica** (313b4a7d-7207-812b-aa29-ff2dd1a43a72): Currency set to EUR (EU/Spain supplier).
+- **Sanmina** (313b4a7d-7207-8158-aaf8-d24fa128719c): Currency set to USD (US supplier).
+- **Electronica Cerler** (313b4a7d-7207-81a8-9e0c-e2299a27b0ea): Currency set to EUR (EU/Spain supplier).
+
 ## 2026-04-09
 
 ### Vangest  - Revised Quote Analysis (Session B)
