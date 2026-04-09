@@ -37,7 +37,12 @@
       "Bash(PYTHONIOENCODING=utf-8 python3:*)",
       "mcp__claude_ai_Gmail__gmail_list_drafts",
       "mcp__claude_ai_Slack__slack_send_message_draft",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(find:*)",
+      "Bash(xargs wc:*)",
+      "mcp__claude_ai_Slack__slack_search_channels",
+      "mcp__claude_ai_Slack__slack_read_thread",
+      "mcp__claude_ai_Notion__notion-create-comment"
     ]
   }
 }

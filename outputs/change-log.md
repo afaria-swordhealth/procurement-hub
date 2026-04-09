@@ -2,6 +2,82 @@
 
 ## 2026-04-09
 
+### Daily Log — Apr 09 (Session B append)
+- **Daily Log Apr 09** (33cb4a7d-7207-810c-9dcb-eb3817849243): Appended Session B (afternoon Slack + housekeeping). Transtek Plan A/B timeline, full-color box decision, Marta artwork engagement, Jorge Legal/Finance guidance, Miguel SHX feedback, M-Band quote updates, housekeeping results, Gmail signature automation. Highlights updated.
+
+### Notion Outreach — 3 Milestone Entries Written
+- **Unique Scales** (Pulse): Apr 9 -- DHL label sent to Queenie for CF635 dual-freq + 8-electrode sample shipment. Summary line updated.
+- **Second Page Yoga** (Kaia): Apr 9 -- Packing details received from Jerry, shared with logistics. Summary line updated.
+- **CONKLY** (M-Band): Apr 9 -- Follow-up sent on RFQ (no response since Mar 18). Summary line updated. 2 oldest entries archived into toggle (5 Mar x2).
+
+### Gmail — CONKLY Follow-up Draft
+- **CONKLY** (nikki@conkly.com): Follow-up draft created. RFQ sent Mar 17, receipt confirmed Mar 18, no quote in 22 days. Thread: 19ce49ad53cddaf9.
+
+### Context Files — Drift Fixes
+- **mband/suppliers.md**: Vangest (revised quote Apr 9), MCM (quote coming Apr 10), Ribermold (quote next week).
+
+### Notion — Transtek Medical (Kevin Decision)
+- **Transtek Medical** (311b4a7d-7207-8110-83dc-ce0e90e4de5f): Added Kevin Wang branding decision to Quote section (OK to remove TeleRPM, full-color +10-14 days, Paulo assessing timeline).
+
+### Notion — Outreach Archiving (Session B)
+Applied condensation rules to 9 supplier pages. Moved older entries into toggle archives, kept 7 most recent visible, added summary lines.
+- **Vangest** (311b4a7d72078176b31bfb3b680d0e16): Archived 7 entries (Feb 23 - Mar 17). 7 visible. Summary line added.
+- **Quantal** (311b4a7d72078100ba8fcd264b786ea9): Archived 7 entries (Feb 26 - Mar 13). 7 visible. Summary line added.
+- **CONKLY** (311b4a7d720781078901f47e23282d84): Archived 6 entries (Feb 26 - Mar 5). 7 visible. Summary line added.
+- **TransPak** (311b4a7d7207817c9db0e61e06db9e4e): Archived 6 entries (Feb 25 - Mar 19). Deduplicated Mar 31 entries. 7 visible. Summary line added.
+- **JXwearable** (311b4a7d72078185adf3c22bcc2a330d): Archived 6 entries (Feb 26 - Mar 6). 9 visible. Summary line added.
+- **MCM** (311b4a7d72078118b800dc7c754f84b6): Archived 5 entries (Feb 26 - Mar 3). 7 visible. Summary line added.
+- **SHX Watch** (311b4a7d7207818493ffd14e8fa128a4): Already had archive toggle with 7 visible. Summary line updated.
+- **Ribermold** (311b4a7d720781608fb5c78a234d8f76): Archived 2 entries (Mar 10 - Mar 11). 7 visible. Summary line added.
+- **ProImprint** (318b4a7d720781ada2fef396b121cd36): Archived 8 entries (Mar 9 - Mar 12). 11 visible (reverse chrono, reordered to chrono). Summary line added.
+
+### Notion — Portuguese-to-English Translation (All Projects)
+- **CONKLY** (311b4a7d720781078901f47e23282d84): Outreach Mar 17-18 entries translated from Portuguese.
+- **MCM** (311b4a7d72078118b800dc7c754f84b6): Outreach Mar 17 entry translated from Portuguese.
+- **Ribermold** (311b4a7d720781608fb5c78a234d8f76): Outreach Mar 16, Mar 19 entries translated from Portuguese.
+- **TransPak** (311b4a7d7207817c9db0e61e06db9e4e): Outreach Mar 19 entry translated from Portuguese.
+- **JXwearable** (311b4a7d72078185adf3c22bcc2a330d): Outreach Mar 11, Mar 17 entries translated from Portuguese.
+- **Falcon Electronica** (313b4a7d7207812baa29ff2dd1a43a72): Outreach reminder translated from Portuguese.
+- **Electronica Cerler** (313b4a7d720781a89e0ce2299a27b0ea): Outreach reminder translated from Portuguese.
+- **ProImprint** (318b4a7d720781ada2fef396b121cd36): Outreach Mar 12 entry translated from Portuguese.
+- **Urion Technology** (311b4a7d7207816ca1e2e019f5ead33e): Outreach archive Mar 14 entries translated from Portuguese.
+- **M-Band project page** (311b4a7d-7207-8167-b4b2-cd9f88167d04): Removed Portuguese text at bottom of page.
+
+### Notion — Suppliers DB (M-Band)
+- **SHX Watch** (311b4a7d7207818493ffd14e8fa128a4): Notes field condensed. Removed NDA duplicate and reviewer names.
+- **Braloba** (311b4a7d7207812caa4af4b07e6ba528): Notes field reformatted to TYPE (Location) standard.
+- **JXwearable** (311b4a7d72078185adf3c22bcc2a330d): Outreach Mar 18 entry, corrected "Jason" to "Daisy".
+- **CONKLY** (311b4a7d720781078901f47e23282d84): Added "Awaiting quote" to existing ## Open Items.
+- **Ribermold** (311b4a7d720781608fb5c78a234d8f76): Added ## Open Items section with "Awaiting quote".
+- **JXwearable** (311b4a7d72078185adf3c22bcc2a330d): Added ## Open Items section with "Awaiting quote".
+- **Falcon Electronica** (313b4a7d7207812baa29ff2dd1a43a72): Added ## Open Items section with "Awaiting direct contact".
+- **Electronica Cerler** (313b4a7d720781a89e0ce2299a27b0ea): Added ## Open Items section with "Awaiting direct contact".
+- **Sanmina** (313b4a7d72078158aaf8d24fa128719c): Added ## Open Items section with "No BD contact established".
+
+### Notion — Suppliers DB (Pulse)
+- **Urion Technology** (311b4a7d7207816ca1e2e019f5ead33e): Notes field condensed. Removed detailed K-numbers, kept flag.
+
+### Notion — Open Items DB
+- **IFU / Labeling** (329b4a7d720781b6a608e14637ff287d): Status Answered -> Closed. Resolution line added to page body.
+- **FDA Operating Model** (32cb4a7d720781a58a0fcf82334eb079): Status Answered -> Closed. Resolution line added to page body.
+
+### Notion — Daily Logs DB
+- **Apr 06** (33ab4a7d72078109ae28fe9d3fbf467d): Status Draft -> Complete.
+- **Apr 07** (33bb4a7d720781278d95db914ab52a30): Status Draft -> Complete.
+- **Apr 08** (33cb4a7d720781acb0e0f9381d807b2e): Status Draft -> Complete.
+
+### Notion — Outreach (Log Sent)
+- **Transtek Medical** (311b4a7d-7207-8110-83dc-ce0e90e4de5f): Apr 9 outreach entries added (Plan A/B timeline + SQA template received, new branding/packaging thread initiated).
+
+### Housekeeping
+- **Second Page Yoga** (318b4a7d-7207-81fd-98b6-c746265e7ab1): Outreach archive toggle created (Mar 2026). Summary line added. 5 visible entries (was 9).
+
+### Kaia Page Deep Review + Summary Tab
+- **Kaia Project Page** (313b4a7d-7207-810c-a19f-da03a61f8057): Comparison table rewritten (9 rows, all thicknesses, annual savings @20k). FLC link v4 to v6. Flags updated (Apr 9, stale items removed). Overview updated (annual volume, thickness line).
+- **Tiger Fitness** (318b4a7d-7207-81e6-b9d9-d3c0cf3c26c3): DB Unit Price corrected $2.785 to $2.80.
+- **Kaia_FLC_v6.xlsx**: Summary tab created (supplier comparison, FLC, savings %, annual savings projection @20k, quick win Nimbl $53k/year). All formula-driven from Tiger Fitness and Second Page tabs.
+- **Gmail Draft**: Max Strobel pricing update + thickness decision email created (HTML table, annual savings, FLC v6 reference).
+
 ### Notion — Kaia Deep Dive (Session A)
 - **Tiger Fitness** (318b4a7d-7207-81e6-b9d9-d3c0cf3c26c3): Quote section (6mm/8mm carton dims added), Freight section (Eva CNF quotes + DDP limitation), Outreach (Apr 8 expanded, Apr 9 added), OI (freight clarification). DB Freight+Duties corrected $7.22 to $1.60 (sea).
 

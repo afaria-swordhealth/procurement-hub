@@ -13,21 +13,29 @@ description: Cross-reference Gmail, Slack, and Notion to find gaps in documentat
 2. For each active supplier, fetch Notion page Outreach section and find last logged date.
 3. Compare: flag any supplier where last email is newer than last Outreach entry.
 
-### Phase 2: Slack vs Notion
-4. Search Slack public and private channels for supplier names and project keywords (Pulse, Kaia, M-Band) from the last 7 days.
-5. Search Slack DMs with Jorge Garcia, Pedro Pereira, Miguel Pais, and Bianca Lourenço for procurement-related decisions.
-6. For each Slack message found, check if the decision or information is reflected in Notion (supplier page, project page, daily log, or Open Items).
-7. Flag: decisions made in Slack but not in Notion (e.g., "Jorge said deprioritise Urion" but status unchanged).
+### Phase 2: Slack Full Scan
+4. **Read full DM history** (last 7 days) with each key stakeholder. Do NOT rely on keyword search alone:
+   - Jorge Garcia (U03DHMPC8G6)
+   - Miguel Pais (U09J1BQ564V)
+   - Paulo Alves (U04CXBXFBUK)
+   - Pedro Pereira
+   - Bianca Lourenço
+5. **Read recent messages** from key channels:
+   - #pulse-packagin-artwork (C0ARTEJPMRC)
+   - #pm-npi-isc (C0AKYG8JR42)
+6. Additionally, search Slack public and private channels for supplier names and project keywords (Pulse, Kaia, M-Band) from the last 7 days.
+7. For each Slack message or DM found, check if the decision or information is reflected in Notion (supplier page, project page, daily log, or Open Items).
+8. Flag: decisions made in Slack but not in Notion (e.g., "Jorge said deprioritise Urion" but status unchanged).
 
 ### Phase 3: Slack vs Gmail
-8. Check if any Slack discussions reference supplier actions that have no corresponding sent email (e.g., "we should reply to Transtek" but no sent email found).
+9. Check if any Slack discussions reference supplier actions that have no corresponding sent email (e.g., "we should reply to Transtek" but no sent email found).
 
 ### Phase 4: Project Pages Currency
-9. For each project page (Pulse, Kaia, M-Band), check if key sections are current:
+10. For each project page (Pulse, Kaia, M-Band), check if key sections are current:
    - Shortlist reflects latest test results and verdicts
    - Pricing tables match latest quotes in Supplier DB
    - Sample status matches actual tracking/delivery state
-10. Flag stale sections with last known update date.
+11. Flag stale sections with last known update date.
 
 ## Output format
 

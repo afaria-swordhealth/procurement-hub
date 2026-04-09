@@ -41,6 +41,7 @@ When creating a reply draft in an existing thread:
 3. Swap: original sender → To field. Original To/CC (minus André) → CC field.
 4. Create draft with threadId so it threads correctly.
 5. Verify all addresses before presenting the draft to André.
+6. Append André's email signature from .claude/config/signature.html to the end of every draft body (HTML format). Read the file and include the full HTML block after the sign-off line.
 If creating a new email (not a reply), verify the address from the Notion supplier page Contact field.
 
 ## Does NOT touch

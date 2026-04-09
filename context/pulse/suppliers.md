@@ -1,8 +1,8 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-04-09 EOD
+# Last synced: 2026-04-09 EOD (Session B)
 
 ## Shortlisted (2) — PO Authorization Confirmed Apr 8
-- **Transtek Medical** — MANUFACTURER (Zhongshan, CN). BP cuff BB2284-AE01. $19.20 FOB ZS @5K (Std), XS $20.70, XL $22.70. LT 12-16 wk. ~200 units in 40-45 days off-shelf. FDA DXN K241351. SDK received. Samples delivered Porto. PLD approach confirmed. Email sent Apr 8: selection confirmed, branding/golden sample/SQA requested. Notion DB price updated. Notes condensed (audit). Outreach reordered chronologically + archive toggle (Feb-Mar).
+- **Transtek Medical** — MANUFACTURER (Zhongshan, CN). BP cuff BB2284-AE01. $19.20 FOB ZS @5K (Std), XS $20.70, XL $22.70. LT 12-16 wk. ~200 units in 40-45 days off-shelf. FDA DXN K241351. SDK received. Samples delivered Porto. PLD approach confirmed. Plan A/B timeline received Apr 9: Plan A (Sword artwork + physical GS) Jul 13, Plan B (Transtek artwork, no GS) Jun 29. Full-color box standard for PLD, +$0.30-$1.50/unit, +10-14 days packaging testing. Cuffs: no logos, remove TeleRPM only. Manual: change logo/company info, keep functional content/layout. Need PDF with Pantone codes.
 - **Unique Scales** — MANUFACTURER (Shenzhen). BIA scale CF635BLE dual-freq selected. $8.76 FOB SZ @20K. LT 35-40 days. FDA FRI+PUH. SDK received. BLE name "SWORD_PULSE". Dual-freq upgrade in progress. Proforma requested Apr 8. DHL shipping label sent Apr 9 (to Kenny + Li Qiong). Die-line files received Apr 9 (sticker, carton, inner box, user manual). Invoice confirmed. Outreach reordered chronologically. Resolved OIs cleaned up.
 
 ## Shortlisted (1) — Fallback
@@ -32,14 +32,16 @@
 - FDA Operating Model: Answered. PLD confirmed by Kevin Wang. SQA mandatory. Anand escalated legal/finance to Hugo + Aaron.
 
 ## Open Actions
-- Supplier qualification Jira tickets (Transtek + Unique Scales) — trigger with Catarina Barbosa
-- SQA negotiation (Bianca/Andre) — check if Bianca has template/scope ready
-- Design team: label + IFU + box artwork (Marta Valente, 1-2 weeks)
+- Legal contracts: open Jira tickets via service desk (portal 15/group 217). Need banking details + legal name from suppliers. Jorge: wait for Finance & Legal review before PO contracts.
+- QTA vs SQA: Jorge confirmed different things. PLD = critical supplier, needs both. Transtek SQA template already shared with Bianca.
+- Qualio page for suppliers: Andreia can do when she returns.
+- Finance: create supplier records via ticket. Catarina to identify Finance stakeholder.
+- Design team: Marta Valente engaged in #pulse-packaging-artwork. Shared device photos + Transtek constraints. Manual artwork: keep functional content/layout, change logo/company only.
+- Kevin confirmed: devices ship separately (cuff or scale +/- band, never all 3). Remove TeleRPM from cuffs, no other logos.
+- Full-color box decision pending Paulo timeline impact assessment. Kevin asked: does +10-14 days put us at mid-July?
 - Confirm BLE name with Transtek (only Unique Scales confirmed)
 - Pedro: 5 Notion comments on BIA Scale Testing page (approved, not yet posted)
 - Jorge: awaiting reply on Urion background option + IPADV approach
-- Miki/Urion Apr 9: replied (ack payment, specs aligned, await Apr 22 sample). Andre replied 11:40 confirming specs. Strategic backup flagged.
-- Transtek (Mika Lu): Plan A/B Excel sheets received Apr 9 (unread)
+- Jorge: prioritize closing with Transtek + Unique Scales
 - Kevin Wang: T2D Expansion email (glucometers + CGMs for H2 2026) — unread, needs response
-- Anand: Legal/Finance PLD alignment email to Hugo + Aaron — unread, may need follow-up
-- Paulo Alves: Timeline corrections sent via Slack Apr 9
+- Anand: Legal/Finance PLD alignment email to Hugo + Aaron — Jorge says wait for their review before PO

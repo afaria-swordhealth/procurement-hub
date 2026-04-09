@@ -1,14 +1,14 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-04-09 EOD
+# Last synced: 2026-04-09 EOD (Session B)
 
 ## Quote Received (2)
-- **Vangest** — Plastic Housings. Unit EUR 1.549, Tooling EUR 436,850. Quote expired Apr 3. NDA executed. DFM flags pending Gustavo review.
-- **SHX Watch** — Straps. ~$1.36/strap MP (200k+/yr). Currency USD. Pull force confirmed (>70N). Stock samples approved for shipment Apr 9, Andre confirmed "go ahead and ship" at 11:27. Custom straps in parallel. Outreach archived (Feb-Mar 30).
+- **Vangest** — Plastic Housings. Revised quote submitted Apr 9 (updated DFM, tooling, production offers). NDA executed. UNREAD, needs analysis.
+- **SHX Watch** — Straps. ~$1.36/strap MP (200k+/yr). Currency USD. Pull force confirmed (>70N). Stock samples approved for shipment Apr 9. Miguel confirmed stock samples OK but wants similar material to current (texture + Velcro). Custom straps in parallel. Outreach archived (Feb-Mar 30).
 
 ## RFQ Sent (7)
 - **CONKLY** — Straps. Currency set to USD (audit). NDA executed.
-- **MCM** — Sheet Metal. Quote 13+ days overdue. Follow-up sent Apr 7 (from a.faria@sword.com to Daniel Martins). No reply. NDA executed.
-- **Ribermold** — Plastic Housings. NDA executed.
+- **MCM** — Sheet Metal. Daniel replied Apr 9: Maria Jose sharing quote Apr 10. NDA executed.
+- **Ribermold** — Plastic Housings. Filipe replied Apr 9: finalizing offers, quote expected next week. NDA executed.
 - **TransPak** — Packaging. Quote in progress with SE Asia team (Kevin acknowledged Apr 7). NDA executed.
 - **JXwearable** — Straps. Currency set to USD (audit). Daisy plug update Apr 8, quotation next week. NDA executed.
 - **Uartronica** — PCBAs. ~EUR 22.07/unit. NDA executed.
