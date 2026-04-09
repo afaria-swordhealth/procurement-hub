@@ -8,9 +8,10 @@ description: Query devices in testing, present proposed score updates, flag elim
 
 ## Steps
 
-1. Query Test Reviews DB for devices with status "In Testing":
+1. Read config/databases.md for TEST_DB collection ID.
+   Query Test Reviews DB for devices with status "In Testing":
    ```sql
-   SELECT "Name", "Status", "Tester", "Score" FROM "collection://911b7778-b80b-4e94-a5c4-9f8853934d2e"
+   SELECT "Name", "Status", "Tester", "Score" FROM "{TEST_DB}"
    ```
 
 2. For each device "In Testing", fetch the full page for current scores and notes.
@@ -25,12 +26,9 @@ description: Query devices in testing, present proposed score updates, flag elim
    - Page body (test notes, observations)
 
 ## Safety Rules
-- **SHOW BEFORE WRITE:** Present all proposed updates before executing.
-- **Flag eliminators immediately** — do not wait for full review cycle.
-- **SINGLE-DB SCOPE:** Only writes to Test Reviews DB (collection://911b7778-b80b-4e94-a5c4-9f8853934d2e).
-- **ALL NOTION CONTENT IN ENGLISH.**
-- **NO EM DASHES.**
-- Log changes to outputs/change-log.md after write.
+- Follow CLAUDE.md Safety Rules and Writing Style sections.
+- **Flag eliminators immediately**, do not wait for full review cycle.
+- **SINGLE-DB SCOPE:** Only writes to Test Reviews DB (see config/databases.md, TEST_DB).
 
 ## Output Format
 Table per device: Device | Tester | Category | Previous Score | Proposed Score | Notes

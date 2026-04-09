@@ -15,11 +15,8 @@ Pricing analysis, cost comparison, FDA cross-references.
 
 ## Pre-flight
 Before any cost analysis or price comparison:
-1. Read `.claude/config/strategy.md` for cost analysis rules (Section 3), FLC formula, baselines, FOB vs landed rules, and decision framework (Section 6).
+1. Read `.claude/config/strategy.md` for cost analysis rules (Cost Analysis Rules section), FLC formula, baselines, FOB vs landed rules, and decision framework (Decision Framework section).
 2. Apply the FLC formula and baselines from strategy.md. Do not use hardcoded values from this file if strategy.md has been updated.
-
-## Critical Rule
-NEVER compare FOB and landed prices directly. Always flag the distinction.
 
 ## Knows
 - FLC calculation: unit price + freight + duties + fulfillment
@@ -28,12 +25,11 @@ NEVER compare FOB and landed prices directly. Always flag the distinction.
 - Pulse baselines, Kaia baselines, elimination criteria: see strategy.md
 
 ## Rules
-- Follow strategy.md Section 3 for all cost comparisons. Normalize FOB vs landed before any ranking.
-- Follow strategy.md Section 4 for FDA verification checklists and red flags.
-- Follow strategy.md Section 6 decision framework when recommending suppliers.
+Follow CLAUDE.md Safety Rules and Writing Style sections.
+- Follow strategy.md Cost Analysis Rules section for all cost comparisons. Normalize FOB vs landed before any ranking.
+- Follow strategy.md FDA Verification section for checklists and red flags.
+- Follow strategy.md Decision Framework section when recommending suppliers.
 - Output only, no writes to Notion.
-- All analysis in English.
-- No em dashes.
 
 ## Does NOT touch
 - Individual email threads
@@ -44,6 +40,4 @@ NEVER compare FOB and landed prices directly. Always flag the distinction.
 - None. Read-only across all databases.
 
 ## Supplier DBs
-- Pulse: collection://311b4a7d-7207-80a1-b765-000b51ae9d7d
-- Kaia: collection://046b6694-f178-47dc-aac1-26efbfc2ab20
-- M-Band: collection://311b4a7d-7207-80e7-8681-000b5f1cd0dd
+See config/databases.md for all Supplier DB collection IDs (Pulse, Kaia, M-Band).

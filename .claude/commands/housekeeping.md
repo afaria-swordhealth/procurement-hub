@@ -1,72 +1,100 @@
 ---
-description: Background maintenance. Log sent emails, clean Outreach, check OIs, verify compliance. No decisions needed.
+description: Background maintenance. Clean outreach, fix compliance, check OIs, verify context. Autonomous where safe.
 ---
 
 # Housekeeping
 
-**Agents:** supplier-comms (Gmail read), notion-ops (Notion read+write)
+**Agents:** notion-ops (Notion read+write), supplier-comms (Gmail read for unanswered check)
 **Session role:** B (background). Does NOT create Gmail drafts or update context files.
+**Philosophy:** Fix what is mechanical. Report what needs judgment.
+**Rules:** Follow CLAUDE.md Safety Rules and Writing Style sections.
+Before starting, check outputs/change-log.md for a HOUSEKEEPING REPORT entry today. If found, warn Andre and ask whether to re-run or skip.
 
-## Steps
+## Phase 1: Outreach Maintenance (AUTO-EXECUTE)
 
-### Phase 1: Log Sent Emails (milestones only)
-1. Scan Gmail sent (last 24h default):
-   ```
-   in:sent (from:a.faria@swordhealth.com OR from:a.faria@sword.com) after:YYYY/MM/DD
-   ```
-2. Filter to supplier domains (CLAUDE.md Section 7).
-3. For each supplier with sent emails, fetch Notion page Outreach section.
-4. Compare: identify emails newer than last Outreach entry.
-5. Apply milestones filter (supplier-comms.md policy). Skip routine acks, FYIs, logistics.
-6. Write qualifying milestone entries directly to Notion Outreach (no approval needed).
-7. Apply condensation rules (>7 visible: archive older ones).
+Use config/databases.md (Query Patterns section) with columns: Name, Status; filter: Status != 'Rejected' to get all active suppliers.
 
-### Phase 2: Outreach Maintenance
-8. For each active supplier page (Status not Rejected), check:
-   - More than 7 visible Outreach entries? Archive older ones.
-   - Summary line at top present and current? Update if stale.
-   - Any entries in Portuguese? Flag for translation.
+For each active supplier page, fetch ## Outreach section. Then apply .claude/procedures/check-outreach.md:
 
-### Phase 3: Open Items Check
-9. Query Open Items DB for items with Status != Complete.
-10. Flag: overdue (deadline passed), stale (no update in 2+ weeks), resolved but not closed.
-11. Propose closures for resolved items (present in report, do not write).
+1. **Condensation**: >7 visible entries? Archive older ones per condensation rules.
+2. **Translation**: Portuguese entries? Translate to English. Write directly.
+3. **Chronological order**: Entries out of order? Fix.
+4. **Duplicates**: Remove exact duplicate entries.
+5. Log all writes to outputs/change-log.md.
 
-### Phase 4: Notes Compliance
-12. Query all 3 Supplier DBs for active suppliers.
-13. Check Notes field: max 2 lines, EN only, no pricing/contact info, format "TYPE (Location). Product + differentiator. Flag."
-14. Flag non-compliant entries (present in report, do not write).
+## Phase 2: Notes Compliance (AUTO-EXECUTE)
 
-### Phase 5: Context Drift Check
-15. Read context/{project}/suppliers.md for all 3 projects.
-16. Compare key fields (Status, last outreach date, price) against Notion DB state.
-17. Flag any drift (present in report, do not write).
+Query all 3 DBs via config/databases.md (Query Patterns section) with columns: Name, Status, Notes, Currency, NDA Status.
 
-### Phase 6: Unanswered Emails
-18. For each active supplier, check: last received email date vs last sent email date.
-19. Flag suppliers where we received an email >48h ago with no reply from us.
+For each active supplier:
+
+6. **Pricing in Notes**: If pricing info appears in Notes AND exists in a DB price field, remove from Notes.
+7. **Contact in Notes**: If contact info appears in Notes AND exists in Contact field, remove from Notes.
+8. **Length**: Condense Notes exceeding 2 lines. Format: "TYPE (Location). Product + differentiator. Flag." Max 2 lines.
+9. **Language**: Translate any Portuguese Notes to English.
+10. Log all writes to outputs/change-log.md.
+
+## Phase 3: DB Field Hygiene (AUTO-EXECUTE)
+
+Using the same query results from Phase 2:
+
+11. **Currency**: CN/US suppliers = USD. PT/EU suppliers = EUR. Only fix if currently null or clearly wrong.
+12. **NDA on Rejected**: Set NDA Status to "Not Required" for any Rejected supplier where NDA is "Pending" or null.
+13. Log all writes to outputs/change-log.md.
+
+## Phase 4: Open Items (MIXED)
+
+Query Open Items DB (ID from .claude/config/databases.md, OI_DB) for items with Status != Closed.
+
+14. **AUTO-EXECUTE**: Close OIs linked to Rejected suppliers (resolution: "Supplier rejected, no longer relevant").
+15. **REPORT ONLY**: Flag overdue items (deadline passed).
+16. **REPORT ONLY**: Flag stale items (no update in 2+ weeks).
+17. **REPORT ONLY**: Propose closures for items that appear resolved (present reason, do not write).
+
+## Phase 5: Context Drift Check (REPORT ONLY)
+
+18. Read context files for all 3 projects (paths from .claude/config/databases.md).
+19. Compare key fields (Status, last outreach date, price) against Notion DB state.
+20. Flag any drift. Do not fix. Andre may have edited intentionally, and context files belong to Session A.
+
+## Phase 6: Unanswered Emails (REPORT ONLY)
+
+21. Use .claude/procedures/scan-gmail.md (direction: "both", mode: "filtered") to get recent emails.
+22. For each active supplier, compare last received email date vs last sent email date.
+23. Flag suppliers where we received an email >48h ago with no reply from us.
 
 ## Output
 
-Single report:
+Single report with two sections:
 
 ```
-HOUSEKEEPING REPORT — Apr DD
+HOUSEKEEPING REPORT -- Apr DD
 
-OUTREACH LOGGED:
-- [Supplier]: [milestone entry written]
-- Skipped: [count] routine emails
+=== AUTO-EXECUTED ===
 
 OUTREACH MAINTENANCE:
-- [Supplier]: archived [X] entries
+- [Supplier]: archived [X] entries (now [Y] visible)
+- [Supplier]: translated [X] entries PT -> EN
 - [Supplier]: summary line updated
+- [Supplier]: [X] duplicates removed
+
+NOTES FIXED:
+- [Supplier]: pricing removed (already in DB)
+- [Supplier]: condensed to 2 lines
+- [Supplier]: translated PT -> EN
+
+DB FIELDS FIXED:
+- [Supplier]: Currency set to [USD/EUR]
+- [Supplier]: NDA Status -> "Not Required" (rejected)
+
+OIs CLOSED:
+- [Item]: closed (supplier rejected)
+
+=== NEEDS YOUR DECISION ===
 
 OPEN ITEMS:
 - Overdue: [item] (deadline [date])
 - Propose close: [item] (reason)
-
-NOTES COMPLIANCE:
-- [Supplier]: [issue]
 
 CONTEXT DRIFT:
 - [file]: [field] says X, Notion says Y
@@ -74,12 +102,3 @@ CONTEXT DRIFT:
 UNANSWERED (>48h):
 - [Supplier] ([contact]): last received [date], no reply
 ```
-
-## Rules
-- Outreach writes: direct to Notion (no approval).
-- All other writes: report only, do not execute. Andre decides in Session A.
-- Never create Gmail drafts. Read-only on Gmail.
-- Never update context/ files. That belongs to Session A (operational).
-- Check outputs/change-log.md before writing to a supplier page. If another session wrote to that page in the last 10 minutes, skip it.
-- ALL NOTION CONTENT IN ENGLISH.
-- NO EM DASHES.

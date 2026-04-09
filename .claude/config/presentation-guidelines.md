@@ -1,4 +1,4 @@
-# Pulse Device Sourcing — Presentation Build Guide
+# Pulse Device Sourcing - Presentation Build Guide
 ## For use in a new Claude conversation
 
 ---
@@ -44,7 +44,7 @@ coral:  "E8A5A0"   (Sword coral/pink, accent bars and highlights)
 accent: "5B8DB8"   (darker blue, used for Transtek box, chart bars)
 light:  "E8E4DF"   (light cream, used for subtle backgrounds)
 white:  "FFFFFF"
-muted:  "A4AAB6"   (gray, secondary text and labels — NOT 8C8C8C)
+muted:  "A4AAB6"   (gray, secondary text and labels - NOT 8C8C8C)
 green:  "4CAF7D"   (ONLY for: funnel "selected" bar, "PRIMARY" label)
 red:    "D35D5D"   (ONLY for: single warning item, "RISK" text)
 orange: "E5A34B"   (ONLY for: "ALTERNATIVE" label, "GATE" text on PLD)
@@ -80,8 +80,8 @@ tblAlt: "E4EEF8"   (alternating table row fill)
 - **Tables:** blue text headers (#7BA7D1), alternating white/blue rows (#E4EEF8), 0.5pt light borders.
 
 ### Assets Required
-- **Sword logo:** extracted from template as PNG (442x108px, RGBA). Store as base64 in assets/logo.b64.
-- **Gradient backgrounds:** extracted from template slides (cover, dividers, competitive edge, thank you). Each stored as assets/Slide-N-image-1.png.b64.
+- **Sword logo:** extracted from template as PNG (442x108px, RGBA). Extract at runtime from .claude/assets/sword-template.pptx if available.
+- **Gradient backgrounds:** extracted from template slides (cover, dividers, competitive edge, thank you). Extract at runtime from .claude/assets/sword-template.pptx if available.
 - **Icons:** react-icons (Font Awesome set) rendered as PNG via sharp. Use sparingly. Colors match brand palette.
 
 ---

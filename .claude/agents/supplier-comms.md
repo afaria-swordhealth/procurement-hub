@@ -22,17 +22,13 @@ Process supplier emails, generate follow-ups, draft responses.
 Before drafting any email or response:
 1. Read `.claude/config/writing-style.md` for tone, structure, phrasing, and audience rules.
 2. Read `.claude/config/strategy.md` for negotiation rules, what to never reveal, sample playbook, and escalation criteria.
-3. Match the email template and tone to the supplier's region and relationship stage (per writing-style.md Section 2-3).
-4. Check strategy.md Section 1 before including any pricing, timeline, or competitive information.
+3. Match the email template and tone to the supplier's region and relationship stage (per writing-style.md Tone and Templates sections).
+4. Check strategy.md Negotiation Rules section before including any pricing, timeline, or competitive information.
 
 ## Rules
-- Follow writing-style.md for all drafts. Do not improvise tone or structure.
+Follow CLAUDE.md Safety Rules and Writing Style sections.
 - Follow strategy.md negotiation rules. Never reveal competing prices, internal timelines, or shortlist status.
-- No em dashes. Use commas, periods, or "or".
-- Short sentences. Colleague tone, not consultant or bot.
-- All Notion content in English.
 - NEVER send email. Gmail DRAFT only.
-- SHOW BEFORE WRITE: Present all drafts to André before creating.
 
 ## Draft Reply Protocol
 When creating a reply draft in an existing thread:
@@ -50,72 +46,13 @@ If creating a new email (not a reply), verify the address from the Notion suppli
 - Pricing formulas
 - Test scores
 
-## Domain-to-Supplier Mapping (from CLAUDE.md Section 7)
-
-### Pulse
-- transtekcorp.com -> Transtek Medical
-- lefu.cc -> Unique Scales
-- urionsz.com -> Urion Technology
-- daxinhealth.com -> Daxin Health
-- ullwin.com -> Ullwin
-- finicare.com -> Finicare
-- andonline.com, andmedical.com -> A&D Medical
-- xrmould.com -> Xinrui Group
-- ipadv.net -> IPADV
-
-### Kaia
-- tigerfitness.net.cn -> Tiger Fitness
-- proimprint.com -> ProImprint
-- secondpageyoga.com -> Second Page Yoga
-
-### M-Band
-- conkly.com -> CONKLY
-- jxwatchband.com -> JXwearable
-- ribermold.pt -> Ribermold
-- vangest.com -> Vangest
-- uartronica.pt -> Uartronica
-- mcm.com.pt -> MCM
-- quantal.pt -> Quantal
-- kimballelectronics.com -> Kimball Electronics
-- transpak.com -> TransPak
-- carfi.pt -> Carfi Plastics
-- shxwatch.com -> SHX Watch
-- lihuadirect.com -> Lihua Direct
+## Domain-to-Supplier Mapping
+See config/domains.md for all domain-to-supplier mappings and Gmail scan patterns.
 
 ## Write Permissions
 - Notion: Supplier page ## Outreach section only
 - Gmail: Draft only (no send)
 - Gmail drafts: ONE draft per thread maximum. If rewriting a draft in a thread where one already exists, replace it instead of creating a second. Multiple drafts in the same thread break access in the Gmail desktop app.
 
-## Outreach Policy — Milestones Only
-Outreach entries are a timeline of **decisions, status changes, and commitments**, not a mirror of the email thread. The email is the source of truth for content. Outreach is the source of truth for **what happened and when**.
-
-### Log these (milestones):
-- Quote received or updated (with price)
-- Selection confirmed or rejected
-- Samples shipped, delivered, or approved
-- NDA signed or executed
-- SQA initiated or signed
-- Golden sample requested or approved
-- PO placed or deposit paid
-- Status change (e.g. Identified -> RFQ Sent)
-- Key commitment with date (e.g. "lead time 35 days confirmed", "artwork due in 1 week")
-- Decision made (internally or by supplier) that changes direction
-- New capability discovered (e.g. "dual-freq possible on CF635")
-- Blocker identified or resolved
-
-### Do NOT log:
-- FYI or attachment-only emails
-- Routine acks ("thank you", "received", "will review")
-- DHL/proforma logistics back-and-forth (unless shipment status changes)
-- Repeated follow-ups on the same topic
-- Email content summaries (the email already exists in Gmail)
-
-### Format:
-`**Apr DD** — One-line milestone. Key fact or commitment.`
-
-### Approval:
-Outreach writes go directly to Notion without approval. No SHOW BEFORE WRITE for outreach entries.
-
-### Condensation:
-Follow condensation rules in notion-ops.md (>7 visible entries: archive older ones).
+## Outreach Policy
+See procedures/check-outreach.md for full policy (milestones list, what to skip, format, approval, condensation rules).

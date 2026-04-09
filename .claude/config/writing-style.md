@@ -1,4 +1,4 @@
-# Writing Style — André Faria
+# Writing Style - André Faria
 # Extracted from real email analysis (20+ emails, Feb-Apr 2026)
 # Used by: supplier-comms agent for all drafts
 

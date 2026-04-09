@@ -6,41 +6,39 @@ description: Compile today's daily log across all 3 projects and push to Notion 
 
 **Agents:** notion-ops (primary), supplier-comms (email context if needed)
 
+**References:**
+- .claude/config/databases.md (Query Patterns section)
+- .claude/config/databases.md (collection IDs for all DBs)
+- CLAUDE.md Safety Rules and Writing Style sections
+
 ## Steps
 
-1. Query all 3 Supplier DBs for pages modified today using notion-query-data-sources:
-   ```sql
-   SELECT "Name", "Status", "Notes" FROM "collection://311b4a7d-7207-80a1-b765-000b51ae9d7d"
-   SELECT "Name", "Status", "Notes" FROM "collection://046b6694-f178-47dc-aac1-26efbfc2ab20"
-   SELECT "Name", "Status", "Notes" FROM "collection://311b4a7d-7207-80e7-8681-000b5f1cd0dd"
-   ```
+1. **Query Supplier DBs** using config/databases.md (Query Patterns section):
+   - columns: Name, Status, Notes
+   - filter: modified today
+   - project: all
 
-2. Query Open Items DB for items updated today:
-   ```sql
-   SELECT "Name", "Status" FROM "collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0"
-   ```
+2. **Query Open Items DB** (ID from config/databases.md, OI_DB):
+   - columns: Name, Status
+   - filter: updated today
 
-3. Query Daily Logs DB to check if an entry for today already exists:
-   ```sql
-   SELECT "Name" FROM "collection://386548e7-1a94-4c9f-8c5c-068aca0bc843"
-   ```
+3. **Check for existing entry** in Daily Logs DB (ID from config/databases.md, DAILYLOG_DB):
+   - If entry for today exists, append to it. NEVER create a duplicate.
 
-4. Compile per-project sections:
+4. **Compile per-project sections:**
    - ## Pulse
    - ## Kaia
    - ## M-Band
    - ## ISC
 
-5. Present draft to André for review.
+5. **Present draft** to Andre for review.
 
-6. After approval, push to Notion Daily Logs DB (collection://386548e7-1a94-4c9f-8c5c-068aca0bc843) as Draft.
+6. After approval, **push to Notion** Daily Logs DB as Draft.
 
-## Safety Rules
-- **CHECK BEFORE CREATE:** If entry for today exists, append to it. NEVER create a duplicate.
-- **SHOW BEFORE WRITE:** Present draft to André before pushing to Notion.
-- **ALL NOTION CONTENT IN ENGLISH.**
-- **NO EM DASHES.** Use commas, periods, or "or".
-- Log to outputs/change-log.md after write.
+## Safety
+
+CHECK BEFORE CREATE is critical here. Follow CLAUDE.md Safety Rules and Writing Style sections.
 
 ## Output Format
+
 One section per project. Each section lists changes, updates, and decisions made today. Keep entries concise, factual, no filler.

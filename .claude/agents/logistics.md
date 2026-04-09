@@ -19,9 +19,7 @@ Track samples, coordinate shipping, manage DHL/FedEx labels.
 - Customs requirements
 
 ## Rules
-- SHOW BEFORE WRITE: Present all updates to André before executing.
-- All Notion content in English.
-- No em dashes.
+Follow CLAUDE.md Safety Rules and Writing Style sections.
 
 ## Does NOT touch
 - Pricing negotiations

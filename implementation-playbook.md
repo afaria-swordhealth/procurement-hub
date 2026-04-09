@@ -1,4 +1,4 @@
-# Implementation Playbook — Claude Code Only
+# Implementation Playbook  - Claude Code Only
 ## No n8n. No Slack App. No IT approval needed.
 
 ---
@@ -55,7 +55,7 @@ Deliverable: 3 MCP connections working. Commit.
 
 ---
 
-# Step 3: First Command — /morning-scan (~1-2 hours, Claude Code)
+# Step 3: First Command  - /morning-scan (~1-2 hours, Claude Code)
 
 ```
 Read CLAUDE.md Section 4 (/morning-scan) and Section 9 (Gmail patterns).
@@ -101,11 +101,11 @@ Deliverable: 5 agent files created. Commit.
 
 Build and test one at a time:
 
-1. /daily-log — Test: run, verify Notion Daily Log entry created as Draft
-2. /price-compare — Test: run for Pulse, verify FLC table matches known data
-3. /weekly-report — Test: run for current week, compare with manually written report
-4. /test-update — Test: run, verify Test Reviews DB updates are correct
-5. /audit — Test: run, compare findings with known issues
+1. /daily-log  - Test: run, verify Notion Daily Log entry created as Draft
+2. /price-compare  - Test: run for Pulse, verify FLC table matches known data
+3. /weekly-report  - Test: run for current week, compare with manually written report
+4. /test-update  - Test: run, verify Test Reviews DB updates are correct
+5. /audit  - Test: run, compare findings with known issues
 
 For each:
 ```

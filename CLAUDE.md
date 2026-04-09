@@ -1,4 +1,4 @@
-# Procurement Automation System — CLAUDE.md
+# Procurement Automation System - CLAUDE.md
 # André Faria | Sword Health ISC | v1.1 | April 2026
 # Architecture: Claude Code only (no n8n, IT restrictions block event-driven layer)
 
@@ -34,18 +34,18 @@ All actions follow SHOW BEFORE WRITE. No write happens without André seeing wha
 
 # 2. Key People
 
-- André Faria — Lead Procurement Engineer, runs all 3 projects. Your operator.
-- Jorge Garcia — Director of Logistics and Purchasing (André's manager)
-- Anand Singh — VP ISC (co-reports)
-- Pedro Pereira — Engineering (BLE/SDK testing)
-- João Quirino — QA/Regulatory (Director)
-- Bianca Lourenço — Regulatory Affairs (Senior Manager)
-- Catarina — Shipping/DHL coordination
-- Bradley — Legal/NDAs
-- Fernando Saraiva — International freight
-- Max Strobel — Kaia program manager (NYC)
-- Miguel Pais — Sr. TPM, M-Band technical contact
-- Gustavo Burmester — NPI Engineering Manager
+- André Faria - Lead Procurement Engineer, runs all 3 projects. Your operator.
+- Jorge Garcia - Director of Logistics and Purchasing (André's manager)
+- Anand Singh - VP ISC (co-reports)
+- Pedro Pereira - Engineering (BLE/SDK testing)
+- João Quirino - QA/Regulatory (Director)
+- Bianca Lourenço - Regulatory Affairs (Senior Manager)
+- Catarina - Shipping/DHL coordination
+- Bradley - Legal/NDAs
+- Fernando Saraiva - International freight
+- Max Strobel - Kaia program manager (NYC)
+- Miguel Pais - Sr. TPM, M-Band technical contact
+- Gustavo Burmester - NPI Engineering Manager
 
 ---
 
@@ -90,7 +90,7 @@ Does NOT touch: Email content, pricing strategy, test methodology.
 # 4. Slash Commands
 
 ## /mail-scan
-1. supplier-comms scans Gmail for new emails (filter by domains in Section 7)
+1. supplier-comms scans Gmail for new emails (filter by domains in .claude/config/domains.md)
 2. logistics checks for DHL/tracking emails
 3. Cross-reference with context/ state files
 4. Present summary with recommendation per email: Log | Draft Reply | Ignore | Escalate
@@ -141,13 +141,30 @@ Does NOT touch: Email content, pricing strategy, test methodology.
 6. Log to outputs/change-log.md
 
 ## /housekeeping
-1. Log sent emails to Notion Outreach (milestones only, direct write)
-2. Archive old Outreach entries (>7 visible), update summary lines
-3. Check Open Items DB for overdue/stale/resolved items
-4. Check Notes field compliance across all Supplier DBs
-5. Compare context files vs Notion state, flag drift
-6. Flag unanswered supplier emails (>48h)
-7. Present report. Only outreach writes are automatic. All other fixes require approval in Session A.
+Autonomous maintenance. Fixes what is mechanical, reports what needs judgment.
+Uses shared configs (.claude/config/) and procedures (.claude/procedures/) for all checks.
+1. Outreach maintenance: archive >7 visible, translate PT->EN, fix order, remove duplicates (AUTO)
+2. Notes compliance: remove pricing/contact if in DB fields, condense to 2 lines, translate PT->EN (AUTO)
+3. DB field hygiene: set Currency by region, NDA "Not Required" on Rejected suppliers (AUTO)
+4. Open Items: close OIs for Rejected suppliers (AUTO). Flag overdue/stale/resolved (REPORT)
+5. Context drift: compare context files vs Notion state, flag drift (REPORT)
+6. Unanswered emails: flag suppliers with >48h unanswered (REPORT)
+7. Output: single report with "AUTO-EXECUTED" and "NEEDS YOUR DECISION" sections.
+
+## /warm-up
+Start of day routine. Load context, review pending items, scan emails, prepare priorities. See .claude/commands/warm-up.md.
+
+## /wrap-up
+End of day routine. Sync context files, create daily log, commit to git. See .claude/commands/wrap-up.md.
+
+## /build-deck {topic}
+Build a presentation following Sword brand guidelines. See .claude/commands/build-deck.md.
+
+## /mail-scan-deep
+Broader Gmail scan without domain filter. Catches emails from unknown senders. See .claude/commands/mail-scan-deep.md.
+
+## /cross-check
+Cross-reference Gmail, Slack, and Notion to find gaps in documentation. See .claude/commands/cross-check.md.
 
 ---
 
@@ -170,15 +187,22 @@ Rules:
 - All other Notion writes follow SHOW BEFORE WRITE in the session where they happen.
 - Before writing to a supplier page, check outputs/change-log.md. If another session wrote to that page in the last 10 min, skip it.
 - If only one session is running, it has full permissions (both A and B scope).
+- Session role is determined by the command being run:
+  - Session B (housekeeping scope): /housekeeping, /log-sent, /audit
+  - Session A (operational scope): /mail-scan, /warm-up, /wrap-up, /daily-log, /weekly-report
+  - If a session runs commands from both types, it operates as a single session with full permissions.
+  - The change-log 10-minute check remains the collision guard regardless of session role.
 
 ---
 
 # 4c. Global Pre-flight Rules
 
+Safety rules (the Safety Rules section) and writing rules (the Writing Style section) apply to all requests. Pre-flight rules below are the authoritative source.
+
 These rules apply to ALL requests, not just slash commands. Even for isolated
 questions or ad-hoc tasks, follow these before responding:
 
-### Before drafting any email or supplier communication:
+### Before DRAFTING any email reply or supplier communication:
 1. Read .claude/config/writing-style.md
 2. Read .claude/config/strategy.md
 3. Read .claude/agents/supplier-comms.md
@@ -187,10 +211,10 @@ questions or ad-hoc tasks, follow these before responding:
 ### Before any Notion write:
 1. Read .claude/agents/notion-ops.md
 2. Fetch the current page content from Notion before proposing changes
-3. Follow SHOW BEFORE WRITE (Section 5)
+3. Follow SHOW BEFORE WRITE (the Safety Rules section)
 
 ### Before any cost analysis or price comparison:
-1. Read .claude/config/strategy.md Section 3 (Cost Analysis Rules)
+1. Read .claude/config/strategy.md, Cost Analysis Rules section
 2. Read .claude/agents/analyst.md
 3. Never compare FOB and landed without flagging
 
@@ -201,6 +225,7 @@ questions or ad-hoc tasks, follow these before responding:
 ### For any request, always:
 - Check which project it relates to (Pulse, Kaia, M-Band)
 - Load the relevant context/{project}/suppliers.md
+- Check the "Last synced" header in context/{project}/suppliers.md files. If >48h old, warn Andre and suggest running /wrap-up first.
 - Follow the writing style rules (no em dashes, short sentences, EN in Notion)
 - Log any Notion writes to outputs/change-log.md
 
@@ -208,20 +233,20 @@ questions or ad-hoc tasks, follow these before responding:
 
 # 5. Safety Rules
 
-## LEVEL 1 — TECHNICALLY IMPOSSIBLE
+## LEVEL 1 - TECHNICALLY IMPOSSIBLE
 - Send email (Gmail scope: read + compose only, NO send)
 - Delete Notion pages (no delete permission)
 - Delete/archive Gmail emails (read-only)
 
-## LEVEL 2 — BLOCKED BY RULES
+## LEVEL 2 - BLOCKED BY RULES
 - Supplier status to Rejected -> present to André first
 - Price field update -> present to André first
-- NDA Status change -> present to André first
+- NDA Status change -> present to André first. Exception: housekeeping may set NDA to "Not Required" on Rejected suppliers without approval.
 - Weekly Report to Sent -> André only, in Notion UI
 - Maintenance Rules -> READ-ONLY
 - First outreach to new supplier -> André writes personally
 
-## LEVEL 3 — SHOW BEFORE WRITE
+## LEVEL 3 - SHOW BEFORE WRITE
 Every Notion write must be:
 1. Presented to André before execution
 2. Approved explicitly
@@ -242,44 +267,46 @@ Every Notion write must be:
 
 # 6. Notion Workspace Map
 
+Full database IDs and context file paths also available in .claude/config/databases.md for programmatic use.
+
 ```
-Procurement Hub ————————————————— 310b4a7d-7207-81ac-a4e5-fa5a297c7087
-├── Projects DB ————————————————— collection://6c4955a5-b768-458c-bafc-3c8c1df1da90
-│   ├── Pulse ——————————————————— 310b4a7d-7207-8145-962e-e5a9c875dc0d
-│   │   ├── Suppliers DB (Pulse) — collection://311b4a7d-7207-80a1-b765-000b51ae9d7d
-│   │   ├── Test Reviews DB ————— collection://911b7778-b80b-4e94-a5c4-9f8853934d2e
-│   │   └── Sample Reviews Guide — 326b4a7d-7207-816c-9c9f-e19286fc7c99
-│   ├── Kaia ———————————————————— 313b4a7d-7207-810c-a19f-da03a61f8057
-│   │   └── Suppliers DB (Kaia) —— collection://046b6694-f178-47dc-aac1-26efbfc2ab20
-│   └── M-Band —————————————————— 311b4a7d-7207-8167-b4b2-cd9f88167d04
+Procurement Hub ----------------- 310b4a7d-7207-81ac-a4e5-fa5a297c7087
+├── Projects DB ----------------- collection://6c4955a5-b768-458c-bafc-3c8c1df1da90
+│   ├── Pulse ------------------- 310b4a7d-7207-8145-962e-e5a9c875dc0d
+│   │   ├── Suppliers DB (Pulse) - collection://311b4a7d-7207-80a1-b765-000b51ae9d7d
+│   │   ├── Test Reviews DB ----- collection://911b7778-b80b-4e94-a5c4-9f8853934d2e
+│   │   └── Sample Reviews Guide - 326b4a7d-7207-816c-9c9f-e19286fc7c99
+│   ├── Kaia -------------------- 313b4a7d-7207-810c-a19f-da03a61f8057
+│   │   └── Suppliers DB (Kaia) -- collection://046b6694-f178-47dc-aac1-26efbfc2ab20
+│   └── M-Band ------------------ 311b4a7d-7207-8167-b4b2-cd9f88167d04
 │       └── Suppliers DB (M-Band)  collection://311b4a7d-7207-80e7-8681-000b5f1cd0dd
-├── Open Items DB ——————————————— collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0
-├── Maintenance Rules ——————————— 321b4a7d-7207-81f7-9a8a-f059d7e38a14 (READ-ONLY)
-└── Workspace Audit ————————————— 321b4a7d-7207-81ab-9829-cd4b6f09592f
+├── Open Items DB --------------- collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0
+├── Maintenance Rules ----------- 321b4a7d-7207-81f7-9a8a-f059d7e38a14 (READ-ONLY)
+└── Workspace Audit ------------- 321b4a7d-7207-81ab-9829-cd4b6f09592f
 
-My Work Log ————————————————————— 310b4a7d-7207-8197-a82e-da2a49baff2a
-├── Daily Logs DB ——————————————— collection://386548e7-1a94-4c9f-8c5c-068aca0bc843
-└── Weekly Reports DB ——————————— collection://df85b3f8-6639-4ef3-b69f-1e0bd7cb5d79
+My Work Log --------------------- 310b4a7d-7207-8197-a82e-da2a49baff2a
+├── Daily Logs DB --------------- collection://386548e7-1a94-4c9f-8c5c-068aca0bc843
+└── Weekly Reports DB ----------- collection://df85b3f8-6639-4ef3-b69f-1e0bd7cb5d79
 
-BLOCKED: Internal Purchasing ———— 318b4a7d-7207-80cb-aaaf-db6687890079 (Portuguese, never touch)
+BLOCKED: Internal Purchasing ---- 318b4a7d-7207-80cb-aaaf-db6687890079 (Portuguese, never touch)
 ```
 
 ## Access Permissions
 
 ```
                         READ    WRITE           CREATE          DELETE
-Procurement Hub          ALL     —               —               NEVER
-Maintenance Rules        ALL     —               —               NEVER
-Internal Purchasing      —       —               —               NEVER
+Procurement Hub          ALL     --              --              NEVER
+Maintenance Rules        ALL     --              --              NEVER
+Internal Purchasing      --      --              --              NEVER
 
-Suppliers DB (Pulse)     ALL     supplier-comms   —              NEVER
+Suppliers DB (Pulse)     ALL     supplier-comms   --             NEVER
                                  logistics (Samples Status only)
                                  notion-ops (DB fields)
 
-Suppliers DB (Kaia)      ALL     supplier-comms   —              NEVER
+Suppliers DB (Kaia)      ALL     supplier-comms   --             NEVER
                                  notion-ops (DB fields)
 
-Suppliers DB (M-Band)    ALL     supplier-comms   —              NEVER
+Suppliers DB (M-Band)    ALL     supplier-comms   --             NEVER
                                  notion-ops (DB fields)
 
 Test Reviews DB          ALL     testing          testing         NEVER
@@ -288,11 +315,11 @@ Daily Logs DB            ALL     notion-ops       notion-ops      NEVER
 Weekly Reports DB        ALL     notion-ops       notion-ops      NEVER
 
 Supplier page sections:
-  ## Contact             ALL     —               —               NEVER
-  ## Profile             ALL     —               —               NEVER
-  ## Quote               ALL     notion-ops      —               NEVER
-  ## Outreach            ALL     supplier-comms  —               NEVER
-  ## Open Items          ALL     notion-ops      —               NEVER
+  ## Contact             ALL     --              --              NEVER
+  ## Profile             ALL     --              --              NEVER
+  ## Quote               ALL     notion-ops      --              NEVER
+  ## Outreach            ALL     supplier-comms  --              NEVER
+  ## Open Items          ALL     notion-ops      --              NEVER
 ```
 
 ## External Resources
@@ -307,43 +334,9 @@ Supplier page sections:
 
 # 7. Domain-to-Supplier Mapping
 
-## Pulse
-transtekcorp.com -> Transtek Medical
-lefu.cc -> Unique Scales
-yimilife.com, myspo2.com -> Yimi Life (rejected)
-yilai-enlighting.cn -> Yilai Enlighting
-urionsz.com -> Urion Technology
-daxinhealth.com -> Daxin Health
-ullwin.com -> Ullwin
-finicare.com -> Finicare
-andonline.com, andmedical.com -> A&D Medical
-hingmed.com -> Hingmed (rejected)
-zewa.com -> Zewa Inc
-xrmould.com -> Xinrui Group
-ipadv.net -> IPADV
+See .claude/config/domains.md for the canonical domain-to-supplier mapping, Gmail scan patterns, and per-project domain filters.
 
-## Kaia
-tigerfitness.net.cn -> Tiger Fitness
-proimprint.com -> ProImprint
-secondpageyoga.com -> Second Page Yoga
-4imprint.com -> 4imprint (current, benchmark)
-
-## M-Band
-conkly.com -> CONKLY
-jxwatchband.com, watchstrapbands.com -> JXwearable
-ribermold.pt -> Ribermold
-vangest.com -> Vangest
-3dways.pt -> 3DWays
-uartronica.pt -> Uartronica
-mcm.com.pt -> MCM
-quantal.pt -> Quantal
-kimballelectronics.com -> Kimball Electronics
-sanmina.com -> Sanmina
-keenfinity.com -> Keenfinity
-transpak.com -> TransPak
-carfi.pt -> Carfi Plastics
-shxwatch.com -> SHX Watch
-lihuadirect.com -> Lihua Direct
+When adding a new supplier domain, update config/domains.md. Commands and agents read from there.
 
 ---
 
@@ -359,14 +352,7 @@ lihuadirect.com -> Lihua Direct
 
 # 9. Gmail Scan Patterns
 
-Incoming: -from:a.faria@swordhealth.com -from:notifications@swordhealth.ziphq.com -from:noreply -from:no-reply -category:promotions -category:social after:YYYY/MM/DD
-
-Sent (always scan separately): from:a.faria@swordhealth.com after:YYYY/MM/DD
-
-Per-project domain filters:
-Pulse: from:(transtekcorp.com OR lefu.cc OR finicare.com OR urionsz.com OR daxinhealth.com OR ullwin.com OR andonline.com OR andmedical.com OR xrmould.com OR ipadv.net)
-Kaia: from:(tigerfitness.net.cn OR proimprint.com OR secondpageyoga.com)
-M-Band: from:(conkly.com OR jxwatchband.com OR ribermold.pt OR vangest.com OR uartronica.pt OR mcm.com.pt OR quantal.pt OR kimballelectronics.com OR transpak.com OR carfi.pt OR shxwatch.com OR lihuadirect.com)
+See .claude/config/domains.md for all Gmail scan patterns (base filters, sent patterns, per-project domain filters, and deep scan mode).
 
 ---
 
@@ -379,3 +365,37 @@ M-Band: from:(conkly.com OR jxwatchband.com OR ribermold.pt OR vangest.com OR ua
 - All Notion content in English.
 - Portuguese only for PT supplier emails.
 - Sign-off: "Best, André" or "Thanks, André"
+
+---
+
+# 11. Modular Architecture
+
+Commands, agents, and procedures follow a layered structure to avoid duplication.
+
+## Config files (.claude/config/)
+Data and constants. Single source of truth for shared information.
+- databases.md: All Notion collection IDs, page IDs, query patterns, context file paths
+- domains.md: Domain-to-supplier mapping, Gmail scan patterns (canonical source)
+- slack-channels.md: Slack user IDs and channel IDs for key people and channels
+- writing-style.md: Email tone, templates, sign-off rules
+- strategy.md: Negotiation playbook, pricing rules, escalation criteria
+- presentation-guidelines.md: Slide deck build rules and brand guidelines
+- signature.html: Gmail signature HTML block
+
+## Procedures (.claude/procedures/)
+Reusable logic called by multiple commands.
+- scan-gmail.md: Gmail scan with two modes (filtered by known domains, or deep scan without filter)
+- check-outreach.md: Milestones policy, outreach entry format, condensation rules (>7 visible)
+
+## Commands (.claude/commands/)
+Thin orchestrators. Each command specifies which agents run it, which procedures and configs to load, the output format, and any command-specific rules. Commands do not hardcode data.
+
+## Agents (.claude/agents/)
+Domain-specific logic and scope boundaries. Each agent defines what it does, what it does NOT touch, and its write permissions. Agents reference config files for shared data.
+
+## Adding a new supplier
+1. Add domain to config/domains.md (table + Gmail filter pattern)
+2. Create Notion page in the relevant Supplier DB (sections: Contact, Profile, Quote, Outreach, Open Items)
+3. Add entry to context/{project}/suppliers.md
+4. Log to outputs/change-log.md
+5. First outreach: Andre writes personally (the Safety Rules section, Level 2)

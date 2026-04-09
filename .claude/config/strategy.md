@@ -1,4 +1,4 @@
-# Procurement Strategy — André Faria
+# Procurement Strategy - André Faria
 # Business rules, negotiation principles, escalation criteria
 # Used by: all agents (especially supplier-comms and analyst)
 

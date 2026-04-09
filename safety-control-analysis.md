@@ -1,4 +1,4 @@
-# Safety & Control Analysis — Claude Code Only
+# Safety & Control Analysis  - Claude Code Only
 # Updated for command-driven architecture (no n8n)
 
 ---
@@ -13,13 +13,13 @@ The remaining risks are all in the SHOW BEFORE WRITE category: Claude Code propo
 
 # 2. Safety Hierarchy
 
-## LEVEL 1 — TECHNICALLY IMPOSSIBLE
+## LEVEL 1  - TECHNICALLY IMPOSSIBLE
 These are blocked by API scopes:
 - Send email: Gmail scope is gmail.readonly + gmail.compose. No gmail.send. Even if Claude Code hallucinates and tries, the API returns 403.
 - Delete Notion pages: No delete permission in Notion API.
 - Delete/archive Gmail: Read-only scope.
 
-## LEVEL 2 — BLOCKED BY RULES (in CLAUDE.md)
+## LEVEL 2  - BLOCKED BY RULES (in CLAUDE.md)
 - Change supplier status to Rejected -> must present to André first
 - Update any price field -> must present to André first
 - Change NDA status -> must present to André first
@@ -27,14 +27,14 @@ These are blocked by API scopes:
 - Modify Maintenance Rules -> READ-ONLY
 - Contact new supplier (first outreach) -> André writes personally
 
-## LEVEL 3 — ALLOWED BUT SHOW FIRST
+## LEVEL 3  - ALLOWED BUT SHOW FIRST
 Every Notion write follows this sequence:
 1. Claude Code proposes the change (shows old value, new value, source)
 2. André reviews and approves
 3. Claude Code executes
 4. Change logged to outputs/change-log.md
 
-## LEVEL 4 — FULLY AUTONOMOUS AND SAFE
+## LEVEL 4  - FULLY AUTONOMOUS AND SAFE
 - Email reading (read-only)
 - Notion reading (queries, fetches)
 - Context file updates (local filesystem)

@@ -1,0 +1,66 @@
+# Notion Database IDs
+# Single source of truth. All commands and agents reference this file.
+# CLAUDE.md Notion Workspace Map section remains the full workspace map. This file is for programmatic use.
+
+## Supplier DBs
+
+| Project | Collection ID | Shorthand |
+|---------|--------------|-----------|
+| Pulse | collection://311b4a7d-7207-80a1-b765-000b51ae9d7d | PULSE_DB |
+| Kaia | collection://046b6694-f178-47dc-aac1-26efbfc2ab20 | KAIA_DB |
+| M-Band | collection://311b4a7d-7207-80e7-8681-000b5f1cd0dd | MBAND_DB |
+
+## Other DBs
+
+| DB | Collection ID | Shorthand |
+|----|--------------|-----------|
+| Test Reviews | collection://911b7778-b80b-4e94-a5c4-9f8853934d2e | TEST_DB |
+| Open Items | collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0 | OI_DB |
+| Daily Logs | collection://386548e7-1a94-4c9f-8c5c-068aca0bc843 | DAILYLOG_DB |
+| Weekly Reports | collection://df85b3f8-6639-4ef3-b69f-1e0bd7cb5d79 | WEEKLY_DB |
+
+## Key Pages (READ-ONLY)
+
+| Page | ID |
+|------|----|
+| Procurement Hub | 310b4a7d-7207-81ac-a4e5-fa5a297c7087 |
+| Maintenance Rules | 321b4a7d-7207-81f7-9a8a-f059d7e38a14 |
+| Workspace Audit | 321b4a7d-7207-81ab-9829-cd4b6f09592f |
+
+## Context Files
+
+| Project | Path |
+|---------|------|
+| Pulse | context/pulse/suppliers.md |
+| Kaia | context/kaia/suppliers.md |
+| M-Band | context/mband/suppliers.md |
+
+## BLOCKED (never touch)
+
+| Page | ID | Reason |
+|------|----|--------|
+| Internal Purchasing | 318b4a7d-7207-80cb-aaaf-db6687890079 | Portuguese, internal |
+
+## Query Patterns
+
+**Note: If "Name" column fails, use `SELECT *` (known Notion API quirk).**
+
+Use notion-query-data-sources with SQL format:
+```sql
+SELECT {columns} FROM "{collection_id}" [WHERE {filter}]
+```
+
+### Common column sets by caller
+
+| Caller | Columns |
+|--------|---------|
+| daily-log | Name, Status, Notes (modified today) |
+| weekly-report | Name, Status, + price fields per project |
+| audit | Name, Status, Notes, Contact, NDA Status, Samples Status |
+| housekeeping | Name, Status, Notes, Currency, NDA Status, Region |
+| price-compare | All price-related fields |
+| wrap-up | All fields (for context sync) |
+
+## Error Handling
+
+If Notion MCP is unreachable, abort the command with a clear message to Andre. Do not attempt partial writes. Note the failure and suggest retrying later. This applies to all commands that query or write to Notion databases.

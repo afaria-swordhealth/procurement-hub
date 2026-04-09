@@ -7,19 +7,16 @@ args: project
 
 **Agents:** analyst (primary)
 
-**Argument:** `$ARGUMENTS` — one of: Pulse, Kaia, M-Band
+**Argument:** `$ARGUMENTS` - one of: Pulse, Kaia, M-Band
 
 ## Steps
 
-1. Determine which Supplier DB to query based on project argument:
-   - **Pulse:** `collection://311b4a7d-7207-80a1-b765-000b51ae9d7d`
-   - **Kaia:** `collection://046b6694-f178-47dc-aac1-26efbfc2ab20`
-   - **M-Band:** `collection://311b4a7d-7207-80e7-8681-000b5f1cd0dd`
+1. Read config/databases.md for the relevant Supplier DB collection ID based on project argument.
+   Use config/databases.md (Query Patterns section) with columns = all price-related fields, project = $ARGUMENTS.
 
 2. Query the relevant Supplier DB using notion-query-data-sources:
    ```sql
-   -- Example for Pulse:
-   SELECT "Name", "Status", "Device", "Region", "BP Cuffs Price (USD)", "Smart Scale Price (USD)", "BP Cuffs Lead Time", "Smart Scale Lead Time" FROM "collection://311b4a7d-7207-80a1-b765-000b51ae9d7d"
+   SELECT "Name", "Status", "Device", "Region", {price_columns} FROM "{collection_id}"
    ```
 
 3. Calculate Full Landed Cost (FLC) for each supplier:
@@ -31,10 +28,9 @@ args: project
 4. Generate ranked comparison table, sorted by FLC ascending.
 
 ## Safety Rules
-- **OUTPUT ONLY.** No writes to any database.
-- **CRITICAL: Never compare FOB and landed prices directly.** Always flag the distinction.
-- **READ-ONLY** across all Supplier DBs.
-- **NO EM DASHES.**
+- Follow CLAUDE.md Safety Rules and Writing Style sections.
+- **OUTPUT ONLY.** No writes to any database. READ-ONLY across all Supplier DBs.
+- **CRITICAL: Never compare FOB and landed prices directly.** Always flag the distinction (see config/strategy.md Cost Analysis Rules section).
 - Exclude suppliers with Status = "Rejected" from ranking (but include in footnote for reference).
 
 ## Output Format

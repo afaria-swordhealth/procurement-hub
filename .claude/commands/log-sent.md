@@ -1,58 +1,55 @@
 ---
-description: Scan sent emails, compare with Notion outreach sections, propose missing log entries.
+description: Scan sent emails, compare with Notion outreach sections, log missing milestones.
 ---
 
 # Log Sent
 
 **Agents:** supplier-comms (Gmail scan), notion-ops (Notion outreach state)
+**Rules:** Follow CLAUDE.md Safety Rules and Writing Style sections. Outreach writes go directly (no approval needed).
 
-## Purpose
-After Andre sends supplier emails (which may have been manually edited from drafts), scan Gmail sent folder and compare with Notion outreach sections. Propose entries for any emails not yet logged.
+## Phase 1: Scan Gmail Sent
 
-## Steps
+Use .claude/procedures/scan-gmail.md with:
+- direction: "sent"
+- date_range: 1 (last 24h default, or user-specified)
+- project_filter: "all"
 
-### Phase 1: Scan Gmail Sent
-1. Scan sent emails from the last 24h (default) or user-specified range:
-   ```
-   in:sent after:YYYY/MM/DD from:a.faria@swordhealth.com OR from:a.faria@sword.com
-   ```
-2. Filter to supplier domains only (Section 7 of CLAUDE.md).
-3. For each sent email, extract: recipient, subject, date, snippet.
+Domain filtering uses .claude/config/domains.md. Keep only emails sent to known supplier domains.
 
-### Phase 2: Fetch Notion Outreach State
-4. For each supplier that received an email, fetch their Notion page.
-5. Read the ## Outreach section and find the last logged entry date.
+For each sent email, extract: recipient, subject, date, snippet.
 
-### Phase 3: Compare and Flag
-6. For each sent email where the date is newer than the last Notion outreach entry, flag as "not logged".
-7. Also flag if the email content differs significantly from the draft (Andre may have edited manually).
+## Phase 2: Fetch Notion Outreach State
 
-### Phase 4: Filter for Milestones
-8. For each flagged email, apply the Milestones Only policy (see supplier-comms.md):
-   - Only log if the email represents a milestone (quote, selection, samples, NDA, SQA, status change, decision, commitment with date, blocker).
-   - Skip routine acks, FYI emails, logistics back-and-forth, and content that's just restating the email.
-9. For qualifying milestones, draft entry in format:
-   ```
-   **Apr DD** — One-line milestone. Key fact or commitment.
-   ```
-10. Present summary table of what will be logged and what was skipped (with reason).
+For each supplier that received an email, query the supplier page from the relevant DB (.claude/config/databases.md).
+Read the ## Outreach section. Find the last logged entry date.
 
-### Phase 5: Write (direct)
-11. Write milestone entries directly to Notion (no approval needed for outreach).
-12. Follow outreach condensation rules from notion-ops.md (>7 entries: archive older ones).
-13. Log all writes to outputs/change-log.md.
+## Phase 3: Compare and Flag
+
+For each sent email where the date is newer than the last Notion outreach entry, flag as "not logged".
+Also flag if the email content differs significantly from a draft (Andre may have edited manually).
+
+## Phase 4: Filter for Milestones
+
+Apply .claude/procedures/check-outreach.md milestones policy:
+- Only log if the email qualifies as a milestone.
+- Skip routine acks, FYIs, logistics back-and-forth.
+- Use the entry format defined in check-outreach.md.
+
+Present summary table of what will be logged and what was skipped (with reason).
+
+## Phase 5: Write
+
+Write milestone entries directly to Notion per check-outreach.md write permissions.
+Apply condensation rules from check-outreach.md (>7 visible entries triggers archiving).
+Log all writes to outputs/change-log.md.
+
+If an email was sent to a supplier not in any Notion DB, flag it (may need DB entry created first).
 
 ## Output Format
-Table per project:
-| Supplier | Email Date | Subject | Last Outreach in Notion | Proposed Entry |
-Then the full proposed entries below the table for review.
 
-## Rules
-- Outreach writes go directly to Notion (no approval needed).
-- Other Notion writes (status changes, price updates, etc.) still require approval.
-- If an email was sent to a supplier not in Notion DB, flag it (may need DB entry created first).
-- Use the actual sent email content (not the draft), since Andre may have edited manually.
-- One outreach entry per email thread per day (consolidate if multiple emails in same thread same day).
-- Only log milestones. Skip routine acks, FYIs, and logistics back-and-forth.
-- ALL NOTION CONTENT IN ENGLISH.
-- NO EM DASHES.
+Table per project:
+| Supplier | Email Date | Subject | Last Outreach in Notion | Action |
+
+Then the full proposed entries below the table.
+Use the actual sent email content (not the draft), since Andre may have edited manually.
+One outreach entry per email thread per day (consolidate if multiple in same thread same day).
