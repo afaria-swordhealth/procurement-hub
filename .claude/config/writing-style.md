@@ -10,7 +10,7 @@
 - Short sentences. One idea per sentence.
 - No filler: "notably", "furthermore", "it's worth mentioning", "it's important to note", "I wanted to reach out".
 - No excessive courtesy padding. One "thank you" per email is enough.
-- Sign-off: "Best regards," (formal/new suppliers) or "Best," (established relationship) or "Thanks," (internal/casual). Do NOT add "André Faria" after the sign-off. The name comes from the signature block.
+- Sign-off: "Best," (default) or "Thanks," (internal/casual). Never use "Best regards,". Do NOT add "André Faria" after the sign-off. The name comes from the signature block.
 - Email signature: Always append the HTML signature from .claude/config/signature.html after the sign-off in every Gmail draft. Read the file and include verbatim. The signature already contains André's name, so never duplicate it above.
 - Never start with "I hope this email finds you well" after the first exchange.
 
