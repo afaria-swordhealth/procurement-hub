@@ -382,6 +382,9 @@ Data and constants. Single source of truth for shared information.
 - presentation-guidelines.md: Slide deck build rules and brand guidelines
 - signature.html: Gmail signature HTML block
 
+## Assets (.claude/assets/)
+Static files used by commands (e.g., presentation templates for /build-deck).
+
 ## Procedures (.claude/procedures/)
 Reusable logic called by multiple commands.
 - scan-gmail.md: Gmail scan with two modes (filtered by known domains, or deep scan without filter)

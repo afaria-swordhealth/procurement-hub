@@ -14,12 +14,12 @@ Read .claude/config/domains.md for domain lists and Gmail patterns.
 
 ### 2a. Filtered mode (default)
 - Incoming: apply base exclusion filters + per-project domain filters from domains.md
-- Sent: `from:(a.faria@swordhealth.com OR a.faria@sword.com) after:YYYY/MM/DD`
+- Sent: use sent filter pattern from config/domains.md
 - Run per-project queries (Pulse, Kaia, M-Band) separately
 
 ### 2b. Deep mode
 - Incoming: apply base exclusion filters only (NO domain filter)
-- Sent: same as filtered
+- Sent: use sent filter pattern from config/domains.md
 - After results: cross-reference each sender against Notion Contact fields (query all 3 Supplier DBs)
 - Categorize: Known supplier | Unknown sender (flag for review)
 

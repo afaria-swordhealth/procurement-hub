@@ -26,6 +26,7 @@
 | Procurement Hub | 310b4a7d-7207-81ac-a4e5-fa5a297c7087 |
 | Maintenance Rules | 321b4a7d-7207-81f7-9a8a-f059d7e38a14 |
 | Workspace Audit | 321b4a7d-7207-81ab-9829-cd4b6f09592f |
+| Sample Reviews Guide | 326b4a7d-7207-816c-9c9f-e19286fc7c99 |
 
 ## Context Files
 

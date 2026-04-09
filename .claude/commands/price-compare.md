@@ -23,7 +23,7 @@ args: project
    - Unit price (FOB or landed, flag which)
    - Freight estimate
    - Duties estimate
-   - Fulfillment (Nimbl rates: $13.15-$17.15/unit)
+   - Fulfillment (see config/strategy.md Kaia baselines for Nimbl rates)
 
 4. Generate ranked comparison table, sorted by FLC ascending.
 

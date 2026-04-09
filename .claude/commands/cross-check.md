@@ -10,9 +10,7 @@ description: Cross-reference Gmail, Slack, and Notion to find gaps in documentat
 - .claude/procedures/scan-gmail.md (email scanning)
 - .claude/config/slack-channels.md (Slack user IDs, channel IDs)
 - .claude/config/databases.md (Query Patterns section)
-- .claude/config/databases.md (collection IDs, context file paths)
 - .claude/config/domains.md (supplier domain lists)
-- .claude/config/slack-channels.md (user IDs, channel IDs)
 - CLAUDE.md Safety Rules and Writing Style sections
 
 ## Steps

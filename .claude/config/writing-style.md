@@ -181,6 +181,6 @@ André Faria
 
 - All Notion content in English. No exceptions.
 - Notes field: "TYPE (Location). Product + key differentiator. Flag." Max 2 lines.
-- Outreach entries: "[HH:MM] ACTION · Detail · Status"
+- Outreach entries: see procedures/check-outreach.md for format and policy
 - Daily log: prose bullets under project headers.
 - Weekly report: executive tone, numbers-driven, scannable.
