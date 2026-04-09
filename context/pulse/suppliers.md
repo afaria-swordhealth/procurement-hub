@@ -1,9 +1,9 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-04-09 (Session B + Audit)
+# Last synced: 2026-04-09 EOD
 
 ## Shortlisted (2) — PO Authorization Confirmed Apr 8
 - **Transtek Medical** — MANUFACTURER (Zhongshan, CN). BP cuff BB2284-AE01. $19.20 FOB ZS @5K (Std), XS $20.70, XL $22.70. LT 12-16 wk. ~200 units in 40-45 days off-shelf. FDA DXN K241351. SDK received. Samples delivered Porto. PLD approach confirmed. Email sent Apr 8: selection confirmed, branding/golden sample/SQA requested. Notion DB price updated. Notes condensed (audit). Outreach reordered chronologically + archive toggle (Feb-Mar).
-- **Unique Scales** — MANUFACTURER (Shenzhen). BIA scale CF635BLE dual-freq selected. $8.76 FOB SZ @20K. LT 35-40 days. FDA FRI+PUH. SDK received. BLE name "SWORD_PULSE". Dual-freq upgrade in progress. Proforma requested Apr 8. Apr 8 BU meeting entry added to outreach. Outreach reordered chronologically. Resolved OIs cleaned up.
+- **Unique Scales** — MANUFACTURER (Shenzhen). BIA scale CF635BLE dual-freq selected. $8.76 FOB SZ @20K. LT 35-40 days. FDA FRI+PUH. SDK received. BLE name "SWORD_PULSE". Dual-freq upgrade in progress. Proforma requested Apr 8. DHL shipping label sent Apr 9 (to Kenny + Li Qiong). Die-line files received Apr 9 (sticker, carton, inner box, user manual). Invoice confirmed. Outreach reordered chronologically. Resolved OIs cleaned up.
 
 ## Shortlisted (1) — Fallback
 - **A&D Medical** — MANUFACTURER (Japan/US). BP UA-651BLE + Scale UC-450BLE. $18.00 LANDED. FDA DXN+PUH. BLP/WSP Native. US stock available. NDA signed (Kyle confirmed Apr 8). Legal to send via Dropbox Sign to Brad Wiltz. Notes updated (audit: "NDA signed"). Outreach reordered + archive toggle (Feb-Mar 2026). NDA OI closed.
@@ -38,7 +38,7 @@
 - Confirm BLE name with Transtek (only Unique Scales confirmed)
 - Pedro: 5 Notion comments on BIA Scale Testing page (approved, not yet posted)
 - Jorge: awaiting reply on Urion background option + IPADV approach
-- Miki/Urion Apr 9: replied (ack payment, specs aligned, await Apr 22 sample). Strategic backup flagged.
+- Miki/Urion Apr 9: replied (ack payment, specs aligned, await Apr 22 sample). Andre replied 11:40 confirming specs. Strategic backup flagged.
 - Transtek (Mika Lu): Plan A/B Excel sheets received Apr 9 (unread)
 - Kevin Wang: T2D Expansion email (glucometers + CGMs for H2 2026) — unread, needs response
 - Anand: Legal/Finance PLD alignment email to Hugo + Aaron — unread, may need follow-up

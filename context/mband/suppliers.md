@@ -1,9 +1,9 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-04-09 (Audit)
+# Last synced: 2026-04-09 EOD
 
 ## Quote Received (2)
 - **Vangest** — Plastic Housings. Unit EUR 1.549, Tooling EUR 436,850. Quote expired Apr 3. NDA executed. DFM flags pending Gustavo review.
-- **SHX Watch** — Straps. ~$1.36/strap MP (200k+/yr). Currency USD. Pull force confirmed (>70N). Stock samples approved for shipment Apr 9, custom straps in parallel. Outreach archived (Feb-Mar 30), 7 visible entries. Portuguese entry translated.
+- **SHX Watch** — Straps. ~$1.36/strap MP (200k+/yr). Currency USD. Pull force confirmed (>70N). Stock samples approved for shipment Apr 9, Andre confirmed "go ahead and ship" at 11:27. Custom straps in parallel. Outreach archived (Feb-Mar 30).
 
 ## RFQ Sent (7)
 - **CONKLY** — Straps. Currency set to USD (audit). NDA executed.
