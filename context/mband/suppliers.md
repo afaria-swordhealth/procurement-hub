@@ -1,8 +1,8 @@
 # M-Band Suppliers  - Context File
-# Last synced: 2026-04-09 EOD (Session C)
+# Last synced: 2026-04-09 EOD (Session D)
 
 ## Quote Received (2)
-- **Vangest**  - Plastic Housings. Revised quote submitted Apr 9 (updated DFM, tooling, production offers). NDA executed. UNREAD, needs analysis.
+- **Vangest**  - Plastic Housings. Revised quote Apr 9 analyzed. EUR 3.080/unit @300k + EUR 429,850 tooling (9 molds). Sub-page created in Notion: "Quote -- 9 Apr 2026 (Revised)". DFM updates: 5 parts redesigned, 2K moulding for 2 parts. Tooling amortized: EUR 1.43/unit @300k. Quote valid until Apr 14. NDA executed.
 - **SHX Watch**  - Straps. ~$1.36/strap MP (200k+/yr). Currency USD. Pull force confirmed (>70N). Stock samples approved for shipment Apr 9. Miguel confirmed stock samples OK but wants similar material to current (texture + Velcro). Custom straps in parallel. Outreach archived (Feb-Mar 30).
 
 ## RFQ Sent (7)

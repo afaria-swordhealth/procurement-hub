@@ -1,5 +1,5 @@
 # Pulse Suppliers  - Context File
-# Last synced: 2026-04-09 EOD (Session C)
+# Last synced: 2026-04-09 EOD (Session D)
 
 ## Shortlisted (2)  - PO Authorization Confirmed Apr 8
 - **Transtek Medical**  - MANUFACTURER (Zhongshan, CN). BP cuff BB2284-AE01. $19.20 FOB ZS @5K (Std), XS $20.70, XL $22.70. LT 12-16 wk. ~200 units in 40-45 days off-shelf. FDA DXN K241351. SDK received. Samples delivered Porto. PLD approach confirmed. Plan A/B timeline received Apr 9: Plan A (Sword artwork + physical GS) Jul 13, Plan B (Transtek artwork, no GS) Jun 29. Full-color box standard for PLD, +$0.30-$1.50/unit, +10-14 days packaging testing. Cuffs: no logos, remove TeleRPM only. Manual: change logo/company info, keep functional content/layout. Need PDF with Pantone codes.
@@ -41,7 +41,7 @@
 - Full-color box decision pending Paulo timeline impact assessment. Kevin asked: does +10-14 days put us at mid-July?
 - Confirm BLE name with Transtek (only Unique Scales confirmed)
 - Pedro: 5 Notion comment threads on BIA Scale Testing page -- all replied Apr 9. Page updated: Test Protocol rewritten with session definitions, consensus bias sentence clarified.
-- Jorge: awaiting reply on Urion background option + IPADV approach
+- Jorge: awaiting reply on Urion background option. IPADV: Jorge will handle in person (meeting Mon/Tue)
 - Jorge: prioritize closing with Transtek + Unique Scales
 - Kevin Wang: T2D Expansion email (glucometers + CGMs for H2 2026)  - unread, needs response
 - Anand: Legal/Finance PLD alignment email to Hugo + Aaron  - Jorge says wait for their review before PO

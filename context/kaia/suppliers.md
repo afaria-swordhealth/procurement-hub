@@ -1,5 +1,5 @@
 # Kaia Suppliers  - Context File
-# Last synced: 2026-04-09 EOD (Session C)
+# Last synced: 2026-04-09 EOD (Session D)
 
 ## Under Review (3)
 - **Tiger Fitness**  - MANUFACTURER (Shanghai). PVC yoga mats. 3mm $2.80, 6mm $3.65, 8mm $4.55 @5k (EXW). Branded samples delivered NYC Mar 30. Carton dims received Apr 8: 6mm 12pcs/ctn 48x38x63cm 13.7kg. Andre shared with Fernando. Packing list received Apr 9 (3mm/6mm/8mm @5000pcs), Andre acknowledged. Audit: outreach archive toggle created (Mar 2026), Portuguese entries translated, stale OI closed.
