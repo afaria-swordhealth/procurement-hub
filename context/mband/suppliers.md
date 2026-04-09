@@ -1,12 +1,12 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-04-09 EOD (Session B)
+# Last synced: 2026-04-09 EOD (Session C)
 
 ## Quote Received (2)
 - **Vangest** — Plastic Housings. Revised quote submitted Apr 9 (updated DFM, tooling, production offers). NDA executed. UNREAD, needs analysis.
 - **SHX Watch** — Straps. ~$1.36/strap MP (200k+/yr). Currency USD. Pull force confirmed (>70N). Stock samples approved for shipment Apr 9. Miguel confirmed stock samples OK but wants similar material to current (texture + Velcro). Custom straps in parallel. Outreach archived (Feb-Mar 30).
 
 ## RFQ Sent (7)
-- **CONKLY** — Straps. Currency set to USD (audit). NDA executed.
+- **CONKLY** — Straps. Currency set to USD (audit). NDA executed. Follow-up sent Apr 9 (22 days no response since RFQ receipt Mar 18).
 - **MCM** — Sheet Metal. Daniel replied Apr 9: Maria Jose sharing quote Apr 10. NDA executed.
 - **Ribermold** — Plastic Housings. Filipe replied Apr 9: finalizing offers, quote expected next week. NDA executed.
 - **TransPak** — Packaging. Quote in progress with SE Asia team (Kevin acknowledged Apr 7). NDA executed.
