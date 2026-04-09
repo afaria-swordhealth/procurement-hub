@@ -2,6 +2,58 @@
 
 ## 2026-04-09
 
+### Notion — Kaia Deep Dive (Session A)
+- **Tiger Fitness** (318b4a7d-7207-81e6-b9d9-d3c0cf3c26c3): Quote section (6mm/8mm carton dims added), Freight section (Eva CNF quotes + DDP limitation), Outreach (Apr 8 expanded, Apr 9 added), OI (freight clarification). DB Freight+Duties corrected $7.22 to $1.60 (sea).
+
+### Daily Log — Apr 09 (appended)
+- **Daily Log Apr 09** (33cb4a7d-7207-810c-9dcb-eb3817849243): Appended Kaia Deep Dive session (supplier review, 3 Gmail drafts, Tiger Fitness Notion updates, FLC v6 created). ISC section updated (FLC evolution note). Highlights updated.
+
+### Notion — Outreach Maintenance (Audit)
+- **SHX Watch** (311b4a7d-7207-8184-93ff-d14e8fa128a4): Outreach archive toggle created (Feb 2026 - Mar 30 2026). Summary line added. Portuguese entry translated. 19 to 7 visible entries.
+
+### Notion — Audit Phase 3 (DB Fields + OIs)
+
+#### Notes Condensed (pricing removed, 2-line max enforced)
+- **Transtek Medical** (311b4a7d-7207-8110-83dc-ce0e90e4de5f): Notes condensed. Removed FDA K-numbers, SDK status, samples status (all in DB fields).
+- **Unique Scales** (311b4a7d-7207-8130-9be9-cfcfa4254f1e): Notes condensed. Removed operational details (30+ yrs, BLE+WiFi, SDK received).
+- **A&D Medical** (311b4a7d-7207-8131-9327-dbb43bc85174): Removed "NDA signed" from Notes (duplicates NDA Status field).
+- **Yimi Life** (311b4a7d-7207-812f-ac1f-dfd0bec1bc62): Notes condensed. Removed pricing ($7.80-$9.06).
+- **Tiger Fitness** (318b4a7d-7207-81e6-b9d9-d3c0cf3c26c3): Notes condensed. Removed pricing (already in Unit Price field).
+- **Second Page Yoga** (318b4a7d-7207-81fd-98b6-c746265e7ab1): Notes condensed. Removed pricing (already in Unit Price field).
+- **Nimbl** (318b4a7d-7207-81da-98d2-cab0be45e37b): Notes condensed. Removed pricing (already in DB fields).
+- **Crestline** (318b4a7d-7207-816e-b6c4-dfab1470c318): Notes condensed. Removed pricing.
+
+#### M-Band Currency Fields Set
+- **Quantal, MCM, Ribermold, Vangest, Uartronica, Novares**: Currency set to EUR (PT suppliers).
+- **TransPak, Lihua, GAOYI**: Currency set to USD (US/CN suppliers).
+
+#### Open Items Updated
+- **Clarify Xinrui/Alicn FDA** (32eb4a7d-7207-81ba-9b90-c5c1303e4856): Status Closed. Resolution: Xinrui rejected, no longer relevant.
+- **IFU / Labeling** (329b4a7d-7207-81b6-a608-e14637ff287d): Status Answered. PLD approach confirmed Apr 8. Sword creates own IFU/labels/packaging.
+- **FDA Operating Model** (32cb4a7d-7207-81a5-8a0f-cf82334eb079): Status Answered. PLD confirmed by Kevin Wang. SQA mandatory. Anand escalated legal/finance to Hugo + Aaron.
+
+#### Pulse Project Page Updated
+- **Pulse — BPM & BIA Scale sourcing** (310b4a7d-7207-8145-962e-e5a9c875dc0d): Notes updated (PLD approach, Paulo Alves PM). Overview: Packaging changed from "Original manufacturer" to PLD. PM and Gantt lines added. IFU callout updated to "Decided". FDA regulatory summary updated.
+
+### Notion — Daily Log
+- **Daily Log Apr 09** (33cb4a7d-7207-810c-9dcb-eb3817849243): Appended Session B + Audit results. Highlights updated. Pulse: outreach logged (Unique Scales, Urion), outreach maintenance (4 pages), OIs closed/answered (3), project page updated (PLD decisions), timeline review sent to Paulo. Kaia: Notes audit (4 suppliers). M-Band: Currency set (9 suppliers), SHX Watch outreach. ISC: housekeeping + full audit summary.
+
+### Notion — Outreach
+- **Unique Scales** (311b4a7d-7207-8130-9be9-cfcfa4254f1e): Apr 9 outreach entry added (6 emails from Queenie: invoice, die lines, packing reminder, dual-freq ready. Reply sent: invoice OK, DHL soon, die lines to design team, 3-5 golden samples, SQA from Sword).
+
+### Notion — Tiger Fitness (Kaia)
+- **China Tiger Fitness** (318b4a7d-7207-81e6-b9d9-d3c0cf3c26c3): Quote section updated: 6mm/8mm carton dims added (were "pending from Eva", received Apr 8). Freight section updated: Eva's CNF quotes ($4,998/$6,555) + forwarder can't do DDP + Fernando independent quote pending. Outreach: Apr 8 entry expanded (8mm dims added), Apr 9 entry added (packing lists xlsx + freight clarification asked). Open Items: freight clarification OI added. DB fields: Freight+Duties corrected $7.22 (air) -> $1.60 (sea, consistent with FLC $17.55). Notes updated.
+
+### Notion — Outreach (Log Sent, Session B)
+- **Urion Technology** (311b4a7d-7207-816c-a1e2-e019f5ead33e): Apr 9 outreach entry added (Miki confirmed Alipay payment, custom sample specs confirmed, delivery ~Apr 22, DHL dims requested).
+- **SHX Watch** (311b4a7d-7207-8184-93ff-d14e8fa128a4): Apr 9 outreach entry added (3 stock samples approved for shipment, additional texture/velcro samples requested, custom straps in parallel, DHL dims requested).
+
+### Notion — Outreach Maintenance (Housekeeping Session B)
+- **Transtek Medical** (311b4a7d-7207-8110-83dc-ce0e90e4de5f): Removed duplicate Apr 8 BU alignment entry. Archived Mar 24 + Apr 1-2 entries into toggle (now "Feb 2026 - Apr 2 2026"). Reordered Apr 7 entries before Apr 8. Summary line updated. 5 visible entries (was 11).
+- **Unique Scales** (311b4a7d-7207-8130-9be9-cfcfa4254f1e): Removed 4 duplicate entries (Apr 8 BU x1, Mar 31 quotation x1, Mar 31 8-electrode x1, Mar 25 visa x1). Archived Mar 25 - Apr 1 entries into toggle (now "Feb 2026 - Apr 1 2026"). Summary line updated. 3 visible entries (was 18).
+- **A&D Medical** (311b4a7d-7207-8131-9327-dbb43bc85174): Archived Mar 23-30 entries into toggle (now "Feb 2026 - Mar 30 2026"). Summary line updated. 4 visible entries (was 10).
+- **Urion Technology** (311b4a7d-7207-816c-a1e2-e019f5ead33e): Removed duplicate Apr 5 entry. Moved 3 out-of-order Mar 27 entries into archive toggle. Archived Apr 1-4 entries. Toggle now "Feb 2026 - Apr 4 2026". Summary line updated. 6 visible entries (was 15).
+
 ### Notion — Audit Fixes
 - **Lihua** (311b4a7d-7207-8194-9b5c-d53388120e4a): Notes updated, removed stale "on hold per Jorge", reflects active RFQ status.
 - **Transtek Medical** (311b4a7d-7207-8110-83dc-ce0e90e4de5f): Notes condensed to 2-line max.

@@ -136,14 +136,44 @@ Does NOT touch: Email content, pricing strategy, test methodology.
 1. supplier-comms scans Gmail sent (last 24h default) for supplier emails
 2. For each sent email, fetch matching Notion supplier page Outreach section
 3. Compare: flag emails not yet logged in Outreach
-4. Propose condensed outreach entries for each gap
-5. André approves (all or selectively)
-6. Write approved entries to Notion Outreach sections
-7. Log to outputs/change-log.md
+4. Filter for milestones only (see supplier-comms.md Outreach Policy)
+5. Write milestone entries directly to Notion (no approval needed for outreach)
+6. Log to outputs/change-log.md
+
+## /housekeeping
+1. Log sent emails to Notion Outreach (milestones only, direct write)
+2. Archive old Outreach entries (>7 visible), update summary lines
+3. Check Open Items DB for overdue/stale/resolved items
+4. Check Notes field compliance across all Supplier DBs
+5. Compare context files vs Notion state, flag drift
+6. Flag unanswered supplier emails (>48h)
+7. Present report. Only outreach writes are automatic. All other fixes require approval in Session A.
 
 ---
 
-# 4b. Global Pre-flight Rules
+# 4b. Multi-Session Scope
+
+André may run two Claude Code sessions in parallel. Each session must respect its write boundaries.
+
+```
+SESSION A (Operational)          SESSION B (Housekeeping)
+─────────────────────────        ─────────────────────────
+Gmail: read + draft              Gmail: read only
+Notion: read only                Notion: read + write (outreach, OI, audit)
+Context files: read + write      Context files: read only
+change-log.md: append            change-log.md: append
+```
+
+Rules:
+- Session B never creates Gmail drafts. Session A never writes Outreach.
+- Outreach writes (Session B) go directly to Notion without approval.
+- All other Notion writes follow SHOW BEFORE WRITE in the session where they happen.
+- Before writing to a supplier page, check outputs/change-log.md. If another session wrote to that page in the last 10 min, skip it.
+- If only one session is running, it has full permissions (both A and B scope).
+
+---
+
+# 4c. Global Pre-flight Rules
 
 These rules apply to ALL requests, not just slash commands. Even for isolated
 questions or ad-hoc tasks, follow these before responding:
@@ -196,6 +226,8 @@ Every Notion write must be:
 1. Presented to André before execution
 2. Approved explicitly
 3. Logged to outputs/change-log.md
+
+**Exception:** Outreach entries (milestones only) go directly to Notion without approval. See supplier-comms.md Outreach Policy.
 
 ## CORE RULES
 1. SHOW BEFORE WRITE: Display changes, wait for approval.

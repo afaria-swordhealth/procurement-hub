@@ -27,17 +27,20 @@ After Andre sends supplier emails (which may have been manually edited from draf
 6. For each sent email where the date is newer than the last Notion outreach entry, flag as "not logged".
 7. Also flag if the email content differs significantly from the draft (Andre may have edited manually).
 
-### Phase 4: Propose Outreach Entries
-8. For each flagged email, draft a condensed outreach entry following the format:
+### Phase 4: Filter for Milestones
+8. For each flagged email, apply the Milestones Only policy (see supplier-comms.md):
+   - Only log if the email represents a milestone (quote, selection, samples, NDA, SQA, status change, decision, commitment with date, blocker).
+   - Skip routine acks, FYI emails, logistics back-and-forth, and content that's just restating the email.
+9. For qualifying milestones, draft entry in format:
    ```
-   **Apr DD** — [Sent/Received] [Supplier contact name]: Brief summary of email content. Key asks or confirmations.
+   **Apr DD** — One-line milestone. Key fact or commitment.
    ```
-9. Present all proposed entries grouped by project (Pulse, Kaia, M-Band).
+10. Present summary table of what will be logged and what was skipped (with reason).
 
-### Phase 5: Write (after approval)
-10. After Andre approves (all or selectively), write each entry to the supplier's ## Outreach section in Notion.
-11. Follow outreach condensation rules from notion-ops.md (>7 entries: archive older ones).
-12. Log all writes to outputs/change-log.md.
+### Phase 5: Write (direct)
+11. Write milestone entries directly to Notion (no approval needed for outreach).
+12. Follow outreach condensation rules from notion-ops.md (>7 entries: archive older ones).
+13. Log all writes to outputs/change-log.md.
 
 ## Output Format
 Table per project:
@@ -45,9 +48,11 @@ Table per project:
 Then the full proposed entries below the table for review.
 
 ## Rules
-- Read-only until Andre approves. SHOW BEFORE WRITE.
+- Outreach writes go directly to Notion (no approval needed).
+- Other Notion writes (status changes, price updates, etc.) still require approval.
 - If an email was sent to a supplier not in Notion DB, flag it (may need DB entry created first).
 - Use the actual sent email content (not the draft), since Andre may have edited manually.
 - One outreach entry per email thread per day (consolidate if multiple emails in same thread same day).
+- Only log milestones. Skip routine acks, FYIs, and logistics back-and-forth.
 - ALL NOTION CONTENT IN ENGLISH.
 - NO EM DASHES.

@@ -27,13 +27,18 @@ One section per project:
 - Next steps by project
 - NEVER include internal housekeeping
 
-## Outreach Condensation
-When logging new entries to a supplier's ## Outreach section, apply these rules:
+## Outreach Policy
+Outreach logs **milestones only**, not every email. See supplier-comms.md for the full policy (what to log vs skip). This applies to all agents writing to ## Outreach.
+
+### Condensation Rules
 1. If Outreach has more than 7 entries, move older entries into a toggle block labeled "📁 Outreach Archive (Mon YYYY - Mon YYYY)" covering the date range of the archived entries.
 2. Keep the 7 most recent entries visible below the toggle.
 3. Add or update a summary line at the top of Outreach:
-   "[X] interactions since [first date]. Last: [date] ([contact], [topic]). Key: [2-3 milestone events with dates]"
+   "[X] milestones since [first date]. Last: [date] ([topic]). Key: [2-3 milestone events with dates]"
 4. This applies to all future Outreach writes by any agent (notion-ops or supplier-comms).
+
+### Approval
+Outreach writes go directly to Notion without approval. No SHOW BEFORE WRITE for outreach entries.
 
 ## Rules
 - SHOW BEFORE WRITE: Present all changes to André before executing.

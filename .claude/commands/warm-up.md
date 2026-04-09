@@ -8,6 +8,9 @@ description: Start of day routine. Load context, review pending items, scan emai
 
 ## Steps
 
+### Phase 0: Remote Control
+0. Activate Remote Control (`/remote-control`). This connects the session for remote monitoring.
+
 ### Phase 1: Context Load
 1. Read all 3 context files (pulse, kaia, mband suppliers.md).
 2. Flag any context file older than 24h (may be stale, suggest /cross-check).

@@ -1,9 +1,9 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-04-09 (EOD)
+# Last synced: 2026-04-09 (Audit)
 
 ## Quote Received (2)
 - **Vangest** — Plastic Housings. Unit EUR 1.549, Tooling EUR 436,850. Quote expired Apr 3. NDA executed. DFM flags pending Gustavo review.
-- **SHX Watch** — Straps. ~$1.36/strap MP (200k+/yr). Currency USD. Pull force confirmed. Jason proposed custom sample approach Apr 8. Andre: parallel approach (existing stock + custom mould). Audit: Notes condensed (removed pricing/contact per rules), Portuguese outreach translated.
+- **SHX Watch** — Straps. ~$1.36/strap MP (200k+/yr). Currency USD. Pull force confirmed (>70N). Stock samples approved for shipment Apr 9, custom straps in parallel. Outreach archived (Feb-Mar 30), 7 visible entries. Portuguese entry translated.
 
 ## RFQ Sent (7)
 - **CONKLY** — Straps. Currency set to USD (audit). NDA executed.
@@ -31,6 +31,9 @@
 ## Rejected (9)
 - Braloba, 3DWays, TERA Plastics, Watts Electronics, Celoplas, Edaetech, Carfi Plastics, Kimball Electronics, AbleOne
 - Audit: NDA Status cleaned up on Braloba, Celoplas, Kimball, TERA (all -> "Not Required")
+
+## Audit (Apr 9)
+- Currency set: Quantal/MCM/Ribermold/Vangest/Uartronica/Novares → EUR. TransPak/Lihua/GAOYI → USD.
 
 ## Summary
 - 25 suppliers total. 16 active, 9 rejected.

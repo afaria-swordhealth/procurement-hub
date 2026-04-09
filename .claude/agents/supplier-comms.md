@@ -86,8 +86,35 @@ If creating a new email (not a reply), verify the address from the Notion suppli
 - Gmail: Draft only (no send)
 - Gmail drafts: ONE draft per thread maximum. If rewriting a draft in a thread where one already exists, replace it instead of creating a second. Multiple drafts in the same thread break access in the Gmail desktop app.
 
-## Outreach Condensation
-When writing to ## Outreach, follow the condensation rules defined in notion-ops.md:
-- >7 entries: archive older entries into toggle "📁 Outreach Archive (Mon YYYY - Mon YYYY)"
-- Keep 7 most recent visible
-- Maintain summary line at top of section
+## Outreach Policy — Milestones Only
+Outreach entries are a timeline of **decisions, status changes, and commitments**, not a mirror of the email thread. The email is the source of truth for content. Outreach is the source of truth for **what happened and when**.
+
+### Log these (milestones):
+- Quote received or updated (with price)
+- Selection confirmed or rejected
+- Samples shipped, delivered, or approved
+- NDA signed or executed
+- SQA initiated or signed
+- Golden sample requested or approved
+- PO placed or deposit paid
+- Status change (e.g. Identified -> RFQ Sent)
+- Key commitment with date (e.g. "lead time 35 days confirmed", "artwork due in 1 week")
+- Decision made (internally or by supplier) that changes direction
+- New capability discovered (e.g. "dual-freq possible on CF635")
+- Blocker identified or resolved
+
+### Do NOT log:
+- FYI or attachment-only emails
+- Routine acks ("thank you", "received", "will review")
+- DHL/proforma logistics back-and-forth (unless shipment status changes)
+- Repeated follow-ups on the same topic
+- Email content summaries (the email already exists in Gmail)
+
+### Format:
+`**Apr DD** — One-line milestone. Key fact or commitment.`
+
+### Approval:
+Outreach writes go directly to Notion without approval. No SHOW BEFORE WRITE for outreach entries.
+
+### Condensation:
+Follow condensation rules in notion-ops.md (>7 visible entries: archive older ones).
