@@ -132,6 +132,15 @@ Does NOT touch: Email content, pricing strategy, test methodology.
 3. Generate ranked comparison table
 4. Output only, no writes
 
+## /log-sent
+1. supplier-comms scans Gmail sent (last 24h default) for supplier emails
+2. For each sent email, fetch matching Notion supplier page Outreach section
+3. Compare: flag emails not yet logged in Outreach
+4. Propose condensed outreach entries for each gap
+5. André approves (all or selectively)
+6. Write approved entries to Notion Outreach sections
+7. Log to outputs/change-log.md
+
 ---
 
 # 4b. Global Pre-flight Rules
