@@ -13,7 +13,24 @@
       "mcp__claude_ai_Notion__notion-update-data-source",
       "Bash(pip install:*)",
       "Bash(python3 -c ':*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(ls:*)",
+      "Bash(python -)",
+      "Bash(python -c ':*)",
+      "mcp__claude_ai_Notion__notion-query-data-sources",
+      "mcp__claude_ai_Google_Calendar__gcal_list_events",
+      "mcp__claude_ai_Slack__slack_read_channel",
+      "mcp__claude_ai_Notion__notion-create-pages",
+      "Read(//g/My Drive/Pulse/General/**)",
+      "Read(//mnt/g/My Drive/Pulse/**)",
+      "Read(//g/My Drive/Pulse/General//**)",
+      "Bash(python:*)",
+      "mcp__claude_ai_Atlassian__getAccessibleAtlassianResources",
+      "mcp__claude_ai_Atlassian__getVisibleJiraProjects",
+      "mcp__claude_ai_Notion__notion-get-comments",
+      "mcp__claude_ai_Notion__notion-get-users",
+      "Bash(xxd -l 200 *.gdoc)",
+      "Bash(od -c -N 200 *.gdoc)"
     ]
   }
 }

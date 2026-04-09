@@ -1,36 +1,38 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-04-09
+# Last synced: 2026-04-09 (EOD)
 
 ## Quote Received (2)
-- **Vangest** — Plastic Housings. Unit EUR 1.549, Tooling EUR 436,850. Quote expired Apr 3, no extension requested. NDA executed. DFM flags on Top Housing pending Gustavo review.
-- **SHX Watch** — Straps. ~$1.36/strap at MP (200k+/yr). Pull force tests received, Miguel confirmed aligned. Jason proposed custom sample approach (Apr 8): can make straps similar to Sword design except plugs. Andre replied (Apr 8): proposed parallel approach, quick samples from existing stock first + custom mould in parallel. NDA executed.
+- **Vangest** — Plastic Housings. Unit EUR 1.549, Tooling EUR 436,850. Quote expired Apr 3. NDA executed. DFM flags pending Gustavo review.
+- **SHX Watch** — Straps. ~$1.36/strap MP (200k+/yr). Currency USD. Pull force confirmed. Jason proposed custom sample approach Apr 8. Andre: parallel approach (existing stock + custom mould). Audit: Notes condensed (removed pricing/contact per rules), Portuguese outreach translated.
 
 ## RFQ Sent (7)
-- **CONKLY** — Straps. NDA executed.
-- **MCM** — Sheet Metal. Quote promised early W14, 13+ days overdue. Follow-up sent Apr 7. No reply from Daniel Martins. NDA executed. 500k/month capacity confirmed.
-- **Ribermold** — Plastic Housings. NDA executed. Follow-up sent Apr 6.
-- **TransPak** — Packaging. 7 questions answered Apr 7. Kevin Dempsey acknowledged (Apr 7), quote in progress with SE Asia team. NDA executed.
-- **JXwearable** — Straps. RFQ sent Mar 17. Daisy replied Apr 8: discussing plug placement, strap/buckle/velcro fine. Andre replied Apr 8: acknowledged, looking forward to quotation and timelines next week. NDA executed.
-- **Uartronica** — PCBAs. ~EUR 22.07/unit, Tooling EUR 7,112. NDA executed.
-- **GAOYI** — Packaging. NDA executed. RFQ sent Mar 31. Miguel Pais + Gustavo Burmester introduced as tech contacts.
+- **CONKLY** — Straps. Currency set to USD (audit). NDA executed.
+- **MCM** — Sheet Metal. Quote 13+ days overdue. Follow-up sent Apr 7 (from a.faria@sword.com to Daniel Martins). No reply. NDA executed.
+- **Ribermold** — Plastic Housings. NDA executed.
+- **TransPak** — Packaging. Quote in progress with SE Asia team (Kevin acknowledged Apr 7). NDA executed.
+- **JXwearable** — Straps. Currency set to USD (audit). Daisy plug update Apr 8, quotation next week. NDA executed.
+- **Uartronica** — PCBAs. ~EUR 22.07/unit. NDA executed.
+- **GAOYI** — Packaging. Honda Printing Holdings group (website hondaholdings.com confirmed correct). RFQ sent Mar 31. Audit: Notes clarified group relationship. NDA executed.
+
+## RFQ Sent (1) — Updated from Identified
+- **Lihua Direct** — Packaging. Status updated "Identified" -> "RFQ Sent" (audit). Notes updated: removed stale "on hold per Jorge", now reflects active RFQ via Jessica Costa (Lihe group). M-Band proposal sent.
 
 ## Engaged (1)
-- **Quantal** — Sheet Metal. NDA pending (ZIP #3006, Bradley asked for update Apr 6). No movement.
+- **Quantal** — Sheet Metal. NDA pending (ZIP #3006). Follow-up sent Apr 6 to Miguel Costa. Too early for another follow-up.
 
 ## Contacted (3)
-- **Falcon Electronica** — PCBAs. No NDA yet. Via Manuel Beito.
-- **Sanmina** — PCBAs. No NDA yet. No successful contact established.
+- **Falcon Electronica** — PCBAs. Via Manuel Beito. No NDA yet.
+- **Sanmina** — PCBAs. No contact established.
 - **Electronica Cerler** — PCBAs. Via Manuel Beito. No NDA yet.
 
-## Identified (2)
+## Identified (1)
 - **Novares** — Plastic Housings. Re-engage pending.
-- **Lihua Direct** — Packaging. Notion status "Identified/On hold per Jorge" but ACTIVE email thread: Jessica Costa replied to M-Band packaging RFQ (Apr 6+7), confirmed Lihe team (part of Lihua group) already works on Mind and Move. Andre replied Apr 8 acknowledging group structure, looking forward to proposal. Notion status needs update to "RFQ Sent".
 
 ## Rejected (9)
-- Braloba, 3DWays, TERA Plastics, Watts Electronics, Celoplas, Edaetech, Carfi Plastics, Kimball Electronics (not medical device), AbleOne
+- Braloba, 3DWays, TERA Plastics, Watts Electronics, Celoplas, Edaetech, Carfi Plastics, Kimball Electronics, AbleOne
+- Audit: NDA Status cleaned up on Braloba, Celoplas, Kimball, TERA (all -> "Not Required")
 
 ## Summary
-- 24 suppliers total. 15 active, 9 rejected.
-- 11 NDAs executed, 1 pending (Quantal).
-- 5/5 part categories in market (Housings, PCBAs, Sheet Metal, Straps, Packaging).
-- Site visits: Ribermold (Mar 13), MCM call completed, Vangest planned.
+- 25 suppliers total. 16 active, 9 rejected.
+- 12 NDAs executed, 1 pending (Quantal).
+- 5/5 part categories covered (Housings, PCBAs, Sheet Metal, Straps, Packaging).
