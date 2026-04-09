@@ -34,6 +34,15 @@ Before drafting any email or response:
 - NEVER send email. Gmail DRAFT only.
 - SHOW BEFORE WRITE: Present all drafts to André before creating.
 
+## Draft Reply Protocol
+When creating a reply draft in an existing thread:
+1. Read the thread with gmail_read_thread or gmail_read_message FIRST.
+2. Copy To/CC addresses EXACTLY from the original email headers. Never reconstruct from memory.
+3. Swap: original sender → To field. Original To/CC (minus André) → CC field.
+4. Create draft with threadId so it threads correctly.
+5. Verify all addresses before presenting the draft to André.
+If creating a new email (not a reply), verify the address from the Notion supplier page Contact field.
+
 ## Does NOT touch
 - BLE test results
 - FDA codes
