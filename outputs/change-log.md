@@ -2,6 +2,81 @@
 
 ## 2026-04-10
 
+### Wrap-Up (Apr 10 EOD)
+
+#### Outreach Updated (Notion)
+- **Urion Technology** (311b4a7d-7207-816c-a1e2-e019f5ead33e): Apr 10 entry updated — added keep-warm reply sent after Miki response. Summary line updated.
+- **Transtek Medical** (311b4a7d-7207-8110-83dc-ce0e90e4de5f): Apr 10 entry updated — added Certificate of Registration sent + zip file access link. Summary line updated.
+
+#### Context Files Synced
+- **context/pulse/suppliers.md**: Urion entry updated (keep-warm Apr 10, custom sample ~Apr 22).
+- **context/mband/suppliers.md**: Full rewrite — CONKLY moved to Rejected, MCM + GAOYI promoted to Quote Received, SHX Watch DHL note added, summary updated (15 active, 10 rejected).
+
+#### Daily Log Updated
+- **Daily Log Apr 10** (33eb4a7d-7207-818e-9265-fb79b098aff1): Afternoon/evening session appended. Pulse close-outs, Urion keep-warm, Transtek onboarding, MCM/GAOYI/SHX Watch M-Band activity, ISC project pages, OI proposals.
+
+### Notion Write — CONKLY Rejected (Apr 10)
+- **CONKLY** (311b4a7d-7207-8107-8901-f47e23282d84): Status RFQ Sent → Rejected. Notes updated (TPU capability gap). OI closed.
+
+### Toggle Block Fix
+Replaced broken `<toggle summary>` tags with valid `<details><summary>` blocks in Outreach archives.
+- **Xinrui Group** (311b4a7d-7207-812b-bba5-ef7bbfcb13f2): Fixed (Feb 2026 - Mar 2026).
+- **Unique Scales** (311b4a7d-7207-8130-9be9-cfcfa4254f1e): Fixed (Feb 2026 - Apr 1 2026).
+- **A&D Medical** (311b4a7d-7207-8131-9327-dbb43bc85174): Fixed (Feb 2026 - Mar 30 2026).
+- **Urion Technology** (311b4a7d-7207-816c-a1e2-e019f5ead33e): Fixed (Feb 2026 - Apr 4 2026).
+- **ProImprint** (318b4a7d-7207-81ad-a2fe-f396b121cd36): Fixed (Mar 9 2026 - Mar 12 2026).
+- **China Tiger Fitness** (318b4a7d-7207-81e6-b9d9-d3c0cf3c26c3): Fixed (Mar 2026).
+- **Second Page Yoga** (318b4a7d-7207-81fd-98b6-c746265e7ab1): Fixed (Mar 2026).
+- **Quantal** (311b4a7d-7207-8100-ba8f-cd264b786ea9): Fixed (Feb 2026 - Mar 18 2026).
+- **CONKLY** (311b4a7d-7207-8107-8901-f47e23282d84): Fixed (Feb 2026 - Mar 9 2026).
+- **MCM** (311b4a7d-7207-8118-b800-dc7c754f84b6): Fixed (Feb 2026 - Mar 3 2026).
+- **Ribermold** (311b4a7d-7207-8160-8fb5-c78a234d8f76): Fixed (Mar 10 2026 - Mar 11 2026).
+- **Vangest** (311b4a7d-7207-8176-b31b-fb3b680d0e16): Fixed (Feb 2026 - Mar 17 2026).
+- **TransPak** (311b4a7d-7207-817c-9db0-e61e06db9e4e): Fixed (Feb 2026 - Mar 19 2026).
+- **SHX Watch** (311b4a7d-7207-8184-93ff-d14e8fa128a4): Fixed (Feb 2026 - Mar 30 2026).
+- **JXwearable** (311b4a7d-7207-8185-adf3-c22bcc2a330d): Fixed (Feb 2026 - Mar 6 2026).
+- No toggle found (skipped): Yimi Life, Yilai Enlighting, Finicare, Hingmed, Daxin Health, Zewa, Ullwin, IPADV, 365 Wholesale, MOWIN Yoga, Amazfit/Zepp, Crestline, 4imprint, Fitbit/Google, Nimbl, Ecosophia, RAZR Marketing, Umicca, Braloba, 3DWays, TERA Plastics, Novares, Lihua, Watts Electronics, Celoplás, Edaetech, Uartrónica, Carfi Plastics, Kimball Electronics, Falcon Electronica, Sanmina, Electronica Cerler, AbleOne, GAOYI.
+
+### Notion Write — MCM Quote (Apr 10)
+- **MCM** (311b4a7d-7207-8118-b800-dc7c754f84b6): Status updated RFQ Sent → Quote Received. Added ## Quote section (OR-050/26: €0.113/unit, €33k NRE, 12wk LT). Closed awaiting OI, added 3 new OIs (flatness, raw material, payment terms).
+- **MCM subpage** (33eb4a7d-7207-816a-910e-fea4700002c3): Created "Quote -- 10 Apr 2026" with full pricing, tooling amortization table, exclusions, open points, Drive path.
+
+### Notion Write — GAOYI Quote (Apr 10)
+- **GAOYI** (328b4a7d-7207-81a1-9762-da42c6cdad29): Status updated RFQ Sent → Quote Received. Added ## Quote section with USD/RMB pricing tables. Closed RFQ OI, added follow-up OI (6 open questions).
+- **GAOYI subpage** (33eb4a7d-7207-8199-b6ec-e4cf2333e9ae): Created "Quote -- 9 Apr 2026" with full component breakdown, open questions, and Drive file path.
+
+### Notion Write — Close-out Outreach Entries (Apr 10)
+- **Yimi Life** (311b4a7d-7207-812f-ac1f-dfd0bec1bc62): Apr 10 close-out logged. T2D seed planted. Note: 13+ visible entries, flag for /housekeeping archive.
+- **Hingmed** (311b4a7d-7207-81a4-85cf-f9ea3b5c0b2f): Apr 10 close-out logged. T2D seed planted.
+
+### Notion Write — Transtek Open Items (Apr 10)
+- **Transtek Medical** (311b4a7d-7207-8110-83dc-ce0e90e4de5f): Added OI — Certificate of Registration required for Zip onboarding. André to request from Ruben Silva.
+
+### Log-Sent (Session — Apr 10, second pass)
+
+#### Outreach Entries Written
+- **A&D Medical** (311b4a7d-7207-8131-9327-dbb43bc85174): Apr 9 -- NDA execution step: André confirmed Legal will send final NDA to Brad Wiltz via Dropbox Sign.
+- **GAOYI** (328b4a7d-7207-81a1-9762-da42c6cdad29): Apr 9 -- Quote received from Jessica Lee. No reply sent yet.
+
+### New Project Pages Created (Session — Apr 10)
+
+- **Pulse T2D Expansion — Glucose Monitoring Devices** (33eb4a7d-7207-811d-9316-e18e202454cb): New project page created. Status: RFQ. Priority: High. Deadline: Dec 31 2026. Content: glucometer + CGM vendor shortlist, volumes, cost ranges, stakeholders, supply chain action items from Kevin Wang's Apr 8 email.
+- **M-Band COO-CN** (33eb4a7d-7207-816f-93c7-de5d32209198): New project page created. Status: In Progress. Priority: High. Content: EU distributor channel (Future Electronics / Manuel Beito, Avnet / Sónia Sousa), active lead time and price increase topics (Nordic, Renesas, STM32, MPS, NXP, Diodes, GREPOW battery, SGMicro PCM, TI alt ICs).
+
+### Log-Sent (Session A — Apr 11 morning)
+
+#### Outreach Entries Written
+- **Quantal** (311b4a7d-7207-8100-ba8f-cd264b786ea9): Apr 10 -- Quantal signed NDA received. André acknowledged, committed to countersign via Legal/Zip and share technical docs after signing. Archive condensed (14 Mar + 18 Mar moved to toggle).
+- **Transtek Medical** (311b4a7d-7207-8110-83dc-ce0e90e4de5f): Apr 10 -- Supplier onboarding initiated. Requested legal name, address, IBAN, and PO email from Mika to register in Sword's procurement system (Zip). Acknowledged Transtek's buyer profile request.
+- **Unique Scales** (311b4a7d-7207-8130-9be9-cfcfa4254f1e): Apr 10 -- Confirmed ship 4 samples with DHL label. Branding: logo files pending from Sword design team; supplier ID team to handle glass artwork. Appended: supplier onboarding initiated, requested legal name, address, IBAN, and PO email.
+- **Urion Technology** (311b4a7d-7207-816c-a1e2-e019f5ead33e): Apr 10 -- André pushed back on SDK/BLE protocol policy. Flagged infinite loop: cannot develop app without protocol, cannot test device without app. Proposed Urion test with standard app and share BLE protocol. No payment until connectivity confirmed.
+- **CONKLY** (311b4a7d-7207-8107-8901-f47e23282d84): Apr 10 -- Closed out: cannot manufacture M-Band TPU strap design. André replied: will keep contact for future projects. Archive condensed (6 Mar + 9 Mar moved to toggle).
+- **Xinrui Group** (311b4a7d-7207-812b-bba5-ef7bbfcb13f2): Apr 10 -- Close-out sent. Supplier selection complete, not selected. T2D seed planted: asked about glucose meters and CGMs for future project.
+- **Daxin Health** (311b4a7d-7207-81a8-8cfe-fcd60cff5a8e): Apr 10 -- Close-out sent. Supplier selection complete, not selected. T2D seed planted. Archive condensed (Feb 26 - Mar 23 moved to toggle, 7 visible).
+- **Ullwin** (311b4a7d-7207-81e5-96aa-cbbe8f3844d8): Apr 10 -- Close-out sent. Supplier selection complete, not selected. T2D seed planted. Archive condensed (Feb 23 - Mar 26 moved to toggle, 7 visible).
+- **Finicare** (311b4a7d-7207-815d-af96-e3deeb4d8d20): Apr 10 -- Close-out sent. Supplier selection complete, not selected. T2D seed planted. Archive condensed (Feb 25 - Mar 30 moved to toggle, 7 visible).
+- **Yilai Enlighting** (311b4a7d-7207-8133-8b7d-cacd23e62570): Apr 10 -- Close-out sent. Supplier selection complete, not selected. T2D seed planted. Archive condensed (Feb 25 - Feb 26 moved to toggle, 7 visible).
+
 ### Housekeeping (Session B)
 
 #### Outreach Maintenance (AUTO)
@@ -92,6 +167,11 @@ Applied condensation rules to 9 supplier pages. Moved older entries into toggle 
 - **ProImprint** (318b4a7d720781ada2fef396b121cd36): Outreach Mar 12 entry translated from Portuguese.
 - **Urion Technology** (311b4a7d7207816ca1e2e019f5ead33e): Outreach archive Mar 14 entries translated from Portuguese.
 - **M-Band project page** (311b4a7d-7207-8167-b4b2-cd9f88167d04): Removed Portuguese text at bottom of page.
+
+### Log-Sent (EOD Apr 10 — third pass)
+
+#### Outreach Entries Written
+- **SHX Watch** (311b4a7d-7207-8184-93ff-d14e8fa128a4): Apr 10 -- DHL label issued and pickup scheduled for Apr 11 ~10:00 AM China time. Stock samples (3 pcs) in transit.
 
 ### Notion  - Suppliers DB (M-Band)
 - **SHX Watch** (311b4a7d7207818493ffd14e8fa128a4): Notes field condensed. Removed NDA duplicate and reviewer names.
@@ -226,3 +306,11 @@ Applied condensation rules to 9 supplier pages. Moved older entries into toggle 
 
 ### Notion
 - **Daily Log Apr 08** (33cb4a7d-7207-81ac-b0e0-f9381d807b2e): Updated Highlights. Appended evening supplier emails to Pulse (Transtek, Unique Scales, Urion, A&D, IPADV hold, Gantt). Replaced Kaia section (Tiger Fitness carton dims). Replaced M-Band section (SHX Watch, JXwearable, Lihua Direct). Appended ISC (domain filter updates, cross-check results, memory created).
+
+### Pulse Page Dashboard Restructure — 2026-04-10
+- Added Status Snapshot callout (13 suppliers, device selections, Gantt, blockers)
+- Added Owners table (8 roles)
+- Added Risks & Alerts callout (6 current risks)
+- Added ## Open Items heading above existing linked DB view
+- Backup: outputs/backups/pulse-page-pre-dashboard-2026-04-10.md
+- Page ID: 310b4a7d-7207-8145-962e-e5a9c875dc0d

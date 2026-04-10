@@ -1,24 +1,21 @@
 # M-Band Suppliers  - Context File
 # Last synced: 2026-04-10 EOD
 
-## Quote Received (2)
+## Quote Received (4)
 - **Vangest**  - Plastic Housings. Revised quote Apr 9 analyzed. EUR 3.080/unit @300k + EUR 429,850 tooling (9 molds). Sub-page created in Notion: "Quote -- 9 Apr 2026 (Revised)". DFM updates: 5 parts redesigned, 2K moulding for 2 parts. Tooling amortized: EUR 1.43/unit @300k. Quote valid until Apr 14. NDA executed.
-- **SHX Watch**  - Straps. ~$1.36/strap MP (200k+/yr). Currency USD. Pull force confirmed (>70N). Stock samples approved for shipment Apr 9. Miguel confirmed stock samples OK but wants similar material to current (texture + Velcro). Custom straps in parallel. Outreach archived (Feb-Mar 30).
+- **SHX Watch**  - Straps. ~$1.36/strap MP (200k+/yr). Currency USD. Pull force confirmed (>70N). Stock samples approved for shipment Apr 9. DHL label sent Apr 10, pickup Apr 11 ~10:00 AM China time. Custom straps in parallel. Outreach archived (Feb-Mar 30).
+- **MCM**  - Sheet Metal. Quote received Apr 10 (OR-050/26): EUR 0.113/unit, EUR 33k NRE, 12wk LT, FCA-MCM. Flags: flatness 0.05mm to discuss, raw material AISI 301+C1000 proposed as alternative. Sub-page created: "Quote -- 10 Apr 2026". NDA executed.
+- **GAOYI**  - Packaging. Honda Printing Holdings group (website hondaholdings.com confirmed correct). Quote received Apr 9. Follow-up sent Apr 10 with 6 open questions (MOQ, LT, tooling, NET45, NRE, Rigid Box breakout). Sub-page created: "Quote -- 9 Apr 2026". NDA executed.
 
-## RFQ Sent (7)
-- **CONKLY**  - Straps. Currency set to USD (audit). NDA executed. Follow-up sent Apr 9 (22 days no response since RFQ receipt Mar 18).
-- **MCM**  - Sheet Metal. Daniel replied Apr 9: Maria Jose sharing quote Apr 10. NDA executed.
+## RFQ Sent (5)
 - **Ribermold**  - Plastic Housings. Filipe replied Apr 9: finalizing offers, quote expected next week. NDA executed.
-- **TransPak**  - Packaging. Quote in progress with SE Asia team (Kevin acknowledged Apr 7). NDA executed.
+- **TransPak**  - Packaging. Quote in progress with SE Asia team (Kevin acknowledged Apr 7). NDA executed. ⚠️ Nimbl SLC boxes needed before quote can be finalized (3 sample boxes).
 - **JXwearable**  - Straps. Currency set to USD (audit). Daisy plug update Apr 8, quotation next week. NDA executed.
 - **Uartronica**  - PCBAs. ~EUR 22.07/unit. NDA executed.
-- **GAOYI**  - Packaging. Honda Printing Holdings group (website hondaholdings.com confirmed correct). RFQ sent Mar 31. Audit: Notes clarified group relationship. NDA executed.
-
-## RFQ Sent (1)  - Updated from Identified
-- **Lihua Direct**  - Packaging. Status updated "Identified" -> "RFQ Sent" (audit). Notes updated: removed stale "on hold per Jorge", now reflects active RFQ via Jessica Costa (Lihe group). M-Band proposal sent.
+- **Lihua Direct**  - Packaging. Active RFQ via Jessica Costa (Lihe group). M-Band proposal sent. NDA executed.
 
 ## Engaged (1)
-- **Quantal**  - Sheet Metal. NDA pending (ZIP #3006). Follow-up sent Apr 6 to Miguel Costa. Too early for another follow-up.
+- **Quantal**  - Sheet Metal. NDA signed by Quantal Apr 10, awaiting Sword Legal countersign (Bradley). Too early for another follow-up.
 
 ## Contacted (3)
 - **Falcon Electronica**  - PCBAs. Via Manuel Beito. No NDA yet.
@@ -28,14 +25,15 @@
 ## Identified (1)
 - **Novares**  - Plastic Housings. Re-engage pending.
 
-## Rejected (9)
+## Rejected (10)
 - Braloba, 3DWays, TERA Plastics, Watts Electronics, Celoplas, Edaetech, Carfi Plastics, Kimball Electronics, AbleOne
-- Audit: NDA Status cleaned up on Braloba, Celoplas, Kimball, TERA (all -> "Not Required")
+- **CONKLY**  - Rejected Apr 10. TPU section cannot be secured to strap. Capability gap confirmed by Nikki. Kept contact for future projects.
 
 ## Audit (Apr 9)
 - Currency set: Quantal/MCM/Ribermold/Vangest/Uartronica/Novares → EUR. TransPak/Lihua/GAOYI → USD.
 
 ## Summary
-- 25 suppliers total. 16 active, 9 rejected.
-- 12 NDAs executed, 1 pending (Quantal).
+- 26 suppliers total. 15 active, 10 rejected (CONKLY added Apr 10). 1 supplier added (GAOYI promoted from Identified).
+- 12 NDAs executed, 1 pending countersign (Quantal).
 - 5/5 part categories covered (Housings, PCBAs, Sheet Metal, Straps, Packaging).
+- Active strap pool: SHX Watch + JXwearable only (CONKLY eliminated).

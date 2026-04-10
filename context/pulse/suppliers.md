@@ -9,7 +9,7 @@
 - **A&D Medical**  - MANUFACTURER (Japan/US). BP UA-651BLE + Scale UC-450BLE. $18.00 LANDED. FDA DXN+PUH. BLP/WSP Native. US stock available. NDA signed (Kyle confirmed Apr 8). Legal to send via Dropbox Sign to Brad Wiltz. Notes updated (audit: "NDA signed"). Outreach reordered + archive toggle (Feb-Mar 2026). NDA OI closed.
 
 ## Quote Received (1)
-- **Urion Technology**  - MANUFACTURER (Shenzhen). BP cuffs U807/U80K/U80M $9.90-$12.00, U81Y $13.00 FOB SZ @20K. FDA DXN. LT 30-35 days (+5-7 days for first branded order). Samples delivered Porto. Custom sample shipping Apr 22. Miki confirmed Apr 9: payment received, sample specs aligned, branding process clear. ⚠️ STRATEGIC BACKUP: Urion LT ~5-6 weeks branded vs Transtek 12-16 weeks. If Transtek timeline slips or decision reverts, Urion is the fastest BPM alternative. Keep warm. Pending Jorge reply on background option.
+- **Urion Technology**  - MANUFACTURER (Shenzhen). BP cuffs U807/U80K/U80M $9.90-$12.00, U81Y $13.00 FOB SZ @20K. FDA DXN. LT 30-35 days (+5-7 days for first branded order). Samples delivered Porto. Custom sample shipping ~Apr 22. Miki confirmed Apr 9: payment received, sample specs aligned. Apr 10: keep-warm sent — protocol integration review to proceed once custom evaluation sample received. ⚠️ STRATEGIC BACKUP: Urion LT ~5-6 weeks branded vs Transtek 12-16 weeks. Keep warm pending custom sample delivery.
 
 ## Rejected (8)
 - Xinrui Group, Yimi Life, Finicare, Yilai Enlighting, Daxin Health, Hingmed, Zewa Inc, Ullwin

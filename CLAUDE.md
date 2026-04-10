@@ -179,6 +179,7 @@ Gmail: read + draft              Gmail: read only
 Notion: read only                Notion: read + write (outreach, OI, audit)
 Context files: read + write      Context files: read only
 change-log.md: append            change-log.md: append
+session-state.md: read + write   session-state.md: read + write
 ```
 
 Rules:
@@ -192,6 +193,29 @@ Rules:
   - Session A (operational scope): /mail-scan, /warm-up, /wrap-up, /daily-log, /weekly-report
   - If a session runs commands from both types, it operates as a single session with full permissions.
   - The change-log 10-minute check remains the collision guard regardless of session role.
+
+## Session State Sync (outputs/session-state.md)
+
+This file is the shared context between sessions. It is written by /warm-up and updated by /mail-scan, /log-sent, and /wrap-up.
+
+**At the start of any session or command, read session-state.md and apply these rules:**
+
+| Last-Warm-Up age | Action |
+|---|---|
+| < 2h | Load context snapshot. Skip full warm-up. Run delta scan only (emails + Slack since timestamp). |
+| 2–8h | Load context snapshot. Run delta scan before responding. |
+| > 8h or missing | Full warm-up required. |
+
+**Commands that update session-state.md:**
+- /warm-up: full rewrite (all sections)
+- /mail-scan: update Last-Mail-Scan + Email State
+- /log-sent: update Last-Log-Sent
+- /wrap-up: update Last-Wrap-Up + clear resolved Pending Actions
+
+**Format rules:**
+- Timestamps in ISO format: YYYY-MM-DDTHH:MM
+- Pending Actions: add on flag, remove when resolved
+- Context Snapshot: max 10 bullets per section. Condense aggressively.
 
 ---
 
@@ -223,6 +247,8 @@ questions or ad-hoc tasks, follow these before responding:
 2. Read context/pulse/suppliers.md for device context
 
 ### For any request, always:
+- Read outputs/session-state.md first (if it exists). If Last-Warm-Up < 2h, use context snapshot and skip redundant fetches. If 2–8h, use as baseline but run a delta scan. If >8h, suggest /warm-up.
+- When drafting an email or committing to an action with a human (supplier or internal), add an entry to outputs/promises.md with who/what/due. When a promise is fulfilled, move it to the Resolved section.
 - Check which project it relates to (Pulse, Kaia, M-Band)
 - Load the relevant context/{project}/suppliers.md
 - Check the "Last synced" header in context/{project}/suppliers.md files. If >48h old, warn Andre and suggest running /wrap-up first.

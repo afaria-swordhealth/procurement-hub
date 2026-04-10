@@ -35,9 +35,10 @@
 When writing outreach, check entry count and supplier status:
 1. Shortlisted or Quote Received suppliers: archive when >10 visible entries
 2. All other active suppliers: archive when >7 visible entries
-3. Archive toggle label: "Outreach Archive (Mon YYYY - Mon YYYY)"
+3. Archive toggle label: "📁 Outreach Archive (Mon YYYY - Mon YYYY)"
 4. Keep the threshold number of most recent entries visible below the toggle
-5. Add/update summary line at top:
+5. Toggle syntax (Notion enhanced markdown): use `<details><summary>TITLE</summary>...</details>`. Do NOT use `<toggle summary="...">` — not a valid Notion block, renders as escaped literal text.
+6. Add/update summary line at top:
    ```
    **[X] milestones since [first date]. Last: [date] ([topic]). Key: [2-3 milestone events with dates].**
    ```

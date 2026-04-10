@@ -16,9 +16,10 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 2. Flag any context file older than 24h (may be stale, suggest /cross-check).
 
 ### Phase 2: Pending Items from Yesterday
-3. Fetch yesterday's daily log from Notion (Daily Logs DB, see .claude/config/databases.md). Extract any open actions or items marked as pending.
-4. Query Open Items DB (see .claude/config/databases.md) for items with status not Complete, sorted by deadline.
-5. Check outputs/change-log.md for yesterday's last entries (what was the last thing done?).
+3. Read outputs/promises.md. Surface every open promise in the briefing, flagged by overdue/due-today/upcoming. This is the FIRST thing Andre sees.
+4. Fetch yesterday's daily log from Notion (Daily Logs DB, see .claude/config/databases.md). Extract any open actions or items marked as pending.
+5. Query Open Items DB (see .claude/config/databases.md) for items with status not Complete, sorted by deadline.
+6. Check outputs/change-log.md for yesterday's last entries (what was the last thing done?).
 
 ### Phase 3: Email Scan (Incoming)
 6. Run email scan following .claude/procedures/scan-gmail.md for all 3 projects. Cross-reference with Notion using config/databases.md (Query Patterns section). Present recommendations per email: Log, Draft Reply, Ignore, or Escalate.
@@ -57,6 +58,15 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 
 ### Phase 9: Day Briefing
 15. Present a single briefing covering all phases.
+
+### Phase 10: Write Session State
+16. After presenting the briefing, write outputs/session-state.md with:
+    - Timestamps: Last-Warm-Up (now), Last-Mail-Scan, Last-Log-Sent, Last-Wrap-Up
+    - Active Sessions: this session's role (A or B) and start time
+    - Context Snapshot: carry-over items, new findings, email state (last scan time + unread count), Slack state
+    - Upcoming Meetings: next 5 days
+    - Pending Actions: items flagged for André's decision
+    This file is the shared context for any session that starts after this warm-up.
 
 ## Output Format
 
