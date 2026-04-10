@@ -1,6 +1,219 @@
 # Change Log
 
+## 2026-04-11
+
+### notion-ops — 2026-04-11T00:30 — Context sync (wrap-up)
+
+Queried all 3 Supplier DBs (Pulse, Kaia, M-Band) and compared against context files.
+
+**Findings:** No status changes since last sync. All supplier statuses in context files match Notion state.
+- Pulse: 13 suppliers confirmed. Shortlisted (3), Quote Received (1), Rejected (9). No delta.
+- Kaia: 13 suppliers confirmed. Shortlisted (1), Under Review (3), Blocked (1), Rejected (8). No delta.
+- M-Band: 24 suppliers confirmed. CONKLY Rejected status already reflected. No new delta.
+
+**Writes:**
+- context/pulse/suppliers.md: Last synced header updated to 2026-04-11T00:30
+- context/kaia/suppliers.md: Last synced header updated to 2026-04-11T00:30
+- context/mband/suppliers.md: Last synced header updated to 2026-04-11T00:30
+
+---
+
+### notion-ops — 2026-04-11 — Pulse OI bulk create (15 OIs) + Priority field + supplier page cleanup (approved by André)
+
+**Step 1: Priority field added to Open Items DB**
+- Added "Priority" SELECT field to OI DB (collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0)
+- Options: Critical (red), High (orange), Medium (yellow), Low (blue)
+- Field did not previously exist.
+
+**Step 2: 15 Pulse OIs created**
+All created in OI DB, Status=Pending, Project=Pulse (310b4a7d-7207-8145-962e-e5a9c875dc0d).
+
+| # | Item | Priority | Owner | Deadline |
+|---|------|----------|-------|----------|
+| 1 | Urion — ESH/BHS clinical certs: hard blocker or waivable? | Critical | João Quirino | 2026-04-17 |
+| 2 | Urion — ISO 81060-2 results report missing (GAP 1) | Critical | André Faria | 2026-04-22 |
+| 3 | Urion — U807/U81Y EMC gaps (GAP 4 + GAP 6) | Critical | André Faria | 2026-04-22 |
+| 4 | Urion — IEC 80601-2-30 missing for U80K + U80M (GAP 5) | Critical | André Faria | 2026-04-22 |
+| 5 | Urion — U807 IEC 60601-1 outdated standard edition (GAP 3) | High | André Faria | 2026-04-22 |
+| 6 | Urion — K160019 scope: confirm U807/U80K/U80M coverage + cuff range | High | André Faria | 2026-04-22 |
+| 7 | Urion — U81Y IEC 60601-1-11 US national differences missing (GAP 7) | High | André Faria | 2026-04-22 |
+| 8 | Unique Scales — PUH acceptable for Pulse scale? | High | João Quirino | 2026-04-20 |
+| 9 | A&D Medical — UA-651BLE no memory: firmware fix or hardware limitation? | Medium | André Faria | 2026-04-17 |
+| 10 | Unique Scales — monitor potential Urion intermediary activity | Medium | André Faria | 2026-04-30 |
+| 11 | Urion — Clinical Equivalence Statements freshly issued (GAP 2) | Medium | João Quirino | 2026-04-24 |
+| 12 | Urion — U81Y LCD to LED display change in CES (GAP 8) | Medium | João Quirino | 2026-04-24 |
+| 13 | A&D Medical — send final quantities + delivery dates to Jill | Medium | André Faria | 2026-04-17 |
+| 14 | A&D Medical — confirm if 7 scale biometrics meet Pulse clinical requirements | Low | João Quirino | 2026-04-20 |
+| 15 | A&D Medical — decide white-label vs branded for initial rollout | Low | André Faria | 2026-04-24 |
+
+**Step 3: Inline ## Open Items bullets cleared from 11 Pulse supplier pages**
+Replaced stale bullet content with: "Open items tracked in the central Open Items DB. See linked view above."
+
+| Page | Page ID | Status |
+|------|---------|--------|
+| Transtek Medical | 311b4a7d-7207-8110 | Cleaned |
+| Unique Scales | 311b4a7d-7207-8130 | Cleaned |
+| Daxin Health | 311b4a7d-7207-81a8 | Cleaned |
+| Finicare | 311b4a7d-7207-815d | Cleaned |
+| Hingmed | 311b4a7d-7207-81a4 | Cleaned |
+| IPADV | 326b4a7d-7207-81e5 | Cleaned |
+| Ullwin | 311b4a7d-7207-81e5 | Cleaned |
+| Xinrui Group | 311b4a7d-7207-812b | Cleaned |
+| Yilai Enlighting Ltd | 311b4a7d-7207-8133 | Cleaned |
+| Yimi Life | 311b4a7d-7207-812f | Cleaned |
+| Zewa Inc. | 311b4a7d-7207-81ca | Cleaned |
+
+NOT touched: Urion Technology, A&D Medical (active suppliers, per instructions).
+
 ## 2026-04-10
+
+### notion-ops — 2026-04-10 — M-Band OI backfill (20 OIs) + inline bullet cleanup (approved by André)
+
+**Step 1: Priority field**
+- Priority field already present on OI DB (collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0) with options Critical/High/Medium/Low. No action needed.
+
+**Step 2: 20 M-Band Open Items created**
+All linked to project: M-Band — Tier Parts CMs (311b4a7d-7207-8167-b4b2-cd9f88167d04)
+
+| # | Item | Priority | Owner | Deadline | OI ID |
+|---|------|----------|-------|----------|-------|
+| 1 | Quantal — submit NDA countersignature via Zip | Critical | André Faria | 2026-04-14 | 33eb4a7d-7207-81b8-9f67-cdf96725c657 |
+| 2 | Uartrónica — awaiting re-quote with updated BOM and COO-X volumes | High | André Faria | 2026-04-17 | 33eb4a7d-7207-818d-b800-d7653fae491b |
+| 3 | Uartrónica — LOA Nordic components via Avnet, resolve route | High | Jorge Garcia | 2026-04-17 | 33eb4a7d-7207-8197-b56f-c8480dd4f90d |
+| 4 | MCM — confirm flatness tolerance 0.05mm vs spec | High | Miguel Pais | 2026-04-18 | 33eb4a7d-7207-816d-9a63-f87ffac8fd16 |
+| 5 | MCM — confirm AISI 301 +C1000 raw material acceptability | High | Miguel Pais | 2026-04-18 | 33eb4a7d-7207-8132-a4a5-c31212009f0b |
+| 6 | TransPak — provide CAD/spec inputs to unblock quote | High | Miguel Pais | 2026-04-18 | 33eb4a7d-7207-816f-afae-c4c3444d8ae0 |
+| 7 | Lihua — confirm with Jorge whether to continue engagement | High | André Faria | 2026-04-14 | 33eb4a7d-7207-8129-99f4-db58ef8746b7 |
+| 8 | Ribermold — quote expected, follow up if not received by Apr 14 | High | André Faria | 2026-04-14 | 33eb4a7d-7207-81a1-882e-d26f594ed871 |
+| 9 | SHX Watch — engineering review of DFM docs | High | Miguel Pais | 2026-04-21 | 33eb4a7d-7207-8186-ae0c-e961a34b31bb |
+| 10 | Falcon Electronica — establish direct contact via Manuel Beito | Medium | André Faria | 2026-04-17 | 33eb4a7d-7207-816c-9917-c8744296ec53 |
+| 11 | Electronica Cerler — establish contact via Manuel Beito (cerler@ bounced) | Medium | André Faria | 2026-04-17 | 33eb4a7d-7207-812b-94ce-e035daf2f8c3 |
+| 12 | GAOYI — 6 open questions from quote review, awaiting reply | Medium | André Faria | 2026-04-17 | 33eb4a7d-7207-81e0-aa09-ec616b77c858 |
+| 13 | JXwearable — quote pending, plug placement decision ongoing | Medium | André Faria | 2026-04-17 | 33eb4a7d-7207-8143-862f-e9509a1097c8 |
+| 14 | Vangest — site visit date pending from Helmut/Sérgio | Medium | Helmut Schmid | 2026-04-21 | 33eb4a7d-7207-8112-8ac4-c1d878528df9 |
+| 15 | SHX Watch — confirm MOQ per PO | Medium | André Faria | 2026-04-21 | 33eb4a7d-7207-8146-97bf-dd0c027e97f8 |
+| 16 | TransPak — C-16 Customer Application Form not applicable for EU entity | Medium | Miguel Pais | 2026-04-18 | 33eb4a7d-7207-81df-ba03-d7dc25a09915 |
+| 17 | Sanmina — no BD contact established, escalate or park | Low | André Faria | 2026-04-17 | 33eb4a7d-7207-81dd-9655-e0f66a080cf7 |
+| 18 | Novares — retry outreach, web form failed | Low | André Faria | 2026-04-17 | 33eb4a7d-7207-811b-be4f-cea488519d5a |
+| 19 | SHX Watch — tooling decision after sample evaluation | Medium | André Faria | 2026-04-30 | 33eb4a7d-7207-819c-a956-e146b3b0a1e8 |
+| 20 | MCM — negotiate payment terms to NET45 | Low | André Faria | 2026-04-25 | 33eb4a7d-7207-8100-8c95-d553c00d1517 |
+
+**Step 3: Inline ## Open Items bullet cleanup (8 pages)**
+Replaced stale/resolved inline bullets with: "Open items tracked in the central Open Items DB."
+
+| Page | Page ID | Action |
+|------|---------|--------|
+| Carfi Plastics | 311b4a7d-7207-81d7-be7c-cf8e12aecd18 | Removed 1 self-closed bullet (Rejected) |
+| Kimball Electronics | 313b4a7d-7207-810c-86bc-f992ce0e8636 | Removed 1 self-closed bullet (Rejected) |
+| CONKLY | 311b4a7d-7207-8107-8901-f47e23282d84 | Removed 2 self-closed bullets (Rejected) |
+| TERA Plastics | 311b4a7d-7207-8188-9711-c1ee6def6f5f | Removed 1 stale bullet (Rejected) |
+| MCM | 311b4a7d-7207-8118-b800-dc7c754f84b6 | Removed resolved quote bullet, ported 3 valid OIs to DB |
+| Vangest | 311b4a7d-7207-8176-b31b-fb3b680d0e16 | Removed resolved feedback bullet + site visit bullet (both ported to DB) |
+| SHX Watch | 311b4a7d-7207-8184-93ff-d14e8fa128a4 | Removed all 4 bullets (3 valid ported to DB, 1 resolved) |
+| GAOYI | 328b4a7d-7207-81a1-9762-da42c6cdad29 | Removed resolved RFQ bullet, ported follow-up OI to DB |
+
+### notion-ops — 2026-04-10 — Kaia OI backfill + inline bullet cleanup (approved by André)
+
+#### Step 1: Priority field
+- Priority field already present in OI DB (Critical/High/Medium/Low). No action needed.
+
+#### Step 2: 8 Kaia Open Items created in central OI DB
+- OI-1 (Critical/Decision): "Kaia — Max Strobel sample feedback (Tiger, Second Page, ProImprint)" — Deadline 2026-04-15 — Max Strobel — ID: 33eb4a7d-7207-8161-8677-dff470972664
+- OI-2 (Critical/Blocker): "Kaia — Caio UHC audit risk: China-sourced suppliers may be disqualified" — Deadline 2026-04-17 — André Faria — ID: 33eb4a7d-7207-816f-9b9e-c38dd6bc96d9
+- OI-3 (High/Action Item): "Kaia — Fernando independent freight quote (Tiger + Second Page 6mm/8mm)" — Deadline 2026-04-14 — André Faria — ID: 33eb4a7d-7207-8161-bbb0-da9ebdef97d7
+- OI-4 (High/Question): "China Tiger Fitness — clarify CNF freight ambiguity ($4,998 vs $6,555)" — Deadline 2026-04-14 — André Faria — ID: 33eb4a7d-7207-81f9-b5a1-c6d49bd1316d
+- OI-5 (Medium/Decision): "Kaia — Max decide: migrate fulfillment to Nimbl or stay with SV Direct" — Deadline 2026-04-17 — Max Strobel — ID: 33eb4a7d-7207-8146-bfba-ee8c60a08353
+- OI-6 (Medium/Action Item): "China Tiger Fitness — confirm DDP SLC freight for 6mm @5k" — Deadline 2026-04-18 — André Faria — ID: 33eb4a7d-7207-81bc-afa6-e8cec1871e3c
+- OI-7 (Medium/Question): "Nimbl — confirm fulfillment rate for yoga mat (volumetric weight)" — Deadline 2026-04-18 — André Faria — ID: 33eb4a7d-7207-8131-a895-d31044beb022
+- OI-8 (Low/Question): "Second Page Yoga — confirm Incoterms before PO" — Deadline 2026-04-18 — André Faria — ID: 33eb4a7d-7207-8120-b6c4-e5d6b6e4ae6b
+
+#### Step 3: Inline bullet cleanup (5 supplier pages)
+- **Crestline** (318b4a7d-7207-816e-b6c4-dfab1470c318): 2 stale bullets removed. Supplier Rejected. Replaced with central DB pointer.
+- **Ecosophia** (318b4a7d-7207-81db-a3c7-ec2080fc1426): 2 stale bullets removed. Supplier Rejected. Replaced with central DB pointer.
+- **Umicca Sport Products** (322b4a7d-7207-81b4-b43d-f9a9d712cee3): 1 stale bullet removed. Supplier Rejected. Replaced with central DB pointer.
+- **Nimbl** (318b4a7d-7207-81da-98d2-cab0be45e37b): 2 checked (resolved) bullets + 2 active bullets removed. Active items ported to OI DB (OI-5, OI-7). Replaced with central DB pointer.
+- **ProImprint** (318b4a7d-7207-81ad-a2fe-f396b121cd36): 1 checked bullet + 1 stale open bullet + 1 low-priority note removed. Active item ported to OI DB (OI-1 covers Max feedback). Replaced with central DB pointer.
+
+### notion-ops — 2026-04-10 — Open Items DB structural upgrade (approved by André)
+
+**Task 1: Supplier field added to Open Items DB**
+- Added "Supplier" as RICH_TEXT field to Open Items DB (collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0)
+- Approach: text fallback (not relation). Notion does not support a single relation field spanning 3 separate DBs. Text field used as canonical approach.
+
+**Task 2: Supplier field populated on existing open OIs (12 of 19)**
+- A&D Medical — NDA countersign and file (33eb4a7d-7207-81e9-8a95-ca32479ca886): Supplier = "A&D Medical"
+- Transtek Zip — unblock Mika's access (33eb4a7d-7207-81ba-a5cf-ffe55796c3fe): Supplier = "Transtek"
+- Transtek — Finance vendor onboarding ticket (33eb4a7d-7207-814d-855d-c91c07c69059): Supplier = "Transtek"
+- Transtek — Qualio supplier page (33eb4a7d-7207-8140-a453-fe9b7a31ca05): Supplier = "Transtek"
+- Transtek — SQA template QARA review (33eb4a7d-7207-81ab-b23f-ee791f5185dc): Supplier = "Transtek"
+- Transtek — Supplier Compliance Agreement (SCA) via Jira (33eb4a7d-7207-8174-b81b-c608a90e396f): Supplier = "Transtek"
+- Transtek — Supplier Quality Agreement (SQA) (33eb4a7d-7207-81d7-8057-d08bce2fc93c): Supplier = "Transtek"
+- Unique Scales — Finance vendor onboarding ticket (33eb4a7d-7207-8161-b77c-e65aad326ee2): Supplier = "Unique Scales"
+- Unique Scales — Qualio supplier page (33eb4a7d-7207-8150-8561-d27a0fba79db): Supplier = "Unique Scales"
+- Unique Scales — Supplier Compliance Agreement (SCA) via Jira (33eb4a7d-7207-81b2-a1f4-cf5d110194d1): Supplier = "Unique Scales"
+- Unique Scales — Supplier Quality Agreement (SQA) (33eb4a7d-7207-81ee-934c-c2101da38ffb): Supplier = "Unique Scales"
+- Vangest — Decide on revised quote before Apr 14 expiry (33eb4a7d-7207-81d1-845d-c563cc79e7b8): Supplier = "Vangest"
+- 7 OIs had no supplier prefix (internal decisions, packaging, SDK, legal) — Supplier field left blank.
+
+**Task 3: Linked views in supplier pages**
+- MCP limitation confirmed: inline linked database views cannot be created inside page content via MCP (notion-update-page does not support <database> block creation; notion-create-view permission not granted).
+- All 23 active supplier pages have inline bullet ## Open Items sections. None have a linked DB view.
+- No writes made to supplier page content for Task 3. See output report for full list.
+
+### notion-ops — 2026-04-10T22:31 — Supplier Overview page edits (approved by André)
+Page: Supplier Overview — Apr 2026 (33eb4a7d-7207-81ec-96b4-febdb83bd379)
+- **Uartronica (PCBAs):** Quote Summary updated to clarify Dec 2025 vintage and formal quote pending on updated BOM.
+- **3DWays (Plastic Housings):** Quote Summary appended with note that quote data exists but supplier is rejected — disregard for sourcing.
+- **Carfi Plastics (Plastic Housings):** Quote Summary appended with note that quote data exists but supplier is rejected — disregard for sourcing.
+
+### notion-ops — 2026-04-10T21:00
+- Created child page "Supplier Overview — Apr 2026" inside M-Band project page (311b4a7d-7207-8167-b4b2-cd9f88167d04)
+- New page ID: 33eb4a7d-7207-81ec-96b4-febdb83bd379
+- URL: https://www.notion.so/33eb4a7d720781ec96b4febdb83bd379
+- Scope: 24 M-Band suppliers across 5 part categories. Pricing sourced from MCM (Quote -- 10 Apr 2026), SHX Watch (Quote section), GAOYI (Quote -- 9 Apr 2026), Uartronica (Quote section). Requested by Andre for Miguel Pais (Sr. TPM) briefing.
+
+### /log-sent — 2026-04-10T20:55
+- Scan window: last 24h sent (a.faria@sword.com / a.faria@swordhealth.com)
+- 50 sent emails reviewed across Pulse, Kaia, M-Band, plus internal/logistics/Zip.
+- No new outreach entries written. All supplier milestones from the last 24h are already reflected in Notion outreach sections (Transtek Apr 10 onboarding/CoR/Zip blocker, Unique Scales Apr 10 ship + onboarding, Urion Apr 10 infinite-loop pushback + keep-warm, Xinrui/Yimi/Yilai/Finicare/Ullwin/Daxin/Hingmed Apr 10 close-outs, MCM Apr 10 quote ack, SHX Watch Apr 10 DHL label issued, GAOYI Apr 10 follow-up, Quantal Apr 10 NDA, CONKLY Apr 10 close-out, Ribermold Apr 9 quote ETA, Vangest Apr 9 revised quote ack, Lihua Apr 10 Lihe update, Tiger Fitness Apr 9 packing ack, Second Page Yoga Apr 9 packing ack).
+- Skipped (routine): Transtek "Testing email" at 10:53, Tiger Fitness Apr 10 holding reply, Mika Zip access reassurance, several read receipts, internal BPM sourcing follow-up to Kevin Wang, Kaia thickness update to Max, Avnet Renesas LT request (M-Band COO-CN distributor track), Zip invoice email.
+
+### Nimbl (Kaia) — Status + Notes update
+
+- **Nimbl** (318b4a7d-7207-81da-98d2-cab0be45e37b): Status `Contacted` → `Shortlisted`. Notes updated to "FULFILLMENT (Salt Lake City, UT). Current Sword fulfillment partner. Kaia yoga mat fulfillment in progress." Rationale: established relationship, Kaia fulfillment already in progress.
+- **context/kaia/suppliers.md**: Section header updated `## Current Supplier (1)` → `## Shortlisted (1)`. Nimbl entry note updated to reflect status change.
+
+
+
+### Housekeeping — Phases 4, 5, 6 (Notes + OI + Drift + Email)
+
+#### Notes Fixed (AUTO-EXECUTED — André approved)
+- **Vangest** (311b4a7d-7207-8176-b31b-fb3b680d0e16): Notes updated to "MANUFACTURER (Marinha Grande, PT). Plastic injection + 2K moulding + assembly. Quote valid Apr 14."
+- **MCM** (311b4a7d-7207-8118-b800-dc7c754f84b6): Notes updated to "MANUFACTURER (Braga, PT). Precision stamping + CNC. 0.02mm tolerance, 500k pcs/month."
+
+#### Phase 4 — Open Items (AUTO + REPORT)
+- No OIs linked to rejected suppliers found. No auto-closures executed.
+- No OIs overdue (all deadlines Apr 14+).
+- No OIs with stale context (all created/updated Apr 10).
+- No propose-close candidates identified.
+
+#### Phase 5 — Context Drift (REPORT ONLY)
+- **Kaia/suppliers.md**: Nimbl listed as "Current Supplier (1)" in context. Notion Status field shows "Contacted". Status drift detected. No write executed.
+
+#### Phase 6 — Unanswered Emails (REPORT ONLY)
+- All supplier emails received in the last 7 days have replies within 48h, except ProImprint (intentional ignore per André's direction). No flags raised.
+
+### Housekeeping — Phases 1, 2, 3
+
+#### Phase 1: Outreach Maintenance (AUTO-EXECUTED)
+- **MCM** (311b4a7d-7207-8118-b800-dc7c754f84b6): Fixed broken `\<toggle summary>` to valid `<details><summary>` block in Outreach archive.
+- **Vangest** (311b4a7d-7207-8176-b31b-fb3b680d0e16): Updated stale Outreach summary line (was "Last: 1 Apr", now reflects Apr 9 revised quote).
+- **ProImprint** (318b4a7d-7207-81ad-a2fe-f396b121cd36): Condensed Outreach — 9 visible entries exceeded 7-entry threshold. Moved 5 Mar 12 entries into archive toggle. Visible entries reduced to 7.
+
+#### Phase 3: DB Field Hygiene (AUTO-EXECUTED)
+- **CONKLY** (311b4a7d-7207-8107-8901-f47e23282d84): NDA Status Executed → Not Required (Rejected supplier, auto per housekeeping rules).
+- **3DWays** (311b4a7d-7207-815a-9bfd-c50dbedca9fd): NDA Status Executed → Not Required (Rejected supplier, auto per housekeeping rules).
+- **Carfi Plastics** (311b4a7d-7207-81d7-be7c-cf8e12aecd18): NDA Status Executed → Not Required (Rejected supplier, auto per housekeeping rules).
 
 ### Open Items — Triage (Apr 10 EOD)
 
@@ -62,6 +275,16 @@ Created 15 OIs in Open Items DB (collection://505b7f08-8816-4bf7-b77a-7f232b52d0
 
 ### Notion Write — CONKLY Rejected (Apr 10)
 - **CONKLY** (311b4a7d-7207-8107-8901-f47e23282d84): Status RFQ Sent → Rejected. Notes updated (TPU capability gap). OI closed.
+
+### Cross-Check Writes Executed — 2026-04-10
+
+Writes A–F approved by André and executed:
+- A: Vangest — Removed 2 stale inline OI bullets (Apr 3 expiry) from Vangest page body. Created new OI "Vangest — Decide on revised quote before Apr 14 expiry" (ID: 33eb4a7d-7207-81d1-845d-c563cc79e7b8, Deadline: Apr 14, Owner: André Faria, Decision).
+- B: MCM — Outreach entry appended: Apr 10 quote acknowledgment with flagged flatness tolerance and raw material alternative.
+- C: Lihua — Outreach entry appended: Apr 10 Jessica Costa inbound (awaiting sourcing team, proposal under internal review).
+- D: Transtek — Outreach entry appended: Apr 10 Zip login blocker (SMS 2FA, Ruben advising) + finance onboarding ask to Mika and Queenie.
+- E: Open Items — Created "Transtek — SQA template QARA review" (ID: 33eb4a7d-7207-81ab-b23f-ee791f5185dc, Owner: Bianca Lourenco, Deadline: Apr 15, Action Item, Pulse).
+- F: Open Items — Prepended Apr 10 context to "Full-color box decision" OI (33eb4a7d-7207-8172-a232-d4bfe3ec512e): Paulo Slack confusion, Andre callback needed, Kevin mid-July question, Paulo/Marta meeting Apr 13 14:30.
 
 ### Toggle Block Fix
 Replaced broken `<toggle summary>` tags with valid `<details><summary>` blocks in Outreach archives.

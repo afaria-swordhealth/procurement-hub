@@ -341,6 +341,7 @@ Every Notion write must be:
 5. NEVER SEND EMAIL: Gmail DRAFT only.
 6. NO EM DASHES: Use commas, periods, or "or".
 7. CHECK BEFORE CREATE: Verify daily log entry doesn't exist before creating.
+8. OPEN ITEMS IN SUPPLIER PAGES: The ## Open Items section in every supplier page must be a linked database view of the central Open Items DB, filtered by Supplier. Never inline bullets. All OIs must exist as records in the central Open Items DB (collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0) with all required fields populated.
 
 ---
 

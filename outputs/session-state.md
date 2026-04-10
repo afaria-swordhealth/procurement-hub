@@ -2,9 +2,9 @@
 <!-- Auto-updated by /warm-up, /mail-scan, /log-sent, /wrap-up. Do not edit manually. -->
 
 ## Timestamps
-Last-Warm-Up: 2026-04-10T09:00 | Session: A
-Last-Mail-Scan: —
-Last-Log-Sent: —
+Last-Warm-Up: 2026-04-10T20:45 | Session: A
+Last-Mail-Scan: 2026-04-10T22:17
+Last-Log-Sent: 2026-04-10T20:55
 Last-Wrap-Up: —
 
 ## Active Sessions
@@ -13,37 +13,48 @@ Last-Wrap-Up: —
 ## Context Snapshot (from last warm-up)
 
 ### Carry-Over
-- Unique Scales onboarding: IBAN/banking details + PO email requested Apr 10. No reply yet. Follow up.
-- Miguel (Group DM): promised EOD updates on strap/sheet metals/Uartronica. Still pending.
-- Renesas backlog POs subject to new prices Jul 1 — assess if any Renesas orders need to be placed before then.
-- STM32: LT doubled (15→30wks), price increase Apr 26. Check BOM exposure.
-- NPM1300 (Nordic): no stock at Avnet, LT 23-25wks. Confirm BOM qty needed with Pedro Rodrigues.
+- Transtek Zip blocked: Mika can't receive SMS 2FA on CN +86. Rúben advising on authenticator app. Blocker OI active.
+- Paulo Alves unresolved Slack ping "estou perdido" re Transtek packaging (white vs full-color). Needs callback.
+- Miguel asked for Notion organization templates + shared CM-Selection page for M-Band quote benchmarking. Pending share.
+- Jorge DM: awaiting Legal stakeholder recommendation (flow confirmed: Onboarding → Contract → SQA).
+- Bianca: awaiting QARA guidance on Transtek SQA template.
+- NPM1300: decide advance PO (Avnet no stock, LT 23-25wks) with Pedro Rodrigues by Apr 13.
 
 ### New This Session
-- Pulse T2D Expansion project page created (Notion: 33eb4a7d-7207-811d). Status: RFQ. Parked pending FP&A.
-- M-Band COO-CN project page created (Notion: 33eb4a7d-7207-816f). Status: In Progress.
-- Unique Scales DHL picked (Apr 10, Queenie confirmed). 4 samples en route.
+- Rejection sweep sent: Xinrui, Yimi, Yilai, Daxin, Ullwin, Finicare, Hingmed — all closed for Pulse. Outreach milestones not yet logged.
+- MCM quote received (OR-050/26), André acknowledged.
+- Transtek CoR sent to Mika. Finance onboarding ask sent to Mika + Queenie.
+- Avnet: LT confirmation request sent to Sónia for NRF54L15, NPM1300, Renesas parts.
+- New meeting Mon Apr 13 14:30: Artwork Alignment (Paulo/Marta).
 
 ### Email State
-Last inbox scan: 2026-04-10T09:00
-Unread supplier emails at scan time: Avnet (4 alerts), Unique Scales (1 DHL confirm)
-Sent-not-logged at scan time: 0 flagged
+Last inbox scan: 2026-04-10T20:45
+Unread supplier emails at scan time: Mika Transtek (Zip login thread with Rúben), Maria José MCM (replied), Jessica Costa Lihua (holding)
+Sent-not-logged at scan time: MCM ack, Avnet LT req, bulk rejections, Transtek finance ask
 
 ### Slack State
-Last Slack scan: 2026-04-10T09:00
-Group DM (M-Band): Miguel asked for component quote update. André replied (strap done, sheet metals next week).
-Kevin DM: no new messages since Mar 28.
-Channels: #pulse-isc + #m-band_sourcing errored (proxy timeout).
+Last Slack scan: 2026-04-10T20:45
+Group DM M-Band: Miguel acknowledged Vangest revised quote analysis and strap update.
+Jorge DM: flow confirmed, awaiting Legal stakeholder name.
+Miguel DM: call offered, Notion org templates requested.
+Paulo DM: unresolved "estou perdido" 18:42, André replied 19:05.
+Bianca DM: awaiting SQA guidance reply.
 
 ## Upcoming Meetings
 - Apr 13 12:00 — André / Jorge (30 min)
 - Apr 13 14:00 — M-Band HW Weekly (Miguel)
+- Apr 13 14:30 — Artwork Alignment (Paulo / Marta) [NEW]
 - Apr 13 15:00 — Pulse New Suppliers (S. Lourenço)
 - Apr 14 12:30 — Wintech / Sword Weekly
 - Apr 14 14:30 — Pulse Weekly Meeting
 
 ## Pending Actions (awaiting André decision)
-<!-- Add items here as they arise. Remove when resolved. -->
-- Unique Scales banking details: follow up with Queenie for Zip onboarding.
-- NPM1300: decide if advance PO needed given no stock + 23-25wk LT.
-- EOD update to Miguel: strap quote (Vangest revised OP 26-0609 v01.1), sheet metals ETA next week, Uartronica silent.
+- Paulo Alves callback on Transtek packaging confusion.
+- Transtek Zip unblock — escalate to Zip admin if Rúben support fails.
+- Miguel — share Notion organization templates.
+- NPM1300 advance PO decision (by Apr 13 with Pedro Rodrigues).
+- Log outreach milestones for bulk rejections + MCM ack + Avnet LT ask (next /log-sent cron will handle).
+
+## Session Crons
+- 2d955006: /mail-scan silent, every 2h at :17
+- f67c5da4: /log-sent silent, every 3h at :23

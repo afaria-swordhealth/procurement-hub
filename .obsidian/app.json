@@ -1,0 +1,18 @@
+{
+  "useMarkdownLinks": true,
+  "newLinkFormat": "relative",
+  "newFileLocation": "current",
+  "attachmentFolderPath": ".attachments",
+  "alwaysUpdateLinks": true,
+  "userIgnoreFilters": [
+    ".git",
+    ".claude/settings.local.json",
+    ".claude/scheduled_tasks.lock",
+    "outputs/backups",
+    "Sandbox"
+  ],
+  "showUnsupportedFiles": false,
+  "defaultViewMode": "preview",
+  "foldHeading": false,
+  "promptDelete": true
+}

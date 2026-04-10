@@ -1,5 +1,5 @@
 # M-Band Suppliers  - Context File
-# Last synced: 2026-04-10 EOD
+# Last synced: 2026-04-11T00:30
 
 ## Quote Received (4)
 - **Vangest**  - Plastic Housings. Revised quote Apr 9 analyzed. EUR 3.080/unit @300k + EUR 429,850 tooling (9 molds). Sub-page created in Notion: "Quote -- 9 Apr 2026 (Revised)". DFM updates: 5 parts redesigned, 2K moulding for 2 parts. Tooling amortized: EUR 1.43/unit @300k. Quote valid until Apr 14. NDA executed.

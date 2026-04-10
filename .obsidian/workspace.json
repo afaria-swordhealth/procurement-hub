@@ -1,0 +1,181 @@
+{
+  "main": {
+    "id": "9e896d00ade8f87e",
+    "type": "split",
+    "children": [
+      {
+        "id": "f24fe7a3b71e60a3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dabf1449ace96666",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "outputs/session-state.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "session-state"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "576225b684090110",
+    "type": "split",
+    "children": [
+      {
+        "id": "5eb19df1cc598137",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ecc332e52ff43773",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "99fb1c8e5c36a05a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "287e523beeff37d4",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "dcf1eb4fa6a8bad4",
+    "type": "split",
+    "children": [
+      {
+        "id": "ddd11c72a39e5d2c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8c7c088e26224a3b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "outputs/session-state.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for session-state"
+            }
+          },
+          {
+            "id": "9f0498c2758ea7c6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "f9c7ba37e704ad78",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "58213c78bf350619",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "outputs/session-state.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of session-state"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-kanban:Create new board": false
+    }
+  },
+  "active": "dabf1449ace96666",
+  "lastOpenFiles": [
+    "Dashboard.md",
+    "implementation-playbook.md",
+    "Untitled.canvas",
+    "outputs/session-state.md",
+    "outputs/promises.md",
+    "outputs/change-log.md",
+    "context/kaia/suppliers.md"
+  ]
+}
