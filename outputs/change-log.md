@@ -2,6 +2,36 @@
 
 ## 2026-04-10
 
+### Late Evening Session (post-23h)
+
+#### Open Items DB — Pulse Backfill
+Created 15 OIs in Open Items DB (collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0), all with Project = Pulse:
+- Transtek: Finance onboarding, SCA, Qualio, SQA
+- Unique Scales: Finance onboarding, SCA, Qualio, SQA
+- Transtek Zip — unblock Mika access (Blocker)
+- A&D Medical — NDA countersign
+- SDK review — Transtek BB2284-AE01
+- SDK test — CF635BLE dual-freq prototype
+- Pulse packaging artwork
+- Full-color box decision
+- Legal / Finance PLD alignment (Blocker)
+
+#### System Rules — Open Items Discipline
+- **CLAUDE.md:** added §4d "Open Items Discipline" (when to create, field schema, Context as running log, review cadence, OI vs promises.md).
+- **New file:** .claude/procedures/create-open-item.md — checklist, DB IDs, Context append-only examples, closing rules.
+- **.claude/agents/notion-ops.md:** Open Items Policy block added.
+- **.claude/agents/supplier-comms.md:** Open Items creation rule added.
+- **.claude/commands/mail-scan.md:** new step 3 (propose Create OI / Update OI Context); recommendation table extended.
+- **.claude/commands/warm-up.md:** Phase 2 OI query now sorts by Deadline asc, surfaces overdue, flags stale Context (>14d).
+
+#### Notion New-Projects Verification
+- Pulse T2D page (33eb4a7d-7207-811d) — already exists, no duplicate created.
+- M-Band COO-CN page (33eb4a7d-7207-816f) — already exists, no duplicate created.
+
+#### Daily Log
+- **Daily Log Apr 10** (33eb4a7d-7207-818e-9265-fb79b098aff1): Late evening session appended.
+
+
 ### Wrap-Up (Apr 10 EOD)
 
 #### Outreach Updated (Notion)

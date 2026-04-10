@@ -219,6 +219,59 @@ This file is the shared context between sessions. It is written by /warm-up and 
 
 ---
 
+# 4d. Open Items Discipline
+
+Open Items DB is the authoritative list of every action, decision, question, and blocker across all 3 projects. It must be used systematically, not as an afterthought.
+
+## When to create an Open Item
+Create an OI whenever any of these appear, from any source:
+- `/mail-scan`: supplier or internal email generates an action for André or a 3rd party
+- `/warm-up`: a pending item surfaces in Slack, calendar, carry-over, or yesterday's log
+- `/log-sent`: André commits to an action in a sent email
+- Meeting notes: any pending decision, action, or blocker
+- Manual: anytime André says "we need to do X"
+
+## OI vs promises.md
+- `promises.md` = commitments André made to humans (supplier or internal) with short deadlines. Lightweight daily tracker.
+- `Open Items DB` = every action, decision, question, and blocker with owner and deadline. Long-term authoritative source.
+- If a commitment is both, it lives in both. The OI `Context` references the promise.
+
+## Required fields (all filled, no exceptions)
+| Field | Rule |
+|---|---|
+| Item | Title. `Supplier/Area — specific action`. Verb or noun-action. Max ~70 chars. |
+| Status | `Pending` (new), `In Progress` (active work), `Blocked` (waiting on 3rd party), `Closed`. |
+| Type | `Action Item`, `Decision`, `Question`, `Blocker`. Pick by expected outcome. |
+| Owner | Real name (first + last). Handoff format: `André → Bradley / Legal`. Never "TBD". |
+| Deadline | Always present. If unknown, conservative date + note in Context. No deadline = not an OI. |
+| Project | Relation to Pulse / Kaia / M-Band / ISC. Mandatory. |
+| Context | Running log (see Context as Running Log below). |
+
+On close: set Status=Closed and fill `Resolution` (1-2 sentences: what happened, who resolved, date, link).
+
+## Context as a Running Log
+Context is not static. It is a dated log that evolves as the OI lives.
+
+- First write: capture the full picture — the what, why it matters, what blocks, supplier/email/meeting reference.
+- Every subsequent update prepends a new dated line at the top: `**YYYY-MM-DD:** <update>`.
+- Older entries stay below, unedited. Nothing is deleted. Oldest context sits at the bottom as origin story.
+- Priorities shift by what is at the top, not by editing history.
+- If an update has no new information (already captured), do NOT add it to Context. Note it in the change-log only.
+- When Context grows past ~8 entries, the oldest lines can be collapsed into a one-line summary: `**Origin (<date range>):** <summary>`.
+
+## Default owner rule
+If no clear owner, the default is André. Never "unassigned".
+
+## Review cadence
+- `/housekeeping` (daily): flag OIs overdue > 3 days. Flag OIs with stale Context (>14 days, no update on active items).
+- `/weekly-report`: include "OIs closed this week" and "OIs overdue" sections.
+- `/warm-up`: surface OIs due today/overdue at the top of the briefing, alongside promises.
+
+## Project page views
+Each project page (Pulse, Kaia, M-Band) shows a linked Open Items view filtered by Project, sorted by Deadline ascending, with Closed hidden.
+
+---
+
 # 4c. Global Pre-flight Rules
 
 Safety rules (the Safety Rules section) and writing rules (the Writing Style section) apply to all requests. Pre-flight rules below are the authoritative source.

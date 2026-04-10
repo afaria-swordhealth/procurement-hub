@@ -57,3 +57,6 @@ See config/domains.md for all domain-to-supplier mappings and Gmail scan pattern
 
 ## Outreach Policy
 See procedures/check-outreach.md for full policy (milestones list, what to skip, format, approval, condensation rules).
+
+## Open Items Creation
+When an email (incoming or sent) contains a commitment, decision pending, unresolved question, or blocker, propose an Open Item entry following procedures/create-open-item.md. If an OI already exists for the topic, append a dated line to its Context instead of creating a new one. No-op updates go to change-log only.

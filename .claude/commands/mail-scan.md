@@ -13,7 +13,8 @@ model: sonnet
 
 1. Run `.claude/procedures/scan-gmail.md` with mode: "filtered", direction: "both" (incoming + sent), lookback: 3 days.
 2. Use config/databases.md (Query Patterns section) to cross-reference each sender against Notion supplier pages (status, last outreach, open items).
-3. Follow CLAUDE.md Safety Rules and Writing Style sections.
+3. For each email with a commitment, pending decision, unresolved question, or blocker, propose a new OI OR an append-line update to an existing OI per `.claude/procedures/create-open-item.md`. Present as part of the recommendation output.
+4. Follow CLAUDE.md Safety Rules and Writing Style sections.
 
 ## Output
 
@@ -22,7 +23,7 @@ Present a summary table per project (Pulse, Kaia, M-Band):
 | Supplier | Subject | Date | Recommendation | Reason |
 |----------|---------|------|----------------|--------|
 
-Recommendation values: Log, Draft Reply, Ignore, Escalate.
+Recommendation values: Log, Draft Reply, Ignore, Escalate, Create OI, Update OI Context.
 
 Use `notion-query-data-sources` with SQL for DB queries instead of fetching pages individually.
 

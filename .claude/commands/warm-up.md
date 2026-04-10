@@ -18,7 +18,7 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 ### Phase 2: Pending Items from Yesterday
 3. Read outputs/promises.md. Surface every open promise in the briefing, flagged by overdue/due-today/upcoming. This is the FIRST thing Andre sees.
 4. Fetch yesterday's daily log from Notion (Daily Logs DB, see .claude/config/databases.md). Extract any open actions or items marked as pending.
-5. Query Open Items DB (see .claude/config/databases.md) for items with status not Complete, sorted by deadline.
+5. Query Open Items DB (see .claude/config/databases.md) for items with Status != Closed, sorted by Deadline ascending. Surface overdue + due today at the top of the briefing alongside promises. Flag any OI with stale Context (no update >14 days on active items).
 6. Check outputs/change-log.md for yesterday's last entries (what was the last thing done?).
 
 ### Phase 3: Email Scan (Incoming)
