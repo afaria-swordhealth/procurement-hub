@@ -1,5 +1,6 @@
 ---
 description: Compile today's daily log across all 3 projects and push to Notion as Draft.
+model: opus
 ---
 
 # Daily Log

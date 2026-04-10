@@ -1,5 +1,6 @@
 ---
 description: Compile weekly report from daily logs, calculate key numbers, push to Notion as Draft.
+model: opus
 ---
 
 # Weekly Report

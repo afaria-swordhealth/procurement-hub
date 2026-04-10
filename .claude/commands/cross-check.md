@@ -1,5 +1,6 @@
 ---
 description: Cross-reference Gmail, Slack, and Notion to find gaps in documentation.
+model: opus
 ---
 
 # Cross-Check

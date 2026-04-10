@@ -1,5 +1,6 @@
 ---
 description: Start of day routine. Load context, review pending items, scan emails, prepare priorities.
+model: opus
 ---
 
 # Warm-Up (Start of Day)

@@ -1,5 +1,6 @@
 ---
 description: End of day routine. Logs sent emails, syncs context files, creates daily log, commits to git.
+model: opus
 ---
 
 # Wrap-Up (End of Day)

@@ -1,5 +1,6 @@
 ---
 description: Deep Gmail scan without domain filter. Catches emails from unknown or new senders.
+model: sonnet
 ---
 
 ## Agents

@@ -1,5 +1,6 @@
 ---
 description: Background maintenance. Clean outreach, fix compliance, check OIs, verify context. Autonomous where safe.
+model: sonnet
 ---
 
 # Housekeeping

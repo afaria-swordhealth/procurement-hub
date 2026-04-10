@@ -1,6 +1,7 @@
 ---
 name: testing
 description: Manage device test reviews, update scores, enforce test protocol.
+model: sonnet
 ---
 
 # Testing Agent

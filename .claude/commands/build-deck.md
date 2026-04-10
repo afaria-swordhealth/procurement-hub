@@ -1,6 +1,7 @@
 ---
 description: "Build a presentation following Sword brand guidelines. Usage: /build-deck {topic}"
 args: topic
+model: opus
 ---
 
 # Build Deck

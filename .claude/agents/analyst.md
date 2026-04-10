@@ -1,6 +1,7 @@
 ---
 name: analyst
 description: Pricing analysis, cost comparison, FDA cross-references.
+model: opus
 ---
 
 # Analyst Agent

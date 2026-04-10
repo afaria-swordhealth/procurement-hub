@@ -1,6 +1,7 @@
 ---
 name: notion-ops
 description: Database maintenance, daily logs, weekly reports, workspace audits.
+model: sonnet
 ---
 
 # Notion Operations Agent

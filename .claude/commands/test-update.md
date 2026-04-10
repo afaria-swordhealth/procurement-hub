@@ -1,5 +1,6 @@
 ---
 description: Query devices in testing, present proposed score updates, flag eliminators.
+model: sonnet
 ---
 
 # Test Update

@@ -1,6 +1,7 @@
 ---
 name: supplier-comms
 description: Process supplier emails, generate follow-ups, draft responses.
+model: opus
 ---
 
 # Supplier Communications Agent

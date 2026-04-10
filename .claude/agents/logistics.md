@@ -1,6 +1,7 @@
 ---
 name: logistics
 description: Track samples, coordinate shipping, manage DHL/FedEx labels.
+model: sonnet
 ---
 
 # Logistics Agent

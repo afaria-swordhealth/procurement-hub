@@ -1,5 +1,6 @@
 ---
 description: Scan sent emails, compare with Notion outreach sections, log missing milestones.
+model: sonnet
 ---
 
 # Log Sent

@@ -1,5 +1,6 @@
 ---
 description: Scan Gmail for new supplier emails, cross-reference with Notion, present recommendations.
+model: sonnet
 ---
 
 ## Agents

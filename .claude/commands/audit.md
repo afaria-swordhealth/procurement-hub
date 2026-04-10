@@ -1,5 +1,6 @@
 ---
 description: Audit Notion workspace against Maintenance Rules for compliance issues.
+model: sonnet
 ---
 
 # Workspace Audit

@@ -1,6 +1,7 @@
 ---
 description: "Generate ranked price comparison for a project. Usage: /price-compare {project}"
 args: project
+model: opus
 ---
 
 # Price Compare
