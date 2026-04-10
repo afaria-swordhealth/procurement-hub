@@ -42,7 +42,11 @@
       "Bash(xargs wc:*)",
       "mcp__claude_ai_Slack__slack_search_channels",
       "mcp__claude_ai_Slack__slack_read_thread",
-      "mcp__claude_ai_Notion__notion-create-comment"
+      "mcp__claude_ai_Notion__notion-create-comment",
+      "Bash(grep -v \"\\\\.md$\")",
+      "Bash(grep -rEn \"U[A-Z0-9]{8,}\" .claude/ CLAUDE.md --include=\"*.md\")",
+      "Bash(git push:*)",
+      "Skill(schedule)"
     ]
   }
 }
