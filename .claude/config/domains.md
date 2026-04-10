@@ -30,6 +30,7 @@
 |--------|----------|--------|
 | tigerfitness.net.cn | Tiger Fitness | Under Review |
 | secondpageyoga.com | Second Page Yoga | Under Review |
+| secondpagetech.com | Second Page Yoga | (alt domain) |
 | proimprint.com | ProImprint | Under Review |
 | 4imprint.com | 4imprint | Blocked (Benchmark) |
 
@@ -47,6 +48,8 @@
 | watchstrapbands.com | JXwearable | (alt domain) |
 | transpak.com | TransPak | RFQ Sent |
 | shxwatch.com | SHX Watch | Quote Received |
+| gaoyipp.com | GAOYI | RFQ Sent |
+| hondaholdings.com | GAOYI | (alt domain) |
 | lihuadirect.com | Lihua Direct | RFQ Sent |
 | carfi.pt | Carfi Plastics | Rejected |
 | kimballelectronics.com | Kimball Electronics | Rejected |
@@ -78,9 +81,9 @@ from:(a.faria@swordhealth.com OR a.faria@sword.com) after:YYYY/MM/DD
 ```
 Pulse: from:(transtekcorp.com OR lefu.cc OR urionsz.com OR andonline.com OR andmedical.com)
 
-Kaia: from:(tigerfitness.net.cn OR proimprint.com OR secondpageyoga.com OR 4imprint.com)
+Kaia: from:(tigerfitness.net.cn OR proimprint.com OR secondpageyoga.com OR secondpagetech.com OR 4imprint.com)
 
-M-Band: from:(conkly.com OR jxwatchband.com OR watchstrapbands.com OR ribermold.pt OR vangest.com OR uartronica.pt OR mcm.com.pt OR quantal.pt OR transpak.com OR shxwatch.com OR lihuadirect.com OR sanmina.com)
+M-Band: from:(conkly.com OR jxwatchband.com OR watchstrapbands.com OR ribermold.pt OR vangest.com OR uartronica.pt OR mcm.com.pt OR quantal.pt OR transpak.com OR shxwatch.com OR lihuadirect.com OR sanmina.com OR gaoyipp.com OR hondaholdings.com)
 ```
 
 ### Deep scan mode (for /mail-scan --deep)

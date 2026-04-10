@@ -19,36 +19,57 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 4. Query Open Items DB (see .claude/config/databases.md) for items with status not Complete, sorted by deadline.
 5. Check outputs/change-log.md for yesterday's last entries (what was the last thing done?).
 
-### Phase 3: Email Scan
+### Phase 3: Email Scan (Incoming)
 6. Run email scan following .claude/procedures/scan-gmail.md for all 3 projects. Cross-reference with Notion using config/databases.md (Query Patterns section). Present recommendations per email: Log, Draft Reply, Ignore, or Escalate.
 
+### Phase 3b: Sent Email Scan
+6b. Scan Andre's sent emails since last session (from:a.faria@swordhealth.com OR from:a.faria@sword.com).
+    - For each sent email to a supplier domain (per config/domains.md), check if the corresponding Outreach section in Notion has a matching entry.
+    - For sent emails to internal recipients (swordhealth.com, sword.com) that mention supplier names or procurement keywords, note them as context (decisions communicated, escalations sent, etc.).
+    - Flag: supplier emails sent but not logged in Outreach (>24h old).
+
 ### Phase 4: Slack Scan
-7. Read config/slack-channels.md for user IDs and channel IDs.
-   For each key person: slack_read_channel with user ID. For each channel: slack_read_channel with channel ID, slack_read_thread for replies.
+7. Read config/slack-channels.md for user IDs, channel IDs, and Group DMs.
+   For each key person: slack_read_channel with user ID. For each channel and Group DM: slack_read_channel with channel ID, slack_read_thread for replies.
    Extract decisions, action items, or context relevant to Pulse, Kaia, or M-Band.
    Note any unanswered messages or pending requests.
 
 ### Phase 5: Calendar Check
 8. Check Google Calendar for today's meetings (if calendar MCP available). Flag any meetings related to procurement (Pulse, Kaia, M-Band, supplier names, key stakeholders).
 
-### Phase 6: Maintenance Status
-9. Check outputs/change-log.md for last housekeeping and cross-check dates.
-10. Count unpushed commits: `git log --oneline origin/main..HEAD | wc -l`.
-11. Check context file "Last synced" headers for staleness (>24h = warn).
+### Phase 6: Overnight Reports
+9. Check if remote triggers produced reports overnight:
+   - outputs/housekeeping-report.md (daily housekeeping)
+   - outputs/cross-check-report.md (Mon + Thu cross-check)
+   If found, include key findings in the briefing. Flag items that need Andre's decision.
 
-### Phase 7: Day Briefing
-12. Present a single briefing covering all phases.
+### Phase 7: Maintenance Status
+10. Check outputs/change-log.md for last housekeeping and cross-check dates.
+11. Count unpushed commits: `git log --oneline origin/main..HEAD | wc -l`.
+12. Check context file "Last synced" headers for staleness (>24h = warn).
+
+### Phase 8: Start Session Crons
+13. Start in-session recurring tasks (CronCreate):
+    - Every 2 hours: silent /mail-scan. Only notify Andre if new emails found.
+    - Every 3 hours: silent /log-sent. Write outreach milestones directly (auto-approved). Only notify if entries were written.
+14. Confirm crons started in the briefing.
+
+### Phase 9: Day Briefing
+15. Present a single briefing covering all phases.
 
 ## Output Format
 
 Single briefing, organized by:
 1. CARRY-OVER: Items from yesterday still open
-2. NEW: Emails, Slack messages, and notifications since last session
-3. TODAY: Meetings and deadlines
-4. PRIORITIES: Top 3 recommended actions for today
-5. MAINTENANCE: Housekeeping/cross-check recency, unpushed commits, context staleness
+2. OVERNIGHT: Results from automated housekeeping/cross-check (if any)
+3. NEW: Emails (incoming + sent not logged), Slack messages, notifications since last session
+4. TODAY: Meetings and deadlines
+5. PRIORITIES: Top 3 recommended actions for today
+6. MAINTENANCE: Unpushed commits, context staleness
+7. SESSION: Crons started (mail-scan every 2h, log-sent every 3h)
 
 ## Rules
 - Read-only. No writes until Andre approves actions from the briefing.
 - If calendar MCP not available, skip Phase 5 and note it.
 - Keep the briefing scannable. No walls of text.
+- If Andre provides a quick debrief of offline actions (calls, WhatsApp, manual edits), incorporate into the briefing context.

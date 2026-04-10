@@ -17,6 +17,16 @@
 | Catarina Barbosa | Logistics Specialist | U08R6PCUWER |
 | Bradley Bruchs | Senior Contract Manager | U07S3401T1Q |
 | Fernando Saraiva | International Logistics Specialist | U04H6RT4A0J |
+| Kevin Wang | GM, Pulse | U02L4KTU1CH |
+| Marta Valente | Senior Brand Designer | U094DN98DL1 |
+| Andreia Gomes | Procurement Specialist | U01TACJ5SLB |
+| Mariana Peixoto | Associate to CSO | U05F4TU91L0 |
+
+## Group DMs
+
+| Members | ID | Purpose |
+|---------|-----|---------|
+| André, Jorge, Miguel, Gustavo | C0AGZ2WNUEM | M-Band sourcing ops (quotes, visits, supplier questions) |
 
 ## Key Channels
 
@@ -24,6 +34,8 @@
 |---------|----|---------|
 | #pulse-packagin-artwork | C0ARTEJPMRC | Pulse packaging design |
 | #pm-npi-isc | C0AKYG8JR42 | NPI/ISC coordination |
+| #m-band_sourcing | C08170ETSKG | M-Band COO-X sourcing updates |
+| #pulse-isc | C0905Q7SFU2 | Pulse/Move ISC operations |
 
 ## Usage
 - To read DMs: use slack_read_channel with User ID as channel_id

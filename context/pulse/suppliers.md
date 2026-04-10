@@ -1,5 +1,5 @@
 # Pulse Suppliers  - Context File
-# Last synced: 2026-04-09 EOD (Session D)
+# Last synced: 2026-04-10 EOD
 
 ## Shortlisted (2)  - PO Authorization Confirmed Apr 8
 - **Transtek Medical**  - MANUFACTURER (Zhongshan, CN). BP cuff BB2284-AE01. $19.20 FOB ZS @5K (Std), XS $20.70, XL $22.70. LT 12-16 wk. ~200 units in 40-45 days off-shelf. FDA DXN K241351. SDK received. Samples delivered Porto. PLD approach confirmed. Plan A/B timeline received Apr 9: Plan A (Sword artwork + physical GS) Jul 13, Plan B (Transtek artwork, no GS) Jun 29. Full-color box standard for PLD, +$0.30-$1.50/unit, +10-14 days packaging testing. Cuffs: no logos, remove TeleRPM only. Manual: change logo/company info, keep functional content/layout. Need PDF with Pantone codes.

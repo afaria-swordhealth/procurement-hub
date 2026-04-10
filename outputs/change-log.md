@@ -10,6 +10,38 @@
 - **CONKLY** (311b4a7d-7207-8107-8901-f47e23282d84): Outreach reordered chronologically (Apr 9 follow-up moved to bottom). Archive toggle consolidated. 7 visible entries.
 - **JXwearable** (311b4a7d-7207-8185-adf3-c22bcc2a330d): Archive toggle expanded (Feb 26 - Mar 6). 7 visible entries (was 8).
 
+#### Outreach Entries Written (Cross-Check)
+- **MCM** (311b4a7d-7207-8118-b800-dc7c754f84b6): Apr 9 -- Daniel confirmed Maria Jose quote Apr 10.
+- **Ribermold** (311b4a7d-7207-8160-8fb5-c78a234d8f76): Apr 9 -- Filipe confirmed quote next week.
+- **TransPak** (311b4a7d-7207-817c-9db0-e61e06db9e4e): Apr 9 -- Kevin requested PVT samples, Andre replied.
+- **Lihua** (311b4a7d-7207-8194-9b5c-d53388120e4a): Apr 9 -- Jessica Mind/Move clarification, Andre explained.
+
+### Coverage Audit & Config Updates
+
+#### slack-channels.md
+- Added 4 people to DM scan: Kevin Wang (U02L4KTU1CH), Marta Valente (U094DN98DL1), Andreia Gomes (U01TACJ5SLB), Mariana Peixoto (U05F4TU91L0).
+- Added 2 channels: #m-band_sourcing (C08170ETSKG), #pulse-isc (C0905Q7SFU2).
+- Added 1 Group DM: André/Jorge/Miguel/Gustavo M-Band sourcing (C0AGZ2WNUEM).
+
+#### domains.md
+- Added GAOYI domains: gaoyipp.com + hondaholdings.com (alt). Added to M-Band Gmail filter.
+- Added Second Page Yoga alt domain: secondpagetech.com. Added to Kaia Gmail filter.
+
+#### warm-up.md
+- Added Phase 3b: Sent Email Scan. Auto-scans André's sent emails at session start to catch outreach not logged in Notion.
+
+### Log-Sent
+
+#### Outreach Entries Written
+- **Transtek Medical** (311b4a7d-7207-8110): Apr 9 -- New branding thread, SQA shared with Legal, packaging guidelines requested.
+- **Vangest** (311b4a7d-7207-8176): Apr 9 -- Acknowledged revised quote, internal analysis pending.
+
+#### Samples Status Updated
+- **Unique Scales** (311b4a7d-7207-8130-9be9-cfcfa4254f1e): Samples Status "Requested" -> "Label Sent" (DHL label sent Apr 9).
+
+#### Gmail Draft Created
+- **Unique Scales** (huangchunlian@lefu.cc): Follow-up asking when samples will ship. Thread: 19d1b46a2fd4a11b. Draft ID: r-2935969466602757389.
+
 #### DB Fields Fixed (AUTO)
 - **Falcon Electronica** (313b4a7d-7207-812b-aa29-ff2dd1a43a72): Currency set to EUR (EU/Spain supplier).
 - **Sanmina** (313b4a7d-7207-8158-aaf8-d24fa128719c): Currency set to USD (US supplier).
