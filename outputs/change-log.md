@@ -2,6 +2,21 @@
 
 ## 2026-04-10
 
+### Open Items — Triage (Apr 10 EOD)
+
+#### Closed
+- **EVALUATE: Samples**: Closed. Primary suppliers selected Apr 8. Resolution logged.
+
+#### Deadlines Updated
+- **SOURCE: Yoga mat alternatives**: Deadline extended Mar 20 → May 1.
+- **DECIDE: Yoga mat thickness**: Deadline set Apr 15. Note: follow up with Max if no response by then.
+
+#### Status → Blocked (critical path to PO)
+- Legal/Finance PLD alignment, Transtek Finance onboarding, Unique Scales Finance onboarding, Transtek SCA, Unique Scales SCA, Transtek Zip (Mika access)
+
+#### Status → In Progress
+- Pulse packaging artwork: Marta Valente engaged.
+
 ### Late Evening Session (post-23h)
 
 #### Open Items DB — Pulse Backfill
