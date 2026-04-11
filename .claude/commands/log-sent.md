@@ -46,6 +46,23 @@ Log all writes to outputs/change-log.md.
 
 If an email was sent to a supplier not in any Notion DB, flag it (may need DB entry created first).
 
+## Phase 5b: OI Cross-Reference
+
+For each supplier where an Outreach entry was written in Phase 5, query the Open Items DB (OI_DB from .claude/config/databases.md) for open OIs linked to that supplier (Status != 'Closed').
+
+For each open OI found, check whether the email content is relevant:
+- New information that updates the OI context
+- A blocker partially or fully resolved
+- A commitment made by André or the supplier
+- A status change implied by the email
+
+If relevant: propose a Context prepend (dated entry at top, per OI discipline in CLAUDE.md Section 4d).
+If not relevant: skip silently.
+
+**Write permissions:** OI Context updates require André's approval (SHOW BEFORE WRITE). Present all proposed updates grouped after the Outreach write summary. Wait for approval before writing.
+
+If no open OIs exist for a supplier, skip silently — do not flag.
+
 ## Output Format
 
 Table per project:
@@ -54,3 +71,5 @@ Table per project:
 Then the full proposed entries below the table.
 Use the actual sent email content (not the draft), since Andre may have edited manually.
 One outreach entry per email thread per day (consolidate if multiple in same thread same day).
+
+After Outreach writes: present any proposed OI Context updates for approval.

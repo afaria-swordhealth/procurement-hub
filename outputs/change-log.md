@@ -2,6 +2,39 @@
 
 ## 2026-04-11
 
+### supplier-comms — 2026-04-11 — Outreach + OI writes (auto-approved outreach, approved OI)
+- Transtek Medical (311b4a7d-7207-8110): Outreach — appended Apr 11 bullet (Mika completed all Zip vendor tasks, reply pending).
+- SHX Watch (311b4a7d-7207-8184): Outreach — appended Apr 11 bullet (sample pickup acknowledged, two-track approach confirmed).
+- A&D Medical (311b4a7d-7207-8131): Outreach — SKIPPED. Apr 11 entry already present (NDA sent to Brad Wiltz via Dropbox Sign).
+- Transtek OI — Finance vendor onboarding (33eb4a7d-7207-814d): Status Blocked → In Progress. Context prepended: Mika completed Zip tasks Apr 11.
+
+### notion-ops — 2026-04-11 — OI Triage (Pulse A&D + Urion)
+- A&D Medical — 7 biometrics OI (33eb4a7d-7207-81a4): Closed. UC-450BLE rejected, CF635BLE selected.
+- Urion — ESH/BHS certs OI (33eb4a7d-7207-81ee): Closed. Not a formal requirement.
+- Urion — EMC gaps U807/U81Y OI (33eb4a7d-7207-8149): Closed. Models deprioritized.
+- Urion — IEC 80601-2-30 U80K/U80M OI (33eb4a7d-7207-81c3): Closed. Models eliminated.
+- Urion — U807 IEC outdated OI (33eb4a7d-7207-8124): Closed. Device already FDA cleared.
+- Urion — U81Y IEC 60601-1-11 OI (33eb4a7d-7207-8107): Closed. U81Y eliminated.
+- Urion — CES freshly issued OI (33eb4a7d-7207-8162): Closed. Not proactively actionable.
+- Urion — U81Y LCD→LED OI (33eb4a7d-7207-81ea): Closed. U81Y eliminated.
+- A&D Medical — UA-651BLE no memory OI (33eb4a7d-7207-81f2): Context updated. Queued for Jill email.
+
+### system — 2026-04-11T09:35 — /log-sent procedure update
+- `.claude/commands/log-sent.md`: added Phase 5b (OI Cross-Reference). After writing Outreach entries, query open OIs for each supplier. Propose Context updates if email is relevant. Requires André's approval before writing.
+- `CLAUDE.md`: /log-sent step 7 added to match.
+
+### supplier-comms — 2026-04-11T09:30 — /log-sent
+- **Transtek Medical** (311b4a7d-7207-8110-83dc-ce0e90e4de5f): Outreach Apr 11 entry added (Zip 2FA troubleshooting sent to Mika).
+- **Xinrui Group / M-Band** (33fb4a7d-7207-8120-a2c6-cd8c6440d2c8): Outreach Apr 11 entry updated (scope focused after Asher reply, housings + sheet metal confirmed, straps/packaging deferred).
+
+### supplier-comms — 2026-04-11T08:50 — /log-sent
+- Unique Scales: Apr 11 entry (Zip reg started, company details sent)
+- A&D Medical: Apr 11 entry (NDA sent to Brad Wiltz via Legal)
+- Daxin Health: Apr 11 entry (T2D scope clarification, thread kept warm)
+- Xinrui Group: Apr 10 expanded (T2D reply) + Apr 11 entry (M-Band pivot)
+- Ullwin: Apr 10 entry (close-out, not selected)
+FLAG: Xinrui M-Band DB page creation pending André approval.
+
 ### notion-ops — 2026-04-11T00:30 — Context sync (wrap-up)
 
 Queried all 3 Supplier DBs (Pulse, Kaia, M-Band) and compared against context files.

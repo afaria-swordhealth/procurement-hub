@@ -1,12 +1,12 @@
 # Pulse Suppliers  - Context File
-# Last synced: 2026-04-11T00:30
+# Last synced: 2026-04-11T10:30
 
 ## Shortlisted (2)  - PO Authorization Confirmed Apr 8
-- **Transtek Medical**  - MANUFACTURER (Zhongshan, CN). BP cuff BB2284-AE01. $19.20 FOB ZS @5K (Std), XS $20.70, XL $22.70. LT 12-16 wk. ~200 units in 40-45 days off-shelf. FDA DXN K241351. SDK received. Samples delivered Porto. PLD approach confirmed. Plan A/B timeline received Apr 9: Plan A (Sword artwork + physical GS) Jul 13, Plan B (Transtek artwork, no GS) Jun 29. Full-color box standard for PLD, +$0.30-$1.50/unit, +10-14 days packaging testing. Cuffs: no logos, remove TeleRPM only. Manual: change logo/company info, keep functional content/layout. Need PDF with Pantone codes.
+- **Transtek Medical**  - MANUFACTURER (Zhongshan, CN). BP cuff BB2284-AE01. $19.20 FOB ZS @5K (Std), XS $20.70, XL $22.70. LT 12-16 wk. ~200 units in 40-45 days off-shelf. FDA DXN K241351. SDK received. Samples delivered Porto. PLD approach confirmed. Plan A/B timeline received Apr 9: Plan A (Sword artwork + physical GS) Jul 13, Plan B (Transtek artwork, no GS) Jun 29. Full-color box standard for PLD, +$0.30-$1.50/unit, +10-14 days packaging testing. Cuffs: no logos, remove TeleRPM only. Manual: change logo/company info, keep functional content/layout. Need PDF with Pantone codes. Zip vendor tasks completed Apr 11 (confirmed via Zip #3139 + Mika email). Finance onboarding OI → In Progress.
 - **Unique Scales**  - MANUFACTURER (Shenzhen). BIA scale CF635BLE dual-freq selected. $8.76 FOB SZ @20K. LT 35-40 days. FDA FRI+PUH. SDK received. BLE name "SWORD_PULSE". Dual-freq upgrade in progress. Proforma requested Apr 8. DHL shipping label sent Apr 9 (to Kenny + Li Qiong). Die-line files received Apr 9 (sticker, carton, inner box, user manual). Invoice confirmed. Outreach reordered chronologically. Resolved OIs cleaned up. DHL label outreach logged.
 
 ## Shortlisted (1)  - Fallback
-- **A&D Medical**  - MANUFACTURER (Japan/US). BP UA-651BLE + Scale UC-450BLE. $18.00 LANDED. FDA DXN+PUH. BLP/WSP Native. US stock available. NDA signed (Kyle confirmed Apr 8). Legal to send via Dropbox Sign to Brad Wiltz. Notes updated (audit: "NDA signed"). Outreach reordered + archive toggle (Feb-Mar 2026). NDA OI closed.
+- **A&D Medical**  - MANUFACTURER (Japan/US). BP UA-651BLE + Scale UC-450BLE. $18.00 LANDED. FDA DXN+PUH. BLP/WSP Native. US stock available. NDA signed (Kyle confirmed Apr 8). NDA sent to Brad Wiltz via Dropbox Sign Apr 11 (Sword Legal). Execution pending. Notes updated (audit: "NDA signed"). Outreach reordered + archive toggle (Feb-Mar 2026). NDA OI closed.
 
 ## Quote Received (1)
 - **Urion Technology**  - MANUFACTURER (Shenzhen). BP cuffs U807/U80K/U80M $9.90-$12.00, U81Y $13.00 FOB SZ @20K. FDA DXN. LT 30-35 days (+5-7 days for first branded order). Samples delivered Porto. Custom sample shipping ~Apr 22. Miki confirmed Apr 9: payment received, sample specs aligned. Apr 10: keep-warm sent — protocol integration review to proceed once custom evaluation sample received. ⚠️ STRATEGIC BACKUP: Urion LT ~5-6 weeks branded vs Transtek 12-16 weeks. Keep warm pending custom sample delivery.

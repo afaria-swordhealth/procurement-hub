@@ -1,9 +1,9 @@
 # M-Band Suppliers  - Context File
-# Last synced: 2026-04-11T00:30
+# Last synced: 2026-04-11T10:30
 
 ## Quote Received (4)
 - **Vangest**  - Plastic Housings. Revised quote Apr 9 analyzed. EUR 3.080/unit @300k + EUR 429,850 tooling (9 molds). Sub-page created in Notion: "Quote -- 9 Apr 2026 (Revised)". DFM updates: 5 parts redesigned, 2K moulding for 2 parts. Tooling amortized: EUR 1.43/unit @300k. Quote valid until Apr 14. NDA executed.
-- **SHX Watch**  - Straps. ~$1.36/strap MP (200k+/yr). Currency USD. Pull force confirmed (>70N). Stock samples approved for shipment Apr 9. DHL label sent Apr 10, pickup Apr 11 ~10:00 AM China time. Custom straps in parallel. Outreach archived (Feb-Mar 30).
+- **SHX Watch**  - Straps. ~$1.36/strap MP (200k+/yr). Currency USD. Pull force confirmed (>70N). Stock samples picked up Apr 11. Custom similar-to-design straps in parallel (work initiated Apr 11). Outreach archived (Feb-Mar 30).
 - **MCM**  - Sheet Metal. Quote received Apr 10 (OR-050/26): EUR 0.113/unit, EUR 33k NRE, 12wk LT, FCA-MCM. Flags: flatness 0.05mm to discuss, raw material AISI 301+C1000 proposed as alternative. Sub-page created: "Quote -- 10 Apr 2026". NDA executed.
 - **GAOYI**  - Packaging. Honda Printing Holdings group (website hondaholdings.com confirmed correct). Quote received Apr 9. Follow-up sent Apr 10 with 6 open questions (MOQ, LT, tooling, NET45, NRE, Rigid Box breakout). Sub-page created: "Quote -- 9 Apr 2026". NDA executed.
 
@@ -17,7 +17,8 @@
 ## Engaged (1)
 - **Quantal**  - Sheet Metal. NDA signed by Quantal Apr 10, awaiting Sword Legal countersign (Bradley). Too early for another follow-up.
 
-## Contacted (3)
+## Contacted (4)
+- **Xinrui Group**  - Plastic Housings + Sheet Metal. OEM (China), 21y experience. First contact Apr 11 on M-Band scope. Packaging + straps to probe after capability reply. NDA pending.
 - **Falcon Electronica**  - PCBAs. Via Manuel Beito. No NDA yet.
 - **Sanmina**  - PCBAs. No contact established.
 - **Electronica Cerler**  - PCBAs. Via Manuel Beito. No NDA yet.

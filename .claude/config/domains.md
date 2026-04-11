@@ -56,6 +56,16 @@
 | sanmina.com | Sanmina | Contacted |
 | 3dways.pt | 3DWays | Rejected |
 | keenfinity.com | Keenfinity | Inactive - not in Gmail filters |
+| xrmould.com | Xinrui Group | Contacted (M-Band) |
+
+## Internal Platforms
+
+| Domain | Platform | What it signals |
+|--------|----------|-----------------|
+| swordhealth.ziphq.com | Zip (NDA + onboarding portal) | NDA status updates, supplier onboarding flow steps, budget requests |
+| swordhealth.atlassian.net | Jira | Shipping requests only — filter by Gmail label "ISC Shipping" |
+
+Scan these alongside supplier emails in /mail-scan. Notifications from these domains may indicate NDA execution, onboarding progress, or contract milestones that need OI updates.
 
 ---
 
@@ -69,8 +79,14 @@ Only active suppliers (not Rejected or Inactive) are included in Gmail filter pa
 
 ### Base filters (always apply)
 ```
-EXCLUDE: -from:a.faria@swordhealth.com -from:notifications@swordhealth.ziphq.com -from:noreply -from:no-reply -category:promotions -category:social
+EXCLUDE: -from:a.faria@swordhealth.com -from:noreply -from:no-reply -category:promotions -category:social
 ```
+
+### Internal platform filters (always include)
+```
+from:swordhealth.ziphq.com OR (from:swordhealth.atlassian.net label:ISC-Shipping)
+```
+Note: All Zip emails are relevant. Jira: only emails André labelled "ISC Shipping" (sample shipment requests).
 
 ### Andre's sent emails (always scan separately)
 ```
@@ -83,7 +99,7 @@ Pulse: from:(transtekcorp.com OR lefu.cc OR urionsz.com OR andonline.com OR andm
 
 Kaia: from:(tigerfitness.net.cn OR proimprint.com OR secondpageyoga.com OR secondpagetech.com OR 4imprint.com)
 
-M-Band: from:(conkly.com OR jxwatchband.com OR watchstrapbands.com OR ribermold.pt OR vangest.com OR uartronica.pt OR mcm.com.pt OR quantal.pt OR transpak.com OR shxwatch.com OR lihuadirect.com OR sanmina.com OR gaoyipp.com OR hondaholdings.com)
+M-Band: from:(conkly.com OR jxwatchband.com OR watchstrapbands.com OR ribermold.pt OR vangest.com OR uartronica.pt OR mcm.com.pt OR quantal.pt OR transpak.com OR shxwatch.com OR lihuadirect.com OR sanmina.com OR gaoyipp.com OR hondaholdings.com OR xrmould.com)
 ```
 
 ### Deep scan mode (for /mail-scan --deep)

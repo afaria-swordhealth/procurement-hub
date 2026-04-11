@@ -139,6 +139,7 @@ Does NOT touch: Email content, pricing strategy, test methodology.
 4. Filter for milestones only (see supplier-comms.md Outreach Policy)
 5. Write milestone entries directly to Notion (no approval needed for outreach)
 6. Log to outputs/change-log.md
+7. For each supplier where an Outreach entry was written, query open OIs linked to that supplier. If the email is relevant to any OI (new info, blocker update, commitment), propose Context prepend. Wait for André's approval before writing OI updates.
 
 ## /housekeeping
 Autonomous maintenance. Fixes what is mechanical, reports what needs judgment.
