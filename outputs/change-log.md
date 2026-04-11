@@ -2,6 +2,15 @@
 
 ## 2026-04-11
 
+### notion-ops — 2026-04-11T23:30 — /wrap-up
+- Context sync: pulse/suppliers.md, kaia/suppliers.md, mband/suppliers.md — timestamps updated to 23:30. Pulse: packaging path decision (Kevin air freight + Marta white/light grey box Plan B/C) added.
+- Daily Log Apr 11 created in Notion (33fb4a7d-7207-812c-a90b-feaab504ace7). Status: Draft. Week: W15.
+
+### supplier-comms — 2026-04-11T11:50 — /log-sent (auto-approved outreach)
+- Transtek Medical (311b4a7d-7207-8110): Outreach — appended Apr 11 entry (Finance next step confirmed to Mika). Archive extended to Apr 7 (3 entries moved in). 10 visible entries kept.
+- A&D Medical (311b4a7d-7207-8131): Outreach — appended Apr 11 entry (technical evaluation questions sent to Jill: memory storage, ISO 81060-2, multi-device, IFU).
+- Urion Technology (311b4a7d-7207-816c): Outreach — appended Apr 11 entry (technical evaluation questions sent to Miki: ISO 81060-2 results, K160019 scope, custom sample ETA). Apr 5 entry archived. 7 visible kept.
+
 ### supplier-comms — 2026-04-11 — Outreach + OI writes (auto-approved outreach, approved OI)
 - Transtek Medical (311b4a7d-7207-8110): Outreach — appended Apr 11 bullet (Mika completed all Zip vendor tasks, reply pending).
 - SHX Watch (311b4a7d-7207-8184): Outreach — appended Apr 11 bullet (sample pickup acknowledged, two-track approach confirmed).

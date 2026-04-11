@@ -5,7 +5,7 @@
 Last-Warm-Up: 2026-04-10T20:45 | Session: A
 Last-Mail-Scan: 2026-04-10T22:17
 Last-Log-Sent: 2026-04-10T20:55
-Last-Wrap-Up: —
+Last-Wrap-Up: 2026-04-11T23:30
 
 ## Active Sessions
 - Session A (operational): active
@@ -49,7 +49,13 @@ Bianca DM: awaiting SQA guidance reply.
 - Apr 14 14:30 — Pulse Weekly Meeting
 
 ## Pending Actions (awaiting André decision)
-- Paulo Alves callback on Transtek packaging confusion.
+- ⚠️ FIRST: Approve 5 OI updates from /log-sent Phase 5b (generated Apr 11 wrap-up, not yet written):
+    1. Transtek Zip OI `33eb4a7d-7207-81ba` → CLOSE (Zip tasks done Apr 11, Zip #3139 confirmed).
+    2. Transtek Finance onboarding OI `33eb4a7d-7207-814d` → context prepend (replied to Mika, awaiting Catarina Finance stakeholder).
+    3. A&D no-memory OI `33eb4a7d-7207-81f2` → context prepend (tech eval questions sent to Jill Apr 11).
+    4. Urion ISO 81060-2 OI `33eb4a7d-7207-81cb` → context prepend (re-requested from Miki Apr 11).
+    5. Urion K160019 scope OI `33eb4a7d-7207-811b` → context prepend (clarification re-requested from Miki Apr 11).
+- Paulo Alves: schedule 15 min Monday alignment (asked Apr 10 19:05).
 - Transtek Zip unblock — escalate to Zip admin if Rúben support fails.
 - Miguel — share Notion organization templates.
 - NPM1300 advance PO decision (by Apr 13 with Pedro Rodrigues).
