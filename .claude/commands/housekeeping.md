@@ -48,8 +48,23 @@ Using the same query results from Phase 2:
 Query Open Items DB (ID from .claude/config/databases.md, OI_DB) for items with Status != Closed.
 
 14. **AUTO-EXECUTE**: Close OIs linked to Rejected suppliers (resolution: "Supplier rejected, no longer relevant").
-15. **REPORT ONLY**: Flag overdue items (deadline passed).
-16. **REPORT ONLY**: Flag stale items (no update in 2+ weeks).
+15. **REPORT ONLY**: Flag overdue items (`"date:Deadline:start" < date('now')`).
+16. **REPORT ONLY**: Flag stale items — leading Context date >21 days old on active items. Single SQL query covers both overdue and stale:
+    ```sql
+    SELECT Item, Owner, Status,
+           "date:Deadline:start" AS Deadline,
+           SUBSTR(Context, 1, 10) AS LastUpdate,
+           CASE WHEN "date:Deadline:start" < date('now') THEN 'overdue' ELSE NULL END AS OverdueFlag,
+           CASE WHEN Context IS NOT NULL AND SUBSTR(Context, 1, 10) < date('now', '-21 days') THEN 'stale' ELSE NULL END AS StaleFlag
+    FROM "collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0"
+    WHERE Status != 'Closed'
+      AND (
+        "date:Deadline:start" < date('now')
+        OR (Context IS NOT NULL AND SUBSTR(Context, 1, 10) < date('now', '-21 days'))
+      )
+    ORDER BY Deadline ASC
+    ```
+    Uses the "leading date" convention from CLAUDE.md §4d (OI Context starts with `YYYY-MM-DD:`).
 17. **REPORT ONLY**: Propose closures for items that appear resolved (present reason, do not write).
 
 ## Phase 5: Context Drift Check (REPORT ONLY)
@@ -94,7 +109,8 @@ OIs CLOSED:
 === NEEDS YOUR DECISION ===
 
 OPEN ITEMS:
-- Overdue: [item] (deadline [date])
+- Overdue: [item] (deadline [date], owner [name])
+- Stale: [item] (last update [date], >21d)
 - Propose close: [item] (reason)
 
 CONTEXT DRIFT:
