@@ -1,5 +1,39 @@
 # Change Log
 
+## 2026-04-13
+
+### notion-ops — 2026-04-13T17:00 — /wrap-up
+- Context sync: pulse/suppliers.md (16:30), mband/suppliers.md (17:00), kaia/suppliers.md (17:00).
+- Pulse: WHITE BOX confirmed, Zip #3139/#3145 Rúben approved, Sofia Lourenço added, Key Decisions Apr 13 section added.
+- M-Band: Xinrui NDA sent, Ribermold meeting request, Quantal NDA forwarded, Sanmina OI closed, Vangest quote OI closed.
+- Daily Log Apr 13 created in Notion.
+
+### notion-ops — 2026-04-13T16:00 — OI cleanup (approved by André)
+- Transtek Zip unblock (33eb4a7d-7207-81ba): Closed.
+- Quantal NDA (33eb4a7d-7207-81b8): Closed (forwarded to Bradley).
+- Vangest quote (33eb4a7d-7207-81d1): Closed (validity expired, no action needed).
+- Urion K160019 (33eb4a7d-7207-811b): Closed (standard large cuff accessory, not relevant).
+- Urion GAP 1 (33eb4a7d-7207-81cb): Closed (backup supplier, not worth pursuing).
+- Full-color box (33eb4a7d-7207-8172): Closed (white box decision supersedes).
+- Sanmina (33eb4a7d-7207-81dd): Closed (no contact established).
+- A&D Memory (33eb4a7d-7207-81f2-b238): Closed (Jill confirmed 300 readings).
+- A&D White-label (33eb4a7d-7207-817d): Closed (Jill confirmed capability).
+- Xinrui NDA (33fb4a7d-7207-813e): Context prepend, NDA draft sent Apr 13.
+- Transtek SQA (33eb4a7d-7207-81d7): Context prepend, Sofia Lourenço added to project.
+- Unique Scales SQA (33eb4a7d-7207-81ee): Context prepend, Sofia Lourenço added to project.
+- Transtek Finance (33eb4a7d-7207-814d): Context prepend, Zip #3139 Rúben approved.
+- Unique Scales Finance (33eb4a7d-7207-8161): Status Blocked → In Progress, Queenie sent all data.
+
+### supplier-comms — 2026-04-13T13:30 — /mail-scan
+- 8 incoming emails scanned. Recommendations: Urion (Log), A&D (Log), Ribermold (Log), Zip x2 (Log), Queenie (Draft Reply), Mika ack (Ignore), Lihua (Ignore).
+- Note: Outreach entries for Urion, A&D, Ribermold NOT written this session (Gmail MCP broke before /log-sent could execute during wrap-up).
+
+## 2026-04-12
+
+### supplier-comms — 2026-04-12T10:20 — /log-sent
+- Xinrui Group M-Band (33fb4a7d-7207-8120): Outreach Apr 11 entry consolidated — updated "NDA next step" → "NDA initiated with Sword Legal" (André's 11:52 email, same thread, same day as previous entry).
+- Daxin Health: Apr 12 email to Kerry (T2D glucometers) — SKIPPED. Rejected supplier, no T2D DB in hub. Apr 11 entry already logged.
+
 ## 2026-04-11
 
 ### notion-ops — 2026-04-11T23:30 — /wrap-up
