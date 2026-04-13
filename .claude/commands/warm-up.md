@@ -15,10 +15,10 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 1. Read all 3 context files (pulse, kaia, mband suppliers.md). Paths listed in .claude/config/databases.md.
 2. Flag any context file older than 24h (may be stale, suggest /cross-check).
 
-### Phase 2: Pending Items from Yesterday
-3. Read outputs/promises.md. Surface every open promise in the briefing, flagged by overdue/due-today/upcoming. This is the FIRST thing Andre sees.
-4. Fetch yesterday's daily log from Notion (Daily Logs DB, see .claude/config/databases.md). Extract any open actions or items marked as pending.
-5. Query Open Items DB (see .claude/config/databases.md) for items with Status != Closed, sorted by Deadline ascending. Surface overdue + due today at the top of the briefing alongside promises. Flag any OI with stale Context (no update >14 days on active items).
+### Phase 2: Decision Queue + Promises
+3. Run the Decision Queue render per `.claude/procedures/decision-queue-render.md`. This is the FIRST thing Andre sees: OIs grouped by Overdue / Today / This week / Blocked, with inline stale flag (⚠ stale if leading Context date >21d old on overdue or blocked items).
+4. Read outputs/promises.md. Surface every open promise immediately after the Decision Queue, flagged by overdue/due-today/upcoming. If a promise has an `OI` reference, note it inline so André doesn't process the same item twice.
+5. Fetch yesterday's daily log from Notion (Daily Logs DB, see .claude/config/databases.md). Extract any open actions or items marked as pending that are NOT already surfaced in the Decision Queue.
 6. Check outputs/change-log.md for yesterday's last entries (what was the last thing done?).
 
 ### Phase 3: Email Scan (Incoming)
@@ -71,13 +71,14 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 ## Output Format
 
 Single briefing, organized by:
-1. CARRY-OVER: Items from yesterday still open
-2. OVERNIGHT: Results from automated housekeeping/cross-check (if any)
-3. NEW: Emails (incoming + sent not logged), Slack messages, notifications since last session
-4. TODAY: Meetings and deadlines
-5. PRIORITIES: Top 3 recommended actions for today
-6. MAINTENANCE: Unpushed commits, context staleness
-7. SESSION: Crons started (mail-scan every 2h, log-sent every 3h)
+1. DECISION QUEUE: Overdue / Today / This week / Blocked (from OI DB, grouped)
+2. PROMISES: Open commitments from promises.md
+3. OVERNIGHT: Results from automated housekeeping/cross-check (if any)
+4. NEW: Emails (incoming + sent not logged), Slack messages, notifications since last session
+5. TODAY: Meetings and deadlines
+6. PRIORITIES: Top 3 recommended actions for today
+7. MAINTENANCE: Unpushed commits, context staleness
+8. SESSION: Crons started (mail-scan every 2h, log-sent every 3h)
 
 ## Rules
 - Read-only. No writes until Andre approves actions from the briefing.

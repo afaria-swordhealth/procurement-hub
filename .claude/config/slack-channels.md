@@ -11,6 +11,7 @@
 | Paulo Alves | PM, Pulse | U04CXBXFBUK |
 | Pedro Pereira | Engineering (BLE/SDK) | U025EUN4JRL |
 | Bianca Lourenco | Regulatory Affairs | U02B333KWCW |
+| Sofia Lourenço | Expert Quality Systems Engineer | U044W9SFLAE |
 | João Quirino | Director QA/Regulatory | U06C7Q2PDQE |
 | Max Strobel | Director Engineering, Kaia PM | U0AAQKPS267 |
 | Gustavo Burmester | NPI Engineering Manager | U03PB7X8HL2 |
