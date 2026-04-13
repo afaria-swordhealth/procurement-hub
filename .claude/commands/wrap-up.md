@@ -32,7 +32,9 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
    - If no: compile from today's mail-scan results, approved actions, and change-log entries. Present draft for approval.
 
 ### Phase 4: Commit and Push
-10. After daily log is approved and pushed to Notion, run:
+10. After daily log is approved and pushed to Notion:
+    a. Clear outputs/change-log.md — keep only the header lines (# Change Log, policy comment, and today's date heading). Remove all entries from today (they are now in git). This resets the file for tomorrow.
+    b. Run:
     git add context/ outputs/ CLAUDE.md .claude/agents/ .claude/commands/ .claude/config/*.md .claude/procedures/
     git commit -m "EOD [date]: context synced, daily log complete"
     git push

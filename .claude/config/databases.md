@@ -51,16 +51,38 @@ Use notion-query-data-sources with SQL format:
 SELECT {columns} FROM "{collection_id}" [WHERE {filter}]
 ```
 
+### Known DB Schemas (use these for direct queries — no schema discovery needed)
+
+**Supplier DBs (Pulse / Kaia / M-Band):**
+```
+Name, Status, Notes, Currency, Region, "NDA Status", "Samples Status", id, url
+```
+
+**Open Items DB:**
+```
+Item, Status, Type, Owner, "date:Deadline:start", Context, Resolution, Project, Supplier, id, url
+```
+
+**Daily Logs DB:**
+```
+title, Status, Week, Date, Highlights, id, url, createdTime
+```
+Note: `Date` is a plain string field (e.g. "2026-04-13"), not a date object. Filter with `WHERE Date = '2026-04-13'` or use `ORDER BY createdTime DESC LIMIT 1`.
+
+**Test Reviews DB:**
+```
+Name, Status, id, url
+```
+
 ### Common column sets by caller
 
-| Caller | Columns |
+| Caller | Columns to SELECT |
 |--------|---------|
-| daily-log | Name, Status, Notes (modified today) |
-| weekly-report | Name, Status, + price fields per project |
-| audit | Name, Status, Notes, Contact, NDA Status, Samples Status |
-| housekeeping | Name, Status, Notes, Currency, NDA Status, Region |
-| price-compare | All price-related fields |
-| wrap-up | All fields (for context sync) |
+| context-sync (wrap-up) | Name, Status, Notes, "NDA Status", "Samples Status", id |
+| daily-log check | title, Date, Status, id, createdTime |
+| OI triage | Item, Status, Type, Owner, "date:Deadline:start", id |
+| housekeeping | Name, Status, Notes, Currency, "NDA Status", Region |
+| price-compare | Name, Status, Notes (contains pricing) |
 
 ## Error Handling
 

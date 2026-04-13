@@ -26,7 +26,7 @@ Read .claude/config/domains.md for domain lists and Gmail patterns.
 ### 3. For each email found
 - Extract: sender, recipient, subject, date, snippet
 - Query matching Notion supplier page for context (status, last outreach, open items)
-- Use notion-query-data-sources with SQL (see config/databases.md for collection IDs)
+- Use notion-query-data-sources with SQL. Use known schemas from config/databases.md (DB Schemas section) — do NOT do a SELECT * schema discovery step first. Query directly with targeted columns.
 
 ### 4. Classify each email
 - **Log**: milestone worth recording in Outreach (see procedures/check-outreach.md)

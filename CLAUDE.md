@@ -203,9 +203,14 @@ This file is the shared context between sessions. It is written by /warm-up and 
 
 | Last-Warm-Up age | Action |
 |---|---|
-| < 2h | Load context snapshot. Skip full warm-up. Run delta scan only (emails + Slack since timestamp). |
-| 2–8h | Load context snapshot. Run delta scan before responding. |
+| < 2h | Use context snapshot directly. Do NOT re-read context files or query Notion for supplier state. Run delta scan only (emails + Slack since timestamp). |
+| 2–8h | Use context snapshot as baseline. Run delta scan before responding. Re-read context files only if the task requires supplier detail not in the snapshot. |
 | > 8h or missing | Full warm-up required. |
+
+**Context file loading rule (token efficiency):**
+- Load only the context file for the project the current task relates to.
+- Load all 3 files only during /warm-up, /wrap-up, or /cross-check (which explicitly require full state).
+- If a task spans 2 projects, load both. If unclear, load the most likely one and note it.
 
 **Commands that update session-state.md:**
 - /warm-up: full rewrite (all sections)
@@ -301,13 +306,14 @@ questions or ad-hoc tasks, follow these before responding:
 2. Read context/pulse/suppliers.md for device context
 
 ### For any request, always:
-- Read outputs/session-state.md first (if it exists). If Last-Warm-Up < 2h, use context snapshot and skip redundant fetches. If 2–8h, use as baseline but run a delta scan. If >8h, suggest /warm-up.
+- Read outputs/session-state.md first (if it exists). If Last-Warm-Up < 2h, use context snapshot and do NOT re-read context files. If 2–8h, use as baseline but run a delta scan. If >8h, suggest /warm-up.
 - When drafting an email or committing to an action with a human (supplier or internal), add an entry to outputs/promises.md with who/what/due. When a promise is fulfilled, move it to the Resolved section.
-- Check which project it relates to (Pulse, Kaia, M-Band)
-- Load the relevant context/{project}/suppliers.md
+- Check which project it relates to (Pulse, Kaia, M-Band).
+- Load context/{project}/suppliers.md ONLY for the relevant project. If session-state is <2h old, skip this — use the snapshot instead.
 - Check the "Last synced" header in context/{project}/suppliers.md files. If >48h old, warn Andre and suggest running /wrap-up first.
-- Follow the writing style rules (no em dashes, short sentences, EN in Notion)
-- Log any Notion writes to outputs/change-log.md
+- Follow the writing style rules (no em dashes, short sentences, EN in Notion).
+- Log any Notion writes to outputs/change-log.md.
+- Change-log is a rolling daily file. It contains only today's entries. History is in git log.
 
 ---
 
