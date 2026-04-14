@@ -46,24 +46,64 @@ Rationale for WHERE: show items André owns directly, items handed off but still
 ## Decision Queue
 
 ### Overdue (N)
-- **<Item>** — <Owner> · due <Deadline> · <bucket-days>d late
+- **<Item>** · due <Deadline> · <N>d late
   _<CtxPreview first sentence>_
 ...
 
 ### Today (N)
-- **<Item>** — <Owner> · due today
+- **<Item>** · due today
   _<CtxPreview first sentence>_
 ...
 
 ### This week (N)
-- **<Item>** — <Owner> · due <Deadline>
+- **<Item>** · due <Deadline>
 ...
 
 ### Blocked (N)
-- **<Item>** — <Owner> · blocked since <last Context date>
+- **<Item>** · blocked <N>d
   _<CtxPreview first sentence>_
 ...
 ```
+
+## Owner display rule
+
+Omit Owner entirely when it is `André Faria` or `André` — the Decision Queue is already filtered to items André is chasing, so the tag is redundant and adds visual noise.
+
+**Show Owner only when:**
+- It's a handoff chain (`André → Bradley / Legal`, `André → Jorge`) — surfaces who currently holds the ball.
+- It's a real external owner (`Max Strobel`, `Pedro Rodrigues`, `Sword Legal`) — useful context when André is waiting on someone.
+
+Format when shown: append `· <Owner>` at the end of the line (after the deadline/age).
+
+## Grouping rule for `This week` (> 5 items)
+
+When the `week` bucket has more than 5 items, collapse by date instead of one item per line. This keeps the section scannable.
+
+Format:
+```
+### This week (10)
+- **Apr 15**: Transtek SDK review (Pedro), Kaia samples feedback (Max), Transtek SQA template (Bianca)
+- **Apr 17**: Cerler contact (Manuel Beito, mtg Thu), JXwearable plug, ...
+- **Apr 18**: MCM AISI 301, Kaia freight (Fernando), Tiger DDP, ...
+```
+
+Each Item is abbreviated to just its distinctive noun phrase; a non-André owner in parens when relevant. No Context preview in collapsed mode.
+
+If `week` bucket has ≤ 5 items, use the standard one-line-per-item format.
+
+Overdue, Today, and Blocked never collapse — they are high-priority, full detail always.
+
+## Blocked — "blocked since" calculation
+
+For each item in the Blocked bucket, compute days-since-last-update using the leading Context date:
+
+```sql
+CAST(julianday('now') - julianday(SUBSTR(Context, 1, 10)) AS INTEGER) AS BlockedDays
+```
+
+Render as `· blocked <N>d`. If Context is null or doesn't start with a valid date, show `· blocked (unknown)`.
+
+**Known gap:** several legacy Blocked items do not follow the `YYYY-MM-DD:` leading-date convention (CLAUDE.md §4d). Those will show `(unknown)` until their Context is updated. Don't backfill retroactively — let the convention apply as each OI is touched.
 
 ## Limits
 

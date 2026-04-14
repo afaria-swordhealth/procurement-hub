@@ -22,6 +22,7 @@ The tool runs SQLite on Notion's projected schema. Below: what works, how to use
 | `LIKE '%...%'` | works with Unicode (e.g. `LIKE '%André%'`) |
 | Parameterized queries (`?` + `params`) | safer than string concat |
 | Date helpers | `date('now')`, `date('now', '+7 days')`, `date('now', '-21 days')` |
+| `julianday()` for day arithmetic | `CAST(julianday('now') - julianday(SUBSTR(Context, 1, 10)) AS INTEGER)` returns integer days between dates |
 
 ---
 
