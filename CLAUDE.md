@@ -150,7 +150,8 @@ Uses shared configs (.claude/config/) and procedures (.claude/procedures/) for a
 4. Open Items: close OIs for Rejected suppliers (AUTO). Flag overdue/stale/resolved (REPORT)
 5. Context drift: compare context files vs Notion state, flag drift (REPORT)
 6. Unanswered emails: flag suppliers with >48h unanswered (REPORT)
-7. Output: single report with "AUTO-EXECUTED" and "NEEDS YOUR DECISION" sections.
+7. Autoclean scan lists: prune entries in slack-channels.md and domains.md with no activity >21d (AUTO). See .claude/procedures/autoclean-scan-lists.md.
+8. Output: single report with "AUTO-EXECUTED" and "NEEDS YOUR DECISION" sections.
 
 ## /warm-up
 Start of day routine. Load context, review pending items, scan emails, prepare priorities. See .claude/commands/warm-up.md.

@@ -1,21 +1,19 @@
 # M-Band Suppliers  - Context File
-# Last synced: 2026-04-13T17:00
+# Last synced: 2026-04-14T19:30
 
-## Quote Received (4)
-- **Vangest**  - Plastic Housings. Revised quote Apr 9 analyzed. EUR 3.080/unit @300k + EUR 429,850 tooling (9 molds). Sub-page created in Notion: "Quote -- 9 Apr 2026 (Revised)". DFM updates: 5 parts redesigned, 2K moulding for 2 parts. Tooling amortized: EUR 1.43/unit @300k. Quote validity expired Apr 14, OI closed. NDA executed.
-- **SHX Watch**  - Straps. ~$1.36/strap MP (200k+/yr). Currency USD. Pull force confirmed (>70N). Stock samples picked up Apr 11. Custom similar-to-design straps in parallel (work initiated Apr 11). Outreach archived (Feb-Mar 30).
-- **MCM**  - Sheet Metal. Quote received Apr 10 (OR-050/26): EUR 0.113/unit, EUR 33k NRE, 12wk LT, FCA-MCM. Flags: flatness 0.05mm to discuss, raw material AISI 301+C1000 proposed as alternative. Sub-page created: "Quote -- 10 Apr 2026". NDA executed.
-- **GAOYI**  - Packaging. Honda Printing Holdings group (website hondaholdings.com confirmed correct). Quote received Apr 9. Follow-up sent Apr 10 with 6 open questions (MOQ, LT, tooling, NET45, NRE, Rigid Box breakout). Sub-page created: "Quote -- 9 Apr 2026". NDA executed.
+## Quote Received (5)
+- **Vangest**  - Plastic Housings. Revised quote Apr 9 analyzed. EUR 3.080/unit @255k + EUR 429,850 tooling. Quote consolidated inline in supplier page Apr 14 (sub-pages [MERGED]). DB fields: EUR 3.080 / 429,850. Quote validity expired Apr 14, OI closed. NDA executed.
+- **SHX Watch**  - Straps. ~$1.36/strap MP (200k+/yr). Currency USD. Pull force confirmed (>70N). Stock samples picked up Apr 11. Custom samples in progress. Quote already inline. DB fields: EUR 1.250 / 0 (⚠️ tier @200K, not @5K — mismatch flag).
+- **MCM**  - Sheet Metal. Quote Apr 10 (OR-050/26): €0.113/unit, €33k NRE, 12wk LT, FCA-MCM. Consolidated inline Apr 14 (sub-page [MERGED]). DB fields: €0.113 / 33,000. Flags: flatness 0.05mm, AISI 301+C1000 alternative. NDA executed.
+- **GAOYI**  - Packaging. Honda Holdings group. Quote Apr 9 (updated Apr 13): $0.803/set @5K. Consolidated inline Apr 14 (sub-page [MERGED]). DB fields: €0.739 / 143 (FX 0.92). Re-quote sent Apr 14 for 20/25/50/200K tiers (due Apr 21). NDA executed.
+- **Lihua**  - Packaging. Quote Apr 13: $0.994/set @5K (Rigid Box Lid row = bundle per quote note 6). Consolidated inline Apr 14, bug fixed (Base/Trays no longer TBC). DB fields: €0.915 / 0 (existing tooling). Re-quote sent Apr 14 for 25/50/200K tiers (20K already given; due Apr 21). ⚠️ Outreach still flagged "on hold — confirm with Jorge" in Notion.
 
 ## RFQ Sent (5)
 - **Ribermold**  - Plastic Housings. Filipe replied Apr 9: finalizing offers, quote expected next week. Filipe requested meeting Apr 13. NDA executed.
-- **TransPak**  - Packaging. Quote in progress with SE Asia team (Kevin acknowledged Apr 7). NDA executed. ⚠️ Nimbl SLC boxes needed before quote can be finalized (3 sample boxes).
-- **JXwearable**  - Straps. Currency set to USD (audit). Daisy plug update Apr 8, quotation next week. NDA executed.
+- **TransPak**  - Packaging. Quote in progress with SE Asia team (Kevin acknowledged Apr 7). Apr 14: plain white box sent to Kevin for packaging reference (IFU excluded). NDA executed. ⚠️ Nimbl SLC boxes needed before quote finalized.
+- **JXwearable**  - Straps. Currency USD. Daisy plug update Apr 8, quotation next week. NDA executed.
 - **Uartronica**  - PCBAs. ~EUR 22.07/unit. NDA executed.
-- **Lihua Direct**  - Packaging. Active RFQ via Jessica Costa (Lihe group). M-Band proposal sent. NDA executed.
-
-## Engaged (1)
-- **Quantal**  - Sheet Metal. NDA signed by Quantal Apr 10, forwarded to Bradley Apr 13 for countersign. OI closed.
+- **Quantal**  - Sheet Metal. NDA fully executed Apr 14. RFQ package sent to Miguel Costa Apr 14.
 
 ## Contacted (4)
 - **Xinrui Group**  - Plastic Housings + Sheet Metal. OEM (China), 21y experience. First contact Apr 11 on M-Band scope. NDA draft sent Apr 13. Packaging + straps to probe after capability reply.
@@ -34,7 +32,13 @@
 - Currency set: Quantal/MCM/Ribermold/Vangest/Uartronica/Novares → EUR. TransPak/Lihua/GAOYI → USD.
 
 ## Summary
-- 26 suppliers total. 15 active, 10 rejected (CONKLY added Apr 10). 1 supplier added (GAOYI promoted from Identified).
-- 12 NDAs executed, 1 pending countersign (Quantal, forwarded to Bradley Apr 13).
+- 26 suppliers total. 15 active, 10 rejected.
+- 13 NDAs executed (Quantal confirmed fully executed Apr 14).
 - 5/5 part categories covered (Housings, PCBAs, Sheet Metal, Straps, Packaging).
-- Active strap pool: SHX Watch + JXwearable only (CONKLY eliminated).
+- Active strap pool: SHX Watch + JXwearable only.
+
+## Apr 14 updates
+- M-Band Unit Cost (EUR) + Tooling Cost (EUR) populated for 4 suppliers @5K ref tier (FX 0.92 USD→EUR).
+- Quote sub-pages consolidated inline on supplier pages (Lihua, GAOYI, MCM, Vangest). Sub-pages renamed [MERGED].
+- 2027 forecast = 200K combined Move+Mind sets. Re-quote sent to Lihua + GAOYI for 20/25/50/200K tiers (MCM on hold pending more quotes).
+- New config: .claude/config/fx-rates.md. New procedure: .claude/procedures/fill-cost-fields-on-quote.md.

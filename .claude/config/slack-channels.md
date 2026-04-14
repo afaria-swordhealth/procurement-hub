@@ -23,6 +23,7 @@
 | Andreia Gomes | Procurement Specialist | U01TACJ5SLB |
 | Mariana Peixoto | Associate to CSO | U05F4TU91L0 |
 | Caio Pereira | Kaia sourcing / global | U0777KPTBED |
+| Rúben Silva | Finance / Vendor onboarding (NetSuite) | D07T4UWB5LP |
 
 ## Group DMs
 
