@@ -49,15 +49,15 @@ Last Slack scan: 2026-04-15T10:10 (MCP down at wrap-up, not refreshed)
 - None logged (calendar MCP not available at wrap-up)
 
 ## Pending Actions (for tomorrow)
-- Send Sofia LoE relay message + SQA/labelling questions.
+- ✅ Sofia LoE relay sent (Apr 15 evening).
+- Mika Quality Agreement: André sharing file directly for Mika to fill in (not email).
 - Reply to Rodrigo (NetSuite access justification), pending Jorge/Collin input.
 - Answer Miguel on Ribermold follow-up (he or André?).
 - Reply to Artemis/J-Mold shipment confirm (Andreia OOO until Apr 27).
 - Chase Sónia Sousa (Avnet), overdue.
 - Chase Pedro Rodrigues NPM1300, overdue.
-- Send Kevin Wang weekly T2D check-in (missed Apr 15).
+- Chase Kevin Wang weekly T2D check-in (missed Apr 15).
 - Reply to Paulo's Apr 13 "no office?" DM.
-- Send Mika Quality Agreement info request (contacts, SKU, device ID). Draft ready.
 - Xinrui: send RFQ package once capability confirmed.
 - Daily log Apr 15 not pushed to Notion (MCPs down at wrap-up). Push on warm-up.
 
