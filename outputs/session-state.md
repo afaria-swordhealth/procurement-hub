@@ -5,7 +5,7 @@
 Last-Warm-Up: 2026-04-15T10:10 | Session: A
 Last-Mail-Scan: 2026-04-15T23:17
 Last-Log-Sent: 2026-04-15T23:53
-Last-Wrap-Up: 2026-04-15T23:59
+Last-Wrap-Up: 2026-04-16T23:59
 
 ## Active Sessions
 - No active sessions (wrapped up)
@@ -22,7 +22,11 @@ Last-Wrap-Up: 2026-04-15T23:59
 - Queenie (Unique): Zip portal still blocked, Canton Fair delay, retry Apr 20.
 - Sarah Hamid: Sword labeler classification for Pulse BPM/Scale. OI created Apr 15 (Blocked/High, deadline Apr 22). Blocks FCC, back-label, UDI-DI, Mika artwork reply.
 
-### Completed This Session (Apr 15)
+### Completed Apr 16
+- ✅ Sofia LoE relay sent (manually, Apr 15 evening).
+- Mika Quality Agreement email drafted (appendices II/III/IV/VI + full review request). Not sent (Gmail MCP down). André to send manually with file attachment.
+
+### Completed Apr 15
 - ✅ Mika (Transtek) LoE delivered (notarized Model Equivalence Affidavit). SQA closure unblocked.
 - ✅ Quantal Zip #3006 fully approved.
 - ✅ Xinrui NDA fully executed (Dropbox Sign), Zip #3146 approved. DB updated.
@@ -49,8 +53,7 @@ Last Slack scan: 2026-04-15T10:10 (MCP down at wrap-up, not refreshed)
 - None logged (calendar MCP not available at wrap-up)
 
 ## Pending Actions (for tomorrow)
-- ✅ Sofia LoE relay sent (Apr 15 evening).
-- Mika Quality Agreement: André sharing file directly for Mika to fill in (not email).
+- Mika Quality Agreement: email drafted, André to send manually with file attached.
 - Reply to Rodrigo (NetSuite access justification), pending Jorge/Collin input.
 - Answer Miguel on Ribermold follow-up (he or André?).
 - Reply to Artemis/J-Mold shipment confirm (Andreia OOO until Apr 27).
@@ -59,7 +62,8 @@ Last Slack scan: 2026-04-15T10:10 (MCP down at wrap-up, not refreshed)
 - Chase Kevin Wang weekly T2D check-in (missed Apr 15).
 - Reply to Paulo's Apr 13 "no office?" DM.
 - Xinrui: send RFQ package once capability confirmed.
-- Daily log Apr 15 not pushed to Notion (MCPs down at wrap-up). Push on warm-up.
+- Daily log Apr 15 + Apr 16 not pushed to Notion (MCPs down). Push on warm-up.
+- Context sync not run Apr 16 (MCPs down). Full sync needed on warm-up.
 
 ## Session Crons
 - (cleared at wrap-up)
