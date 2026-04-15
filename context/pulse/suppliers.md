@@ -1,8 +1,8 @@
 # Pulse Suppliers  - Context File
-# Last synced: 2026-04-13T16:30
+# Last synced: 2026-04-15T23:59
 
 ## Shortlisted (2)  - PO Authorization Confirmed Apr 8
-- **Transtek Medical**  - MANUFACTURER (Zhongshan, CN). BP cuff BB2284-AE01. $19.20 FOB ZS @5K (Std), XS $20.70, XL $22.70. LT 12-16 wk. ~200 units in 40-45 days off-shelf. FDA DXN K241351. SDK received. Samples delivered Porto. PLD approach confirmed. Plan A/B timeline received Apr 9: Plan A (Sword artwork + physical GS) Jul 13, Plan B (Transtek artwork, no GS) Jun 29. ✅ WHITE BOX CONFIRMED Apr 13 (BU + Design alignment). Full-color box standard for PLD, +$0.30-$1.50/unit, +10-14 days packaging testing. Cuffs: no logos, remove TeleRPM only. Manual: change logo/company info, keep functional content/layout. Need PDF with Pantone codes. Zip vendor tasks completed Apr 11 (confirmed via Zip #3139 + Mika email). Zip #3139 — Rúben approved Apr 13, next: João Linhares (bank approval) + NetSuite record.
+- **Transtek Medical**  - MANUFACTURER (Zhongshan, CN). BP cuff BB2284-AE01. $19.20 FOB ZS @5K (Std), XS $20.70, XL $22.70. LT 12-16 wk. ~200 units in 40-45 days off-shelf. FDA DXN K241351. SDK received. Samples delivered Porto. PLD approach confirmed. Plan A/B timeline received Apr 9: Plan A (Sword artwork + physical GS) Jul 13, Plan B (Transtek artwork, no GS) Jun 29. ✅ WHITE BOX CONFIRMED Apr 13 (BU + Design alignment). Full-color box standard for PLD, +$0.30-$1.50/unit, +10-14 days packaging testing. Cuffs: no logos, remove TeleRPM only. Manual: change logo/company info, keep functional content/layout. Need PDF with Pantone codes. Zip vendor tasks completed Apr 11 (confirmed via Zip #3139 + Mika email). Zip #3139 — Rúben approved Apr 13, next: João Linhares (bank approval) + NetSuite record. ✅ LoE (Model Equivalence Affidavit, notarized) delivered Apr 15: BB2284-AE01 confirmed under K241351 by substantial equivalence to TMB-2092-G. SQA closure unblocked. Artwork die-lines + feedback shared by Mika Apr 15. ⚠️ Labelling blocked: FCC Responsible Party, Distributed by vs Manufactured for, UDI-DI ownership pending Sarah Hamid formal classification (OI created, Blocked, deadline Apr 22). Bianca reviewing Quality Agreement.
 - **Unique Scales**  - MANUFACTURER (Shenzhen). BIA scale CF635BLE dual-freq selected. $8.76 FOB SZ @20K. LT 35-40 days. FDA FRI+PUH. SDK received. BLE name "SWORD_PULSE". Dual-freq upgrade in progress. Proforma requested Apr 8. DHL shipping label sent Apr 9 (to Kenny + Li Qiong). Die-line files received Apr 9 (sticker, carton, inner box, user manual). ✅ WHITE BOX CONFIRMED Apr 13 (BU + Design alignment). Zip #3145 — Rúben approved Apr 13, Queenie still completing portal (2FA issue in progress), next: João Linhares (bank approval) + NetSuite record.
 
 ## Shortlisted (1)  - Fallback
@@ -16,7 +16,7 @@
 - Audit: Notes condensed on Xinrui, Yilai, Daxin, Zewa (history removed, 2-line max enforced)
 
 ## Rejected (1)  - Intermediary
-- IPADV  - Notes condensed (audit). On hold pending Jorge direction.
+- IPADV  - Notes condensed (audit). On hold pending Jorge direction. NDA Status set to "Not Required" (rejected).
 
 ## Key Decisions  - Apr 8 (GU Alignment Meeting)
 - PO authorization confirmed: Transtek BPM + Unique Scales BIA

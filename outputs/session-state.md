@@ -2,61 +2,64 @@
 <!-- Auto-updated by /warm-up, /mail-scan, /log-sent, /wrap-up. Do not edit manually. -->
 
 ## Timestamps
-Last-Warm-Up: 2026-04-14T09:10 | Session: A
-Last-Mail-Scan: 2026-04-14T09:10
-Last-Log-Sent: 2026-04-14T09:25
-Last-Wrap-Up: 2026-04-14T00:55
+Last-Warm-Up: 2026-04-15T10:10 | Session: A
+Last-Mail-Scan: 2026-04-15T23:17
+Last-Log-Sent: 2026-04-15T23:53
+Last-Wrap-Up: 2026-04-15T23:59
 
 ## Active Sessions
-- Session A (operational): active
+- No active sessions (wrapped up)
 
-## Context Snapshot (from last warm-up)
+## Context Snapshot (from last wrap-up)
 
 ### Carry-Over (still open)
-- Sónia Sousa (Avnet): M-Band component LT confirmation due today (Apr 14).
-- Pedro Rodrigues: NPM1300 BOM qty pending (overdue Apr 13).
-- Miguel Pais: Uartronica re-quote pending (due Apr 17).
-- Kevin Wang: T2D weekly check-in due Apr 15.
-- Tiger Fitness CNF freight ambiguity: due today (Apr 14).
-- Ribermold quote: due today; Filipe meeting at 11:00 with Miguel.
+- Ribermold quote overdue Apr 14, meeting held Apr 15 (pogo pins/magnetics/pogo pin plate). Outcome TBD.
+- Sónia Sousa (Avnet) M-Band component LT, overdue Apr 14, no reply.
+- Pedro Rodrigues NPM1300 BOM qty, overdue Apr 13.
+- Kevin Wang weekly T2D check-in, due Apr 15, not sent.
+- Miguel Pais Uartronica re-quote, due Apr 17.
+- TransPak: 3 Nimbl boxes from SLC needed to unblock packaging quote (due Apr 18).
+- Queenie (Unique): Zip portal still blocked, Canton Fair delay, retry Apr 20.
+- Sarah Hamid: Sword labeler classification for Pulse BPM/Scale. OI created Apr 15 (Blocked/High, deadline Apr 22). Blocks FCC, back-label, UDI-DI, Mika artwork reply.
 
-### New This Session (overnight + early morning)
-- ⚠️ Jorge DM (today 06:57-06:59 BST): Pulse accessories are INVENTORY → must be onboarded in NetSuite, not Zip. Zip is for non-inventory samples only. Mind rewards vendor already in Zip but also needs NetSuite. Means Transtek/Unique onboarding flow may need a NetSuite step beyond Zip.
-- Asher (Xinrui) accepted NDA terms (06:21) — ready for Dropbox signature flow.
-- Mika (Transtek) ack on branding kickoff thread (06:35) — looped Paulo/Marta/Sofia.
-- Miki (Urion) sample production update (06:08): front panel as real sample, will share for approval.
-- Queenie (Unique Scales) white box clarification (03:42) — confirmed material, kraft inner box. Asked about QR code (does Sword have own app yet?), final qty for first order, and sole supplier question.
-- Queenie Zip portal still blocked (04:04): going to Canton Fair, will retry next Monday Apr 20. ⚠️ delays Zip completion further.
-- Wendy (Ullwin): closure confirmed.
-- Linda (Yimi): closure confirmed.
+### Completed This Session (Apr 15)
+- ✅ Mika (Transtek) LoE delivered (notarized Model Equivalence Affidavit). SQA closure unblocked.
+- ✅ Quantal Zip #3006 fully approved.
+- ✅ Xinrui NDA fully executed (Dropbox Sign), Zip #3146 approved. DB updated.
+- ✅ Transtek Outreach: LoE + artwork die-lines entries written.
+- ✅ IPADV NDA Status set to "Not Required" (rejected).
+- ✅ GAOYI outreach archived, Ribermold outreach archived.
+- ✅ Vangest Notes: stale quote validity flag updated.
+- ✅ OI created: Sarah labeler classification (Pulse).
+- ✅ Housekeeping + cross-check reports completed.
 
 ### Email State
-Last inbox scan: 2026-04-14T09:10
-Notable unreviewed: Queenie (3 messages, white box + QR + qty), Miki Urion (sample approval ask), Asher Xinrui NDA accepted, Mika Transtek branding.
+Last inbox scan: 2026-04-15T23:17
+No new emails since 21:17.
 
 ### Slack State
-Last Slack scan: 2026-04-14T09:10
-- Jorge DM: NetSuite onboarding clarification — needs reply.
-- Paulo DM: "estás no office?" 14:26 yesterday, unanswered.
-- Bianca DM: SQA process clarified, no new messages.
-- Group DM (M-Band): no new messages since Apr 10.
+Last Slack scan: 2026-04-15T10:10 (MCP down at wrap-up, not refreshed)
+- Jorge DM: NetSuite/Zip clarification thread still active; Rodrigo Pixinine redirected to #asknetsuite.
+- Miguel DM: asking whether André or he follows up with Filipe/Ribermold.
+- Paulo DM: "estás no office?" Apr 13, still unanswered.
+- Sofia DM: LoE topic prepared, message not yet sent.
+- Bianca DM: SQA review thread, internal copy shared with Sofia.
 
-## Upcoming Meetings (today Apr 14)
-- 11:00 — Ribermold meeting (Miguel + Filipe)
-- 11:00 — Weekly: Logistics & Purchasing (conflict with Ribermold)
-- 13:00 — Wintech / Sword Weekly (needsAction)
-- 14:30 — Pulse Weekly Meeting
-- 17:30 — Porto gathering with ELT
+## Upcoming Meetings
+- None logged (calendar MCP not available at wrap-up)
 
-## Pending Actions (awaiting André decision)
-- Reply to Jorge on NetSuite vs Zip — confirm process and re-plan Transtek/Unique onboarding.
-- Reply to Queenie's 3 questions (white box ack, QR code/app, qty + sole supplier).
-- Reply to Miki Urion: confirm front-panel sample approval flow.
-- Send Xinrui NDA via Dropbox Sign for SHUFENG ZHANG signature.
-- Chase Sónia Sousa (Avnet) on M-Band LT — due today.
-- Chase Pedro Rodrigues on NPM1300 BOM (overdue).
-- Decide which 11:00 meeting to attend (Ribermold vs Logistics weekly).
+## Pending Actions (for tomorrow)
+- Send Sofia LoE relay message + SQA/labelling questions.
+- Reply to Rodrigo (NetSuite access justification), pending Jorge/Collin input.
+- Answer Miguel on Ribermold follow-up (he or André?).
+- Reply to Artemis/J-Mold shipment confirm (Andreia OOO until Apr 27).
+- Chase Sónia Sousa (Avnet), overdue.
+- Chase Pedro Rodrigues NPM1300, overdue.
+- Send Kevin Wang weekly T2D check-in (missed Apr 15).
+- Reply to Paulo's Apr 13 "no office?" DM.
+- Send Mika Quality Agreement info request (contacts, SKU, device ID). Draft ready.
+- Xinrui: send RFQ package once capability confirmed.
+- Daily log Apr 15 not pushed to Notion (MCPs down at wrap-up). Push on warm-up.
 
 ## Session Crons
-- 7ec11868: /mail-scan silent, every 2h at :17
-- bad866e3: /log-sent silent, every 3h at :23
+- (cleared at wrap-up)
