@@ -1,0 +1,151 @@
+---
+name: "Supplier Chaser"
+description: "Scan overdue items and draft follow-up emails for unresponsive suppliers or internal stakeholders. Use when OIs are past deadline, promises are overdue, or suppliers haven't replied within expected timeframes."
+---
+
+# Supplier Chaser
+
+Scans all overdue commitments (Open Items DB + promises.md), cross-references Gmail for last contact, and drafts follow-up emails with the right tone and urgency.
+
+## Pre-flight
+
+1. Read `outputs/session-state.md` for freshness. If warm-up < 2h, use snapshot.
+2. Read `.claude/config/writing-style.md` (tone rules, templates).
+3. Read `.claude/config/strategy.md` (never reveal prices, timelines, or shortlist status).
+4. Read `.claude/config/domains.md` (supplier contacts and email addresses).
+5. Read `outputs/promises.md` for open commitments.
+
+## Step 1: Collect overdue items
+
+### From Open Items DB
+
+```sql
+SELECT Item, Owner, Status, "date:Deadline:start" AS Deadline,
+       SUBSTR(Context, 1, 200) AS ContextPreview
+FROM "collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0"
+WHERE Status IN ('Pending', 'In Progress', 'Blocked')
+  AND "date:Deadline:start" < date('now')
+ORDER BY Deadline ASC
+```
+
+### From promises.md
+
+Parse all unchecked `- [ ]` entries. Flag any where `due:` date is past today.
+
+### From session-state.md
+
+Check Carry-Over and Pending Actions sections for items marked "overdue" or "waiting".
+
+## Step 2: Check Gmail for last contact
+
+For each overdue item linked to a supplier or person:
+
+1. Use `scan-gmail.md` (direction: "both", date_range: 14) to find last sent and last received email.
+2. Calculate days since last exchange.
+3. Classify:
+   - **No reply (they owe us):** Last email was FROM us. They haven't responded.
+   - **No action (we owe them):** Last email was FROM them. We haven't responded.
+   - **Stale (no contact):** No email exchange in 7+ days from either side.
+
+## Step 3: Prioritize
+
+Sort by chase urgency:
+
+| Priority | Criteria | Action |
+|---|---|---|
+| **P1 Critical** | Blocker status, or >7 days overdue, or blocks other work | Chase immediately, consider escalation |
+| **P2 High** | 4-7 days overdue, active project dependency | Chase today |
+| **P3 Normal** | 1-3 days overdue, routine follow-up | Chase, gentle tone |
+| **P4 Watch** | Due today or tomorrow, not yet overdue | Flag only, no chase yet |
+
+## Step 4: Draft follow-up emails
+
+For each P1-P3 item, draft a follow-up email. Apply these rules:
+
+### Chase tone tiers
+
+**Tier 1 — Gentle nudge (1-3 days overdue, first chase)**
+- Frame: "Following up on..." or "Just wanted to check in on..."
+- Keep short. Restate what's needed in one sentence.
+- No urgency language.
+
+**Tier 2 — Direct follow-up (4-7 days, or second chase)**
+- Frame: "I wanted to follow up on [specific item] from [date]."
+- Restate what's needed clearly. Include the original context.
+- Add a soft deadline: "Could you share an update by [date]?"
+
+**Tier 3 — Firm (7+ days, or third chase)**
+- Frame: "I'm reaching out again regarding [item], originally due [date]."
+- Be specific about what's blocking: "This is currently holding up [X]."
+- Propose alternative: "If [original ask] isn't feasible, could you suggest an alternative timeline?"
+- For internal: consider escalation path (CC manager, raise in 1:1).
+
+### Language rules
+
+| Audience | Language | Chase style |
+|---|---|---|
+| CN suppliers | Simple English, numbered questions | Direct, polite, structured |
+| PT suppliers | Portuguese | "Bom dia [Name], queria dar seguimento a..." |
+| US suppliers | Standard English | Professional, direct |
+| Internal (Jorge, Sofia) | Portuguese | Casual, Slack-first |
+| Internal (others) | English | Casual, Slack-first |
+
+### Strategy guardrails (from config/strategy.md)
+
+- Never reveal internal timelines or decision status.
+- Never indicate urgency that implies desperation.
+- Never mention other suppliers or competitive pressure.
+- Frame follow-ups as routine process, not pressure.
+- Maintain steady, gentle pressure (memory: feedback_supplier_pressure.md).
+
+## Step 5: Present to André
+
+Show a single table:
+
+```
+CHASE QUEUE — Apr DD
+
+| # | Priority | Supplier/Person | Item | Days Overdue | Last Contact | Action |
+|---|----------|----------------|------|-------------|-------------|--------|
+| 1 | P1       | Sonia Sousa    | M-Band LTs | 3d | Sent Apr 10 | Draft below |
+| 2 | P2       | Pedro R.       | NPM1300 qty | 4d | Sent Apr 10 | Slack msg below |
+```
+
+Then, for each item with a draft:
+
+```
+### #1 — Sonia Sousa (Avnet)
+**Channel:** Email (sonia.sousa@avnet.com)
+**Tone tier:** 2 (4-7d overdue, direct)
+**Subject:** RE: [original thread subject]
+
+[Draft body]
+
+---
+```
+
+## Step 6: Execute approved chasers
+
+After André approves (may edit drafts):
+
+1. Create Gmail drafts for approved email chasers (HTML format, append signature).
+2. For Slack chasers, present the message text for André to send manually.
+3. Update the OI Context with a dated entry: `**YYYY-MM-DD:** Follow-up sent [channel]. [Brief note].`
+4. Update promises.md `next:` field if applicable.
+5. Log all actions to `outputs/change-log.md`.
+
+## Rules
+
+- NEVER send emails. Gmail drafts only (Level 1 safety).
+- SHOW BEFORE WRITE for all Notion updates except OI Context prepends (auto-approved per create-open-item.md).
+- Do not chase suppliers in Rejected status.
+- Do not chase items where Owner is not André (flag for André to decide).
+- If an item has been chased 3+ times with no response, recommend escalation path instead of another chase.
+- Respect config/writing-style.md sign-off: "Best," (default) or "Thanks," (internal). Never "Best regards,".
+
+<!-- ## Future: ruflo MCP enhancements
+When ruflo MCP is active, this skill can use:
+- mcp__ruflo__memory_search: "When does [supplier] usually respond?" (learned patterns)
+- mcp__ruflo__memory_store: Record chase outcomes (response time after chase, which tone worked)
+- Pattern learning: Optimal chase day/time per supplier, escalation effectiveness
+-->
