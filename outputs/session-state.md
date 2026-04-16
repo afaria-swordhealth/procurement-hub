@@ -6,6 +6,7 @@ Last-Warm-Up: 2026-04-15T10:10 | Session: A
 Last-Mail-Scan: 2026-04-17T00:30
 Last-Log-Sent: 2026-04-17T00:15
 Last-Wrap-Up: 2026-04-17T01:00
+Last-System-Session: 2026-04-17T02:30
 
 ## Active Sessions
 - No active sessions (wrapped up)
@@ -65,6 +66,12 @@ Last Slack scan: 2026-04-17T01:00
 - Reply to Rodrigo (NetSuite access justification), pending Jorge/Collin input.
 - Sofia: check with Bianca on regulatory questions (she said "amanha").
 - Confirm Xinrui status persisted in Notion (has failed before).
+
+## System Evolution (from Apr 16 session)
+- ruflo MCP config created (.claude/mcp.json). Test on next session restart.
+- 14 procurement skills created in .claude/skills/. See memory/project_ruflo_roadmap.md for full plan.
+- Token optimization Phase 1 audited: all 6 measures WORKING. Phase 2 pending.
+- Model assignment validated: `model:` frontmatter functional in Claude Code.
 
 ## Session Crons
 - (cleared at wrap-up)
