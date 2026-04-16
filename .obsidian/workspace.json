@@ -11,14 +11,10 @@
             "id": "dabf1449ace96666",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "outputs/session-state.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "session-state"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -168,12 +164,13 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "dabf1449ace96666",
+  "active": "ecc332e52ff43773",
   "lastOpenFiles": [
+    "outputs/external-work.md",
+    "outputs/session-state.md",
     "Dashboard.md",
     "implementation-playbook.md",
     "Untitled.canvas",
-    "outputs/session-state.md",
     "outputs/promises.md",
     "outputs/change-log.md",
     "context/kaia/suppliers.md"

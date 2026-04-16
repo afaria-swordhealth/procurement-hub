@@ -9,19 +9,31 @@
   "colorGroups": [
     {
       "query": "path:context/pulse",
-      "color": { "a": 1, "rgb": 14277081 }
+      "color": {
+        "a": 1,
+        "rgb": 14277081
+      }
     },
     {
       "query": "path:context/kaia",
-      "color": { "a": 1, "rgb": 5296274 }
+      "color": {
+        "a": 1,
+        "rgb": 5296274
+      }
     },
     {
       "query": "path:context/mband",
-      "color": { "a": 1, "rgb": 16744272 }
+      "color": {
+        "a": 1,
+        "rgb": 16744272
+      }
     },
     {
       "query": "path:outputs",
-      "color": { "a": 1, "rgb": 9699539 }
+      "color": {
+        "a": 1,
+        "rgb": 9699539
+      }
     }
   ],
   "collapse-display": false,

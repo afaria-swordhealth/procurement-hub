@@ -26,10 +26,14 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 7. Query all 3 Supplier DBs following config/databases.md (Query Patterns section).
 8. Update context files (paths listed in .claude/config/databases.md).
 
+### Phase 2b: External Work
+8b. Read outputs/external-work.md. If it contains entries beyond the header comments, include them in the daily log under ## ISC (or the relevant project section if specified).
+8c. After inclusion in the daily log draft, clear the file back to headers only.
+
 ### Phase 3: Daily Log
 9. Check if today's daily log exists in Notion (Daily Logs DB, see .claude/config/databases.md).
    - If yes: present current content, ask if anything to add.
-   - If no: compile from today's mail-scan results, approved actions, and change-log entries. Present draft for approval.
+   - If no: compile from today's mail-scan results, approved actions, change-log entries, and external work (Phase 2b). Present draft for approval.
 
 ### Phase 4: Commit and Push
 10. After daily log is approved and pushed to Notion:
