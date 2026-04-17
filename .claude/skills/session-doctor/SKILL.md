@@ -28,6 +28,23 @@ Parse the `## Timestamps` section. For each timestamp, calculate age:
 | Any timestamp in the future | Clock error or bad write | AUTO-FIX |
 | Any timestamp missing | Incomplete session-state | REPORT |
 
+## Step 1b: Validate session-state.md structure
+
+Before checking timestamps, verify the file is structurally intact (guard against partial writes from crashed sessions):
+
+Required sections that must be present:
+- `## Timestamps`
+- `## Context Snapshot`
+- `## Pending Actions`
+
+| Condition | Action |
+|-----------|--------|
+| Any required section missing | REPORT: session-state.md may be corrupt (partial write). Recommend re-running /warm-up before any operational command. |
+| File exists but is under 10 lines | REPORT: file is suspiciously short — likely truncated. Treat as missing. |
+| All sections present | OK, proceed to timestamp checks |
+
+Do NOT attempt to repair a corrupt session-state.md. Only /warm-up can rebuild it.
+
 ## Step 2: Check context file freshness
 
 For each project, read the first 3 lines of the context file to get the "Last synced" header:

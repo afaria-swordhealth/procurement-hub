@@ -69,9 +69,9 @@ Query Open Items DB (ID from .claude/config/databases.md, OI_DB) for items with 
 
 ## Phase 5: Context Drift Check (REPORT ONLY)
 
-18. Read context files for all 3 projects (paths from .claude/config/databases.md).
-19. Compare key fields (Status, last outreach date, price) against Notion DB state.
-20. Flag any drift. Do not fix. Andre may have edited intentionally, and context files belong to Session A.
+18. Delegate to the `context-doctor` skill. Call it in report-only mode (no auto-fix).
+19. Include context-doctor's drift findings verbatim in the NEEDS YOUR DECISION section.
+20. Do not re-implement the comparison logic here. context-doctor is the authoritative implementation.
 
 ## Phase 6: Unanswered Emails (REPORT ONLY)
 

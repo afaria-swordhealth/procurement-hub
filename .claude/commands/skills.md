@@ -34,6 +34,7 @@ Lists all available skills. No tool calls required — output directly.
 | Skill | Trigger | What it does |
 |-------|---------|--------------|
 | `/supplier-onboarding {supplier}` | When a new supplier is added | End-to-end: Notion page, domain config, context file entry, NDA OI, first outreach prep |
+| `/supplier-rejection {supplier}` | When eliminating a supplier from a shortlist | Rejection email draft, Jorge note (PT), OI closures, status → Rejected. Full SHOW BEFORE WRITE. |
 | `/know-me` | Onboarding or monthly profile refresh | Builds structured operator profile from all memory files. SHOW BEFORE WRITE. |
 
 ## Notes

@@ -120,6 +120,35 @@ YYYY-MM-DD HH:MM | quote-intake | {Supplier} quote processed | Unit: {X} {curren
 **Mon DD** -- Quote received. {currency} {price}/unit @{tier}, tooling {amount}. {Incoterm}.
 ```
 
+## Step 8: Store quote in ruflo memory
+
+After all Notion writes are complete, call `mcp__ruflo__memory_store`:
+
+- `key`: `quote::[supplier_name]::[YYYY-MM-DD]`
+- `namespace`: "procurement"
+- `upsert`: true
+- `tags`: ["quote", project, supplier_name]
+- `value`:
+  ```json
+  {
+    "supplier": "{name}",
+    "project": "{Pulse|Kaia|M-Band|BloomPod}",
+    "date": "{YYYY-MM-DD}",
+    "unit_eur": {value},
+    "tooling_eur": {value},
+    "incoterm": "{FOB|EXW|FCA|DDP}",
+    "lead_time_weeks": {production_weeks},
+    "tier": "{reference tier}",
+    "fx_rate": {rate_used},
+    "flc_eur": {value_or_null},
+    "quote_complete": true/false,
+    "response_time_days": {days_from_rfq_to_quote_or_null},
+    "delta_vs_prev_pct": {pct_change_vs_last_quote_or_null}
+  }
+  ```
+
+`delta_vs_prev_pct`: calculate by searching ruflo first for a prior quote from this supplier (`mcp__ruflo__memory_search` with query `"quote {supplier_name}"`, limit 1). If a prior quote exists, compute `(new_unit - prev_unit) / prev_unit * 100`. If no prior quote, set null.
+
 ## Rules
 
 - NEVER send emails. Gmail draft only (Level 1 safety).

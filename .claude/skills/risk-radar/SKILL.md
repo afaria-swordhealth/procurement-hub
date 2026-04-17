@@ -173,9 +173,29 @@ Scanned: {n} suppliers, {n} open items, {n} promises
 1. {action, who, by when}
 ```
 
+## Step 7: Store scan results in ruflo
+
+After presenting the report, call `mcp__ruflo__memory_store` to record what was found:
+
+**Overall scan record:**
+- `key`: `risk-scan::[YYYY-MM-DD]`
+- `namespace`: "procurement"
+- `upsert`: true
+- `tags`: ["risk-scan", "daily"]
+- `value`: `{ date, total_critical, total_high, total_medium, top_risk_supplier, top_risk_type }`
+
+**Per flagged supplier (one call per CRITICAL or HIGH risk):**
+- `key`: `risk::[supplier_name]::[risk_type]::[YYYY-MM-DD]`
+- `namespace`: "procurement"
+- `upsert`: true
+- `tags`: ["risk", project, supplier_name, risk_type]
+- `value`: `{ supplier, project, risk_type, severity, days_since_contact, last_action, resolution: null }`
+
+Update `resolution` when the risk is resolved (e.g., supplier replies, NDA executed). This closes the learning loop that was previously missing.
+
 ## Rules
 
-- **Read-only.** No Notion writes, no Gmail drafts, no state changes.
+- **Read-only for Notion.** No Notion writes, no Gmail drafts, no state changes.
 - All output in English. Never expose raw Notion IDs in the report.
 - Exclude Rejected suppliers from all risk checks.
 - Do not flag Identified suppliers for "gone cold" (not yet contacted).

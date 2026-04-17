@@ -47,6 +47,7 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
    For each key person: slack_read_channel with user ID. For each channel and Group DM: slack_read_channel with channel ID, slack_read_thread for replies.
    Extract decisions, action items, or context relevant to Pulse, Kaia, or M-Band.
    Note any unanswered messages or pending requests.
+   **Silent abort guard:** If slack_read_channel returns an empty result for a DM with an active contact (Jorge, Miguel, Paulo, Pedro, Bianca, Sofia), do not treat as "no messages." Flag in the briefing: "Slack scan returned empty for [person] — may be a connection issue. Verify manually." Continue with other channels.
 
 ### Phase 5: Calendar Check
 8. Check Google Calendar for today's meetings (if calendar MCP available). Flag any meetings related to procurement (Pulse, Kaia, M-Band, supplier names, key stakeholders).

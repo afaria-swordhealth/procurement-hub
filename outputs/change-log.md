@@ -21,3 +21,11 @@
 - **AR5:** rules-quick.md — added Scope Boundaries section: proactive scanning only during /warm-up, no scope expansion during execution.
 - **AR6:** analyst.md — added pre-flight step 3: confirm project scope before loading data, no cross-project data leakage without explicit framing.
 - **AR7:** wrap-up.md — added Phase 3b: meeting outcome prompt (checks for meeting-prep in session, asks to log ruflo memory if yes).
+
+### High-priority build items — implemented
+- **H1:** risk-radar — added Step 7: memory_store after each scan (per-supplier risk records + overall scan summary). Dead learning loop closed.
+- **H2:** quote-intake — added Step 8: memory_store after Notion writes. Full quote record (unit, tooling, FLC, delta vs. prior quote via memory_search). First ruflo wiring for this skill.
+- **H5:** session-doctor — added Step 1b: session-state.md structure validation (required sections check, truncation guard).
+- **H6:** warm-up Phase 4 — added Slack silent abort guard: empty results for active contacts flagged as possible connection failure.
+- **H7:** Created `.claude/skills/supplier-rejection/SKILL.md` — new skill: rejection email, Jorge PT note, OI closures, status update, ruflo store. All SHOW BEFORE WRITE.
+- **H8:** housekeeping Phase 5 — delegated context drift check to context-doctor skill instead of reimplementing.
