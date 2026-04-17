@@ -19,6 +19,14 @@ Lists all available skills. No tool calls required — output directly.
 | `/quote-intake` | When a supplier quote arrives | Extracts pricing, calculates FLC, updates Notion DB, compares against baselines |
 | `/rfq-workflow {supplier}` | When NDA is executed and ready to send RFQ | Assembles RFQ package, drafts email, creates response-tracking OI |
 
+## Supplier Evaluation Skills
+
+| Skill | Trigger | What it does |
+|-------|---------|--------------|
+| `/supplier-prospection {project}` | When starting a new project or adding candidates to a shortlist | Web search + pre-screen: builds longlist against hard eliminators, creates Identified entries in Notion after André approval |
+| `/supplier-qualification {supplier}` | After first contact, before investing in NDA or samples | 5-criterion scored assessment (commercial, product fit, certs, engagement, risk) → Go / Conditional Go / No-Go verdict |
+| `/supplier-selection {project}` | When quotes and samples are in and it's time to choose | Weighted comparison of all active candidates, ranked scorecard, decision memo, winner → Shortlisted after approval |
+
 ## Maintenance Skills
 
 | Skill | Trigger | What it does |

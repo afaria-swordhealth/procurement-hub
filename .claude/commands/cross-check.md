@@ -14,6 +14,12 @@ model: opus
 - .claude/config/domains.md (supplier domain lists)
 - CLAUDE.md Safety Rules and Writing Style sections
 
+## Execution rules
+
+- Run Gmail scans for all 3 projects in parallel (background agents or concurrent tool calls). A failure in one project must not block the others. If an agent fails, note it and continue.
+- Use `pageSize: 10` or less per Gmail search to avoid output overflow. Run multiple searches rather than one large one if needed.
+- If Slack MCP returns empty results or fails to connect: do not silently skip. Output a manual checklist of DMs and channels to check (Jorge, Miguel, Paulo, Pedro, Sofia — and key channels from slack-channels.md). Mark Phase 2 and 3 as "incomplete — manual check required."
+
 ## Steps
 
 ### Phase 1: Email vs Notion
@@ -51,13 +57,25 @@ model: opus
     a. Identify the linked supplier and owner from OI properties.
     b. Scan Gmail (direction: both, date_range: 7) filtered to that supplier's domain(s) per .claude/config/domains.md.
     c. Scan Slack for mentions of the supplier name or OI topic (use slack-channels.md channel + DM list).
-    d. Compare email/Slack content against the OI's current Context and Status. Flag if:
-       - New information changes the state (e.g., supplier replied, blocker cleared, decision made)
-       - Status should change (Blocked → In Progress, Pending → Answered, or → Closed)
-       - Context needs a material rewrite (scope shifted, owner changed)
+    d. For any thread with recent activity (last 7d), call `get_thread` on the most recent matching thread. Read the body and compare against the OI Context. Ask specifically:
+       - Does this email substantively resolve the OI? (e.g., re-quote received when OI was "awaiting re-quote", supplier confirmed when OI was "awaiting confirmation", blocker cleared)
+       - Does this email advance the OI state without fully resolving it?
+       - Does it contradict the OI's current Context (e.g., deadline slipped, scope changed)?
+    e. Flag if:
+       - Status should change (Pending → Closed, Blocked → In Progress, etc.)
+       - Context needs a material rewrite (scope shifted, owner changed, blocker cleared)
        - A new OI or promise should be created from what was found
-    e. If no relevant activity found: skip silently (no output for that OI).
+    f. If no relevant activity found: skip silently (no output for that OI).
 11. Output per flagged OI: proposed action with source and rationale.
+
+### Phase 6: Unanswered Incoming Emails
+
+12. For each active supplier with at least one incoming email in the last 7 days:
+    a. Find the most recent incoming email date.
+    b. Check if a sent email to that supplier exists with a date AFTER the incoming email.
+    c. If no sent reply within 48 business hours of the incoming email: flag as "unanswered >48h".
+    d. Exception: if the Outreach section has a note explaining the hold (e.g., "decision gated on Max/Caio", "deprioritized per André"), skip silently.
+13. Output: supplier, incoming date, subject snippet, recommended action (Draft Reply / Escalate / Hold).
 
 ## Output Format
 

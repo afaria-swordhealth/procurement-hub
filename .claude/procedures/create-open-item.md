@@ -19,43 +19,54 @@ Authoritative rules live in CLAUDE.md section `4c. Open Items Discipline`. This 
 6. **Project** — relation URL (mandatory).
 7. **Context** — first entry must be assertive, self-contained (2-4 sentences). What, why it matters, what blocks, reference.
 
+## Mandatory OI triggers — create without waiting to be asked
+
+These events always require a new OI. Do not wait for André to ask. Create as part of the scan or action that surfaces them.
+
+| Event | OI Type | Default deadline |
+|-------|---------|-----------------|
+| Re-quote requested from a supplier | Action Item | Date given to supplier, or +14 days |
+| RFQ sent to a new supplier | Action Item | +10 business days |
+| Supplier commits to a date or deliverable in email | Action Item | Date they committed to |
+| André commits to an action in a sent email | Action Item | Date committed, or next session |
+| Internal decision pending from a named person (Jorge, Max, Kevin, Sofia, etc.) | Decision | +5 business days or meeting date |
+| Blocker explicitly stated (supplier or internal) | Blocker | First realistic resolution date |
+| Compliance / regulatory question raised (FDA, UDI, ISTA, NDA, SQA) | Question | +7 days or regulatory deadline |
+
+**Critical rule:** a re-quote or follow-up tracked only as a context note is invisible to /cross-check Phase 5. If there is no OI, the system cannot auto-detect when the deadline passes or the event resolves. Always create the OI.
+
 ## Before creating
 1. Query the DB for similar open items (same supplier + similar Item title). If found, UPDATE instead of create.
 2. Verify Owner is a real person, not a role.
 3. Verify Deadline is realistic given supplier lead times and working days.
 4. Verify Project relation.
 
-## Context as a running log
-Context is append-only, prepend-latest.
+## Context as a Summary
 
-### First write
+Context holds a summarized current-state description of the OI. It is not a running log.
+
+- Write in English, formal tone. One paragraph. No dated prefix.
+- Capture: what the OI is, why it matters, current state, what blocks, who owns the next step.
+- When a new update arrives, add it as a **Notion page comment** via `notion-create-comment`. Do NOT prepend it to Context.
+- Rewrite Context only when the summary changes materially (owner changed, blocker cleared, scope shifted). Replace the whole paragraph — do not append.
+- If you inherit an OI with a running-log Context (multiple dated prefixes, PT/EN mixed), summarize into one English paragraph.
+
+### Example: first write
 ```
-First production commit blocked until Pedro validates BLE SDK of Transtek BB2284-AE01. Initial order 5,000 units. Selected Apr 1 as primary BPM. Pedro assigned Apr 10.
+First production commit blocked until Pedro validates BLE SDK of Transtek BB2284-AE01. Initial order 5K units. Selected Apr 1 as primary BPM. Pedro assigned Apr 10. Testing in progress.
 ```
 
-### Update 5 days later
+### Example: update with new info
+Add as a Notion page comment on the OI via `notion-create-comment`. Do NOT touch Context:
 ```
-**2026-04-15:** Pedro reports pairing stable but data handoff drops under low-battery. Waiting on Transtek firmware fix.
-
-First production commit blocked until Pedro validates BLE SDK of Transtek BB2284-AE01. Initial order 5,000 units. Selected Apr 1 as primary BPM. Pedro assigned Apr 10.
-```
-
-### Another update
-```
-**2026-04-18:** Transtek sent firmware v1.03. Pedro re-testing.
-**2026-04-15:** Pedro reports pairing stable but data handoff drops under low-battery. Waiting on Transtek firmware fix.
-
-First production commit blocked until Pedro validates BLE SDK of Transtek BB2284-AE01. Initial order 5,000 units. Selected Apr 1 as primary BPM. Pedro assigned Apr 10.
+[2026-04-15] BLE pairing stable, but data handoff drops under low-battery. Transtek firmware fix pending.
 ```
 
 ### Update with no new info
 Do NOT edit Context. Log the touch in `outputs/change-log.md` only.
 
-### After ~8 entries
-Collapse the oldest into a one-line origin summary at the bottom:
-```
-**Origin (Apr 10 - Apr 20):** Selected Apr 1. First 5K order. BLE validation + firmware iterations with Transtek.
-```
+### Legacy OIs with running-log Context
+If Context has multiple dated entries (old format), condense into one English summary paragraph. Comment history lives in Notion.
 
 ## Closing an OI
 1. Set `Status = Closed`.

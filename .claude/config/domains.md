@@ -60,12 +60,15 @@
 
 ## Internal Platforms
 
-| Domain | Platform | What it signals |
-|--------|----------|-----------------|
-| swordhealth.ziphq.com | Zip (NDA + onboarding portal) | NDA status updates, supplier onboarding flow steps, budget requests |
-| swordhealth.atlassian.net | Jira | Shipping requests only — filter by Gmail label "ISC Shipping" |
+| Domain | Platform | What it signals | Extract |
+|--------|----------|-----------------|---------|
+| swordhealth.ziphq.com | Zip (NDA + onboarding portal) | NDA status updates, supplier onboarding flow steps, budget requests | Supplier name, event type (NDA signed / step completed / budget approved), Zip request URL from body |
+| swordhealth.atlassian.net | Jira | Shipping requests André submitted — label: ISC-Shipping | Ticket ID → link `atlassian.net/browse/[ID]`, DHL AWB → link `dhl.com/global-en/home/tracking.html?tracking-id=[AWB]`, destination supplier |
 
-Scan these alongside supplier emails in /mail-scan. Notifications from these domains may indicate NDA execution, onboarding progress, or contract milestones that need OI updates.
+Scan these alongside supplier emails in /mail-scan. See mail-scan.md "Internal Platform Processing" section for full extraction and Notion write logic.
+
+**Zip → Notion writes:** NDA Status field update (SHOW BEFORE WRITE), NDA OI closure, Outreach milestone entry.
+**Jira → Notion writes:** OI context update referencing Jira + DHL links (SHOW BEFORE WRITE). Links always embedded, never raw URLs.
 
 ---
 
