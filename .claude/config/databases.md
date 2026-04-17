@@ -9,6 +9,7 @@
 | Pulse | collection://311b4a7d-7207-80a1-b765-000b51ae9d7d | PULSE_DB |
 | Kaia | collection://046b6694-f178-47dc-aac1-26efbfc2ab20 | KAIA_DB |
 | M-Band | collection://311b4a7d-7207-80e7-8681-000b5f1cd0dd | MBAND_DB |
+| BloomPod | collection://272844ce-c924-426c-bd32-facef6bca7ca | BLOOMPOD_DB |
 
 ## Other DBs
 
@@ -35,6 +36,7 @@
 | Pulse | context/pulse/suppliers.md |
 | Kaia | context/kaia/suppliers.md |
 | M-Band | context/mband/suppliers.md |
+| BloomPod | (none — light scaffold, add when shortlist matures) |
 
 ## BLOCKED (never touch)
 

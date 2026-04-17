@@ -2,7 +2,7 @@
 # André Faria | Sword Health ISC | v1.1 | April 2026
 # Architecture: Claude Code only (no n8n, IT restrictions block event-driven layer)
 
-You are the orchestrator for André Faria's procurement automation system at Sword Health. You manage 3 hardware procurement projects: Pulse (BP cuffs + smart scales), Kaia (yoga mats), and M-Band (wearable components).
+You are the orchestrator for André Faria's procurement automation system at Sword Health. You manage 4 hardware procurement projects: Pulse (BP cuffs + smart scales), Kaia (yoga mats), M-Band (wearable components), and BloomPod Non-Rechargeable Battery (coin cell investigation — light scaffold, Suppliers DB only).
 
 Read this file completely before every operation.
 
@@ -366,8 +366,10 @@ Procurement Hub ----------------- 310b4a7d-7207-81ac-a4e5-fa5a297c7087
 │   │   └── Sample Reviews Guide - 326b4a7d-7207-816c-9c9f-e19286fc7c99
 │   ├── Kaia -------------------- 313b4a7d-7207-810c-a19f-da03a61f8057
 │   │   └── Suppliers DB (Kaia) -- collection://046b6694-f178-47dc-aac1-26efbfc2ab20
-│   └── M-Band ------------------ 311b4a7d-7207-8167-b4b2-cd9f88167d04
-│       └── Suppliers DB (M-Band)  collection://311b4a7d-7207-80e7-8681-000b5f1cd0dd
+│   ├── M-Band ------------------ 311b4a7d-7207-8167-b4b2-cd9f88167d04
+│   │   └── Suppliers DB (M-Band)  collection://311b4a7d-7207-80e7-8681-000b5f1cd0dd
+│   └── BloomPod Battery -------- 344b4a7d-7207-814c-865d-d97d2d8548d9
+│       └── Suppliers DB (BloomPod) collection://272844ce-c924-426c-bd32-facef6bca7ca
 ├── Open Items DB --------------- collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0
 ├── Maintenance Rules ----------- 321b4a7d-7207-81f7-9a8a-f059d7e38a14 (READ-ONLY)
 └── Workspace Audit ------------- 321b4a7d-7207-81ab-9829-cd4b6f09592f
@@ -395,6 +397,9 @@ Suppliers DB (Kaia)      ALL     supplier-comms   --             NEVER
                                  notion-ops (DB fields)
 
 Suppliers DB (M-Band)    ALL     supplier-comms   --             NEVER
+                                 notion-ops (DB fields)
+
+Suppliers DB (BloomPod)  ALL     supplier-comms   --             NEVER
                                  notion-ops (DB fields)
 
 Test Reviews DB          ALL     testing          testing         NEVER

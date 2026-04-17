@@ -2,76 +2,64 @@
 <!-- Auto-updated by /warm-up, /mail-scan, /log-sent, /wrap-up. Do not edit manually. -->
 
 ## Timestamps
-Last-Warm-Up: 2026-04-15T10:10 | Session: A
-Last-Mail-Scan: 2026-04-17T00:30
+Last-Warm-Up: 2026-04-16T09:20 | Session: A
+Last-Mail-Scan: 2026-04-17T00:30 (Gmail MCP down at warm-up, not refreshed)
 Last-Log-Sent: 2026-04-17T00:15
-Last-Wrap-Up: 2026-04-17T01:00
-Last-System-Session: 2026-04-17T02:30
+Last-Wrap-Up: 2026-04-17T00:45 (in-session partial wrap — BloomPod scaffolding + OI prepend)
+Last-System-Session: 2026-04-17T00:45
 
 ## Active Sessions
-- No active sessions (wrapped up)
+- Session A (Operational + scaffolding): started 2026-04-16T09:20
 
-## Context Snapshot (from last wrap-up)
+## Context Snapshot (end of Apr 16 session → early Apr 17)
+
+### New this session (late Apr 16 → early Apr 17)
+- BloomPod Non-Rechargeable Battery project created in Projects DB (344b4a7d-7207-814c). Option (d) light scaffold: Suppliers DB only (collection://272844ce), no context file, no domains.md, no logistics scaffolding yet. Investigation OI opened (345b4a7d-7207-819c), Pedro Rodrigues owes full specs by Apr 24.
+- Sarah Legal labeler OI (343b4a7d) — Context prepended with 2026-04-16 Transtek Legal/RA submission (UDI-DI + FDA listing questions).
+- C0ASV20C6HM Mind SKU/BOM thread: Jorge escalated the multi-SKU-per-box / separate-ship alternative directly to BU (Mariam Abi Hanna + Kendall Fornaciari). Procurement out of the loop until BU replies.
+- CLAUDE.md + config/databases.md updated to reflect 4 projects.
 
 ### Carry-Over (still open)
-- Queenie Drive link: can't open artwork folder (permissions issue). Needs fix before branding can proceed.
-- Queenie SQA: asked for SQA file Apr 15. Waiting for Sofia to prepare before sending.
-- Ribermold quote: meeting held Apr 15 (magnets, adhesive, IP68). Finalizing with adhesive supplier. Andre to review when received.
-- Sonia Sousa (Avnet) M-Band component LT, overdue Apr 14, no reply.
+- Jorge URGENT: Mind Incentive email reply needed (NetSuite vendor status + PO after SKUs).
+- Sofia NDA question for Unique Scales unanswered (she checks with Bianca).
+- Queenie Drive link permissions issue. SQA waiting for Sofia.
+- Ribermold quote: meeting held Apr 15, finalizing with adhesive supplier. Follow-up overdue (Apr 14).
+- Sonia Sousa (Avnet) M-Band component LT, overdue Apr 14.
 - Pedro Rodrigues NPM1300 BOM qty, overdue Apr 13.
-- Kevin Wang weekly T2D check-in, overdue since Apr 15.
-- Miguel Pais Uartronica re-quote, due Apr 17.
-- TransPak: 3 Nimbl boxes from SLC needed to unblock packaging quote (due Apr 18).
-- Queenie (Unique): Zip portal still blocked, Canton Fair delay, retry Apr 20.
-- Sarah Hamid: labeler classification OI (Blocked, deadline Apr 22). Sarah agreed with Bianca's analysis Apr 15. Formal classification still pending.
-- Lihua: partial quote response (missing 50k/200k). Jessica sending additional breakdowns.
-- GAOYI: delivery address to be discussed at meeting in Tangxia.
+- Kevin Wang T2D check-in, overdue since Apr 15.
+- Miguel Pais Uartronica re-quote, due Apr 17 (next: Slack reminder EOD Friday).
+- Mika Transtek LoE: delivered, ping sent to Sofia, waiting on Sofia ack.
+- TransPak: 3 Nimbl boxes from SLC needed (due Apr 18).
 
-### Completed Apr 15-16
-- ✅ Transtek LoE delivered (notarized Model Equivalence Affidavit). SQA closure unblocked.
-- ✅ Transtek SQA shared with Mika (Apr 16 00:30). Appendices II/III/IV/VI for completion.
-- ✅ Xinrui NDA fully executed, Zip #3146 approved, RFQ package sent to Asher.
-- ✅ Ribermold meeting held (pogo pins, magnetics, pogo pin plate, adhesive, IP68).
-- ✅ Urion invoice + panel design received. DHL label + updated logo sent.
-- ✅ Sofia LoE relay sent (manually, Apr 15 evening).
-- ✅ Outreach milestones logged: Urion, Xinrui, Transtek (3 suppliers updated).
-- ✅ Transtek outreach archive condensed (12 → 10 visible).
-- ✅ Sarah OI context updated (Sarah agreed with Bianca's PLD analysis).
-- ✅ Daily logs Apr 15 + Apr 16 pushed to Notion.
-- ✅ Context files synced.
+### Completed Apr 16 (evening session)
+- ✅ Transtek UDI-DI / FDA listing update inquiry sent (promise due Apr 23).
+- ✅ Outreach milestones written (Transtek, Unique Scales, Xinrui).
+- ✅ Mind SKU/BOM Option 2.5 DM sent privately to Jorge + Francisco.
+- ✅ Jessica Costa + Jessica Lee re-quote promises resolved. GAOYI + Lihua quotes logged + Supplier Overview refreshed.
 
 ### Email State
 Last inbox scan: 2026-04-17T00:30 (deep scan, 3 days)
-Key unread: Lihua partial quote (Apr 15), Urion invoice (Apr 15).
+Gmail MCP: back up.
 
 ### Slack State
-Last Slack scan: 2026-04-17T01:00
-- Sofia DM (Apr 16): Keep Transtek on label = not Legal Manufacturer. Applied Part symbol note. SQA Google Doc shared. Andre asked about NDAs for Unique Scales.
-- Jorge DM (Apr 15): NetSuite follow-up for Mind Incentive items. Create PO after SKUs created.
-- Miguel DM (Apr 14): "manda tu" — Andre to do Ribermold follow-up.
-- Paulo DM (Apr 13): "estas no office?" still unanswered.
+Last Slack scan: 2026-04-17T02:00 (C0ASV20C6HM Mind SKU thread)
+- C0AGZ2WNUEM: Keenfinity draft sent to Jorge/Miguel/Gustavo.
+- C0ASV20C6HM: draft surgical-question apagado pelo André. Jorge escalou para Mariam+Kendall (BU).
+- C08C96G912N: BloomPod coin cell investigation opened. André replied with specs ask.
 
 ## Upcoming Meetings
-- None logged (calendar MCP not checked)
+- Apr 17 16:30: Sword All Hands
+- Apr 20 12:00: Andre / Jorge 1:1
+- Apr 21 11:00: Weekly Logistics & Purchasing
+- Apr 21 12:30: Wintech / Sword Weekly
 
-## Pending Actions (for tomorrow)
-- Fix Queenie Drive artwork folder permissions, then resend link.
+## Pending Actions (for André)
+- Send Slack reminder to Miguel Pais on Uartronica re-quote, EOD Fri Apr 17.
+- Chase Sónia Sousa (Avnet), Kevin Wang T2D, Pedro Rodrigues NPM1300 (all overdue).
+- Fix Queenie Drive artwork folder permissions.
 - Send SQA to Queenie (once Sofia prepares it).
-- Reply to Paulo's Apr 13 "no office?" DM.
-- Chase Sonia Sousa (Avnet), overdue.
-- Chase Pedro Rodrigues NPM1300, overdue.
-- Chase Kevin Wang weekly T2D check-in (overdue since Apr 15).
-- Miguel Pais Uartronica re-quote due Apr 17.
-- Read Lihua partial quote email (50k/200k breakdowns).
-- Reply to Rodrigo (NetSuite access justification), pending Jorge/Collin input.
-- Sofia: check with Bianca on regulatory questions (she said "amanha").
-- Confirm Xinrui status persisted in Notion (has failed before).
-
-## System Evolution (from Apr 16 session)
-- ruflo MCP config created (.claude/mcp.json). Test on next session restart.
-- 14 procurement skills created in .claude/skills/. See memory/project_ruflo_roadmap.md for full plan.
-- Token optimization Phase 1 audited: all 6 measures WORKING. Phase 2 pending.
-- Model assignment validated: `model:` frontmatter functional in Claude Code.
+- BloomPod: prep supplier shortlist (Panasonic Industrial, Murata, Varta, Renata, EVE Energy, Maxell) + RFQ template + compliance package (UN38.3, IEC 62133, MSDS, RoHS/REACH) in parallel, ready to disparate when Pedro delivers specs (due Apr 24).
+- TransPak 3 Nimbl boxes from SLC, due Apr 18.
 
 ## Session Crons
-- (cleared at wrap-up)
+- (not started this session)
