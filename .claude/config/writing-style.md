@@ -177,7 +177,34 @@ André Faria
 
 ---
 
-# 6. Notion Writing Rules
+# 6. Slack Communication Strategy
+
+Slack messages serve different purposes than emails. Approach them as internal coordination tools, not formal communications.
+
+## General approach
+- Always compose via draft. André reviews and sends manually.
+- Lead with the update or ask. No preamble.
+- Keep it short. If it needs more than 5-6 lines, it probably belongs in an email or a Notion page.
+- Match the channel's energy. #pulse-packagin-artwork is operational (BU visibility). #pulse-qara is technical (regulatory alignment). M-Band group DM is tactical (sourcing ops).
+
+## Structure for channel updates
+- **What changed**: one sentence on the event or new information.
+- **Where to look**: embedded link to Drive, Notion, or thread. Never raw URLs, always `<URL|descriptive text>`.
+- **What's next**: one line on pending actions or who's owning it.
+
+## DMs and group DMs
+- Conversational. Short messages. No sign-off needed.
+- Jorge and Sofia: always in Portuguese.
+- If relaying a decision or context from another channel, summarize, don't forward.
+
+## Cross-channel posts
+- When posting the same topic to multiple channels, tailor each message to that channel's audience and purpose. Don't copy-paste.
+- Visibility channels (artwork, ISC): focus on what's happening and where to find files.
+- Working channels (QARA, sourcing): focus on open questions, dependencies, and owners.
+
+---
+
+# 7. Notion Writing Rules
 
 - All Notion content in English. No exceptions.
 - Notes field: "TYPE (Location). Product + key differentiator. Flag." Max 2 lines.
