@@ -27,6 +27,13 @@ Recommendation values: Log, Draft Reply, Ignore, Escalate, Create OI, Update OI 
 
 Use `notion-query-data-sources` with SQL for DB queries instead of fetching pages individually.
 
+## Sample Receipt Detection
+
+During step 1, when scanning DHL notifications or supplier emails:
+- Flag as **Sample shipped** if subject or body contains: "tracking", "shipped", "dispatched", "AWB", "waybill", or supplier confirms sending units.
+- Add to output table with Recommendation: "Update Samples Status → Shipped. Log tracking number."
+- After André approves: update Samples Status field in the relevant Supplier DB. Log tracking number in the supplier page Notes or a dedicated field if available.
+
 ## Safety
 
 Wait for user approval before any writes. No exceptions.

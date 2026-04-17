@@ -35,6 +35,18 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
    - If yes: present current content, ask if anything to add.
    - If no: compile from today's mail-scan results, approved actions, change-log entries, and external work (Phase 2b). Present draft for approval.
 
+### Phase 3b: Meeting Outcome Prompt
+
+Check whether a `/meeting-prep` was run this session. Look for:
+- `meeting-prep` entries in `outputs/session-state.md` Pending Actions
+- Lines containing "meeting-prep" in today's `outputs/change-log.md`
+
+If a meeting-prep was found: ask André — "Did you meet with [supplier/person] today? Want to log the outcome to ruflo? (yes/no)"
+- **Yes:** Run meeting-prep Step 8 — call `mcp__ruflo__memory_store` with key `meeting::[supplier]::[YYYY-MM-DD]`, namespace "procurement", tags ["meeting", project, supplier].
+- **No or skipped:** move on silently.
+
+If no meeting-prep entry found this session: skip silently.
+
 ### Phase 4: Commit and Push
 10. After daily log is approved and pushed to Notion:
     a. Clear outputs/change-log.md — keep only the header lines (# Change Log, policy comment, and today's date heading). Remove all entries from today (they are now in git). This resets the file for tomorrow.

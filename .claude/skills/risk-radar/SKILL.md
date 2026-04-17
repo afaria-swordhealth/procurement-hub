@@ -1,6 +1,6 @@
 ---
 name: "Risk Radar"
-description: "Proactive risk detection across all 3 projects. Scans supplier DBs, Open Items, Gmail, promises, and session state for risk signals: cold suppliers, expiring quotes, single-source gaps, overdue OIs, unanswered emails. Use at start of day, before leadership updates, or whenever Andre needs a risk snapshot."
+description: "Proactive risk detection across all 4 projects. Scans supplier DBs, Open Items, Gmail, promises, and session state for risk signals: cold suppliers, expiring quotes, NDA pipeline blocks, single-source gaps, overdue OIs, unanswered emails. Use at start of day, before leadership updates, or whenever Andre needs a risk snapshot."
 ---
 
 # Risk Radar
@@ -31,9 +31,30 @@ For each non-Rejected supplier, check:
 - Fetch last outreach entry date from supplier page or context file.
 - If last contact >14 days ago and Status is not Rejected or Identified, flag.
 
-### 1b. NDA pending >14 days
+### 1b. NDA pending >14 days (individual signal)
 - If "NDA Status" = Pending (or equivalent), check when NDA was first requested.
-- If >14 days with no resolution, flag.
+- If >14 days with no resolution, flag as individual risk.
+
+### 1e. NDA pipeline — cross-project summary
+After scanning all DBs, build a cross-project NDA status table:
+
+```sql
+SELECT Name, "NDA Status", id, url
+FROM "{DB_COLLECTION_ID}"
+WHERE "NDA Status" NOT IN ('Executed', 'Not Required')
+  AND Status NOT IN ('Rejected', 'Identified')
+```
+
+Run for all 4 project DBs. For each result:
+- Calculate days since NDA was first flagged (use outreach section or OI deadline as proxy if no date field).
+- Flag any NDA in progress >21 days as MEDIUM risk.
+- Flag any NDA in progress >7 days that is gating an active RFQ (Status = "NDA Sent" or "Quote Requested") as HIGH risk.
+- If an "NDA Expiry" date field exists on executed NDAs, flag those expiring within 60 days.
+
+Present as a summary table in the report:
+```
+| Supplier | Project | NDA Status | Est. Days Pending | Blocking RFQ? |
+```
 
 ### 1c. Quote expired or expiring
 - Parse Notes for quote validity dates.

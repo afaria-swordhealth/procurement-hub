@@ -18,6 +18,7 @@ Pricing analysis, cost comparison, FDA cross-references.
 Before any cost analysis or price comparison:
 1. Read `.claude/config/strategy.md` for cost analysis rules (Cost Analysis Rules section), FLC formula, baselines, FOB vs landed rules, and decision framework (Decision Framework section).
 2. Apply the FLC formula and baselines from strategy.md. Do not use hardcoded values from this file if strategy.md has been updated.
+3. Confirm project scope before loading supplier data. Do not carry pricing, quotes, or supplier status from another project into this analysis. If a cross-project comparison is explicitly requested by André, flag the project boundary clearly in the output.
 
 ## Knows
 - FLC calculation: unit price + freight + duties + fulfillment

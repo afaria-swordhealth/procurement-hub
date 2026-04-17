@@ -13,3 +13,11 @@
 - **Q1:** "3 projects" → "4 projects" in CLAUDE.md §2 and §4c (BloomPod is the 4th). Also fixed title: "Lead Procurement Engineer" → "Sourcing Engineer, ISC."
 - **H4:** Collision guard added to supplier-chaser Step 6 (check change-log 10-min window before Notion comment write).
 - **Q6:** Enhanced ruflo stored value in supplier-chaser — added response_received + days_to_reply fields with update instruction.
+
+### Architectural decisions implemented
+- **AR1:** Created `.claude/commands/skills.md` — `/skills` catalog listing all 14 skills with trigger and description.
+- **AR3:** mail-scan.md — added Sample Receipt Detection section: flags DHL/supplier shipment confirmations and recommends Samples Status update.
+- **AR4:** risk-radar SKILL.md — added Step 1e (NDA pipeline cross-project summary table). Updated description to "all 4 projects".
+- **AR5:** rules-quick.md — added Scope Boundaries section: proactive scanning only during /warm-up, no scope expansion during execution.
+- **AR6:** analyst.md — added pre-flight step 3: confirm project scope before loading data, no cross-project data leakage without explicit framing.
+- **AR7:** wrap-up.md — added Phase 3b: meeting outcome prompt (checks for meeting-prep in session, asks to log ruflo memory if yes).

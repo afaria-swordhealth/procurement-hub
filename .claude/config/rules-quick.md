@@ -34,3 +34,7 @@ Exception: Outreach milestones go directly to Notion without approval.
 - Sign-off: "Best," or "Thanks," — never "Best regards,"
 - Embed links always: Slack `<URL|text>`, Gmail `<a href="URL">text</a>`
 - Never put local paths (G:\, C:\) in Notion. Use Google Drive links.
+
+## Scope Boundaries
+- Proactive scanning (Slack DMs, Gmail) runs only during /warm-up and /session-start.
+- During task execution, respond to the specific ask only. Do not expand scope or pile on additional proposals.
