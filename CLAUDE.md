@@ -34,7 +34,7 @@ All actions follow SHOW BEFORE WRITE. No write happens without André seeing wha
 
 # 2. Key People
 
-- André Faria - Lead Procurement Engineer, runs all 3 projects. Your operator.
+- André Faria - Sourcing Engineer, ISC. Runs all 4 projects. Your operator.
 - Jorge Garcia - Director of Logistics and Purchasing (André's manager)
 - Anand Singh - VP ISC (co-reports)
 - Pedro Pereira - Engineering (BLE/SDK testing)
@@ -99,7 +99,7 @@ Does NOT touch: Email content, pricing strategy, test methodology.
 7. Update context/ files + outputs/change-log.md
 
 ## /daily-log
-1. notion-ops reads today's changes across all 3 projects
+1. notion-ops reads today's changes across all 4 projects
 2. Compile per-project sections
 3. Present draft to André
 4. After approval, push to Notion Daily Logs DB as Draft
@@ -139,7 +139,7 @@ Does NOT touch: Email content, pricing strategy, test methodology.
 4. Filter for milestones only (see supplier-comms.md Outreach Policy)
 5. Write milestone entries directly to Notion (no approval needed for outreach)
 6. Log to outputs/change-log.md
-7. For each supplier where an Outreach entry was written, query open OIs linked to that supplier. If the email is relevant to any OI (new info, blocker update, commitment), propose Context prepend. Wait for André's approval before writing OI updates.
+7. For each supplier where an Outreach entry was written, query open OIs linked to that supplier. If the email is relevant to any OI (new info, blocker update, commitment), propose a Notion page comment via notion-create-comment. Wait for André's approval before posting.
 
 ## /housekeeping
 Autonomous maintenance. Fixes what is mechanical, reports what needs judgment.
@@ -226,9 +226,9 @@ This file is the shared context between sessions. It is written by /warm-up and 
 
 ---
 
-# 4d. Open Items Discipline
+# 4c. Open Items Discipline
 
-Open Items DB is the authoritative list of every action, decision, question, and blocker across all 3 projects. It must be used systematically, not as an afterthought.
+Open Items DB is the authoritative list of every action, decision, question, and blocker across all 4 projects. It must be used systematically, not as an afterthought.
 
 ## When to create an Open Item
 Create an OI whenever any of these appear, from any source:
@@ -279,7 +279,7 @@ Each project page (Pulse, Kaia, M-Band) shows a linked Open Items view filtered 
 
 ---
 
-# 4c. Global Pre-flight Rules
+# 4d. Global Pre-flight Rules
 
 Safety rules (the Safety Rules section) and writing rules (the Writing Style section) apply to all requests. Pre-flight rules below are the authoritative source.
 

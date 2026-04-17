@@ -64,7 +64,7 @@ Query Open Items DB (ID from .claude/config/databases.md, OI_DB) for items with 
       )
     ORDER BY Deadline ASC
     ```
-    Uses the "leading date" convention from CLAUDE.md §4d (OI Context starts with `YYYY-MM-DD:`).
+    Note: OI Context no longer uses a leading-date prefix (see CLAUDE.md §4c). The Context date substring check may not work for compliant OIs. Flag by Deadline overage and review Notion page comments for staleness.
 17. **REPORT ONLY**: Propose closures for items that appear resolved (present reason, do not write).
 
 ## Phase 5: Context Drift Check (REPORT ONLY)

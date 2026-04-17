@@ -56,10 +56,10 @@ For each open OI found, check whether the email content is relevant:
 - A commitment made by André or the supplier
 - A status change implied by the email
 
-If relevant: propose a Context prepend (dated entry at top, per OI discipline in CLAUDE.md Section 4d).
+If relevant: propose a Notion page comment via notion-create-comment on that OI (per OI discipline in CLAUDE.md §4c). Comment format: `[YYYY-MM-DD] Follow-up sent [email/Slack]. [One-line summary of what was communicated.]`
 If not relevant: skip silently.
 
-**Write permissions:** OI Context updates require André's approval (SHOW BEFORE WRITE). Present all proposed updates grouped after the Outreach write summary. Wait for approval before writing.
+**Write permissions:** OI comment adds require André's approval (SHOW BEFORE WRITE). Present all proposed comments grouped after the Outreach write summary. Wait for approval before calling notion-create-comment.
 
 If no open OIs exist for a supplier, skip silently — do not flag.
 
@@ -72,4 +72,4 @@ Then the full proposed entries below the table.
 Use the actual sent email content (not the draft), since Andre may have edited manually.
 One outreach entry per email thread per day (consolidate if multiple in same thread same day).
 
-After Outreach writes: present any proposed OI Context updates for approval.
+After Outreach writes: present any proposed OI comment adds for approval.

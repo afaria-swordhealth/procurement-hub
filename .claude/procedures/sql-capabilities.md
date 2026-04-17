@@ -31,7 +31,7 @@ The tool runs SQLite on Notion's projected schema. Below: what works, how to use
 - Regular fields: bare name, e.g. `Status`, `Owner`, `Item`, `Context`.
 - Date fields: three columns — `"date:Field:start"`, `"date:Field:end"`, `"date:Field:is_datetime"`. Quote them in SQL because of the colons.
 - Relation fields: stored as a JSON-encoded array of URLs. Filter with `LIKE '%page-id-no-hyphens%'`. Example: `Project LIKE '%310b4a7d72078145962ee5a9c875dc0d%'`.
-- Rich text (Context): stored as plain text. Markdown asterisks (`**...**`) are NOT in the stored value — they render in Notion UI but the raw column is clean. So `SUBSTR(Context, 1, 10)` reaches the leading `YYYY-MM-DD` directly when the dated-log convention is followed.
+- Rich text (Context): stored as plain text. Markdown asterisks (`**...**`) are NOT in the stored value — they render in Notion UI but the raw column is clean. Note: OI Context no longer uses a leading-date prefix (see §4c); `SUBSTR(Context, 1, 10)` for date comparison only works on legacy items.
 - Checkboxes: use literal `'__YES__'` / `'__NO__'` as params.
 
 ---
@@ -72,7 +72,7 @@ WHERE Status != 'Closed'
   AND Context IS NOT NULL
   AND SUBSTR(Context, 1, 10) < date('now', '-21 days')
 ```
-Requires that OI Context follows the "YYYY-MM-DD: ..." prepended-log convention (see CLAUDE.md §4d).
+**Note:** This query assumes legacy OI Context format (YYYY-MM-DD: prefix). Current convention (CLAUDE.md §4c) uses a summary paragraph — no date prefix — so SUBSTR(Context, 1, 10) will not parse as a date for compliant OIs. For staleness detection, rely on Deadline overage and manual review of recent Notion page comments rather than this SQL pattern.
 
 **Project filter via relation:**
 ```sql

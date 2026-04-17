@@ -1,7 +1,7 @@
 # Procedure: Create or Update Open Item
 # Reusable subroutine. Called by: /mail-scan, /warm-up, /log-sent, supplier-comms, notion-ops
 
-Authoritative rules live in CLAUDE.md section `4d. Open Items Discipline`. This procedure is the operational how-to.
+Authoritative rules live in CLAUDE.md section `4c. Open Items Discipline`. This procedure is the operational how-to.
 
 ## DB location
 - Open Items DB: `collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0`

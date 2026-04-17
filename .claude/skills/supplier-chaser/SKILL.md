@@ -145,7 +145,8 @@ After André approves (may edit drafts):
 
 1. Create Gmail drafts for approved email chasers (HTML format, append signature).
 2. For Slack chasers, present the message text for André to send manually.
-3. Add a Notion page comment on the OI via notion-create-comment: `Follow-up sent [channel] [date]. [Brief note].`
+3. Before writing to Notion: check `outputs/change-log.md`. If another session wrote to this supplier's page in the last 10 minutes, skip the comment write and note it in the output.
+4. Add a Notion page comment on the OI via notion-create-comment: `Follow-up sent [channel] [date]. [Brief note].`
 4. Update promises.md `next:` field if applicable.
 5. Log all actions to `outputs/change-log.md`.
 6. Store chase outcome in ruflo memory via `mcp__ruflo__memory_store`:
@@ -153,12 +154,12 @@ After André approves (may edit drafts):
    - `namespace`: "procurement"
    - `upsert`: true
    - `tags`: ["chase", project_name, supplier_name]
-   - `value`: `{ supplier, tone_tier, channel, days_overdue, item, outcome: "sent" }`
+   - `value`: `{ supplier, tone_tier, channel, days_overdue, item, outcome: "sent", response_received: false, days_to_reply: null }` — update `response_received: true, days_to_reply: N` if a reply arrives
 
 ## Rules
 
 - NEVER send emails. Gmail drafts only (Level 1 safety).
-- SHOW BEFORE WRITE for all Notion updates except OI Context prepends (auto-approved per create-open-item.md).
+- SHOW BEFORE WRITE for all Notion updates, including OI comment adds via notion-create-comment.
 - Do not chase suppliers in Rejected status.
 - Do not chase items where Owner is not André (flag for André to decide).
 - If an item has been chased 3+ times with no response, recommend escalation path instead of another chase.

@@ -132,4 +132,4 @@ YYYY-MM-DD HH:MM | quote-intake | {Supplier} quote processed | Unit: {X} {curren
 - Flag incomplete FLC. Never present partial data as final.
 - Log all Notion writes to `outputs/change-log.md`.
 - Check `outputs/change-log.md` collision guard (10-min window) before any Notion write.
-- OI Context prepends are auto-approved (per `create-open-item.md`).
+- OI Context rewrites require approval. OI comment adds (notion-create-comment) also require approval.

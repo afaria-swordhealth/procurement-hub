@@ -103,7 +103,7 @@ CAST(julianday('now') - julianday(SUBSTR(Context, 1, 10)) AS INTEGER) AS Blocked
 
 Render as `· blocked <N>d`. If Context is null or doesn't start with a valid date, show `· blocked (unknown)`.
 
-**Known gap:** several legacy Blocked items do not follow the `YYYY-MM-DD:` leading-date convention (CLAUDE.md §4d). Those will show `(unknown)` until their Context is updated. Don't backfill retroactively — let the convention apply as each OI is touched.
+**Known gap:** legacy Blocked items may not have a leading-date in Context. Current convention (CLAUDE.md §4c) no longer uses dated prefixes — Context is a summary paragraph and updates go as Notion page comments. These items will show `(unknown)` for blocked days. Don't backfill retroactively.
 
 ## Limits
 
