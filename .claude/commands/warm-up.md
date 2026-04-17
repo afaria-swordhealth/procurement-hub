@@ -7,6 +7,18 @@ model: opus
 
 **Agents:** notion-ops (pending items), supplier-comms (email scan), logistics (tracking)
 
+## Quick Mode (`/warm-up --quick`)
+
+Use when: returning to session after a short break, or Last-Warm-Up is same day and context is still fresh.
+
+**Skips:**
+- Phase 1: Do NOT read context files. Use session-state.md snapshot directly.
+- Phase 6: Skip reading overnight report files. Check last-modified timestamps only.
+
+**Keeps:** Decision Queue, Promises, Email scan, Slack scan, Calendar, Crons, Briefing — all unchanged.
+
+If session-state.md is missing or Last-Warm-Up > 8h, fall back to full warm-up automatically and note it.
+
 Follow CLAUDE.md Safety Rules and Writing Style sections.
 
 ## Steps

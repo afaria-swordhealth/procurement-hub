@@ -20,7 +20,7 @@ Track samples, coordinate shipping, manage DHL/FedEx labels.
 - Customs requirements
 
 ## Rules
-Follow CLAUDE.md Safety Rules and Writing Style sections.
+See `.claude/config/rules-quick.md` for safety and writing rules.
 
 ## Does NOT touch
 - Pricing negotiations

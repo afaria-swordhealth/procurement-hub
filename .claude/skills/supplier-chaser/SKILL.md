@@ -60,6 +60,21 @@ Sort by chase urgency:
 
 ## Step 4: Draft follow-up emails
 
+### 4a: Check ruflo for supplier patterns
+
+Before applying tone tiers, call `mcp__ruflo__memory_search` for each supplier:
+- `query`: "chase patterns for [supplier_name]"
+- `namespace`: "procurement"
+- `limit`: 3
+- `threshold`: 0.5
+
+If results exist, use them to inform the draft:
+- Prior tone tier that got a response → prefer that tier
+- Typical response time → adjust soft deadline accordingly
+- Channel preference (email vs Slack) → note in draft header
+
+If no results, proceed with default tone tier logic below.
+
 For each P1-P3 item, draft a follow-up email. Apply these rules:
 
 ### Chase tone tiers
@@ -130,9 +145,15 @@ After André approves (may edit drafts):
 
 1. Create Gmail drafts for approved email chasers (HTML format, append signature).
 2. For Slack chasers, present the message text for André to send manually.
-3. Update the OI Context with a dated entry: `**YYYY-MM-DD:** Follow-up sent [channel]. [Brief note].`
+3. Add a Notion page comment on the OI via notion-create-comment: `Follow-up sent [channel] [date]. [Brief note].`
 4. Update promises.md `next:` field if applicable.
 5. Log all actions to `outputs/change-log.md`.
+6. Store chase outcome in ruflo memory via `mcp__ruflo__memory_store`:
+   - `key`: "chase::[supplier_name]::[YYYY-MM-DD]"
+   - `namespace`: "procurement"
+   - `upsert`: true
+   - `tags`: ["chase", project_name, supplier_name]
+   - `value`: `{ supplier, tone_tier, channel, days_overdue, item, outcome: "sent" }`
 
 ## Rules
 
@@ -143,9 +164,3 @@ After André approves (may edit drafts):
 - If an item has been chased 3+ times with no response, recommend escalation path instead of another chase.
 - Respect config/writing-style.md sign-off: "Best," (default) or "Thanks," (internal). Never "Best regards,".
 
-<!-- ## Future: ruflo MCP enhancements
-When ruflo MCP is active, this skill can use:
-- mcp__ruflo__memory_search: "When does [supplier] usually respond?" (learned patterns)
-- mcp__ruflo__memory_store: Record chase outcomes (response time after chase, which tone worked)
-- Pattern learning: Optimal chase day/time per supplier, escalation effectiveness
--->

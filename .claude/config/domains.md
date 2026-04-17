@@ -43,7 +43,7 @@
 | mcm.com.pt | MCM | RFQ Sent |
 | uartronica.pt | Uartronica | RFQ Sent |
 | quantal.pt | Quantal | Engaged |
-| conkly.com | CONKLY | RFQ Sent |
+| conkly.com | CONKLY | Rejected |
 | jxwatchband.com | JXwearable | RFQ Sent |
 | watchstrapbands.com | JXwearable | (alt domain) |
 | transpak.com | TransPak | RFQ Sent |

@@ -78,6 +78,21 @@ Price reductions (absolute + %), free samples/tooling, expedited lead times, add
 
 Pending re-quotes, missing breakdowns, unresolved pricing questions, stale quotes (>30 days).
 
+## Step 2b: Check ruflo for negotiation patterns
+
+Before generating recommendations, call `mcp__ruflo__memory_search`:
+- `query`: "negotiation patterns for [supplier_name]"
+- `namespace`: "procurement"
+- `limit`: 5
+- `threshold`: 0.5
+
+If results exist, surface them in the profile card under a **Learned Patterns** section:
+- Price-drop triggers ("dropped 8% after second re-quote request")
+- Concession sequences ("tooling waived when volume >50K committed")
+- Optimal re-quote timing ("responds best within 48h of follow-up")
+
+If no results, omit the section entirely.
+
 ## Step 3: Generate next-move recommendation
 
 Apply this decision tree:
@@ -115,10 +130,13 @@ If running `all active`, sort cards by project, then by recommendation urgency (
 - If a supplier has no quote data at all, still show the card with "No quotes on file" and recommend next step.
 - If Notion MCP is unreachable, abort with a clear message. Do not produce partial analysis from context files alone.
 
-<!-- ## Future: ruflo MCP enhancements
-When ruflo MCP is active, this skill can use:
-- mcp__ruflo__memory_store: Record patterns like "Supplier X drops 10% on second round"
-- mcp__ruflo__memory_store: "Tooling is negotiable when volume >50K" (learned from past rounds)
-- mcp__ruflo__memory_search: Retrieve negotiation patterns before generating recommendations
-- Pattern types: price-drop triggers, concession sequences, optimal re-quote timing
--->
+## Step 4b: Store negotiation outcome (if outcome changes)
+
+When a negotiation milestone is reached (price agreed, concession granted, re-quote result), store via `mcp__ruflo__memory_store`:
+- `key`: "negotiation::[supplier_name]::[YYYY-MM-DD]"
+- `namespace`: "procurement"
+- `upsert`: true
+- `tags`: ["negotiation", project_name, supplier_name]
+- `value`: `{ supplier, event, price_before, price_after, trigger, concession, notes }`
+
+This step only runs when André confirms a change. Not on read-only profile views.

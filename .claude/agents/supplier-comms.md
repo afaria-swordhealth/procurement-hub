@@ -27,7 +27,7 @@ Before drafting any email or response:
 4. Check strategy.md Negotiation Rules section before including any pricing, timeline, or competitive information.
 
 ## Rules
-Follow CLAUDE.md Safety Rules and Writing Style sections.
+See `.claude/config/rules-quick.md` for core safety rules. (writing-style.md loaded in pre-flight covers style.)
 - Follow strategy.md negotiation rules. Never reveal competing prices, internal timelines, or shortlist status.
 - NEVER send email. Gmail DRAFT only.
 

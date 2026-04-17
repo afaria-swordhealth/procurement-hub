@@ -80,6 +80,21 @@ Search recent messages (7 days) mentioning the supplier name in:
 
 Summarize any relevant threads (decisions, blockers, asks).
 
+## Step 6b: Check ruflo for past meeting outcomes
+
+Before generating talking points, call `mcp__ruflo__memory_search`:
+- `query`: "meeting outcomes {supplier_name}"
+- `namespace`: "procurement"
+- `limit`: 3
+- `threshold`: 0.5
+
+If results exist, add a **Past Meeting Patterns** section to the briefing (between Slack Context and Talking Points):
+- What worked (tone, framing, specific asks that landed)
+- What to avoid (topics that stalled, commitments that slipped)
+- Unresolved threads from previous meetings (cross-check vs open OIs)
+
+If no results, omit the section.
+
 ## Step 7: Generate briefing
 
 ```
@@ -120,6 +135,30 @@ MEETING BRIEF -- {Supplier/Topic} -- {Date}
 - Volume forecasts beyond what's shared
 - Competing quotes from other suppliers
 ```
+
+## Step 8: Store meeting outcome (post-meeting, optional)
+
+After the meeting, call `mcp__ruflo__memory_store` to capture what happened:
+
+- **key**: `meeting::[supplier_name]::[YYYY-MM-DD]`
+- **namespace**: "procurement"
+- **upsert**: true
+- **tags**: ["meeting", project, supplier_name]
+- **value**:
+  ```json
+  {
+    "supplier": "{name}",
+    "date": "{YYYY-MM-DD}",
+    "tone": "{collaborative|tense|neutral}",
+    "key_outcomes": ["{outcome 1}", "{outcome 2}"],
+    "what_worked": "{framing or ask that landed}",
+    "what_to_avoid": "{topic or approach that stalled}",
+    "unresolved": ["{open thread 1}"],
+    "next_step": "{agreed next action}"
+  }
+  ```
+
+André must explicitly request this step after the meeting. The briefing itself is always read-only.
 
 ## Rules
 

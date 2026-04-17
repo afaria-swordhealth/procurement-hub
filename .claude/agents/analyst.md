@@ -26,7 +26,7 @@ Before any cost analysis or price comparison:
 - Pulse baselines, Kaia baselines, elimination criteria: see strategy.md
 
 ## Rules
-Follow CLAUDE.md Safety Rules and Writing Style sections.
+See `.claude/config/rules-quick.md` for safety and writing rules.
 - Follow strategy.md Cost Analysis Rules section for all cost comparisons. Normalize FOB vs landed before any ranking.
 - Follow strategy.md FDA Verification section for checklists and red flags.
 - Follow strategy.md Decision Framework section when recommending suppliers.

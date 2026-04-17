@@ -252,19 +252,19 @@ Create an OI whenever any of these appear, from any source:
 | Owner | Real name (first + last). Handoff format: `André → Bradley / Legal`. Never "TBD". |
 | Deadline | Always present. If unknown, conservative date + note in Context. No deadline = not an OI. |
 | Project | Relation to Pulse / Kaia / M-Band / ISC. Mandatory. |
-| Context | Running log (see Context as Running Log below). |
+| Context | Summarized current-state paragraph (see Context as a Summary below). |
 
 On close: set Status=Closed and fill `Resolution` (1-2 sentences: what happened, who resolved, date, link).
 
-## Context as a Running Log
-Context is not static. It is a dated log that evolves as the OI lives.
+## Context as a Summary
+Context holds a summarized current-state description of the OI. It is not a running log.
 
-- First write: capture the full picture — the what, why it matters, what blocks, supplier/email/meeting reference.
-- Every subsequent update prepends a new dated line at the top: `**YYYY-MM-DD:** <update>`.
-- Older entries stay below, unedited. Nothing is deleted. Oldest context sits at the bottom as origin story.
-- Priorities shift by what is at the top, not by editing history.
-- If an update has no new information (already captured), do NOT add it to Context. Note it in the change-log only.
-- When Context grows past ~8 entries, the oldest lines can be collapsed into a one-line summary: `**Origin (<date range>):** <summary>`.
+- Write in English, formal tone. One paragraph. No dated prefix.
+- Capture: what the OI is, why it matters, current state, what blocks, who owns the next step.
+- When a new update arrives, add it as a **Notion page comment** on the OI (via notion-create-comment). Do NOT prepend it to Context.
+- Rewrite Context only when the summary itself changes materially (owner changed, blocker cleared, scope shifted, state transitioned). When rewriting, replace the whole paragraph — do not append.
+- Notion's native comment history provides the dated, threaded update trail. Context stays clean and scannable.
+- If you inherit an OI with a running-log Context (multiple dated prefixes, PT/EN mixed), treat it as a cleanup target: summarize into one English paragraph.
 
 ## Default owner rule
 If no clear owner, the default is André. Never "unassigned".

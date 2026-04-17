@@ -21,7 +21,7 @@ Manage device test reviews, update scores, enforce test protocol.
   - André: Overall assessment
 
 ## Rules
-Follow CLAUDE.md Safety Rules and Writing Style sections.
+See `.claude/config/rules-quick.md` for safety and writing rules.
 - Flag eliminators immediately.
 
 ## Does NOT touch

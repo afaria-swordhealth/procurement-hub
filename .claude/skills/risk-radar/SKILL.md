@@ -88,6 +88,31 @@ Read `outputs/session-state.md`. Check Carry-Over and Pending Actions for:
 - Items older than 3 days.
 - Items flagged as blocking.
 
+## Step 4b: Check ruflo for historical risk patterns
+
+Before classifying, call `mcp__ruflo__memory_search` to enrich findings with learned patterns:
+
+```
+query: "supplier risk patterns {project}"
+namespace: "procurement"
+limit: 5
+threshold: 0.4
+```
+
+For each supplier flagged as "gone cold" in Step 1a, also search:
+```
+query: "gone cold {supplier_name}"
+namespace: "procurement"
+limit: 3
+```
+
+If results exist, use them to:
+- Elevate or reduce severity if this supplier went cold before and resolved in a predictable pattern
+- Note learned signals ("NDA delays for CN suppliers typically resolve after second follow-up")
+- Surface prior actions that worked ("firm tone at Tier 3 got response within 48h")
+
+If no results, proceed with standard classification below.
+
 ## Step 5: Classify risks
 
 | Severity | Criteria |

@@ -44,6 +44,21 @@ model: opus
    - Sample status matches actual tracking/delivery state
 9. Flag stale sections with last known update date.
 
+### Phase 5: OI vs Email + Slack
+
+9. Query Open Items DB (OI_DB from .claude/config/databases.md) for all OIs with Status != Closed.
+10. For each open OI:
+    a. Identify the linked supplier and owner from OI properties.
+    b. Scan Gmail (direction: both, date_range: 7) filtered to that supplier's domain(s) per .claude/config/domains.md.
+    c. Scan Slack for mentions of the supplier name or OI topic (use slack-channels.md channel + DM list).
+    d. Compare email/Slack content against the OI's current Context and Status. Flag if:
+       - New information changes the state (e.g., supplier replied, blocker cleared, decision made)
+       - Status should change (Blocked → In Progress, Pending → Answered, or → Closed)
+       - Context needs a material rewrite (scope shifted, owner changed)
+       - A new OI or promise should be created from what was found
+    e. If no relevant activity found: skip silently (no output for that OI).
+11. Output per flagged OI: proposed action with source and rationale.
+
 ## Output Format
 
 Gap report organized by severity:
@@ -54,6 +69,14 @@ Gap report organized by severity:
 Per gap: Source (Gmail/Slack/DM), Date, Content summary, What's missing in Notion, Suggested action.
 
 Group by project, then by severity.
+
+**OI UPDATES NEEDED** (from Phase 5, appended after gap report):
+
+| OI | Owner | Deadline | Source | Proposed Action |
+|----|-------|----------|--------|-----------------|
+| [title] | [owner] | [date] | Gmail/Slack | Update Context / Change Status / Close / Create OI |
+
+Show proposed Context rewrites or Status changes inline. Wait for approval before writing.
 
 ## Safety
 

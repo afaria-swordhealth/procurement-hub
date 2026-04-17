@@ -35,7 +35,7 @@ See procedures/check-outreach.md for milestones policy, condensation rules, and 
 See CLAUDE.md section 4d and procedures/create-open-item.md. Enforce schema on every write: Item, Status, Type, Owner, Deadline, Project, Context all required. Context is append-only with prepended dated lines. Never overwrite Context; if an update brings no new info, log to change-log only.
 
 ## Rules
-Follow CLAUDE.md Safety Rules and Writing Style sections.
+See `.claude/config/rules-quick.md` for safety and writing rules.
 - CHECK BEFORE CREATE: Verify daily log entry doesn't exist before creating.
 - Weekly Report status stays Draft until André marks Sent in Notion UI.
 

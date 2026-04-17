@@ -1,4 +1,5 @@
 Sandbox/
+.claude-flow/
 .claude/settings.local.json
 .claude/config/signature.html
 .claude/config/_test_draft_body.html
