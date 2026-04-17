@@ -489,6 +489,16 @@ Thin orchestrators. Each command specifies which agents run it, which procedures
 ## Agents (.claude/agents/)
 Domain-specific logic and scope boundaries. Each agent defines what it does, what it does NOT touch, and its write permissions. Agents reference config files for shared data.
 
+## Knowledge base (.claude/knowledge/) — Sword Insighter
+Process knowledge: how procurement works at Sword, not just what to do. Read when a task involves a process decision (triggers, stakeholders, timelines, authority). Skills reference these files in pre-flight.
+- nda-process.md: When to initiate, Zip workflow, Bradley/Legal, NDA Status values, project notes
+- supplier-onboarding-process.md: 3-track onboarding (Procurement + Finance/AP + QARA), dependencies per project
+- qara-engagement.md: When to loop Sofia, SQA/QTA/LoE/UDI process, André's relay role, contact rules
+- zip-workflow.md: Zip portal states, notifications, NDA + vendor onboarding + budget request flows
+- cross-functional-map.md: Stakeholder directory, decision authority table, involvement by stage, escalation paths
+
+See .claude/knowledge/INDEX.md for full index.
+
 ## Adding a new supplier
 1. Add domain to config/domains.md (table + Gmail filter pattern)
 2. Create Notion page in the relevant Supplier DB (sections: Contact, Profile, Quote, Outreach, Open Items)
