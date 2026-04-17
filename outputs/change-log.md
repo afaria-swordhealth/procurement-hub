@@ -100,7 +100,11 @@
 - Daily Logs Date field fix (ISO format): Apr 11 entry 1 (33fb81e7), Apr 11 entry 2 (33fb812c), Apr 15 (344b8112), Apr 16 entry 1 (344b81be) — all corrected from text format to YYYY-MM-DD.
 - Daily Log Apr 16 entry 2 (345b8174): Highlights field populated (was empty).
 - Daily Log Apr 17 created (345b81be): Draft, W16. Covers cross-check, MCM close, ISTA/NDA OIs, Queenie branding, Sword All Hands.
-- Weekly Report W16 (345b4a7d…1f39) pushed to Notion as Draft. Period: Apr 11-17, 2026.
+- Weekly Report W16 (345b4a7d…1f39) pushed to Notion as Draft.
+- TransPak Outreach: +1 entry (Apr 17 Nimbl boxes picked up, Kevin + Vin notified). Duplicate 26 Mar visible entry removed. Summary → 17+.
+- Context files synced to 23:00: pulse/suppliers.md (Transtek labeling correction + QTA Unique Scales + NDAs + ISTA OIs), kaia/suppliers.md (ProImprint production pressure), mband/suppliers.md (MCM OI closed, JXwearable capability confirmed, TransPak boxes update).
+- Daily log Apr 17 (345b81be): Highlights + body updated with post-18:54 UTC activities (labeling correction, QTA, TransPak, meeting prep, promises).
+- promises.md: Queenie ISTA → back to Open (email sent 13:29, awaiting Queenie reply). Kevin Wang T2D due → 2026-04-24 (extended 1 week). Period: Apr 11-17, 2026.
 - Phase 5 complete: embeddings_init (ONNX, Xenova/all-MiniLM-L6-v2, 384-dim). risk-radar Step 4b + meeting-prep Step 6b wired (memory_search before risk classification / talking points).
 - meeting-prep Step 8 added: post-meeting memory_store (optional, explicit request required).
 - supplier-chaser Step 6 item 3 fixed: OI update now via notion-create-comment, was dated Context prepend (OI Context rule compliance).
