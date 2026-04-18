@@ -79,9 +79,14 @@ Per `procedures/fill-cost-fields-on-quote.md`:
    - `Unit Cost (EUR)`: 3 decimal places
    - `Tooling Cost (EUR)`: 0 decimals if >= 1,000, else 2 decimals
 
-**SHOW BEFORE WRITE.** Pricing field update is Level 2 per CLAUDE.md Safety Rules. Present values, source tier, source currency, FX rate, and converted amount to Andre before writing.
+**Before writing:** store execution checkpoint — `key: exec::quote-intake::{supplier}`, namespace "procurement", upsert true, value: `{ skill: "quote-intake", supplier, date, status: "in-progress", steps_done: [] }`.
 
-Before writing: store execution checkpoint to ruflo — `key: exec::quote-intake::{supplier}`, namespace "procurement", upsert true, value: `{ skill: "quote-intake", supplier, date, status: "in-progress", steps_done: [] }`.
+**Auto-write path (CLAUDE.md §5 Exception 3):** If ALL conditions are true, write DB fields immediately and output a single confirmation line — `Auto-wrote: Unit Cost X.XXX EUR, Tooling X EUR (source: [currency] [amount]@[tier], FX: [rate])`:
+- No flags raised in Steps 1-3 (no: >30% delta from median, FOB/landed mix, missing required fields, tier mismatch)
+- FX rate sourced from `fx-rates.md`
+- A prior quote exists in ruflo for this supplier AND the computed EUR value is within 30% of it. If no prior quote exists, route to SHOW BEFORE WRITE — first-ever quotes have no anchor for the range check.
+
+**SHOW BEFORE WRITE path (fallback):** If any condition fails, present values (source tier, source currency, FX rate, converted amount) to André before writing.
 
 After DB fields write succeeds: update checkpoint — `steps_done: ["db_fields"]`.
 
@@ -95,7 +100,9 @@ Update the `## Quote` section on the supplier's Notion page. Consolidate inline 
 
 One block per quote, most recent on top. Each block: `**Quote {date} — {Incoterm}**`, tier table (source currency + EUR), then bullet list: Tooling/NRE, MOQ, Lead time (tooling + production), Payment terms, Validity, FLC estimate with basis. Keep older quotes below.
 
-**SHOW BEFORE WRITE** for Quote section updates. After Quote section write succeeds: update checkpoint — `steps_done: ["db_fields", "quote_section"]`.
+**If Step 4 used auto-write path:** write Quote section immediately as part of the same operation, no gate.
+**If Step 4 used SHOW BEFORE WRITE path:** SHOW BEFORE WRITE for Quote section as well.
+After Quote section write succeeds: update checkpoint — `steps_done: ["db_fields", "quote_section"]`.
 
 ## Step 6: Compare against existing quotes
 

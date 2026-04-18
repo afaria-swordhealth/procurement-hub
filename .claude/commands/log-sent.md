@@ -85,4 +85,4 @@ Then the full proposed entries below the table.
 Use the actual sent email content (not the draft), since Andre may have edited manually.
 One outreach entry per email thread per day (consolidate if multiple in same thread same day).
 
-After Outreach writes: present any proposed OI comment adds for approval.
+After Outreach writes: OI comments are written directly (auto-approved per CLAUDE.md §5 Exception 2). Log each to outputs/change-log.md.

@@ -83,6 +83,7 @@ For each P1-P3 item, draft a follow-up email. Apply these rules:
 - Frame: "Following up on..." or "Just wanted to check in on..."
 - Keep short. Restate what's needed in one sentence.
 - No urgency language.
+- **Auto-create condition:** Gmail draft is created without a SHOW BEFORE WRITE gate if ALL are true: chase number = 1, days overdue ≤ 5, exactly one email address for this supplier in `config/domains.md`, language matches supplier region, supplier status is not `Quote Received` or `Shortlisted` (active commercial exchange — route to review). Present as `[AUTO]` in the chase table with draft body shown as informational. Type `skip #N` to hold a specific auto item before execution.
 
 **Tier 2 — Direct follow-up (4-7 days, or second chase)**
 - Frame: "I wanted to follow up on [specific item] from [date]."
@@ -115,16 +116,18 @@ For each P1-P3 item, draft a follow-up email. Apply these rules:
 
 ## Step 5: Present to André
 
-Show a single table:
+Show a single table. Mark Tier 1 items meeting auto-create conditions as `[AUTO]` in the Action column — these will execute immediately after presentation. All others are `[Review]` and wait for approval.
 
 ```
 CHASE QUEUE — Apr DD
 
 | # | Priority | Supplier/Person | Item | Days Overdue | Last Contact | Action |
 |---|----------|----------------|------|-------------|-------------|--------|
-| 1 | P1       | Sonia Sousa    | M-Band LTs | 3d | Sent Apr 10 | Draft below |
-| 2 | P2       | Pedro R.       | NPM1300 qty | 4d | Sent Apr 10 | Slack msg below |
+| 1 | P1       | Ribermold      | Mold quote | 12d | Sent Apr 6 | [Review] Draft below |
+| 2 | P3       | SHX Watch      | Pulse RFQ | 3d | Sent Apr 15 | [AUTO] Draft below |
 ```
+
+Type `skip #N` to hold a specific [AUTO] item before it executes.
 
 Then, for each item with a draft:
 
@@ -139,9 +142,11 @@ Then, for each item with a draft:
 ---
 ```
 
-## Step 6: Execute approved chasers
+## Step 6: Execute chasers
 
-After André approves (may edit drafts):
+For **[AUTO] items** (Tier 1, all conditions met): create Gmail drafts immediately after Step 5 presentation without waiting for approval. Output confirmation line per item: `Auto-created draft: [Supplier] — [subject] (Tier 1, chase 1, [N]d overdue)`.
+
+For all other items: after André approves (may edit drafts):
 
 1. Create Gmail drafts for approved email chasers (HTML format, append signature).
 2. For Slack chasers, present the message text for André to send manually.
@@ -159,7 +164,7 @@ After André approves (may edit drafts):
 ## Rules
 
 - NEVER send emails. Gmail drafts only (Level 1 safety).
-- SHOW BEFORE WRITE for Gmail draft creation only. OI comments via notion-create-comment are auto-approved (per CLAUDE.md §5 Exception 2) — write them directly after draft approval, no separate confirmation needed.
+- SHOW BEFORE WRITE for Gmail draft creation, except Tier 1 drafts meeting auto-create conditions (chase 1, ≤5d overdue, one unambiguous email address, language matches region) — those create immediately after presentation. OI comments via notion-create-comment are auto-approved (per CLAUDE.md §5 Exception 2) — write them directly after draft creation, no separate confirmation needed.
 - Do not chase suppliers in Rejected status.
 - Do not chase items where Owner is not André (flag for André to decide).
 - If an item has been chased 3+ times with no response, recommend escalation path instead of another chase.

@@ -4,6 +4,33 @@
 
 ## 2026-04-18
 
+### M3 — Autonomy T3: Full implementation (10-agent methodology, Phase 4)
+
+**Bug fixes (B1, B2):**
+- `CLAUDE.md §4` /log-sent Step 7: removed "Wait for André's approval" for OI comments — contradicted Exception 2. Now auto-writes directly.
+- `log-sent.md` Phase 5b trailing line: "present... for approval" replaced with "write directly, log to change-log."
+- `rfq-workflow` Step 4c: justification updated — OI record creation is a standalone auto-approval rule, not covered by Exception 2 (which applies to OI page comments via notion-create-comment only).
+
+**New exceptions in CLAUDE.md §5:**
+- Exception 3: quote-intake pricing fields auto-approved when conditions met (no flags, FX from config, within 30% of prior quote).
+- Exception 4: rfq-workflow Status → "RFQ Sent" auto-approved after André confirms send.
+
+**New auto-approvals (high-frequency operations):**
+- `rfq-workflow` Step 4b: Status → "RFQ Sent" now auto-updates after send confirmation. Last gated step in the send cluster removed.
+- `quote-intake` Steps 4+5: collapsed into auto-write when Exception 3 conditions met. Single confirmation line output; SHOW BEFORE WRITE path still fires if any flag raised.
+- `supplier-chaser` Tier 1: Gmail drafts auto-create when chase 1, ≤5d overdue, one unambiguous email address, language matches region. Shown as [AUTO] in table; André can skip #N. Tier 2/3 always gated.
+
+**Housekeeping tightening:**
+- `housekeeping.md` Phase 4: overdue OIs now get auto-comment "housekeeping flagged overdue [date]" via notion-create-comment (Exception 2).
+- `housekeeping.md` Phase 2 rule 6: Notes pricing removal requires exact-match guard (within 1% tolerance). Mismatch → NEEDS YOUR DECISION.
+- `housekeeping.md` Phase 3 rule 11: Currency auto-fix narrowed to null-only. Non-null mismatches → NEEDS YOUR DECISION.
+- `housekeeping.md` Phase 6 rule 23: 48h unanswered clock starts Monday 09:00 for emails received Fri 17:00+ or weekend.
+
+**V3 adversarial fixes (3 HIGH/MEDIUM gaps patched):**
+- `quote-intake` + `CLAUDE.md` Exception 3: first-ever quote (no prior ruflo record) → SHOW BEFORE WRITE. Prior quote required for 30% range check.
+- `rfq-workflow` Step 4 header: confirmation bound to draft from Step 3 only, not ambiguous generic "yes".
+- `supplier-chaser` Tier 1 condition: auto-create excluded when supplier status = Quote Received or Shortlisted (active commercial exchange).
+
 ### session-doctor auto-fix
 - change-log date header corrected: 2026-04-19 → 2026-04-18 (future date, likely late-session write error)
 

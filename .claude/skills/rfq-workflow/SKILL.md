@@ -95,7 +95,7 @@ Never reveal: other supplier pricing, internal timelines, decision deadlines, sh
 
 ## Step 4: After sending — log and track
 
-After Andre confirms the RFQ was sent:
+After André confirms the draft created in Step 3 was sent (confirmation is contextually bound to that draft only):
 
 ### 4a. Log outreach milestone
 
@@ -108,12 +108,11 @@ After outreach write: update checkpoint — `steps_done: ["gmail_draft", "outrea
 
 ### 4b. Update supplier status
 
-If current status is `Identified` or `Contacted`, propose update to `RFQ Sent`.
-**SHOW BEFORE WRITE** for status changes. After status write: update checkpoint — `steps_done: ["gmail_draft", "outreach", "status"]`.
+If current status is `Identified` or `Contacted`, auto-update to `RFQ Sent` immediately — no separate approval needed (per CLAUDE.md §5 Exception 4). The send confirmation IS the approval. Skip if status is already more advanced. After status write: update checkpoint — `steps_done: ["gmail_draft", "outreach", "status"]`.
 
 ### 4c. Create response-tracking OI
 
-Auto-approved after André confirms RFQ was sent — no SHOW BEFORE WRITE needed (mechanical audit step). Per `procedures/create-open-item.md` (all 7 fields): `{Supplier} — RFQ response` | Pending | Action Item | Owner: supplier contact (Andre monitors) | Deadline: send date + 10 biz days | Context: what was sent, tiers, specs status, response deadline. After OI created: update checkpoint — `steps_done: ["gmail_draft", "outreach", "status", "oi_created"]`.
+Auto-approved after André confirms RFQ was sent — no SHOW BEFORE WRITE needed. This OI creation is a mechanical consequence of a confirmed send, separately authorized from Exception 2 (which applies to OI page comments via notion-create-comment, not OI record creation). Per `procedures/create-open-item.md` (all 7 fields): `{Supplier} — RFQ response` | Pending | Action Item | Owner: supplier contact (Andre monitors) | Deadline: send date + 10 biz days | Context: what was sent, tiers, specs status, response deadline. After OI created: update checkpoint — `steps_done: ["gmail_draft", "outreach", "status", "oi_created"]`.
 
 ### 4d. Update context and promises
 

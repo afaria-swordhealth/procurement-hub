@@ -37,7 +37,7 @@ Query all 4 DBs via config/databases.md (Query Patterns section) with columns: N
 
 For each active supplier:
 
-6. **Pricing in Notes**: If pricing info appears in Notes AND exists in a DB price field, remove from Notes.
+6. **Pricing in Notes**: If pricing info appears in Notes AND the DB price field holds the exact same value (same currency, within 1% tolerance), remove from Notes. If values differ, flag as NEEDS YOUR DECISION instead of auto-removing — the discrepancy may indicate a data error or interim update.
 7. **Contact in Notes**: If contact info appears in Notes AND exists in Contact field, remove from Notes.
 8. **Length**: Condense Notes exceeding 2 lines. Format: "TYPE (Location). Product + differentiator. Flag." Max 2 lines.
 9. **Language**: Translate any Portuguese Notes to English.
@@ -47,7 +47,7 @@ For each active supplier:
 
 Using the same query results from Phase 2:
 
-11. **Currency**: CN/US suppliers = USD. PT/EU suppliers = EUR. Only fix if currently null or clearly wrong.
+11. **Currency**: CN/US suppliers = USD. PT/EU suppliers = EUR. Auto-fix null values only. If a non-null value appears wrong, flag as NEEDS YOUR DECISION — the setting may be intentional (e.g., CN entity invoicing via a UK subsidiary in GBP).
 12. **NDA on Rejected**: Set NDA Status to "Not Required" for any Rejected supplier where NDA is "Pending" or null.
 13. Log all writes to outputs/change-log.md.
 
@@ -56,7 +56,7 @@ Using the same query results from Phase 2:
 Query Open Items DB (ID from .claude/config/databases.md, OI_DB) for items with Status != Closed.
 
 14. **AUTO-EXECUTE**: Close OIs linked to Rejected suppliers (resolution: "Supplier rejected, no longer relevant").
-15. **REPORT ONLY**: Flag overdue items (`"date:Deadline:start" < date('now')`).
+15. **REPORT ONLY + AUTO-COMMENT**: Flag overdue items (`"date:Deadline:start" < date('now')`). For each overdue OI, also auto-post a Notion page comment via notion-create-comment: `Housekeeping flagged overdue [date]. Deadline: [deadline]. Owner: [owner].` (auto-approved per CLAUDE.md §5 Exception 2). Log each comment to outputs/change-log.md.
 16. **REPORT ONLY**: Flag stale items — leading Context date >21 days old on active items. Single SQL query covers both overdue and stale:
     ```sql
     SELECT Item, Owner, Status,
@@ -85,7 +85,7 @@ Query Open Items DB (ID from .claude/config/databases.md, OI_DB) for items with 
 
 21. Use .claude/procedures/scan-gmail.md (direction: "both", mode: "filtered") to get recent emails.
 22. For each active supplier, compare last received email date vs last sent email date.
-23. Flag suppliers where we received an email >48h ago with no reply from us.
+23. Flag suppliers where we received an email >48h ago with no reply from us. Exception: if the email was received after Friday 17:00 or on a weekend, start the 48h clock from Monday 09:00 — prevents routine Friday-evening emails from flagging as overdue every Monday morning.
 
 ## Phase 6b: Synthesis — Supplier Chaser Candidates (REPORT ONLY)
 
@@ -120,6 +120,9 @@ DB FIELDS FIXED:
 
 OIs CLOSED:
 - [Item]: closed (supplier rejected)
+
+OIs FLAGGED (auto-comment added):
+- [Item]: "housekeeping flagged overdue [date]" comment posted
 
 === NEEDS YOUR DECISION ===
 

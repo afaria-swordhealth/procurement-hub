@@ -139,7 +139,7 @@ Does NOT touch: Email content, pricing strategy, test methodology.
 4. Filter for milestones only (see supplier-comms.md Outreach Policy)
 5. Write milestone entries directly to Notion (no approval needed for outreach)
 6. Log to outputs/change-log.md
-7. For each supplier where an Outreach entry was written, query open OIs linked to that supplier. If the email is relevant to any OI (new info, blocker update, commitment), propose a Notion page comment via notion-create-comment. Wait for André's approval before posting.
+7. For each supplier where an Outreach entry was written, query open OIs linked to that supplier. If the email is relevant to any OI (new info, blocker update, commitment), write a Notion page comment via notion-create-comment directly (auto-approved per §5 Exception 2). Log to outputs/change-log.md.
 
 ## /housekeeping
 Autonomous maintenance. Fixes what is mechanical, reports what needs judgment.
@@ -342,6 +342,10 @@ Every Notion write must be:
 **Exception 1:** Outreach entries (milestones only) go directly to Notion without approval. See supplier-comms.md Outreach Policy.
 
 **Exception 2:** OI page comments via `notion-create-comment` (routine audit trail — follow-up sent, status observed, update logged) go directly without approval. NOT excepted: OI Context field rewrites and supplier status changes, which remain SHOW BEFORE WRITE.
+
+**Exception 3:** Pricing field updates (Unit Cost EUR, Tooling Cost EUR) in quote-intake are auto-approved when ALL are true: no flags raised in Steps 1-3 (no >30% delta from median, FOB/landed mix, missing required fields, or tier mismatch), FX rate from `config/fx-rates.md`, a prior quote exists in ruflo for this supplier AND the computed EUR value is within 30% of it. If no prior quote exists, route to SHOW BEFORE WRITE — first-ever quotes have no anchor for the 30% check. Write immediately with a single confirmation line; do not gate. Overrides Level 2 "Price field update" rule under these conditions only.
+
+**Exception 4:** Supplier status → `RFQ Sent` in rfq-workflow is auto-approved immediately after André confirms the RFQ was sent. The send confirmation IS the approval; a second SHOW BEFORE WRITE gate is redundant.
 
 ## CORE RULES
 1. SHOW BEFORE WRITE: Display changes, wait for approval.
