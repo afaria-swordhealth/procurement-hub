@@ -172,29 +172,57 @@ Cross-reference Gmail, Slack, and Notion to find gaps in documentation. See .cla
 
 # 4b. Multi-Session Scope
 
-André may run two Claude Code sessions in parallel. Each session must respect its write boundaries.
+André may run up to three Claude Code sessions in parallel. Each session must respect its write boundaries.
 
 ```
-SESSION A (Operational)          SESSION B (Housekeeping)
-─────────────────────────        ─────────────────────────
-Gmail: read + draft              Gmail: read only
-Notion: read only                Notion: read + write (outreach, OI, audit)
-Context files: read + write      Context files: read only
-change-log.md: append            change-log.md: append
-session-state.md: read + write   session-state.md: read + write
+SESSION A (Operational)          SESSION B (Housekeeping)       SESSION C (Improvement)
+─────────────────────────        ─────────────────────────      ──────────────────────────────
+Gmail: read + draft              Gmail: read only               Gmail: none
+Notion: read only                Notion: read + write           Notion: none
+Context files: read + write        (outreach, OI, audit)        Context files: read only
+change-log.md: append            Context files: read only       change-log.md: read + append
+session-state.md: read + write   change-log.md: append          .claude/: read + write
+                                 session-state.md: read + write session-state.md: read only
 ```
 
 Rules:
 - Session B never creates Gmail drafts. Session A never writes Outreach.
+- Session C never writes to Notion, Gmail, or context/ files. It only modifies system files (.claude/ skills, commands, agents, procedures, config, knowledge) and memory/.
 - Outreach writes (Session B) go directly to Notion without approval.
 - All other Notion writes follow SHOW BEFORE WRITE in the session where they happen.
 - Before writing to a supplier page, check outputs/change-log.md. If another session wrote to that page in the last 10 min, skip it.
-- If only one session is running, it has full permissions (both A and B scope).
+- If only one session is running, it has full permissions (all A + B + C scope).
 - Session role is determined by the command being run:
   - Session B (housekeeping scope): /housekeeping, /log-sent, /audit
   - Session A (operational scope): /mail-scan, /warm-up, /wrap-up, /daily-log, /weekly-report
-  - If a session runs commands from both types, it operates as a single session with full permissions.
+  - Session C (improvement scope): system sprints, skill edits, methodology work — identified by André saying "melhoria", "sprint", or launching a milestone session
+  - If a session runs commands from multiple types, it operates as a single session with full permissions.
   - The change-log 10-minute check remains the collision guard regardless of session role.
+
+## Improvement Session Cadence (Session C)
+
+Three tiers, all running parallel to Session A:
+
+| Tier | Frequency | Duration | Method | Trigger |
+|------|-----------|----------|--------|---------|
+| Micro-fix | Daily | 20-30 min | Direct edit (no agents) | Friction signal from that day's change-log |
+| Mini-sprint | Weekly | 45-60 min | 3-5 agents | Recurring friction identified during the week |
+| Structural sprint | When needed | 2-3h | 10-agent methodology | Monthly session identifies material for deep change |
+
+**Daily micro-fix (how it works):**
+1. Read `outputs/change-log.md` — what did the operational session do today?
+2. Identify ONE friction signal: fallback triggered, mechanical step repeated, rule unclear, skill required more approval gates than expected.
+3. Fix it in the relevant `.claude/` file. If the fix touches >1 file or requires analysis: escalate to mini-sprint instead.
+4. Log to `outputs/change-log.md`. Commit.
+
+**Friction signals to watch for:**
+- SHOW BEFORE WRITE fired for something clearly mechanical
+- Fallback to Gmail scan when DB field should have been set
+- Same manual instruction given twice in one week
+- Exception path taken that wasn't expected (review the condition)
+- Step skipped because context was stale
+
+**Monthly session feeds structural sprints:** The retrospective component of the monthly session is the primary source for structural sprint topics. If the retrospective surfaces something that cannot be fixed in a micro-fix or mini-sprint, it becomes the next structural sprint topic.
 
 ## Session State Sync (outputs/session-state.md)
 
