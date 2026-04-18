@@ -17,6 +17,7 @@ Extracts pricing from a supplier quote, converts to EUR, calculates FLC, updates
 6. Read `.claude/procedures/check-outreach.md` (milestone entry format).
 7. Read `.claude/procedures/create-open-item.md` (OI field requirements).
 8. Read `context/{project}/suppliers.md` for the supplier's current state.
+9. **Execution checkpoint check:** call `mcp__ruflo__memory_search` with query `"exec quote-intake {supplier_name}"`, namespace "procurement", limit 1, threshold 0.9. If a record with `status: "in-progress"` is found: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite."
 
 ## Step 1: Extract pricing from quote
 
@@ -80,6 +81,10 @@ Per `procedures/fill-cost-fields-on-quote.md`:
 
 **SHOW BEFORE WRITE.** Pricing field update is Level 2 per CLAUDE.md Safety Rules. Present values, source tier, source currency, FX rate, and converted amount to Andre before writing.
 
+Before writing: store execution checkpoint to ruflo — `key: exec::quote-intake::{supplier}::{YYYY-MM-DD}`, namespace "procurement", upsert true, value: `{ skill: "quote-intake", supplier, date, status: "in-progress", steps_done: [] }`.
+
+After DB fields write succeeds: update checkpoint — `steps_done: ["db_fields"]`.
+
 If the supplier quoted a different tier than the reference, write that value and flag `tier mismatch` in the change-log. Do not inflate or deflate.
 
 ## Step 5: Update supplier page Quote section
@@ -90,7 +95,7 @@ Update the `## Quote` section on the supplier's Notion page. Consolidate inline 
 
 One block per quote, most recent on top. Each block: `**Quote {date} — {Incoterm}**`, tier table (source currency + EUR), then bullet list: Tooling/NRE, MOQ, Lead time (tooling + production), Payment terms, Validity, FLC estimate with basis. Keep older quotes below.
 
-**SHOW BEFORE WRITE** for Quote section updates.
+**SHOW BEFORE WRITE** for Quote section updates. After Quote section write succeeds: update checkpoint — `steps_done: ["db_fields", "quote_section"]`.
 
 ## Step 6: Compare against existing quotes
 
@@ -120,6 +125,8 @@ YYYY-MM-DD HH:MM | quote-intake | {Supplier} quote processed | Unit: {X} {curren
 **Mon DD** -- Quote received. {currency} {price}/unit @{tier}, tooling {amount}. {Incoterm}.
 ```
 
+After Step 7 (context + change-log + outreach) completes: update checkpoint — `steps_done: ["db_fields", "quote_section", "context_log"]`.
+
 ## Step 8: Store quote in ruflo memory
 
 After all Notion writes are complete, call `mcp__ruflo__memory_store`:
@@ -148,6 +155,8 @@ After all Notion writes are complete, call `mcp__ruflo__memory_store`:
   ```
 
 `delta_vs_prev_pct`: calculate by searching ruflo first for a prior quote from this supplier (`mcp__ruflo__memory_search` with query `"quote {supplier_name}"`, limit 1). If a prior quote exists, compute `(new_unit - prev_unit) / prev_unit * 100`. If no prior quote, set null.
+
+After ruflo store succeeds: update checkpoint — `status: "complete"`, `steps_done: ["db_fields", "quote_section", "context_log", "ruflo"]`.
 
 ## Rules
 

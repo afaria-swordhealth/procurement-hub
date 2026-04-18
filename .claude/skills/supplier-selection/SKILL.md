@@ -126,7 +126,9 @@ Next steps if André approves:
 After André approves the recommendation:
 
 0. Check `outputs/change-log.md` collision guard (10-min window). Write a claim entry now before any Notion write: `{timestamp} | supplier-selection | {project} | Winner: {winner} | executing status update + OI creation`
-1. Update winner's Status → `Shortlisted` in Notion.
+0b. **Execution checkpoint check:** call `mcp__ruflo__memory_search` with query `"exec supplier-selection {project}"`, namespace "procurement", limit 1, threshold 0.9. If a record with `status: "in-progress"` is found: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume or confirm fresh start."
+0c. Store execution checkpoint to ruflo — `key: exec::supplier-selection::{project}::{YYYY-MM-DD}`, namespace "procurement", upsert true, value: `{ skill: "supplier-selection", project, winner, date, status: "in-progress", steps_done: [] }`.
+1. Update winner's Status → `Shortlisted` in Notion. After write succeeds: update checkpoint — `steps_done: ["winner_shortlisted"]`.
 2. For suppliers to reject: offer to run `/supplier-rejection` for each.
 3. Create Decision OI in Open Items DB:
    - Item: `{Project} — Supplier selected: {winner}`
@@ -135,12 +137,14 @@ After André approves the recommendation:
    - Owner: André Faria
    - Deadline: today
    - Context: summary of selection rationale, score, key factors, alternatives considered
+   After OI created: update checkpoint — `steps_done: ["winner_shortlisted", "decision_oi"]`.
 4. Store selection decision in ruflo:
    - `key`: `selection::{project}::{YYYY-MM-DD}`
    - `namespace`: "procurement"
    - `upsert`: true
    - `tags`: ["selection", project, winner_name]
    - `value`: `{ project, date, winner, winner_score, runner_up, runner_up_score, candidates_evaluated, key_factor, decision_rationale }`
+   After ruflo store succeeds: update checkpoint — `status: "complete"`, `steps_done: ["winner_shortlisted", "decision_oi", "ruflo"]`.
 
 ## Rules
 

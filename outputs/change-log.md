@@ -7,6 +7,15 @@
 ### mail-scan (silent cron)
 - OI 33eb4a7d (Transtek Finance onboarding): comment added — bank letter missing account info, awaiting new upload from Transtek to Zip #3139. Pedro Coentrão CC'd.
 
+### M2 — Self-healing Level 4: execution checkpoints
+
+Execution checkpoint pattern implemented in 3 critical skills:
+- `quote-intake`: pre-flight check + checkpoint before Step 4 write + updates after Steps 4, 5, 7 + mark complete after Step 8
+- `rfq-workflow`: pre-flight check + checkpoint before Gmail draft + update after OI created + mark complete after Step 4d
+- `supplier-selection`: pre-flight check (Step 0b) + checkpoint store (Step 0c) + updates after winner shortlisted + OI created + mark complete after ruflo store
+
+Pattern: `exec::{skill}::{subject}::{date}` in ruflo namespace "procurement". On incomplete detection: STOP and surface to André with steps_done list.
+
 ### Audit 2.0 — Session 2 + 3 fixes applied
 
 **Session 2 — Structural propagation:**

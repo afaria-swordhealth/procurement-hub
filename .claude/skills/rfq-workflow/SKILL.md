@@ -17,6 +17,7 @@ Manages the full RFQ lifecycle: pre-check NDA, assemble the package, draft the e
 6. Read `context/{project}/suppliers.md` for the target supplier.
 7. Read `.claude/procedures/check-outreach.md` (milestone entry format).
 8. Read `.claude/procedures/create-open-item.md` (OI field requirements).
+9. **Execution checkpoint check:** call `mcp__ruflo__memory_search` with query `"exec rfq-workflow {supplier_name}"`, namespace "procurement", limit 1, threshold 0.9. If a record with `status: "in-progress"` is found: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start."
 
 ## Step 1: Pre-check — NDA status
 
@@ -89,7 +90,8 @@ Never reveal: other supplier pricing, internal timelines, decision deadlines, sh
 
 1. Cross-check recipient email against Notion Contact section and `config/domains.md`. Flag mismatches.
 2. **SHOW BEFORE WRITE.** Present full draft to Andre. He may edit.
-3. Create Gmail draft in HTML (no CDATA). Append signature from `.claude/config/signature.html`.
+3. Store execution checkpoint to ruflo before creating draft — `key: exec::rfq-workflow::{supplier}::{YYYY-MM-DD}`, namespace "procurement", upsert true, value: `{ skill: "rfq-workflow", supplier, date, status: "in-progress", steps_done: [] }`.
+4. Create Gmail draft in HTML (no CDATA). Append signature from `.claude/config/signature.html`. After draft created: update checkpoint — `steps_done: ["gmail_draft"]`.
 
 ## Step 4: After sending — log and track
 
@@ -110,11 +112,11 @@ If current status is `Identified` or `Contacted`, propose update to `RFQ Sent`.
 
 ### 4c. Create response-tracking OI
 
-Per `procedures/create-open-item.md` (all 7 fields): `{Supplier} — RFQ response` | Pending | Action Item | Owner: supplier contact (Andre monitors) | Deadline: send date + 10 biz days | Context: what was sent, tiers, specs status, response deadline.
+Per `procedures/create-open-item.md` (all 7 fields): `{Supplier} — RFQ response` | Pending | Action Item | Owner: supplier contact (Andre monitors) | Deadline: send date + 10 biz days | Context: what was sent, tiers, specs status, response deadline. After OI created: update checkpoint — `steps_done: ["gmail_draft", "outreach", "status", "oi_created"]`.
 
 ### 4d. Update context and promises
 
-Add to `context/{project}/suppliers.md`: RFQ sent date, what was requested, response deadline. If Andre committed to a follow-up date, add to `outputs/promises.md`.
+Add to `context/{project}/suppliers.md`: RFQ sent date, what was requested, response deadline. If Andre committed to a follow-up date, add to `outputs/promises.md`. After Step 4d completes: update checkpoint — `status: "complete"`, `steps_done: ["gmail_draft", "outreach", "status", "oi_created", "context"]`.
 
 ## Step 5: Track response
 
