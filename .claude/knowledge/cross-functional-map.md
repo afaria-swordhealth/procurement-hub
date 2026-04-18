@@ -13,7 +13,7 @@ Who does what at each stage of procurement. André's relay map.
 | André Faria | Sourcing Engineer, ISC | Sourcing, cost, vendor management, prioritization | EN / PT | — |
 | Jorge Garcia | Director, Logistics & Purchasing | Escalations, budget, strategic decisions | PT | Slack DM |
 | Anand Singh | VP ISC | Executive decisions, cross-functional | EN | Slack / email |
-| Marcio | [ISC leadership] | [TBD] | EN | — |
+| Marcio Colunas | CSO (Chief Strategy Officer) | ISC strategic direction, executive decisions | EN | — |
 | Bradley | Legal | NDAs, contracts, IP | EN | email |
 | Sofia Lourenço | Expert QSE | SQA, Qualio, FDA, LoE review | PT | Slack DM + email |
 | Bianca Lourenço | Senior Manager, Regulatory Affairs | Complex regulatory, FDA strategy, UDI | EN/PT | via Sofia first |
