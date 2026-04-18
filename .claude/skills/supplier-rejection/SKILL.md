@@ -13,6 +13,7 @@ Manages the full exit workflow for a supplier being rejected: communication, int
 2. Read `.claude/config/writing-style.md` (tone rules).
 3. Read `.claude/config/strategy.md` (never reveal other suppliers or pricing reasons).
 4. Read `.claude/config/databases.md` (DB IDs, collection URLs).
+5. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::supplier-rejection::{supplier}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite."
 
 ## Step 1: Pull supplier state
 
@@ -113,10 +114,12 @@ Present the full change summary. Wait for André's explicit approval before writ
 
 ## Step 7: Execute (after approval)
 
+Before executing writes: store execution checkpoint — `key: exec::supplier-rejection::{supplier}`, namespace "procurement", upsert true, value: `{ skill: "supplier-rejection", supplier, date, status: "in-progress", steps_done: [] }`.
+
 In order:
-1. Create Gmail draft for rejection email (HTML format, append signature).
-2. Update OI statuses to Closed with resolution text (per Step 5 approval).
-3. Update Supplier DB: Status → Rejected, NDA Status → Not Required.
+1. Create Gmail draft for rejection email (HTML format, append signature). After draft created: update checkpoint — `steps_done: ["gmail_draft"]`.
+2. Update OI statuses to Closed with resolution text (per Step 5 approval). After OI closures: update checkpoint — `steps_done: ["gmail_draft", "ois_closed"]`.
+3. Update Supplier DB: Status → Rejected, NDA Status → Not Required. After status write: update checkpoint — `steps_done: ["gmail_draft", "ois_closed", "status_updated"]`.
 4. Log milestone to Outreach section (direct write, auto-approved):
    `**[Date]** -- Supplier rejected. Rejection email drafted. OIs closed.`
 5. Log to `outputs/change-log.md`.
@@ -126,6 +129,7 @@ In order:
    - `upsert`: true
    - `tags`: ["rejection", project, supplier_name]
    - `value`: `{ supplier, project, date, reason_internal, ois_closed, contact_email, relationship_quality }`
+   After ruflo store: update checkpoint — `status: "complete"`, `steps_done: ["gmail_draft", "ois_closed", "status_updated", "ruflo"]`.
 
 ## Rules
 

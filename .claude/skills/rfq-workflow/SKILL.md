@@ -17,7 +17,7 @@ Manages the full RFQ lifecycle: pre-check NDA, assemble the package, draft the e
 6. Read `context/{project}/suppliers.md` for the target supplier.
 7. Read `.claude/procedures/check-outreach.md` (milestone entry format).
 8. Read `.claude/procedures/create-open-item.md` (OI field requirements).
-9. **Execution checkpoint check:** call `mcp__ruflo__memory_search` with query `"exec rfq-workflow {supplier_name}"`, namespace "procurement", limit 1, threshold 0.9. If a record with `status: "in-progress"` is found: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start."
+9. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::rfq-workflow::{supplier_name}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start."
 
 ## Step 1: Pre-check — NDA status
 
@@ -90,7 +90,7 @@ Never reveal: other supplier pricing, internal timelines, decision deadlines, sh
 
 1. Cross-check recipient email against Notion Contact section and `config/domains.md`. Flag mismatches.
 2. **SHOW BEFORE WRITE.** Present full draft to Andre. He may edit.
-3. Store execution checkpoint to ruflo before creating draft — `key: exec::rfq-workflow::{supplier}::{YYYY-MM-DD}`, namespace "procurement", upsert true, value: `{ skill: "rfq-workflow", supplier, date, status: "in-progress", steps_done: [] }`.
+3. Store execution checkpoint to ruflo before creating draft — `key: exec::rfq-workflow::{supplier}`, namespace "procurement", upsert true, value: `{ skill: "rfq-workflow", supplier, date, status: "in-progress", steps_done: [] }`.
 4. Create Gmail draft in HTML (no CDATA). Append signature from `.claude/config/signature.html`. After draft created: update checkpoint — `steps_done: ["gmail_draft"]`.
 
 ## Step 4: After sending — log and track
@@ -104,11 +104,12 @@ Per `procedures/check-outreach.md`, write directly to the supplier's Outreach se
 ```
 **Mon DD** -- RFQ sent. {Part category}, {tiers}. Response requested by Mon DD.
 ```
+After outreach write: update checkpoint — `steps_done: ["gmail_draft", "outreach"]`.
 
 ### 4b. Update supplier status
 
 If current status is `Identified` or `Contacted`, propose update to `RFQ Sent`.
-**SHOW BEFORE WRITE** for status changes.
+**SHOW BEFORE WRITE** for status changes. After status write: update checkpoint — `steps_done: ["gmail_draft", "outreach", "status"]`.
 
 ### 4c. Create response-tracking OI
 

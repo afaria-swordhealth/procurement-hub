@@ -2,7 +2,10 @@
 # Rolling daily file. Keeps only today's entries.
 # History lives in git log. On wrap-up, this file is committed then cleared for tomorrow.
 
-## 2026-04-19
+## 2026-04-18
+
+### session-doctor auto-fix
+- change-log date header corrected: 2026-04-19 → 2026-04-18 (future date, likely late-session write error)
 
 ### mail-scan (silent cron)
 - OI 33eb4a7d (Transtek Finance onboarding): comment added — bank letter missing account info, awaiting new upload from Transtek to Zip #3139. Pedro Coentrão CC'd.
@@ -61,3 +64,34 @@ Pattern: `exec::{skill}::{subject}::{date}` in ruflo namespace "procurement". On
 - `.claude/knowledge/zip-workflow.md` (NEW): Zip portal states, notifications, NDA + vendor + budget flows
 - `.claude/knowledge/cross-functional-map.md` (NEW): stakeholder directory, decision authority, escalation paths
 - `CLAUDE.md §11`: added Knowledge base section referencing .claude/knowledge/ (Sword Insighter)
+
+### M2 — Self-healing Level 4: proper methodology (10-agent discovery + implementation)
+
+10 discovery agents ran across 5 lenses (Correctness x3, Adversarial x2, Domain x2, Simulation x2, Zero Context x1). 9 strong-signal findings. Implementation covers clusters A+B+C+D+F.
+
+**A1+A2 — Detection reliability (all 3 original skills):**
+- `quote-intake`, `rfq-workflow`, `supplier-selection`: replaced `memory_search` (semantic, threshold 0.9) with `memory_retrieve` (exact key, deterministic)
+- Removed `{YYYY-MM-DD}` from checkpoint keys — cross-midnight recovery now works correctly
+- Key format: `exec::{skill}::{subject}` (date preserved in value object only)
+
+**B1 — Structural fix (supplier-selection):**
+- Checkpoint check moved from Step 7 (post-approval) to Pre-flight item 5
+- Step 7 now only stores the checkpoint; no longer re-checks
+
+**D1 — Hard block on ruflo failure (supplier-selection):**
+- If `memory_store` fails in Step 7: STOP — downstream rejections are irreversible without protection
+
+**C1 — Checkpoint granularity (rfq-workflow):**
+- Added checkpoint update after Step 4a (outreach): `steps_done: ["gmail_draft", "outreach"]`
+- Added checkpoint update after Step 4b (status): `steps_done: ["gmail_draft", "outreach", "status"]`
+- Prevents duplicate outreach writes on recovery
+
+**C2 — Checkpoint granularity (quote-intake):**
+- Split Step 7 into 3 separate checkpoint updates: after context_file, change_log, outreach
+- Recovery now shows exact sub-step that failed within Step 7
+
+**F1 — New skill protected (supplier-rejection):**
+- Added pre-flight checkpoint check (`memory_retrieve`, key: `exec::supplier-rejection::{supplier}`)
+- Added checkpoint store before Step 7 writes
+- Added updates after: gmail_draft, ois_closed, status_updated, ruflo
+- Protects against OI/Supplier DB status mismatch on partial failure

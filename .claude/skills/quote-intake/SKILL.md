@@ -17,7 +17,7 @@ Extracts pricing from a supplier quote, converts to EUR, calculates FLC, updates
 6. Read `.claude/procedures/check-outreach.md` (milestone entry format).
 7. Read `.claude/procedures/create-open-item.md` (OI field requirements).
 8. Read `context/{project}/suppliers.md` for the supplier's current state.
-9. **Execution checkpoint check:** call `mcp__ruflo__memory_search` with query `"exec quote-intake {supplier_name}"`, namespace "procurement", limit 1, threshold 0.9. If a record with `status: "in-progress"` is found: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite."
+9. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::quote-intake::{supplier_name}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite."
 
 ## Step 1: Extract pricing from quote
 
@@ -81,7 +81,7 @@ Per `procedures/fill-cost-fields-on-quote.md`:
 
 **SHOW BEFORE WRITE.** Pricing field update is Level 2 per CLAUDE.md Safety Rules. Present values, source tier, source currency, FX rate, and converted amount to Andre before writing.
 
-Before writing: store execution checkpoint to ruflo — `key: exec::quote-intake::{supplier}::{YYYY-MM-DD}`, namespace "procurement", upsert true, value: `{ skill: "quote-intake", supplier, date, status: "in-progress", steps_done: [] }`.
+Before writing: store execution checkpoint to ruflo — `key: exec::quote-intake::{supplier}`, namespace "procurement", upsert true, value: `{ skill: "quote-intake", supplier, date, status: "in-progress", steps_done: [] }`.
 
 After DB fields write succeeds: update checkpoint — `steps_done: ["db_fields"]`.
 
@@ -113,19 +113,19 @@ Read each supplier's Quote section. Build a comparison table: Supplier, Status, 
 
 **Flag issues:** FOB vs. landed mix, expired quotes (past validity), missing tiers, tier mismatch vs. project reference, outlier pricing (>30% above/below median), missing required fields from Step 1.
 
-**Update context:** Add to `context/{project}/suppliers.md`: quote date, key pricing (reference tier, EUR), FLC estimate, flags.
+**Update context:** Add to `context/{project}/suppliers.md`: quote date, key pricing (reference tier, EUR), FLC estimate, flags. After context write: update checkpoint — `steps_done: ["db_fields", "quote_section", "context_file"]`.
 
 **Log to change-log.md:**
 ```
 YYYY-MM-DD HH:MM | quote-intake | {Supplier} quote processed | Unit: {X} {currency} -> {Y} EUR @{tier} | Tooling: {Z} EUR | FX: {rate}
 ```
+After change-log write: update checkpoint — `steps_done: ["db_fields", "quote_section", "context_file", "change_log"]`.
 
 **Log outreach milestone** per `procedures/check-outreach.md` (direct write, no approval):
 ```
 **Mon DD** -- Quote received. {currency} {price}/unit @{tier}, tooling {amount}. {Incoterm}.
 ```
-
-After Step 7 (context + change-log + outreach) completes: update checkpoint — `steps_done: ["db_fields", "quote_section", "context_log"]`.
+After outreach write: update checkpoint — `steps_done: ["db_fields", "quote_section", "context_file", "change_log", "outreach"]`.
 
 ## Step 8: Store quote in ruflo memory
 
@@ -156,7 +156,7 @@ After all Notion writes are complete, call `mcp__ruflo__memory_store`:
 
 `delta_vs_prev_pct`: calculate by searching ruflo first for a prior quote from this supplier (`mcp__ruflo__memory_search` with query `"quote {supplier_name}"`, limit 1). If a prior quote exists, compute `(new_unit - prev_unit) / prev_unit * 100`. If no prior quote, set null.
 
-After ruflo store succeeds: update checkpoint — `status: "complete"`, `steps_done: ["db_fields", "quote_section", "context_log", "ruflo"]`.
+After ruflo store succeeds: update checkpoint — `status: "complete"`, `steps_done: ["db_fields", "quote_section", "context_file", "change_log", "outreach", "ruflo"]`.
 
 ## Rules
 
