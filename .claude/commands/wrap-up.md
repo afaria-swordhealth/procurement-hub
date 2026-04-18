@@ -23,7 +23,7 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 6. Report what was written and what was skipped.
 
 ### Phase 2: Context Sync
-7. Query all 3 Supplier DBs following config/databases.md (Query Patterns section).
+7. Query all 4 Supplier DBs following config/databases.md (Query Patterns section).
 8. Update context files (paths listed in .claude/config/databases.md).
 
 ### Phase 2b: External Work
@@ -49,11 +49,11 @@ If no meeting-prep entry found this session: skip silently.
 
 ### Phase 4: Commit and Push
 10. After daily log is approved and pushed to Notion:
-    a. Clear outputs/change-log.md — keep only the header lines (# Change Log, policy comment, and today's date heading). Remove all entries from today (they are now in git). This resets the file for tomorrow.
-    b. Run:
-    git add context/ outputs/ CLAUDE.md .claude/agents/ .claude/commands/ .claude/config/*.md .claude/procedures/
+    a. Run:
+    git add context/ outputs/ .claude/skills/ CLAUDE.md .claude/agents/ .claude/commands/ .claude/config/*.md .claude/procedures/
     git commit -m "EOD [date]: context synced, daily log complete"
     git push
+    b. Only after git push confirms success: clear outputs/change-log.md — keep only the header lines (# Change Log, policy comment, and today's date heading). If git push fails, halt and report the error. Do NOT clear the change-log until push succeeds — the entries are the only local record of today's writes.
 
 ### Phase 5: Summary
 11. Present summary:

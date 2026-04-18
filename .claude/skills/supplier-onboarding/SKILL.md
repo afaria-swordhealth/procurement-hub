@@ -46,7 +46,7 @@ Use `notion-create-pages` in the correct DB (from `config/databases.md`).
 | Status | `Identified` |
 | Region | As collected |
 | Currency | By region: CN = RMB, US = USD, PT/DE = EUR |
-| NDA Status | `Not Started` or `Not Required` |
+| NDA Status | Leave blank (new suppliers) or `Not Required` (if NDA confirmed not needed) |
 | Notes | Per format: "TYPE (Location). Product + key differentiator. Flag." Max 2 lines. |
 
 ### Page body template

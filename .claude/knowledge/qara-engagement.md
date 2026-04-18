@@ -96,9 +96,28 @@ Short, direct, no technical decisions embedded in the message. Just relay.
 
 ---
 
+## If QARA objects post-selection
+
+If Sofia (or Bianca via escalation) raises a concern about a supplier after they have been Shortlisted:
+
+1. **Do not reverse the selection unilaterally.** André does not have authority to un-shortlist a supplier on QARA grounds alone.
+2. **Relay the concern to Jorge** in Portuguese: "Sofia levantou uma preocupação sobre [Supplier] — [one-line summary]. Precisamos alinhar antes de avançar."
+3. **Flag as a Blocker OI:** `{Supplier} — QARA concern post-selection`. Type: Blocker. Owner: André. Deadline: +7 days.
+4. **Do not send the supplier any new commitments** (PO terms, onboarding steps) until the blocker is resolved.
+5. **Common concerns and who resolves:**
+   - Missing or expired certification → supplier provides updated cert → Sofia reviews
+   - SQA non-compliance → Sofia proposes corrective action → André relays to supplier
+   - Clinical accuracy gap (Pulse) → Bianca decides whether the supplier can continue → Jorge may need to realign Caio/Max
+   - LoE content not acceptable → Sofia proposes revision requirements → André relays to supplier
+
+Never commit the supplier to a QARA remediation timeline without Sofia's input. André's role is relay and coordination, not resolution.
+
+---
+
 ## What NOT to do
 
 - Do NOT interpret regulatory requirements for the supplier. Forward the question to Sofia.
 - Do NOT agree to regulatory timelines on behalf of QARA. Sofia owns that calendar.
 - Do NOT share supplier LoEs or quality documents externally without Sofia's review.
 - Do NOT loop Bianca without Sofia's recommendation (except for emergencies escalated by the supplier or legal).
+- Do NOT reverse a supplier selection or re-open the shortlist based on a QARA concern without Jorge's alignment.

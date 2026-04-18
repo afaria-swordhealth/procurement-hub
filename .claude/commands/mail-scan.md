@@ -9,6 +9,13 @@ model: sonnet
 - logistics: DHL/tracking email detection
 - notion-ops: Notion cross-reference
 
+## Pre-flight
+
+Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
+- If < 2h: use context snapshot. Do not re-read context files.
+- If 2–8h: use snapshot as baseline. Run delta scan for this task.
+- If > 8h or missing: warn André and recommend /warm-up before proceeding.
+
 ## Procedure
 
 1. Run `.claude/procedures/scan-gmail.md` with mode: "filtered", direction: "both" (incoming + sent), lookback: 3 days.
@@ -33,6 +40,12 @@ During step 1, when scanning DHL notifications or supplier emails:
 - Flag as **Sample shipped** if subject or body contains: "tracking", "shipped", "dispatched", "AWB", "waybill", or supplier confirms sending units.
 - Add to output table with Recommendation: "Update Samples Status → Shipped. Log tracking number."
 - After André approves: update Samples Status field in the relevant Supplier DB. Log tracking number in the supplier page Notes or a dedicated field if available.
+
+## Quote Detection
+
+If any email contains a supplier quote (keywords: quote, pricing, unit price, OR-xxx, attachment with pricing data):
+- Flag with Recommendation: "Quote received — run `.claude/procedures/fill-cost-fields-on-quote.md`"
+- After André confirms the quote is valid: call `fill-cost-fields-on-quote.md` to populate `Unit Cost (EUR)` and `Tooling Cost (EUR)` in the Supplier DB.
 
 ## Internal Platform Processing
 

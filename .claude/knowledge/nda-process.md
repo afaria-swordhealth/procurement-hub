@@ -91,6 +91,33 @@ Mail-scan watches `swordhealth.ziphq.com` emails. Key events:
 
 ---
 
+## Cancelling a mid-process NDA
+
+If a supplier is rejected after an NDA has been initiated but before it is signed:
+
+1. Set NDA Status → "Not Required" (SHOW BEFORE WRITE, then auto-approved once supplier is Rejected).
+2. In Zip: cancel or close the open NDA request manually (André does this). Claude cannot close Zip requests.
+3. Close the NDA OI with resolution: "Supplier rejected [date]. NDA request cancelled in Zip."
+4. No rejection email needs to mention the NDA — keep external communication clean.
+
+If the NDA is already signed and the supplier is subsequently rejected:
+- NDA remains valid but irrelevant. No action needed in Zip.
+- Set NDA Status → "Not Required" and note in OI resolution: "NDA executed but supplier rejected post-signature."
+
+---
+
+## NDA expiry and renewal
+
+Sword NDAs are typically valid for 2–3 years (confirm term with Bradley per agreement).
+
+Watch for:
+- NDA signed >2 years ago with an active supplier relationship: flag to Bradley for renewal assessment.
+- Supplier asks about NDA validity: relay to Bradley, do not confirm or deny on André's own.
+
+Tracking: there is no automatic NDA expiry field in the Supplier DB. Check the signed NDA document (usually in Google Drive or Qualio) for the term. Flag in the OI or Outreach if a renewal is approaching.
+
+---
+
 ## Project-specific notes
 
 **Pulse:** NDA often includes clinical data confidentiality and IP on device firmware/algorithms. Bradley may need extra time for these clauses. Sofia Lourenço may review if there are QARA-relevant terms (LoE ownership, regulatory file access).

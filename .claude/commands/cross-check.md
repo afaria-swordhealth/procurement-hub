@@ -14,6 +14,13 @@ model: opus
 - .claude/config/domains.md (supplier domain lists)
 - CLAUDE.md Safety Rules and Writing Style sections
 
+## Pre-flight
+
+Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
+- If < 2h: use context snapshot. Do not re-read context files.
+- If 2–8h: use snapshot as baseline. Run delta scan for this task.
+- If > 8h or missing: warn André and recommend /warm-up before proceeding.
+
 ## Execution rules
 
 - Run Gmail scans for all 3 projects in parallel (background agents or concurrent tool calls). A failure in one project must not block the others. If an agent fails, note it and continue.

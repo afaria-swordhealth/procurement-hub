@@ -39,7 +39,9 @@ Before proceeding, verify:
 - No active OI of type "Action Item" or "Blocker" that requires a supplier response
 - No outstanding NDA or contract in process
 
-If any dependency exists, flag it: "Rejecting [supplier] while [X] is in progress. Confirm to proceed?"
+**Exception — response-tracking OIs:** If the only open Action Item OIs are response-tracking items (e.g., "RFQ response", "sample confirmation") where the supplier has not replied despite follow-up, these are the reason for rejection, not blocking dependencies. Close them in Step 7 with resolution: "Supplier rejected for non-response. OI no longer actionable."
+
+If any other dependency exists, flag it: "Rejecting [supplier] while [X] is in progress. Confirm to proceed?"
 
 ## Step 3: Draft rejection email
 
@@ -62,6 +64,8 @@ André
 ```
 
 Language: English for CN/US suppliers. Portuguese for PT suppliers (adjust tone accordingly).
+
+**Before creating draft:** Cross-check recipient email (from Step 1 Contact section) against `config/domains.md`. Flag any mismatch before proceeding.
 
 **SHOW BEFORE WRITE.** Present draft for André's review before creating Gmail draft.
 
@@ -90,9 +94,10 @@ Query Open Items DB for OIs linked to this supplier:
 SELECT Item, Status, Type, Owner, "date:Deadline:start" AS Deadline
 FROM "collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0"
 WHERE Status != 'Closed'
+  AND Supplier LIKE '%{supplier}%'
 ```
 
-Filter for this supplier. For each open OI:
+For each open OI:
 - Propose: Status = Closed, Resolution = "Supplier rejected on [date]. No further action."
 - **SHOW BEFORE WRITE.** Present list, wait for approval.
 

@@ -111,11 +111,13 @@ Before shortlisting any device supplier:
 - Site visit planning or scheduling
 - Any question about Kimball $10M path or revenue forecasting
 
-## Escalate to Bianca Lourenco (regulatory) when:
+## Escalate to Sofia Lourenço (QA/Regulatory) when:
 - FDA classification uncertainty (FRI vs PUH vs MNW)
 - IFU/labeling questions (private label, OBL status)
 - Supplier claims FDA clearance that can't be verified
 - Any device features that might change regulatory classification
+
+Contact Sofia first (Slack). She escalates to Bianca or João internally if needed. Do not contact Bianca or João directly.
 
 ## Escalate to Pedro Pereira (engineering) when:
 - BLE protocol compatibility questions

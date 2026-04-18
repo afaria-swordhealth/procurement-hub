@@ -482,9 +482,17 @@ Static files used by commands (e.g., presentation templates for /build-deck).
 Reusable logic called by multiple commands.
 - scan-gmail.md: Gmail scan with two modes (filtered by known domains, or deep scan without filter)
 - check-outreach.md: Milestones policy, outreach entry format, condensation rules (>7 visible)
+- create-open-item.md: OI creation rules, required fields, Context-as-summary discipline
+- fill-cost-fields-on-quote.md: Populate Unit Cost (EUR) + Tooling Cost (EUR) on quote receipt
+- decision-queue-render.md: OI grouping and rendering for warm-up briefing (Overdue / Today / Week / Blocked)
+- autoclean-scan-lists.md: Prune stale entries from slack-channels.md and domains.md (>21d no activity)
+- sql-capabilities.md: Reference for notion-query-data-sources SQL syntax and capabilities
 
 ## Commands (.claude/commands/)
 Thin orchestrators. Each command specifies which agents run it, which procedures and configs to load, the output format, and any command-specific rules. Commands do not hardcode data.
+
+## Skills (.claude/skills/)
+End-to-end workflows spanning multiple agents, MCP calls, and approval gates. Each skill owns a full procurement task from pre-flight to logging. Skills reference configs and procedures; they do not hardcode data. Invoked as slash commands. See `outputs/session-state.md` for freshness guidance before running any skill.
 
 ## Agents (.claude/agents/)
 Domain-specific logic and scope boundaries. Each agent defines what it does, what it does NOT touch, and its write permissions. Agents reference config files for shared data.
@@ -496,6 +504,7 @@ Process knowledge: how procurement works at Sword, not just what to do. Read whe
 - qara-engagement.md: When to loop Sofia, SQA/QTA/LoE/UDI process, André's relay role, contact rules
 - zip-workflow.md: Zip portal states, notifications, NDA + vendor onboarding + budget request flows
 - cross-functional-map.md: Stakeholder directory, decision authority table, involvement by stage, escalation paths
+- sample-testing-process.md: Pulse sample lifecycle, tester roles, scoring system, eliminators, Test Reviews DB
 
 See .claude/knowledge/INDEX.md for full index.
 

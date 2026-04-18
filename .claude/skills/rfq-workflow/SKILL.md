@@ -30,7 +30,7 @@ WHERE Name LIKE '%{supplier_name}%'
 
 | NDA Status | Action |
 |-----------|--------|
-| Executed | Proceed to Step 2 |
+| Signed | Proceed to Step 2 |
 | Not Required | Proceed to Step 2 |
 | In Progress / Sent | BLOCK. Report: "NDA not yet executed. Cannot send RFQ with proprietary specs." Create/update OI if none exists. |
 | Not Started | BLOCK. Redirect to supplier-onboarding skill, Step 5. |
@@ -123,9 +123,10 @@ When checking for RFQ responses (called from /mail-scan or manually):
 1. Scan Gmail for replies from the supplier domain (per `procedures/scan-gmail.md`, direction: "incoming").
 2. If quote received: hand off to the **quote-intake** skill.
 3. If overdue (past deadline, no response): hand off to the **supplier-chaser** skill.
-4. Update OI Context with status:
-   - `**YYYY-MM-DD:** No response yet. {N} days past deadline.`
-   - `**YYYY-MM-DD:** Quote received. Handing off to quote-intake.`
+4. Add a Notion page comment on the OI via `notion-create-comment`:
+   - `[YYYY-MM-DD] No response yet. {N} days past deadline.`
+   - `[YYYY-MM-DD] Quote received. Handing off to quote-intake.`
+   Do NOT modify the OI Context field.
 
 ## Rules
 

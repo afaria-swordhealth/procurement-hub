@@ -125,6 +125,7 @@ Next steps if André approves:
 
 After André approves the recommendation:
 
+0. Check `outputs/change-log.md` collision guard (10-min window). Write a claim entry now before any Notion write: `{timestamp} | supplier-selection | {project} | Winner: {winner} | executing status update + OI creation`
 1. Update winner's Status → `Shortlisted` in Notion.
 2. For suppliers to reject: offer to run `/supplier-rejection` for each.
 3. Create Decision OI in Open Items DB:
@@ -134,8 +135,7 @@ After André approves the recommendation:
    - Owner: André Faria
    - Deadline: today
    - Context: summary of selection rationale, score, key factors, alternatives considered
-4. Log to `outputs/change-log.md`.
-5. Store selection decision in ruflo:
+4. Store selection decision in ruflo:
    - `key`: `selection::{project}::{YYYY-MM-DD}`
    - `namespace`: "procurement"
    - `upsert`: true

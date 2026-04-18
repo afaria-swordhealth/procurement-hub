@@ -20,7 +20,7 @@ Compiles the full negotiation state for one or more suppliers. Quote history, co
 - **Supplier name**: single supplier, comma-separated list, or `all active`.
 - **Project scope**: inferred from supplier name. If ambiguous, ask.
 
-If `all active`: query all 3 Supplier DBs for Status NOT IN ('Rejected', 'Parked').
+If `all active`: query all 4 Supplier DBs for Status NOT IN ('Rejected', 'Parked').
 
 ## Step 1: Gather quote data
 
@@ -123,7 +123,7 @@ If running `all active`, sort cards by project, then by recommendation urgency (
 
 ## Rules
 
-- READ-ONLY. This skill produces analysis, no writes to Notion or Gmail.
+- READ-ONLY for Notion and Gmail. This skill does not write to Supplier DBs or draft emails. Step 4b writes to ruflo memory only, when André confirms a negotiation outcome.
 - Never include competing supplier names, prices, or rankings in any output that could be shared externally.
 - Always flag FOB vs landed distinction when comparing across suppliers (per config/strategy.md).
 - Use fx-rates.md for cross-currency normalization. Show both original and converted values.

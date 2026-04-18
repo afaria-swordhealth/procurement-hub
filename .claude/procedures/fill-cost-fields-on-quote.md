@@ -4,13 +4,13 @@ Auto-populate the supplier DB fields `Unit Cost (EUR)` and `Tooling Cost (EUR)` 
 
 ## Scope
 
-Runs whenever any of these happen:
-- `/mail-scan` detects a supplier email with a quote (keyword: quote, pricing, OR-xxx, attachment)
-- `/log-sent` logs a milestone "Quote received"
+Use this procedure when any of these happen:
+- `/mail-scan` detects a supplier email with a quote (keyword: quote, pricing, OR-xxx, attachment) — the command calls this procedure explicitly
+- `/log-sent` logs a milestone "Quote received" — the command calls this procedure explicitly
 - A Quote sub-page is created or updated on a supplier page
 - André manually runs `/update-costs {supplier}`
 
-Applies to all 3 Supplier DBs: Pulse, Kaia, M-Band.
+Applies to all 4 Supplier DBs: Pulse, Kaia, M-Band, BloomPod.
 
 ## Rule
 

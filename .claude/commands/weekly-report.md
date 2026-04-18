@@ -12,6 +12,13 @@ model: opus
 - .claude/config/databases.md (collection IDs for all DBs)
 - CLAUDE.md Safety Rules and Writing Style sections
 
+## Pre-flight
+
+Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
+- If < 2h: use context snapshot. Do not re-read context files.
+- If 2–8h: use snapshot as baseline. Run delta scan for this task.
+- If > 8h or missing: warn André and recommend /warm-up before proceeding.
+
 ## Steps
 
 1. **Pull daily logs** for the current week from Daily Logs DB (ID from config/databases.md, DAILYLOG_DB). Fetch each relevant daily log page for full content.
@@ -31,7 +38,7 @@ model: opus
 
 5. **Present draft** to Andre for review.
 
-6. After approval, **push to Notion** Weekly Reports DB (ID from config/databases.md, WEEKLY_DB) as Draft.
+6. After approval, **push to Notion** Weekly Reports DB (ID from config/databases.md, WEEKLY_DB) as Draft. Log the write to `outputs/change-log.md`.
 
 ## Safety
 

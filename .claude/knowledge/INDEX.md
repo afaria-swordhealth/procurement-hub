@@ -15,6 +15,7 @@ Reference documentation for how procurement processes work at Sword. Use when a 
 | [qara-engagement.md](qara-engagement.md) | When to loop Sofia, what she needs, SQA/QTA/LoE/UDI process, André's relay role |
 | [zip-workflow.md](zip-workflow.md) | Zip portal: NDA, vendor onboarding, budget requests — states, notifications, OI mapping |
 | [cross-functional-map.md](cross-functional-map.md) | Stakeholder directory, decision authority, involvement by stage, escalation paths |
+| [sample-testing-process.md](sample-testing-process.md) | Pulse sample lifecycle, tester assignments, scoring system, eliminators, DHL label process |
 
 ---
 
@@ -24,6 +25,7 @@ Skills reference these files in pre-flight when the task involves a process deci
 - `/rfq-workflow` → reads `nda-process.md` (confirm NDA signed before proceeding)
 - `/supplier-onboarding` → reads `supplier-onboarding-process.md` (which tracks to initiate)
 - Any regulatory question → reads `qara-engagement.md` (who to contact and how)
+- `/test-update`, `/supplier-selection` → reads `sample-testing-process.md` (scoring system, eliminators, tester roles)
 
 ---
 

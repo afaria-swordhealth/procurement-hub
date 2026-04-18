@@ -70,6 +70,24 @@ Zip (swordhealth.ziphq.com) is Sword's internal procurement and vendor managemen
 
 ---
 
+### Finance rejection and revision handling
+
+If Finance rejects or requests revisions on any Zip request (NDA, vendor onboarding, or budget):
+
+1. **Read the rejection reason** from the Zip notification email body. Usually specifies: missing doc, wrong entity name, AP contact needed, tax doc required.
+2. **Flag to André immediately** with the rejection reason and Zip request link.
+3. **Do NOT attempt to fix Zip directly.** André resolves in the portal.
+4. Create or update an OI: `{Supplier} — Zip {request type} revision needed`. Type: Blocker. Deadline: +5 days.
+5. Add a page comment on the OI with the rejection reason (per OI Context-as-summary rule).
+6. When André resolves in Zip: update OI Context summary (Finance revision addressed, resubmitted [date]) and close OI when approved.
+
+Common rejection reasons by type:
+- NDA: wrong supplier entity name, missing project justification, Bradley not tagged as reviewer
+- Vendor onboarding: missing AP contact or bank details, wrong legal address, incomplete tax docs
+- Budget: quote not attached, missing PO justification, spend category mismatch
+
+---
+
 ## Zip link format
 
 Links in Zip notification emails follow the pattern:

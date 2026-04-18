@@ -10,7 +10,7 @@ model: opus
 Pricing analysis, cost comparison, FDA cross-references.
 
 ## Tools
-- Notion MCP (all 3 Supplier DBs, READ-ONLY)
+- Notion MCP (all 4 Supplier DBs, READ-ONLY)
 - Web search
 - Google Drive
 
@@ -42,4 +42,4 @@ See `.claude/config/rules-quick.md` for safety and writing rules.
 - None. Read-only across all databases.
 
 ## Supplier DBs
-See config/databases.md for all Supplier DB collection IDs (Pulse, Kaia, M-Band).
+See config/databases.md for all Supplier DB collection IDs (Pulse, Kaia, M-Band, BloomPod).

@@ -8,6 +8,13 @@ model: sonnet
 **Agents:** supplier-comms (Gmail scan), notion-ops (Notion outreach state)
 **Rules:** Follow CLAUDE.md Safety Rules and Writing Style sections. Outreach writes go directly (no approval needed).
 
+## Pre-flight
+
+Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
+- If < 2h: use context snapshot. Do not re-read context files.
+- If 2–8h: use snapshot as baseline. Run delta scan for this task.
+- If > 8h or missing: warn André and recommend /warm-up before proceeding.
+
 ## Phase 1: Scan Gmail Sent
 
 Use .claude/procedures/scan-gmail.md with:
@@ -37,6 +44,12 @@ Apply .claude/procedures/check-outreach.md milestones policy:
 - Use the entry format defined in check-outreach.md.
 
 Present summary table of what will be logged and what was skipped (with reason).
+
+## Phase 4b: Quote Detection
+
+Before writing milestones, check whether any sent email in Phase 1 implies a quote was received or confirmed (e.g., André's email acknowledges a quote or requests cost revision). If so:
+- Flag for André: "Quote activity detected — run `.claude/procedures/fill-cost-fields-on-quote.md` to update DB cost fields."
+- Do NOT auto-run fill-cost-fields. André confirms first.
 
 ## Phase 5: Write
 

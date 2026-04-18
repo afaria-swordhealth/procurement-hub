@@ -9,6 +9,13 @@ model: sonnet
 - logistics: DHL/tracking email detection
 - notion-ops: Notion cross-reference
 
+## Pre-flight
+
+Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
+- If < 2h: use context snapshot. Do not re-read context files.
+- If 2–8h: use snapshot as baseline. Run delta scan for this task.
+- If > 8h or missing: warn André and recommend /warm-up before proceeding.
+
 ## Procedure
 
 1. Run `.claude/procedures/scan-gmail.md` with mode: "deep", direction: "both" (incoming + sent), lookback: 3 days. This applies base exclusions only, no domain filter.

@@ -9,6 +9,14 @@ model: sonnet
 **Session role:** B (background). Does NOT create Gmail drafts or update context files.
 **Philosophy:** Fix what is mechanical. Report what needs judgment.
 **Rules:** Follow CLAUDE.md Safety Rules and Writing Style sections.
+
+## Pre-flight
+
+Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
+- If < 2h: use context snapshot. Do not re-read context files.
+- If 2–8h: use snapshot as baseline. Run delta scan for this task.
+- If > 8h or missing: warn André and recommend /warm-up before proceeding.
+
 Before starting, check outputs/change-log.md for a HOUSEKEEPING REPORT entry today. If found, warn Andre and ask whether to re-run or skip.
 
 ## Phase 1: Outreach Maintenance (AUTO-EXECUTE)
@@ -25,7 +33,7 @@ For each active supplier page, fetch ## Outreach section. Then apply .claude/pro
 
 ## Phase 2: Notes Compliance (AUTO-EXECUTE)
 
-Query all 3 DBs via config/databases.md (Query Patterns section) with columns: Name, Status, Notes, Currency, NDA Status.
+Query all 4 DBs via config/databases.md (Query Patterns section) with columns: Name, Status, Notes, Currency, NDA Status.
 
 For each active supplier:
 
@@ -78,6 +86,13 @@ Query Open Items DB (ID from .claude/config/databases.md, OI_DB) for items with 
 21. Use .claude/procedures/scan-gmail.md (direction: "both", mode: "filtered") to get recent emails.
 22. For each active supplier, compare last received email date vs last sent email date.
 23. Flag suppliers where we received an email >48h ago with no reply from us.
+
+## Phase 6b: Synthesis — Supplier Chaser Candidates (REPORT ONLY)
+
+24. Cross-reference Phase 4 overdue OIs and Phase 6 unanswered emails.
+25. Identify suppliers appearing in BOTH lists: an overdue OI linked to them AND an unanswered email.
+26. For each such supplier: add a NEEDS YOUR DECISION entry recommending `/supplier-chaser`.
+    Format: `[Supplier]: overdue OI "{title}", unanswered email since [date]. Recommend /supplier-chaser.`
 
 ## Output
 

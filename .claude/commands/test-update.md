@@ -7,6 +7,13 @@ model: sonnet
 
 **Agents:** testing (primary)
 
+## Pre-flight
+
+Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
+- If < 2h: use context snapshot. Do not re-read context files.
+- If 2–8h: use snapshot as baseline. Run delta scan for this task.
+- If > 8h or missing: warn André and recommend /warm-up before proceeding.
+
 ## Steps
 
 1. Read config/databases.md for TEST_DB collection ID.
@@ -25,6 +32,8 @@ model: sonnet
 4. After André approves, update:
    - DB fields (scores, status)
    - Page body (test notes, observations)
+
+5. Log each approved write to `outputs/change-log.md`. Check the 10-minute collision guard before writing.
 
 ## Safety Rules
 - Follow CLAUDE.md Safety Rules and Writing Style sections.

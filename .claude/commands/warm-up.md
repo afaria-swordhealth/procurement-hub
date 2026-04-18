@@ -13,7 +13,7 @@ Use when: returning to session after a short break, or Last-Warm-Up is same day 
 
 **Skips:**
 - Phase 1: Do NOT read context files. Use session-state.md snapshot directly.
-- Phase 6: Skip reading overnight report files. Check last-modified timestamps only.
+- Phase 6: Skip change-log review. Proceed to Phase 7.
 
 **Keeps:** Decision Queue, Promises, Email scan, Slack scan, Calendar, Crons, Briefing — all unchanged.
 
@@ -52,11 +52,8 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 ### Phase 5: Calendar Check
 8. Check Google Calendar for today's meetings (if calendar MCP available). Flag any meetings related to procurement (Pulse, Kaia, M-Band, supplier names, key stakeholders).
 
-### Phase 6: Overnight Reports
-9. Check if remote triggers produced reports overnight:
-   - outputs/housekeeping-report.md (daily housekeeping)
-   - outputs/cross-check-report.md (Mon + Thu cross-check)
-   If found, include key findings in the briefing. Flag items that need Andre's decision.
+### Phase 6: Overnight Activity Check
+9. Check `outputs/change-log.md` for any entries written since Last-Wrap-Up (scheduled tasks or cron jobs may have run overnight). Flag entries that reference unexpected Notion writes or errors. No separate report files — change-log is the authoritative record.
 
 ### Phase 7: Maintenance Status
 10. Check outputs/change-log.md for last housekeeping and cross-check dates.

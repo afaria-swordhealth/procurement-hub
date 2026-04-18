@@ -36,7 +36,7 @@ When creating a reply draft in an existing thread:
 1. Read the thread with gmail_read_thread or gmail_read_message FIRST.
 2. Copy To/CC addresses EXACTLY from the original email headers. Never reconstruct from memory.
 3. Swap: original sender → To field. Original To/CC (minus André) → CC field.
-4. Create draft with threadId so it threads correctly.
+4. For replies: deliver the draft body as chat text for André to copy — `create_draft` creates standalone drafts that do not thread. Use `create_draft` for new emails only.
 5. Verify all addresses before presenting the draft to André.
 6. Append André's email signature from .claude/config/signature.html to the end of every draft body (HTML format). Read the file and include the full HTML block after the sign-off line.
 If creating a new email (not a reply), verify the address from the Notion supplier page Contact field.
@@ -59,4 +59,4 @@ See config/domains.md for all domain-to-supplier mappings and Gmail scan pattern
 See procedures/check-outreach.md for full policy (milestones list, what to skip, format, approval, condensation rules).
 
 ## Open Items Creation
-When an email (incoming or sent) contains a commitment, decision pending, unresolved question, or blocker, propose an Open Item entry following procedures/create-open-item.md. If an OI already exists for the topic, append a dated line to its Context instead of creating a new one. No-op updates go to change-log only.
+When an email (incoming or sent) contains a commitment, decision pending, unresolved question, or blocker, propose an Open Item entry following procedures/create-open-item.md. If an OI already exists for the topic, add the new information as a Notion page comment via `notion-create-comment` on the OI page. Do not modify Context. See `procedures/create-open-item.md` for the Context-as-summary rule. No-op updates go to change-log only.

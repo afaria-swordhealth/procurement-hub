@@ -20,7 +20,7 @@ Read .claude/config/domains.md for domain lists and Gmail patterns.
 ### 2b. Deep mode
 - Incoming: apply base exclusion filters only (NO domain filter)
 - Sent: use sent filter pattern from config/domains.md
-- After results: cross-reference each sender against Notion Contact fields (query all 3 Supplier DBs)
+- After results: cross-reference each sender against Notion Contact fields (query all 4 Supplier DBs)
 - Categorize: Known supplier | Unknown sender (flag for review)
 
 ### 3. For each email found
