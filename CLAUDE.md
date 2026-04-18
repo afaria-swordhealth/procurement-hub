@@ -206,8 +206,8 @@ Three tiers, all running parallel to Session A:
 | Tier | Frequency | Duration | Method | Trigger |
 |------|-----------|----------|--------|---------|
 | Micro-fix | Daily | 20-30 min | Direct edit (no agents) | Friction signal from that day's change-log |
-| Mini-sprint | Weekly | 45-60 min | 3-5 agents | Recurring friction identified during the week |
-| Structural sprint | When needed | 2-3h | 10-agent methodology | Monthly session identifies material for deep change |
+| Mini-sprint | 2x per week | 45-60 min | 3-5 agents | Recurring friction identified during the week |
+| Structural sprint | Weekly | 2-3h | 10-agent methodology | Highest-priority structural problem this week |
 
 **Daily micro-fix (how it works):**
 1. Read `outputs/change-log.md` — what did the operational session do today?
