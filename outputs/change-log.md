@@ -46,6 +46,13 @@ Pattern: `exec::{skill}::{subject}::{date}` in ruflo namespace "procurement". On
 - `knowledge/sample-testing-process.md` (NEW): Pulse sample lifecycle, tester assignments, scoring, eliminators, DHL labels
 - `knowledge/INDEX.md`: added sample-testing-process.md entry + usage reference
 
+### Sword Insighter — gap fill: PO process + re-quote process
+
+- `knowledge/po-first-order-process.md` (NEW): post-selection flow — Zip budget, PO issuance, tooling deposit, production monitoring, first shipment, Nimbl, OI map
+- `knowledge/requote-process.md` (NEW): re-quote triggers, what to share/withhold, Notion doc format, ruflo delta, outreach milestones
+- `knowledge/INDEX.md`: added both new files
+- `CLAUDE.md §11`: added both files to knowledge base list
+
 ### Sword Insighter — knowledge base created
 - `.claude/knowledge/INDEX.md` (NEW): index of all knowledge files
 - `.claude/knowledge/nda-process.md` (NEW): NDA process — triggers, Zip, Bradley, status values, project notes

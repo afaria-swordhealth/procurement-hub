@@ -1,6 +1,6 @@
 # Sword Insighter — Knowledge Index
 # Process knowledge base for Sword Health ISC procurement
-# Last updated: 2026-04-18
+# Last updated: 2026-04-19
 
 Reference documentation for how procurement processes work at Sword. Use when a skill or command needs context on triggers, stakeholders, timelines, or decision authority — not just what to do, but why and when.
 
@@ -16,6 +16,8 @@ Reference documentation for how procurement processes work at Sword. Use when a 
 | [zip-workflow.md](zip-workflow.md) | Zip portal: NDA, vendor onboarding, budget requests — states, notifications, OI mapping |
 | [cross-functional-map.md](cross-functional-map.md) | Stakeholder directory, decision authority, involvement by stage, escalation paths |
 | [sample-testing-process.md](sample-testing-process.md) | Pulse sample lifecycle, tester assignments, scoring system, eliminators, DHL label process |
+| [po-first-order-process.md](po-first-order-process.md) | Post-selection: Zip budget approval, PO issuance, tooling deposit, production monitoring, first shipment |
+| [requote-process.md](requote-process.md) | When and how to request revised quotes — triggers, what to share, Notion documentation, ruflo delta |
 
 ---
 

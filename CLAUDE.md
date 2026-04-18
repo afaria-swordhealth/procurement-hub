@@ -507,6 +507,8 @@ Process knowledge: how procurement works at Sword, not just what to do. Read whe
 - zip-workflow.md: Zip portal states, notifications, NDA + vendor onboarding + budget request flows
 - cross-functional-map.md: Stakeholder directory, decision authority table, involvement by stage, escalation paths
 - sample-testing-process.md: Pulse sample lifecycle, tester roles, scoring system, eliminators, Test Reviews DB
+- po-first-order-process.md: Post-selection flow — Zip budget, PO issuance, tooling deposit, production, first shipment
+- requote-process.md: When and how to re-quote — triggers, what to share/withhold, Notion docs, ruflo delta
 
 See .claude/knowledge/INDEX.md for full index.
 
