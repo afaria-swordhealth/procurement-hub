@@ -170,4 +170,4 @@ After ruflo store succeeds: update checkpoint — `status: "complete"`, `steps_d
 - Flag incomplete FLC. Never present partial data as final.
 - Log all Notion writes to `outputs/change-log.md`.
 - Check `outputs/change-log.md` collision guard (10-min window) before any Notion write.
-- OI Context rewrites require approval. OI comment adds (notion-create-comment) also require approval.
+- OI Context rewrites require approval. OI comment adds via notion-create-comment are auto-approved (per CLAUDE.md §5 Exception 2) — write directly, log to change-log.

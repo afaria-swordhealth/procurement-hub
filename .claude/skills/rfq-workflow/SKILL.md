@@ -112,7 +112,7 @@ If current status is `Identified` or `Contacted`, propose update to `RFQ Sent`.
 
 ### 4c. Create response-tracking OI
 
-Per `procedures/create-open-item.md` (all 7 fields): `{Supplier} — RFQ response` | Pending | Action Item | Owner: supplier contact (Andre monitors) | Deadline: send date + 10 biz days | Context: what was sent, tiers, specs status, response deadline. After OI created: update checkpoint — `steps_done: ["gmail_draft", "outreach", "status", "oi_created"]`.
+Auto-approved after André confirms RFQ was sent — no SHOW BEFORE WRITE needed (mechanical audit step). Per `procedures/create-open-item.md` (all 7 fields): `{Supplier} — RFQ response` | Pending | Action Item | Owner: supplier contact (Andre monitors) | Deadline: send date + 10 biz days | Context: what was sent, tiers, specs status, response deadline. After OI created: update checkpoint — `steps_done: ["gmail_draft", "outreach", "status", "oi_created"]`.
 
 ### 4d. Update context and promises
 

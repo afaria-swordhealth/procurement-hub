@@ -159,7 +159,7 @@ After André approves (may edit drafts):
 ## Rules
 
 - NEVER send emails. Gmail drafts only (Level 1 safety).
-- SHOW BEFORE WRITE for all Notion updates, including OI comment adds via notion-create-comment.
+- SHOW BEFORE WRITE for Gmail draft creation only. OI comments via notion-create-comment are auto-approved (per CLAUDE.md §5 Exception 2) — write them directly after draft approval, no separate confirmation needed.
 - Do not chase suppliers in Rejected status.
 - Do not chase items where Owner is not André (flag for André to decide).
 - If an item has been chased 3+ times with no response, recommend escalation path instead of another chase.

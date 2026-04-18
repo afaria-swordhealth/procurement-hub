@@ -72,7 +72,7 @@ For each open OI found, check whether the email content is relevant:
 If relevant: propose a Notion page comment via notion-create-comment on that OI (per OI discipline in CLAUDE.md §4c). Comment format: `[YYYY-MM-DD] Follow-up sent [email/Slack]. [One-line summary of what was communicated.]`
 If not relevant: skip silently.
 
-**Write permissions:** OI comment adds require André's approval (SHOW BEFORE WRITE). Present all proposed comments grouped after the Outreach write summary. Wait for approval before calling notion-create-comment.
+**Write permissions:** OI comments via notion-create-comment are auto-approved (per CLAUDE.md §5 Exception 2). Write them directly after the Outreach write summary. Log each to `outputs/change-log.md`.
 
 If no open OIs exist for a supplier, skip silently — do not flag.
 

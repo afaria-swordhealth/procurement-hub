@@ -339,7 +339,9 @@ Every Notion write must be:
 2. Approved explicitly
 3. Logged to outputs/change-log.md
 
-**Exception:** Outreach entries (milestones only) go directly to Notion without approval. See supplier-comms.md Outreach Policy.
+**Exception 1:** Outreach entries (milestones only) go directly to Notion without approval. See supplier-comms.md Outreach Policy.
+
+**Exception 2:** OI page comments via `notion-create-comment` (routine audit trail — follow-up sent, status observed, update logged) go directly without approval. NOT excepted: OI Context field rewrites and supplier status changes, which remain SHOW BEFORE WRITE.
 
 ## CORE RULES
 1. SHOW BEFORE WRITE: Display changes, wait for approval.

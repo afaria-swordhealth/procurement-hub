@@ -7,6 +7,14 @@
 ### mail-scan (silent cron)
 - OI 33eb4a7d (Transtek Finance onboarding): comment added — bank letter missing account info, awaiting new upload from Transtek to Zip #3139. Pedro Coentrão CC'd.
 
+### M3 — Autonomy T3: OI comments auto-approved + rfq OI auto-create
+
+- `CLAUDE.md §5`: added Exception 2 — OI page comments via notion-create-comment are auto-approved (routine audit trail). NOT excepted: Context rewrites, status changes.
+- `log-sent` Phase 5b: OI comments now auto-write without approval gate
+- `rfq-workflow` Step 4c: response-tracking OI auto-created after send confirmation (no SHOW BEFORE WRITE)
+- `supplier-chaser` Rules: SHOW BEFORE WRITE scope narrowed to Gmail drafts only; OI comments auto
+- `quote-intake` Rules: OI comment approval gate removed
+
 ### M2 — Self-healing Level 4: execution checkpoints
 
 Execution checkpoint pattern implemented in 3 critical skills:
