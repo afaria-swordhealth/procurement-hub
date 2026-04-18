@@ -109,12 +109,12 @@ After Quote section write succeeds: update checkpoint — `steps_done: ["db_fiel
 Query active suppliers in the same project DB:
 
 ```sql
-SELECT Name, Status, Notes, id, url
+SELECT Name, Status, "Unit Cost (EUR)", "Tooling Cost (EUR)", Notes, id, url
 FROM "{SUPPLIER_DB}"
 WHERE Status NOT IN ('Rejected', 'Identified')
 ```
 
-Read each supplier's Quote section. Build a comparison table: Supplier, Status, Unit (EUR) @tier, Tooling (EUR), MOQ, Lead Time, Incoterm, FLC (EUR). Note FX rates used and flag any FOB/landed mix, tier mismatches, or expired quotes. Output only, no writes.
+Build the comparison table using `Unit Cost (EUR)` and `Tooling Cost (EUR)` DB fields from the query above — no prose read needed for pricing. For suppliers where both fields are null, note "pricing not yet processed via quote-intake." For full quote details (Incoterm, MOQ, lead time, FLC basis): read the current supplier's Quote section only (not all active suppliers). Note FX rates used and flag FOB/landed mix, tier mismatches, or expired quotes. Output only, no writes.
 
 ## Step 7: Flag, update context, and log
 

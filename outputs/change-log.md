@@ -4,6 +4,23 @@
 
 ## 2026-04-18
 
+### M4 — Notion Interface Optimization: Full implementation (10-agent methodology)
+
+10 discovery agents (5 lenses) + synthesis + implementation. Key surprise: Unit Cost EUR + Tooling Cost EUR already existed as DB fields but were never read — fixed the read path.
+
+**8 changes shipped:**
+- `databases.md`: Supplier DB schema updated — added `Unit Cost (EUR)`, `Tooling Cost (EUR)`, `Last Outreach Date`. Updated `price-compare` caller. Added M4 Field Setup section.
+- `sql-capabilities.md`: Added `Last Outreach Date` date field query pattern. Formula fields (Days Since) deferred — use `julianday()` workaround.
+- `check-outreach.md`: After prose write, now also updates `Last Outreach Date` DB field. Skips Rejected/pre-setup.
+- `quote-intake SKILL.md` Step 6: Comparison query now includes `Unit Cost (EUR)` + `Tooling Cost (EUR)` DB fields — no per-supplier prose reads for pricing.
+- `supplier-chaser SKILL.md` Step 2: DB-first check for `Last Outreach Date` before Gmail scan. If set: inbound-only. If null: full fallback.
+- `supplier-chaser SKILL.md` Step 6: Writes `Last Outreach Date = today` after each chase (all tiers).
+- `housekeeping.md` Phase 1b: Sync check — flags NULL or drifted `Last Outreach Date` in NEEDS YOUR DECISION.
+- `housekeeping.md` Phase 6: M4 pre-filter — skips Gmail scan for suppliers active within 2 days.
+
+**Deferred:** FLC EUR field (ruflo dual source of truth), Days Since formula (untested), Chase Count.
+**One-time action required:** André to add `Last Outreach Date` (Date) to all 4 Supplier DBs via Notion UI. All M4 changes degrade gracefully until done.
+
 ### M3 — Autonomy T3: Full implementation (10-agent methodology, Phase 4)
 
 **Bug fixes (B1, B2):**

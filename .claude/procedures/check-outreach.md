@@ -48,3 +48,4 @@ When writing outreach, check entry count and supplier status:
 - Before writing to ## Outreach, verify the heading exists on the page. If not found, report to Andre instead of writing.
 - Before writing, check outputs/change-log.md: if another session wrote to this page in last 10 min, skip
 - When writing outreach: (1) append to outputs/change-log.md first (claim the slot), (2) then write to Notion, (3) if Notion write fails, note the failure in change-log.
+- **(M4)** After successful Notion prose write, update the supplier's `Last Outreach Date` DB field to today via `notion-update-page`. Skip if Status = 'Rejected'. If the field does not exist yet (not yet added to Notion UI), skip silently. If the update fails, note in change-log and proceed — field staleness is detectable and non-blocking.

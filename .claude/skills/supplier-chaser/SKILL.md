@@ -40,9 +40,17 @@ Check Carry-Over and Pending Actions sections for items marked "overdue" or "wai
 
 For each overdue item linked to a supplier or person:
 
-1. Use `scan-gmail.md` (direction: "both", date_range: 14) to find last sent and last received email.
-2. Calculate days since last exchange.
-3. Classify:
+1. **(M4) DB-first check:** Query the supplier's `Last Outreach Date` DB field:
+   ```sql
+   SELECT "date:Last Outreach Date:start" AS last_outreach
+   FROM "{SUPPLIER_DB}" WHERE Name LIKE '%{supplier_name}%'
+   ```
+   - If `last_outreach IS NOT NULL`: use this as "last sent" date. Days since = `CAST(julianday('now') - julianday(last_outreach) AS INTEGER)`. Scan Gmail for **inbound direction only** (`direction: "incoming"`) in step 2.
+   - If `last_outreach IS NULL`: fall back to full Gmail scan (`direction: "both"`) in step 2.
+
+2. Use `scan-gmail.md` (direction per step 1, date_range: 14) to find last received email (and last sent if DB field is null).
+3. Calculate days since last exchange.
+4. Classify:
    - **No reply (they owe us):** Last email was FROM us. They haven't responded.
    - **No action (we owe them):** Last email was FROM them. We haven't responded.
    - **Stale (no contact):** No email exchange in 7+ days from either side.
@@ -160,6 +168,8 @@ For all other items: after André approves (may edit drafts):
    - `upsert`: true
    - `tags`: ["chase", project_name, supplier_name]
    - `value`: `{ supplier, tone_tier, channel, days_overdue, item, outcome: "sent", response_received: false, days_to_reply: null }` — update `response_received: true, days_to_reply: N` if a reply arrives
+
+7. **(M4)** Update the supplier's `Last Outreach Date` DB field to today via `notion-update-page`. Applies to all chase tiers, including [AUTO] items. If the field does not exist yet (not yet added via Notion UI), skip silently. If update fails, log to change-log and proceed.
 
 ## Rules
 

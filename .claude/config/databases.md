@@ -57,8 +57,11 @@ SELECT {columns} FROM "{collection_id}" [WHERE {filter}]
 
 **Supplier DBs (Pulse / Kaia / M-Band):**
 ```
-Name, Status, Notes, Currency, Region, "NDA Status", "Samples Status", id, url
+Name, Status, Notes, Currency, Region, "NDA Status", "Samples Status",
+"Unit Cost (EUR)", "Tooling Cost (EUR)",
+"Last Outreach Date", id, url
 ```
+Note: `"Unit Cost (EUR)"` and `"Tooling Cost (EUR)"` are written by quote-intake Step 4. `"Last Outreach Date"` (M4) must be added manually via Notion UI to all 4 Supplier DBs before first use — Date field type.
 
 **Open Items DB:**
 ```
@@ -84,7 +87,20 @@ Name, Status, id, url
 | daily-log check | title, Date, Status, id, createdTime |
 | OI triage | Item, Status, Type, Owner, "date:Deadline:start", id |
 | housekeeping | Name, Status, Notes, Currency, "NDA Status", Region |
-| price-compare | Name, Status, Notes (contains pricing) |
+| price-compare | Name, Status, "Unit Cost (EUR)", "Tooling Cost (EUR)", Notes, id |
+
+## M4 Field Setup (one-time, via Notion UI)
+
+Before M4 queries work, add these fields to all 4 Supplier DBs manually in Notion:
+
+| Field | Type | Writer | Notes |
+|-------|------|--------|-------|
+| `Last Outreach Date` | Date | check-outreach.md, supplier-chaser Step 7, quote-intake Step 7 | Auto-populated on every outreach write after this field exists |
+
+Optional (deferred — formula fields untested):
+| `Days Since Last Contact` | Formula: `dateBetween(now(), prop("Last Outreach Date"), "days")` | Notion (auto) | Test formula field query in sql-capabilities.md before relying on it |
+
+`Unit Cost (EUR)` and `Tooling Cost (EUR)` already exist — no action needed.
 
 ## Error Handling
 

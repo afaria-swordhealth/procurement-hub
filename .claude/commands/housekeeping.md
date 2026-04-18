@@ -31,6 +31,8 @@ For each active supplier page, fetch ## Outreach section. Then apply .claude/pro
 4. **Duplicates**: Remove exact duplicate entries.
 5. Log all writes to outputs/change-log.md.
 
+**Phase 1b (M4) — Last Outreach Date sync (REPORT ONLY):** After Phase 1 loop, for each active supplier (non-Rejected), query `"date:Last Outreach Date:start"`. Flag in NEEDS YOUR DECISION for: (a) field is NULL and the supplier has visible Outreach entries — "Last Outreach Date not populated; will self-correct on next /log-sent or chase"; (b) field is set but appears more than 7 days behind the most recent Outreach entry — "Last Outreach Date field drift detected."
+
 ## Phase 2: Notes Compliance (AUTO-EXECUTE)
 
 Query all 4 DBs via config/databases.md (Query Patterns section) with columns: Name, Status, Notes, Currency, NDA Status.
@@ -83,15 +85,16 @@ Query Open Items DB (ID from .claude/config/databases.md, OI_DB) for items with 
 
 ## Phase 6: Unanswered Emails (REPORT ONLY)
 
-21. Use .claude/procedures/scan-gmail.md (direction: "both", mode: "filtered") to get recent emails.
-22. For each active supplier, compare last received email date vs last sent email date.
-23. Flag suppliers where we received an email >48h ago with no reply from us. Exception: if the email was received after Friday 17:00 or on a weekend, start the 48h clock from Monday 09:00 — prevents routine Friday-evening emails from flagging as overdue every Monday morning.
+21. **(M4 pre-filter)** Query `"date:Last Outreach Date:start"` for all active suppliers. Skip Gmail scan entirely for suppliers where `Last Outreach Date > date('now', '-2 days')` (recently active, no concern). For remaining suppliers, run the scan below.
+22. Use .claude/procedures/scan-gmail.md (direction: "both", mode: "filtered") to get recent emails for suppliers not skipped in step 21.
+23. For each active supplier not skipped, compare last received email date vs last sent email date.
+24. Flag suppliers where we received an email >48h ago with no reply from us. Exception: if the email was received after Friday 17:00 or on a weekend, start the 48h clock from Monday 09:00 — prevents routine Friday-evening emails from flagging as overdue every Monday morning.
 
 ## Phase 6b: Synthesis — Supplier Chaser Candidates (REPORT ONLY)
 
-24. Cross-reference Phase 4 overdue OIs and Phase 6 unanswered emails.
-25. Identify suppliers appearing in BOTH lists: an overdue OI linked to them AND an unanswered email.
-26. For each such supplier: add a NEEDS YOUR DECISION entry recommending `/supplier-chaser`.
+25. Cross-reference Phase 4 overdue OIs and Phase 6 unanswered emails.
+26. Identify suppliers appearing in BOTH lists: an overdue OI linked to them AND an unanswered email.
+27. For each such supplier: add a NEEDS YOUR DECISION entry recommending `/supplier-chaser`.
     Format: `[Supplier]: overdue OI "{title}", unanswered email since [date]. Recommend /supplier-chaser.`
 
 ## Output

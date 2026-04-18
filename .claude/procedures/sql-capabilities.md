@@ -23,6 +23,7 @@ The tool runs SQLite on Notion's projected schema. Below: what works, how to use
 | Parameterized queries (`?` + `params`) | safer than string concat |
 | Date helpers | `date('now')`, `date('now', '+7 days')`, `date('now', '-21 days')` |
 | `julianday()` for day arithmetic | `CAST(julianday('now') - julianday(SUBSTR(Context, 1, 10)) AS INTEGER)` returns integer days between dates |
+| Date field on Supplier DB (e.g. `Last Outreach Date`) | Column: `"date:Last Outreach Date:start"` — ISO date, lexicographic comparison works. Example: `WHERE "date:Last Outreach Date:start" < date('now', '-30 days')` or `IS NULL` for unset. |
 
 ---
 
@@ -98,4 +99,4 @@ IDs have hyphens stripped in the stored URL payload.
 - `UNION`
 - `strftime`, more complex date math
 - Rollup fields
-- Formula fields
+- Formula fields — `Days Since Last Contact` formula deferred until tested; use `julianday()` arithmetic on `Last Outreach Date` date field as workaround
