@@ -9,6 +9,8 @@ model: sonnet
 
 ## Pre-flight
 
+Read `.claude/knowledge/sample-testing-process.md` for Pulse tester role assignments (Pedro = BLE/SDK, Paulo = cosmetic, André = overall), eliminator criteria, and scoring system before querying test data.
+
 Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
 - If < 2h: use context snapshot. Do not re-read context files.
 - If 2–8h: use snapshot as baseline. Run delta scan for this task.

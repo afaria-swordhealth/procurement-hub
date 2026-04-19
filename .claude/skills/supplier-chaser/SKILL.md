@@ -144,6 +144,7 @@ Then, for each item with a draft:
 **Channel:** Email (sonia.sousa@avnet.com)
 **Tone tier:** 2 (4-7d overdue, direct)
 **Subject:** RE: [original thread subject]
+*(Note: Gmail draft will appear as a standalone email, not a threaded reply. André must open the draft in Gmail and reply within the original thread manually.)*
 
 [Draft body]
 

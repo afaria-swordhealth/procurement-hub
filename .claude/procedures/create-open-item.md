@@ -20,9 +20,9 @@ Authoritative rules live in CLAUDE.md section `4c. Open Items Discipline`. This 
 7. **Context** — first entry must be assertive, self-contained (2-4 sentences). What, why it matters, what blocks, reference.
 8. **Supplier** — exact match to the supplier's DB Name field (e.g. "Transtek", "Urion"). Required for supplier-based OI filtering in `/supplier-rejection` and cross-skill queries. Omit only for ISC-level OIs with no specific supplier (e.g. "M-Band — component risk review").
 
-## Mandatory OI triggers — create without waiting to be asked
+## Recommended OI triggers — propose to André before creating
 
-These events always require a new OI. Do not wait for André to ask. Create as part of the scan or action that surfaces them.
+These events typically require a new OI. When surfaced by a scan or action: query the DB for duplicates (see Before creating below), pre-fill all 8 required fields, and present the proposed OI to André for approval before writing to Notion. Do not auto-create.
 
 | Event | OI Type | Default deadline |
 |-------|---------|-----------------|
@@ -34,7 +34,7 @@ These events always require a new OI. Do not wait for André to ask. Create as p
 | Blocker explicitly stated (supplier or internal) | Blocker | First realistic resolution date |
 | Compliance / regulatory question raised (FDA, UDI, ISTA, NDA, SQA) | Question | +7 days or regulatory deadline |
 
-**Critical rule:** a re-quote or follow-up tracked only as a context note is invisible to /cross-check Phase 5. If there is no OI, the system cannot auto-detect when the deadline passes or the event resolves. Always create the OI.
+**Critical rule:** a re-quote or follow-up tracked only as a context note is invisible to /cross-check Phase 5. If there is no OI, the system cannot auto-detect when the deadline passes or the event resolves. Propose the OI so André can approve it.
 
 ## Before creating
 1. Query the DB for similar open items (same supplier + similar Item title). If found, UPDATE instead of create.

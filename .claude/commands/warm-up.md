@@ -67,17 +67,17 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 13b. Immediately after CronCreate calls return: write the returned cron IDs to `outputs/session-state.md` under `## Session Crons` (create the section if absent). Format: one ID per line. Do NOT wait for Phase 10 — if the session crashes before Phase 10, cron IDs must already be persisted for wrap-up Phase 4b to clean up.
 14. Confirm crons started in the briefing.
 
-### Phase 9: Day Briefing
-15. Present a single briefing covering all phases.
-
 ### Phase 10: Write Session State
-16. After presenting the briefing, write outputs/session-state.md with:
+16. **Before presenting the briefing**, write outputs/session-state.md with:
     - Timestamps: Last-Warm-Up (now), Last-Mail-Scan, Last-Log-Sent, Last-Wrap-Up
     - Active Sessions: this session's role (A or B) and start time
     - Context Snapshot: carry-over items, new findings, email state (last scan time + unread count), Slack state
     - Upcoming Meetings: next 5 days
     - Pending Actions: items flagged for André's decision
-    This file is the shared context for any session that starts after this warm-up.
+    After writing, re-read the first 10 lines of `outputs/session-state.md` and verify the `## Timestamps` section is present. If missing or file is under 10 lines, retry the write. If retry fails, halt and report — do not present the briefing until session-state is confirmed written.
+
+### Phase 9: Day Briefing
+17. Present a single briefing covering all phases.
 
 ## Output Format
 

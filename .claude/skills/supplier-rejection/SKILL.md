@@ -70,6 +70,8 @@ Language: English for CN/US suppliers. Portuguese for PT suppliers (adjust tone 
 
 **SHOW BEFORE WRITE.** Present draft for André's review before creating Gmail draft.
 
+*(Note: Gmail draft will appear as a standalone email, not a threaded reply — `create_draft` does not thread. André must open the draft and manually reply within the original conversation thread.)*
+
 ## Step 4: Draft internal note to Jorge
 
 Short Slack DM in Portuguese. Frame as a status update, not a detailed explanation.

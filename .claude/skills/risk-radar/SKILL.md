@@ -16,14 +16,14 @@ Scans all projects for risks and surfaces them in a prioritized report. Read-onl
 
 ## Step 1: Scan supplier DBs for risk signals
 
-Query all 3 Supplier DBs:
+Query all 4 Supplier DBs (Pulse, Kaia, M-Band, BloomPod):
 
 ```sql
 SELECT Name, Status, Notes, "NDA Status", "Samples Status", id, url
 FROM "{DB_COLLECTION_ID}"
 ```
 
-Run for each project DB (IDs in `config/databases.md`).
+Run for each project DB (IDs in `config/databases.md`, including BLOOMPOD_DB).
 
 For each non-Rejected supplier, check:
 

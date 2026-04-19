@@ -13,6 +13,7 @@ Produces a structured Go / Conditional Go / No-Go verdict for a specific supplie
 2. Read `.claude/config/databases.md` (DB IDs, collection URLs).
 3. Read `.claude/config/strategy.md` (baselines, elimination criteria).
 4. Read `context/{project}/suppliers.md` for the supplier's current state.
+5. For Pulse projects: read `.claude/knowledge/qara-engagement.md` to understand SQA approval timelines and Sofia Lourenço's involvement before issuing the Step 3 verdict. QARA clearance is a gate for Pulse suppliers — a Go verdict without it may need to be revisited.
 
 ## Step 1: Pull supplier data
 

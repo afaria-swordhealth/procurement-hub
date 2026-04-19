@@ -15,6 +15,7 @@ Adds a new supplier to the procurement system. Creates the Notion page, register
 4. Read `context/{project}/suppliers.md` for the relevant project.
 5. Read `.claude/config/writing-style.md` (for outreach prep).
 6. Read `.claude/config/strategy.md` (negotiation guardrails for context package).
+7. Read `.claude/knowledge/supplier-onboarding-process.md` for 3-track timeline expectations (Procurement + Finance/AP + QARA) and dependencies before executing steps.
 
 ## Step 0: Validate — supplier does not already exist
 

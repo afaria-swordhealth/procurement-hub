@@ -17,7 +17,8 @@ Manages the full RFQ lifecycle: pre-check NDA, assemble the package, draft the e
 6. Read `context/{project}/suppliers.md` for the target supplier.
 7. Read `.claude/procedures/check-outreach.md` (milestone entry format).
 8. Read `.claude/procedures/create-open-item.md` (OI field requirements).
-9. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::rfq-workflow::{supplier_name}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start."
+9. Read `.claude/knowledge/nda-process.md` to confirm NDA trigger conditions and when proprietary specs require a fully executed NDA before RFQ.
+10. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::rfq-workflow::{supplier_name}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start."
 
 ## Step 1: Pre-check — NDA status
 
@@ -114,7 +115,7 @@ If current status is `Identified` or `Contacted`, auto-update to `RFQ Sent` imme
 
 ### 4c. Create response-tracking OI
 
-Auto-approved after André confirms RFQ was sent — no SHOW BEFORE WRITE needed. This OI creation is a mechanical consequence of a confirmed send, separately authorized from Exception 2 (which applies to OI page comments via notion-create-comment, not OI record creation). Per `procedures/create-open-item.md` (all 7 fields): `{Supplier} — RFQ response` | Pending | Action Item | Owner: supplier contact (Andre monitors) | Deadline: send date + 10 biz days | Context: what was sent, tiers, specs status, response deadline. After OI created: update checkpoint — `steps_done: ["gmail_draft", "outreach", "status", "oi_created"]`.
+Per `procedures/create-open-item.md` (all 8 fields required): `{Supplier} — RFQ response` | Pending | Action Item | Owner: André | Deadline: send date + 10 biz days | Context: what was sent, tiers, specs status, response deadline | Supplier: {name}. **SHOW BEFORE WRITE** — present to André as part of the post-send summary. André's confirmation of this OI alongside the send confirmation is sufficient; no separate gate needed. After OI created: update checkpoint — `steps_done: ["gmail_draft", "outreach", "status", "oi_created"]`.
 
 ### 4d. Update context and promises
 

@@ -84,6 +84,20 @@ Root cause: no pre-write existence check in check-outreach.md. Cron + manual re-
 - **#27** `commands/wrap-up.md` Phase 4: swapped 4b↔4c order — cron deletion now happens before change-log clear. Ensures cron deletion failures are recorded in change-log before it is wiped.
 - **#28** `skills/supplier-chaser/SKILL.md` Step 6: replaced bare "update promises.md next: field" with full promise creation — appends new entry for supplier reply expectation. Fixes CLAUDE.md §4d compliance gap (all chases were missing promises.md entries).
 
+### Structural sprint Wave 2 — 9 fixes (#29–#37)
+
+- **#29** `procedures/create-open-item.md`: "Mandatory OI triggers — create without waiting" → "Recommended OI triggers — propose to André before creating." Removes undocumented auto-write behavior not covered by any §5 exception.
+- **#30** `skills/rfq-workflow/SKILL.md` Step 4c: OI creation changed from "Auto-approved after send confirmation" → SHOW BEFORE WRITE. No §5 exception covered OI creation; was an undocumented gap.
+- **#31** `skills/rfq-workflow/SKILL.md` Pre-flight line 9: added `nda-process.md` read. Ensures NDA trigger conditions are validated before RFQ proceeds — was missing from 6 of 8 knowledge files in skill pre-flights.
+- **#32** `commands/test-update.md` Pre-flight: added `sample-testing-process.md` read. Tester roles, eliminators, scoring system now loaded before querying test data.
+- **#33** `skills/supplier-onboarding/SKILL.md` Pre-flight line 7: added `supplier-onboarding-process.md` read. 3-track timeline and dependencies now loaded before executing onboarding steps.
+- **#34** `skills/supplier-qualification/SKILL.md` Pre-flight line 5: added `qara-engagement.md` read (Pulse-conditional). QARA clearance is a gate for Pulse suppliers — previously absent from pre-flight.
+- **#35** `skills/risk-radar/SKILL.md` Step 1: changed "all 3 Supplier DBs" → "all 4 Supplier DBs (Pulse, Kaia, M-Band, BloomPod)". BloomPod was silently omitted from every risk scan.
+- **#36** `commands/warm-up.md` Phase 10/9: moved session-state write to BEFORE briefing (not after). Added read-back verification. Fixes race condition where mail-scan during warm-up would hit stale state.
+- **#37** `commands/log-sent.md` Phase 1: HALT instead of silent default-to-2 when session-state is missing. Prevents silent 2d window that could skip milestones after long gaps.
+- **#38** `skills/supplier-chaser/SKILL.md` Step 4: added threading note — `create_draft` is always standalone, not threaded. André must manually reply within original thread.
+- **#39** `skills/supplier-rejection/SKILL.md` Step 3: added threading note — same limitation.
+
 ### Mini-sprint #14 — OI Supplier field missing from creation checklist
 Root cause: `Supplier` field exists in OI DB schema (databases.md) but was absent from `create-open-item.md` 7-field checklist and CLAUDE.md §4c required fields table. `supplier-rejection` Step 5 queried `WHERE Supplier LIKE '%{supplier}%'` — silently returned empty for all OIs created via standard flow.
 
