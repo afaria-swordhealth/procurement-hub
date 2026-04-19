@@ -62,7 +62,8 @@ If over threshold:
 1. Move oldest entries into a `<details>` toggle.
 2. Toggle label: "Outreach Archive (Mon YYYY - Mon YYYY)" with date range of archived entries.
 3. Keep the threshold number of most recent entries visible.
-4. If an archive toggle already exists, prepend the newly archived entries to it and update the date range in the label.
+4. If an archive toggle already exists: prepend the newly archived entries to it and update the date range in the label.
+5. **If no archive toggle exists: CREATE one.** Do NOT skip — the absence of a toggle is the reason to create it, not a reason to skip. A supplier with 13+ visible entries and no toggle is the primary target of this step.
 
 ### 3f. Summary line
 The first line of the outreach section (before any entries) should be a summary:

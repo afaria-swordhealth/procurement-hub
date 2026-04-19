@@ -38,6 +38,8 @@ When writing outreach, check entry count and supplier status:
 3. Archive toggle label: "📁 Outreach Archive (Mon YYYY - Mon YYYY)"
 4. Keep the threshold number of most recent entries visible below the toggle
 5. Toggle syntax (Notion enhanced markdown): use `<details><summary>TITLE</summary>...</details>`. Do NOT use `<toggle summary="...">` — not a valid Notion block, renders as escaped literal text.
+   - **If no archive toggle exists yet: CREATE one.** Move the oldest entries (those beyond the threshold count) into a new `<details>` block. Do NOT skip archiving because the toggle is absent — the toggle's absence is exactly the condition that requires creation.
+   - If an archive toggle already exists: prepend newly archived entries to it and update the date range in the label.
 6. Add/update summary line at top:
    ```
    **[X] milestones since [first date]. Last: [date] ([topic]). Key: [2-3 milestone events with dates].**
