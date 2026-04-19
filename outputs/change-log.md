@@ -32,3 +32,25 @@ Root cause: no pre-write existence check in check-outreach.md. Cron + manual re-
 ### Micro-fix #3 — log-sent Gmail MCP resilience
 
 - `commands/log-sent.md` Phase 5: writes one supplier at a time, logs each before moving to next. On Gmail MCP failure: log and exit cleanly, do not proceed with partial data. Re-run is safe (dedup guard).
+
+### Micro-fix #4 — log-sent dynamic lookback
+- `commands/log-sent.md` Phase 1: date_range now reads Last-Log-Sent from session-state, covers full gap (max 7d). Fixed 24h window was missing milestones after weekend gaps.
+
+### Micro-fix #5 — daily-log completeness check
+- `commands/daily-log.md` Step 3: stops if all 4 sections already complete; appends only missing sections if partial.
+
+### Micro-fix #6 — supplier-onboarding field validation
+- `skills/supplier-onboarding/SKILL.md`: post-creation check for Name/Status/Region/Currency/Notes before proceeding to Step 3.
+
+### Mini-sprint #7 — OI inline bullet detection
+- `commands/housekeeping.md` Phase 4 rule 17b: detects inline bullets in ## Open Items, flags NEEDS YOUR DECISION for migration.
+- `commands/audit.md` Phase 2: marks inline bullets in ## Open Items as Critical violation.
+
+### Micro-fix #8 — wrap-up context sync explicit fields
+- `commands/wrap-up.md` Phase 2: lists all 8 required sync fields; adds Last-synced timestamp update + context-doctor call.
+
+### Micro-fix #9 — Exception 5: OI In Progress auto-approved
+- `CLAUDE.md` §5: Exception 5 — OI Status Pending/Blocked → In Progress auto-approved when email/Slack confirms active work started.
+
+### Micro-fix #10 — check-outreach language check
+- `procedures/check-outreach.md`: translate to English before writing. Do not write PT then translate later.
