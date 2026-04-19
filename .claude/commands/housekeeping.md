@@ -59,22 +59,21 @@ Query Open Items DB (ID from .claude/config/databases.md, OI_DB) for items with 
 
 14. **AUTO-EXECUTE**: Close OIs linked to Rejected suppliers (resolution: "Supplier rejected, no longer relevant").
 15. **REPORT ONLY + AUTO-COMMENT**: Flag overdue items (`"date:Deadline:start" < date('now')`). For each overdue OI, also auto-post a Notion page comment via notion-create-comment: `Housekeeping flagged overdue [date]. Deadline: [deadline]. Owner: [owner].` (auto-approved per CLAUDE.md §5 Exception 2). Log each comment to outputs/change-log.md.
-16. **REPORT ONLY**: Flag stale items — leading Context date >21 days old on active items. Single SQL query covers both overdue and stale:
+16. **REPORT ONLY**: Flag stale items — non-Closed OIs whose deadline is >21 days past today (proxy for stale since CLAUDE.md §4c removed dated Context prefixes). Single SQL covers both overdue and stale:
     ```sql
     SELECT Item, Owner, Status,
            "date:Deadline:start" AS Deadline,
-           SUBSTR(Context, 1, 10) AS LastUpdate,
            CASE WHEN "date:Deadline:start" < date('now') THEN 'overdue' ELSE NULL END AS OverdueFlag,
-           CASE WHEN Context IS NOT NULL AND SUBSTR(Context, 1, 10) < date('now', '-21 days') THEN 'stale' ELSE NULL END AS StaleFlag
+           CASE WHEN "date:Deadline:start" < date('now', '-21 days') THEN 'stale' ELSE NULL END AS StaleFlag
     FROM "collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0"
     WHERE Status != 'Closed'
       AND (
         "date:Deadline:start" < date('now')
-        OR (Context IS NOT NULL AND SUBSTR(Context, 1, 10) < date('now', '-21 days'))
+        OR "date:Deadline:start" < date('now', '-21 days')
       )
     ORDER BY Deadline ASC
     ```
-    Note: OI Context no longer uses a leading-date prefix (see CLAUDE.md §4c). The Context date substring check may not work for compliant OIs. Flag by Deadline overage and review Notion page comments for staleness.
+    Note: deadline-age replaces the old `SUBSTR(Context, 1, 10)` date check, which was broken by the CLAUDE.md §4c reform (Context is now a summary paragraph, not a running log with dated prefixes).
     Additionally, for any OI where Context contains multiple dated-prefix lines (e.g. `[2026-04-10]`, `[2026-04-15]`) or Portuguese text, flag as NEEDS YOUR DECISION: "Context cleanup needed — running-log format detected. Summarize into one English paragraph per CLAUDE.md §4c." Do NOT auto-rewrite — this is SHOW BEFORE WRITE.
 17. **REPORT ONLY**: Propose closures for items that appear resolved (present reason, do not write).
 17b. **REPORT ONLY**: For each active supplier page, fetch the ## Open Items section body. If it contains inline bullet list items (as opposed to a linked database view), flag as NEEDS YOUR DECISION: `[Supplier]: ## Open Items contains inline bullets — migrate to central OI DB and replace with linked view per CLAUDE.md Rule 8.` List the bullet items found so André can create the OI records. Do NOT auto-migrate (irreversible).

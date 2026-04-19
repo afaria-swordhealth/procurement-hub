@@ -83,7 +83,7 @@ Name, Status, id, url
 
 | Caller | Columns to SELECT |
 |--------|---------|
-| context-sync (wrap-up) | Name, Status, Notes, "NDA Status", "Samples Status", id |
+| context-sync (wrap-up) | Name, Status, Notes, "NDA Status", "Samples Status", "Last Outreach Date", Region, Currency, id |
 | daily-log check | title, Date, Status, id, createdTime |
 | OI triage | Item, Status, Type, Owner, "date:Deadline:start", id |
 | housekeeping | Name, Status, Notes, Currency, "NDA Status", Region |

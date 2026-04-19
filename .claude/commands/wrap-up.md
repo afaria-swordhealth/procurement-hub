@@ -49,13 +49,14 @@ If a meeting-prep was found: ask André — "Did you meet with [supplier/person]
 
 If no meeting-prep entry found this session: skip silently.
 
-### Phase 4: Commit and Push
+### Phase 4: Commit, Push, and Stop Crons
 10. After daily log is approved and pushed to Notion:
     a. Run:
     git add context/ outputs/ .claude/skills/ CLAUDE.md .claude/agents/ .claude/commands/ .claude/config/*.md .claude/procedures/
     git commit -m "EOD [date]: context synced, daily log complete"
     git push
     b. Only after git push confirms success: clear outputs/change-log.md — keep only the header lines (# Change Log, policy comment, and today's date heading). If git push fails, halt and report the error. Do NOT clear the change-log until push succeeds — the entries are the only local record of today's writes.
+    c. **Stop session crons:** read the `## Session Crons` section of `outputs/session-state.md`. For each cron ID listed, call `CronDelete`. If the cron no longer exists (already expired or deleted), skip silently. Then clear the `## Session Crons` section in session-state.md (leave the header, remove the ID lines). This prevents stale crons from firing after session end.
 
 ### Phase 5: Summary
 11. Present summary:

@@ -93,17 +93,17 @@ If `week` bucket has ≤ 5 items, use the standard one-line-per-item format.
 
 Overdue, Today, and Blocked never collapse — they are high-priority, full detail always.
 
-## Blocked — "blocked since" calculation
+## Blocked — "past deadline" calculation
 
-For each item in the Blocked bucket, compute days-since-last-update using the leading Context date:
+For each item in the Blocked bucket, compute days past deadline:
 
 ```sql
-CAST(julianday('now') - julianday(SUBSTR(Context, 1, 10)) AS INTEGER) AS BlockedDays
+CAST(julianday('now') - julianday("date:Deadline:start") AS INTEGER) AS BlockedDays
 ```
 
-Render as `· blocked <N>d`. If Context is null or doesn't start with a valid date, show `· blocked (unknown)`.
+Render as `· Xd past deadline`. If Deadline is null, show `· blocked (no deadline set)`.
 
-**Known gap:** legacy Blocked items may not have a leading-date in Context. Current convention (CLAUDE.md §4c) no longer uses dated prefixes — Context is a summary paragraph and updates go as Notion page comments. These items will show `(unknown)` for blocked days. Don't backfill retroactively.
+**Why deadline-age:** CLAUDE.md §4c removed dated Context prefixes — Context is now a summary paragraph. Parsing `SUBSTR(Context, 1, 10)` for a date is broken for all post-reform OIs. Deadline-age is queryable, always present, and a meaningful proxy: a Blocked item that is 10d past its deadline has been stuck for at least 10 days.
 
 ## Limits
 

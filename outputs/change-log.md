@@ -64,6 +64,16 @@ Root cause: no pre-write existence check in check-outreach.md. Cron + manual re-
 ### Micro-fix #13 — change-log future date guard
 - `CLAUDE.md` §4d: added change-log date rule — always use `currentDate` from system context, never compute. If date would be in the future, use `currentDate` and log a warning. Eliminates recurring session-doctor auto-fix pattern.
 
+### Micro-fixes #15–#21 — 3rd retroactive scan (deepest)
+
+- **#15** `skills/risk-radar/SKILL.md` Step 1a: add M4 DB-first `Last Outreach Date` query before falling back to page fetch. Consistent with supplier-chaser Step 2 pattern.
+- **#16** `procedures/decision-queue-render.md`: replace broken `SUBSTR(Context, 1, 10)` blocked-since calc (fails post-CLAUDE.md §4c reform) with deadline-age proxy `julianday('now') - julianday(Deadline)`. Renders as "Xd past deadline".
+- **#17** `commands/wrap-up.md` Phase 4c: add CronDelete step — reads Session Crons from session-state.md and deletes each before git push. Prevents cron accumulation across sessions.
+- **#18** `commands/housekeeping.md` Phase 4 rule 16: replace `SUBSTR(Context, 1, 10) < date(...)` stale SQL (broken post §4c reform) with `Deadline < date('now', '-21 days')` deadline-age proxy.
+- **#19** `config/databases.md` context-sync column set: updated to include `Region`, `Currency`, `"Last Outreach Date"` — matches wrap-up.md explicit field list added in micro-fix #8.
+- **#20** `skills/context-doctor/SKILL.md`: documented Invocation modes (auto-fix default vs --report-only). Makes housekeeping's "report-only mode" instruction enforceable and visible.
+- **#21** `skills/supplier-chaser/SKILL.md` Step 6: fixed duplicate step "4." numbering — renumbered to 4, 5, 6.
+
 ### Mini-sprint #14 — OI Supplier field missing from creation checklist
 Root cause: `Supplier` field exists in OI DB schema (databases.md) but was absent from `create-open-item.md` 7-field checklist and CLAUDE.md §4c required fields table. `supplier-rejection` Step 5 queried `WHERE Supplier LIKE '%{supplier}%'` — silently returned empty for all OIs created via standard flow.
 

@@ -106,6 +106,13 @@ FILES UPDATED:
 - context/kaia/suppliers.md (Last synced: 2026-04-16T14:30)
 ```
 
+## Invocation modes
+
+| Mode | How to invoke | Behavior |
+|------|--------------|----------|
+| **Auto-fix** (default) | `/context-doctor` or standalone | Runs Steps 1-6: compares, auto-fixes Status/NDA mismatches, updates timestamps, writes report. |
+| **Report-only** | `/context-doctor --report-only` or called with "report-only mode" | Runs Steps 1-3 and 6 only. Does NOT write to context files. Outputs the same report with AUTO-FIX items marked as "would fix" instead of applying them. Used by `/housekeeping` Phase 5. |
+
 ## Rules
 
 - NEVER edit Notion. This skill only reads Notion and writes local files.

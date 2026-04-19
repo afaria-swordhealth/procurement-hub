@@ -28,7 +28,8 @@ Run for each project DB (IDs in `config/databases.md`).
 For each non-Rejected supplier, check:
 
 ### 1a. Gone cold (no outreach >14 days)
-- Fetch last outreach entry date from supplier page or context file.
+- **(M4) DB-first:** query `"date:Last Outreach Date:start"` from the supplier DB (same pattern as supplier-chaser Step 2). If non-null, use that date directly — no page fetch needed.
+- **Fallback:** if `Last Outreach Date` is null, fetch last outreach entry date from the supplier page Outreach section.
 - If last contact >14 days ago and Status is not Rejected or Identified, flag.
 
 ### 1b. NDA pending >14 days (individual signal)

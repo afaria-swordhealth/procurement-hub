@@ -160,8 +160,8 @@ For all other items: after André approves (may edit drafts):
 2. For Slack chasers, present the message text for André to send manually.
 3. Before writing to Notion: check `outputs/change-log.md`. If another session wrote to this supplier's page in the last 10 minutes, skip the comment write and note it in the output.
 4. Add a Notion page comment on the OI via notion-create-comment: `Follow-up sent [channel] [date]. [Brief note].`
-4. Update promises.md `next:` field if applicable.
-5. Log all actions to `outputs/change-log.md`.
+5. Update promises.md `next:` field if applicable.
+6. Log all actions to `outputs/change-log.md`.
 6. Store chase outcome in ruflo memory via `mcp__ruflo__memory_store`:
    - `key`: "chase::[supplier_name]::[YYYY-MM-DD]"
    - `namespace`: "procurement"
