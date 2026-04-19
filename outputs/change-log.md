@@ -89,6 +89,16 @@ Root cause: no pre-write existence check in check-outreach.md. Cron + manual re-
 - `knowledge/weekly-report-rules.md`: new file — editorial rules for weekly report format (structure, section rules, names policy, Sword corporate model alignment)
 - `commands/weekly-report.md`: rewritten to reference weekly-report-rules.md; added "pull previous week's goals" step; added editorial checklist before finalising; removed hardcoded analyst agent call; enforced 1-page max
 
+### Micro-fix #43 — project-dashboard BloomPod coverage
+- `skills/project-dashboard/SKILL.md`: description + Pre-flight updated — "Pulse, Kaia, or M-Band" → "Pulse, Kaia, M-Band, or BloomPod". BLOOMPOD_DB added with note: light scaffold — skip Steps 2/4/Timeline if context file absent.
+
+### Micro-fix #44 — mail-scan promises.md closure loop
+- `commands/mail-scan.md` Step 2b: added promise closure check. For each inbound supplier reply, cross-reference open `- [ ]` entries in promises.md. If matched, propose `Resolve promise` recommendation — André approves before promises.md is updated.
+- `commands/mail-scan.md` Output: added "Resolve promise" to valid Recommendation values.
+
+### Housekeeping — deleted weekly_report_W16_draft.md from repo root
+- Untracked W16 draft (Apr 11–17) was sitting at root instead of outputs/. Deleted — content was from last week and already superseded.
+
 ### Micro-fix #41 — price-compare FX staleness check
 - `commands/price-compare.md` Pre-flight: added read of `config/fx-rates.md` + staleness check. If rates > 7 days old: flag in output footer, do not block execution.
 - `commands/price-compare.md` Step 3: added explicit FX conversion using fx-rates.md, with rate labelled in output table per supplier.

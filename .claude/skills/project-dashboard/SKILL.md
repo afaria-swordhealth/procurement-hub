@@ -1,6 +1,6 @@
 ---
 name: "Project Dashboard"
-description: "Consolidated status view for one project (Pulse, Kaia, or M-Band). Shows all suppliers grouped by status, open items by severity, key metrics (quotes, NDAs, coverage gaps), and timeline progress. Use to review project health, prepare for Jorge/Anand updates, or assess where to focus effort."
+description: "Consolidated status view for one project (Pulse, Kaia, M-Band, or BloomPod). Shows all suppliers grouped by status, open items by severity, key metrics (quotes, NDAs, coverage gaps), and timeline progress. Use to review project health, prepare for Jorge/Anand updates, or assess where to focus effort."
 ---
 
 # Project Dashboard
@@ -15,6 +15,7 @@ Generates a read-only dashboard for a single project. Pulls from Notion Supplier
    - Pulse: `collection://311b4a7d-7207-80a1-b765-000b51ae9d7d`
    - Kaia: `collection://046b6694-f178-47dc-aac1-26efbfc2ab20`
    - M-Band: `collection://311b4a7d-7207-80e7-8681-000b5f1cd0dd`
+   - BloomPod: `collection://272844ce-c924-426c-bd32-facef6bca7ca` (light scaffold — Suppliers DB only; Skip Steps 2, 4 and Timeline section if context file absent)
 4. If warm-up > 2h, read `context/{project}/suppliers.md` for additional state.
 
 ## Step 1: Query all suppliers

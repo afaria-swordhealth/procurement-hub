@@ -20,6 +20,7 @@ Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
 
 1. Run `.claude/procedures/scan-gmail.md` with mode: "filtered", direction: "both" (incoming + sent), lookback: 3 days.
 2. Use config/databases.md (Query Patterns section) to cross-reference each sender against Notion supplier pages (status, last outreach, open items).
+2b. **Promise closure check:** For each inbound email from a supplier, read `outputs/promises.md` and check for open `- [ ]` entries where the supplier name appears. If found, add a `Resolve promise` row to the output table — include the promise text and proposed resolution. André approves; then move the entry to the `## Resolved` section with today's date. Do NOT auto-resolve.
 3. For each email with a commitment, pending decision, unresolved question, or blocker, propose a new OI OR an OI page comment on an existing OI per `.claude/procedures/create-open-item.md`. When updating an existing OI, use `notion-create-comment` — do NOT rewrite the Context field.
 4. Follow CLAUDE.md Safety Rules and Writing Style sections.
 
@@ -30,7 +31,7 @@ Present a summary table per project (Pulse, Kaia, M-Band):
 | Supplier | Subject | Date | Recommendation | Reason |
 |----------|---------|------|----------------|--------|
 
-Recommendation values: Log, Draft Reply, Ignore, Escalate, Create OI, Add OI Comment.
+Recommendation values: Log, Draft Reply, Ignore, Escalate, Create OI, Add OI Comment, Resolve promise.
 
 Use `notion-query-data-sources` with SQL for DB queries instead of fetching pages individually.
 
