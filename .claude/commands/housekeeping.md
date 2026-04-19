@@ -98,6 +98,14 @@ Query Open Items DB (ID from .claude/config/databases.md, OI_DB) for items with 
 27. For each such supplier: add a NEEDS YOUR DECISION entry recommending `/supplier-chaser`.
     Format: `[Supplier]: overdue OI "{title}", unanswered email since [date]. Recommend /supplier-chaser.`
 
+## Error Handling
+
+**Batch loop failures (Phases 1–3, Phase 4 rule 14):** If Notion MCP fails for one supplier mid-loop: skip that supplier, log `[Supplier] — Notion MCP error, skipped` to change-log, and continue to the next. Do not abort the phase.
+
+**Phase-level query failures (Phase 4 OI query, Phase 6 Gmail scan):** If the initial query fails entirely: skip that phase, report the failure in the output, and continue with remaining phases. Do not abort the full housekeeping run.
+
+**Report skipped items** under a `MCP ERRORS:` bucket in the AUTO-EXECUTED output section.
+
 ## Output
 
 Single report with two sections:
@@ -127,6 +135,9 @@ OIs CLOSED:
 
 OIs FLAGGED (auto-comment added):
 - [Item]: "housekeeping flagged overdue [date]" comment posted
+
+MCP ERRORS:
+- [Supplier/phase]: MCP error, skipped
 
 === NEEDS YOUR DECISION ===
 

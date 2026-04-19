@@ -79,7 +79,7 @@ Per `procedures/fill-cost-fields-on-quote.md`:
    - `Unit Cost (EUR)`: 3 decimal places
    - `Tooling Cost (EUR)`: 0 decimals if >= 1,000, else 2 decimals
 
-**Prior quote pre-check (must run before auto-write decision):** Call `mcp__ruflo__memory_search` with query `"quote {supplier_name}"`, namespace "procurement", limit 1. Store result as `{prior_quote}`. This gates the auto-write condition below AND populates `delta_vs_prev_pct` in Step 8 — no second ruflo call is needed there.
+**Prior quote pre-check (must run before auto-write decision):** Call `mcp__ruflo__memory_search` with query `"quote {supplier_name}"`, namespace "procurement", limit 1. Store result as `{prior_quote}`. This gates the auto-write condition below AND populates `delta_vs_prev_pct` in Step 8 — no second ruflo call is needed there. If ruflo MCP fails: treat as no prior quote found — route to SHOW BEFORE WRITE (no anchor for the 30% delta check).
 
 **Before writing:** store execution checkpoint — `key: exec::quote-intake::{supplier}`, namespace "procurement", upsert true, value: `{ skill: "quote-intake", supplier, date, status: "in-progress", steps_done: [] }`.
 
@@ -182,3 +182,4 @@ After ruflo store succeeds: update checkpoint — `status: "complete"`, `steps_d
 - Log all Notion writes to `outputs/change-log.md`.
 - Check `outputs/change-log.md` collision guard (10-min window) before any Notion write.
 - OI Context rewrites require approval. OI comment adds via notion-create-comment are auto-approved (per CLAUDE.md §5 Exception 2) — write directly, log to change-log.
+- **MCP error handling — single supplier:** If Notion MCP fails at any write step (DB fields, Quote section): HALT, log to change-log, surface to André — do not write partial data. If ruflo MCP fails (pre-check Step 4, checkpoint store, memory store Step 8): log and proceed — ruflo is non-critical and its failure routes auto-write to SHOW BEFORE WRITE.

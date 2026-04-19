@@ -120,3 +120,4 @@ YYYY-MM-DD HH:MM | supplier-onboarding | Created {supplier} in {project} DB | Pa
 - Set Currency by region automatically (CN=RMB, US=USD, PT/DE=EUR).
 - Log all writes to `outputs/change-log.md`.
 - Check `outputs/change-log.md` collision guard (10-min window) before any Notion write.
+- **MCP error handling — single supplier, HALT-only:** All operations are single-supplier. If Notion MCP fails at any step: HALT immediately and surface the exact failed step to André. A partial onboarding (page created but fields incomplete, or domain added without a page) is dangerous — it can cause duplicate-creation errors on retry. Do NOT continue past the failure point.

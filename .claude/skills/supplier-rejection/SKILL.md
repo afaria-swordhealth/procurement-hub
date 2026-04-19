@@ -122,7 +122,7 @@ Before executing writes: store execution checkpoint — `key: exec::supplier-rej
 
 In order:
 1. Create Gmail draft for rejection email (HTML format, append signature). After draft created: update checkpoint — `steps_done: ["gmail_draft"]`.
-2. Update OI statuses to Closed with resolution text (per Step 5 approval). For each OI closed, also add a Notion page comment via `notion-create-comment`: `Supplier rejected [date]. OI closed via /supplier-rejection.` (auto-approved per CLAUDE.md §5 Exception 2). After OI closures: update checkpoint — `steps_done: ["gmail_draft", "ois_closed"]`.
+2. Update OI statuses to Closed with resolution text (per Step 5 approval). If Notion update fails for one OI: skip it, log `[OI title] — Notion MCP error, skipped` to change-log, and continue to the next. Report skipped OIs in the final output. For each OI closed, also add a Notion page comment via `notion-create-comment`: `Supplier rejected [date]. OI closed via /supplier-rejection.` (auto-approved per CLAUDE.md §5 Exception 2). After OI closures: update checkpoint — `steps_done: ["gmail_draft", "ois_closed"]`.
 3. Update Supplier DB: Status → Rejected, NDA Status → Not Required. After status write: update checkpoint — `steps_done: ["gmail_draft", "ois_closed", "status_updated"]`.
 4. Log milestone to Outreach section (direct write, auto-approved):
    `**[Date]** -- Supplier rejected. Rejection email drafted. OIs closed.`
@@ -146,3 +146,4 @@ In order:
 - If supplier is a PT supplier, rejection email must be in Portuguese.
 - Jorge note is always in Portuguese regardless of supplier language.
 - Check collision guard: read `outputs/change-log.md` before any Notion write (10-min window).
+- **MCP error handling:** Single-supplier operations (page fetch, Gmail draft, status write): if MCP fails, HALT and surface to André. Batch OI closures (Step 7.2): if one write fails, skip that OI, log `[OI title] — Notion MCP error, skipped`, and continue — report skipped OIs in the final output. Ruflo failures (checkpoint, risk closure Step 7.7): log and proceed.

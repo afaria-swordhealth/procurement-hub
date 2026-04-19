@@ -18,7 +18,7 @@ Manages the full RFQ lifecycle: pre-check NDA, assemble the package, draft the e
 7. Read `.claude/procedures/check-outreach.md` (milestone entry format).
 8. Read `.claude/procedures/create-open-item.md` (OI field requirements).
 9. Read `.claude/knowledge/nda-process.md` to confirm NDA trigger conditions and when proprietary specs require a fully executed NDA before RFQ.
-10. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::rfq-workflow::{supplier_name}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start."
+10. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::rfq-workflow::{supplier_name}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start." If ruflo MCP fails: log warning and proceed as a fresh run — a missing checkpoint is not a blocker.
 
 ## Step 1: Pre-check — NDA status
 
@@ -145,3 +145,4 @@ When checking for RFQ responses (called from /mail-scan or manually):
 - Never reveal other supplier pricing, internal timelines, or shortlist status in the RFQ.
 - Log all Notion writes to `outputs/change-log.md`.
 - Check `outputs/change-log.md` collision guard (10-min window) before any Notion write.
+- **MCP error handling — single supplier:** If Notion or Gmail MCP fails at any step: HALT and surface to André — do not proceed with a partial outreach state. Ruflo failures (checkpoint check, checkpoint store): log warning and proceed fresh — checkpoint is audit-only, not a gate.

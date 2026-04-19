@@ -89,6 +89,20 @@ Root cause: no pre-write existence check in check-outreach.md. Cron + manual re-
 - `knowledge/weekly-report-rules.md`: new file — editorial rules for weekly report format (structure, section rules, names policy, Sword corporate model alignment)
 - `commands/weekly-report.md`: rewritten to reference weekly-report-rules.md; added "pull previous week's goals" step; added editorial checklist before finalising; removed hardcoded analyst agent call; enforced 1-page max
 
+### Structural sprint Wave 3 — MCP error handling (#40)
+
+Root cause: all 6 critical skills had no defined behavior on MCP failure. Batch skills would silently abort entire runs; single-supplier skills had no HALT instruction. No distinction between ruflo failures (non-critical) and Notion/Gmail failures (critical).
+
+**Policy applied:** Single-supplier operations → HALT on Notion/Gmail MCP failure. Batch loops → skip + log, continue. Ruflo failures → log and proceed (non-critical audit trail).
+
+**6 files updated:**
+- `skills/supplier-chaser/SKILL.md`: Rules + Step 2 — batch skip-and-report; Notion DB failure falls back to Gmail scan; Gmail also fails = skip supplier
+- `skills/quote-intake/SKILL.md`: Rules + Step 4 — single-supplier HALT; ruflo pre-check failure routes to SHOW BEFORE WRITE
+- `skills/rfq-workflow/SKILL.md`: Rules + Pre-flight Step 10 — single-supplier HALT; ruflo checkpoint failure = proceed fresh
+- `skills/supplier-rejection/SKILL.md`: Rules + Step 7.2 — single-supplier HALT for main ops; batch OI closures skip-and-report
+- `skills/supplier-onboarding/SKILL.md`: Rules — HALT-only policy; partial onboarding is dangerous (duplicate on retry)
+- `commands/housekeeping.md`: Error Handling section + MCP ERRORS output bucket — batch skip-and-report; phase-level query failure skips phase, doesn't abort run
+
 ### Structural sprint Wave 2 — 9 fixes (#29–#37)
 
 - **#29** `procedures/create-open-item.md`: "Mandatory OI triggers — create without waiting" → "Recommended OI triggers — propose to André before creating." Removes undocumented auto-write behavior not covered by any §5 exception.
