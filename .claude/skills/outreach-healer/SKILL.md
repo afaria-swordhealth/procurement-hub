@@ -12,6 +12,7 @@ Iterates over all active supplier pages in Notion, reads each ## Outreach sectio
 1. Read `outputs/session-state.md` for freshness timestamps.
 2. Read `.claude/procedures/check-outreach.md` (milestones policy, condensation rules, entry format).
 3. Read `outputs/change-log.md` for collision guard.
+4. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::outreach-healer::{YYYY-MM-DD}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: surface to André — "Incomplete prior run detected on {date}. Suppliers processed: {suppliers_processed}. Resume (skip already-processed) or start fresh?" If ruflo MCP fails: skip this check and proceed.
 
 ## Step 1: Query active suppliers
 
@@ -22,6 +23,8 @@ SELECT Name, Status, id, url FROM "{collection_id}" WHERE Status != 'Rejected'
 ```
 
 Run for all 3 DBs (PULSE_DB, KAIA_DB, MBAND_DB). If Notion MCP is unreachable, abort.
+
+**Before processing begins:** store execution checkpoint — `key: exec::outreach-healer::{YYYY-MM-DD}`, namespace "procurement", upsert true, value: `{ skill: "outreach-healer", date: "{today}", status: "in-progress", suppliers_processed: [], total_suppliers: {N} }`. If ruflo MCP fails: skip checkpoint and continue.
 
 ## Step 2: Fetch each supplier page
 
@@ -80,10 +83,13 @@ Outreach writes are auto-approved (per check-outreach.md write permissions). For
 2. Append to `outputs/change-log.md` first (claim the slot).
 3. Write the corrected ## Outreach section to Notion via `notion-update-page`.
 4. If the Notion write fails, note the failure in change-log.
+5. After each successful write: update checkpoint — append supplier name to `suppliers_processed[]`.
 
 ## Step 5: Output summary
 
 Table with columns: #, Project, Supplier, Fixes Applied, Before (count), After (count). Then list any skipped suppliers (collision guard) and missing outreach sections. End with totals: scanned, fixed, skipped, missing.
+
+After output complete: update checkpoint — `status: "complete"`.
 
 ## Rules
 

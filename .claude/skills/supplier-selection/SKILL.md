@@ -14,6 +14,7 @@ Produces a ranked comparison of all active suppliers for a project, generates a 
 3. Read `.claude/config/strategy.md` (baselines, FLC formula, decision framework).
 4. Read `context/{project}/suppliers.md` for current supplier states.
 5. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::supplier-selection::{project}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite."
+6. **Prior selection check:** call `mcp__ruflo__memory_search` with query `"selection {project}"`, namespace "procurement", limit 1, threshold 0.5. If a prior selection record exists: surface to André — "A prior selection was run for {project} on {date}. Winner: {winner}. Confirm this is a new evaluation cycle before proceeding." If ruflo MCP fails: skip this check and proceed.
 
 ## Step 1: Pull all candidates
 

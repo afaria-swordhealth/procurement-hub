@@ -89,6 +89,29 @@ Root cause: no pre-write existence check in check-outreach.md. Cron + manual re-
 - `knowledge/weekly-report-rules.md`: new file — editorial rules for weekly report format (structure, section rules, names policy, Sword corporate model alignment)
 - `commands/weekly-report.md`: rewritten to reference weekly-report-rules.md; added "pull previous week's goals" step; added editorial checklist before finalising; removed hardcoded analyst agent call; enforced 1-page max
 
+### Sprint #45-#46 — Ruflo orphaned records + execution checkpoints
+
+**#45 — Ruflo write-only records closed (rejection::, selection::)**
+- `skills/supplier-onboarding/SKILL.md` Step 0: added rejection:: retrieval — if supplier was previously rejected, surface date + reason to André before proceeding. Prevents silent re-onboarding of a supplier who was deliberately rejected.
+- `skills/supplier-selection/SKILL.md` Pre-flight step 6: added selection:: retrieval — if a prior selection was run for this project, surface winner + date to André before starting a new evaluation cycle.
+- Note: chase:: already retrieved in supplier-chaser Step 4a. negotiation:: already retrieved in negotiation-tracker Step 2b. Neither was orphaned.
+
+**#46 — Execution checkpoints: supplier-onboarding + outreach-healer**
+- `skills/supplier-onboarding/SKILL.md`:
+  - Pre-flight step 8: execution checkpoint check (resume incomplete run or confirm fresh start)
+  - Before Step 2: store checkpoint `steps_done: []`
+  - After page created: update `steps_done: ["notion_page"]`
+  - After domain registered: update `steps_done: [..., "domain_added"]`
+  - After context updated: update `steps_done: [..., "context_updated"]`
+  - After NDA handled: update `steps_done: [..., "nda_handled"]`
+  - After Step 8 log: update `status: "complete"`
+  - Also fixed: "7 fields required" → "8 fields" (aligned with Mini-sprint #14 fix)
+- `skills/outreach-healer/SKILL.md`:
+  - Pre-flight step 4: execution checkpoint check (can resume from last processed supplier)
+  - Step 1: store checkpoint with `suppliers_processed: []` before batch begins
+  - Step 4: update `suppliers_processed[]` after each successful write
+  - Step 5: mark `status: "complete"` after output presented
+
 ### Micro-fix #43 — project-dashboard BloomPod coverage
 - `skills/project-dashboard/SKILL.md`: description + Pre-flight updated — "Pulse, Kaia, or M-Band" → "Pulse, Kaia, M-Band, or BloomPod". BLOOMPOD_DB added with note: light scaffold — skip Steps 2/4/Timeline if context file absent.
 
