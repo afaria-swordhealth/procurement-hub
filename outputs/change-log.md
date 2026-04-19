@@ -84,6 +84,11 @@ Root cause: no pre-write existence check in check-outreach.md. Cron + manual re-
 - **#27** `commands/wrap-up.md` Phase 4: swapped 4b↔4c order — cron deletion now happens before change-log clear. Ensures cron deletion failures are recorded in change-log before it is wiped.
 - **#28** `skills/supplier-chaser/SKILL.md` Step 6: replaced bare "update promises.md next: field" with full promise creation — appends new entry for supplier reply expectation. Fixes CLAUDE.md §4d compliance gap (all chases were missing promises.md entries).
 
+### Structural sprint — weekly-report editorial overhaul
+
+- `knowledge/weekly-report-rules.md`: new file — editorial rules for weekly report format (structure, section rules, names policy, Sword corporate model alignment)
+- `commands/weekly-report.md`: rewritten to reference weekly-report-rules.md; added "pull previous week's goals" step; added editorial checklist before finalising; removed hardcoded analyst agent call; enforced 1-page max
+
 ### Structural sprint Wave 2 — 9 fixes (#29–#37)
 
 - **#29** `procedures/create-open-item.md`: "Mandatory OI triggers — create without waiting" → "Recommended OI triggers — propose to André before creating." Removes undocumented auto-write behavior not covered by any §5 exception.

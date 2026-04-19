@@ -1,16 +1,15 @@
 ---
-description: Compile weekly report from daily logs, calculate key numbers, push to Notion as Draft.
+description: Compile weekly report from daily logs and supplier DBs, apply executive format, push to Notion as Draft.
 model: opus
 ---
 
 # Weekly Report
 
-**Agents:** notion-ops (primary), analyst (key numbers + W-over-W deltas)
-
 **References:**
-- .claude/config/databases.md (Query Patterns section)
-- .claude/config/databases.md (collection IDs for all DBs)
-- CLAUDE.md Safety Rules and Writing Style sections
+- `.claude/knowledge/weekly-report-rules.md` — editorial rules and format (read before writing)
+- `.claude/config/databases.md` — collection IDs and query patterns for all DBs
+
+---
 
 ## Pre-flight
 
@@ -19,33 +18,56 @@ Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
 - If 2–8h: use snapshot as baseline. Run delta scan for this task.
 - If > 8h or missing: warn André and recommend /warm-up before proceeding.
 
+Read `.claude/knowledge/weekly-report-rules.md` in full before writing a single line of the report.
+
+---
+
 ## Steps
 
-1. **Pull daily logs** for the current week from Daily Logs DB (ID from config/databases.md, DAILYLOG_DB). Fetch each relevant daily log page for full content.
+1. **Pull daily logs** for the current week from Daily Logs DB (DAILYLOG_DB in config/databases.md). Fetch each relevant daily log page for full content.
 
-2. **Query Supplier DBs** (READ-ONLY) using config/databases.md (Query Patterns section):
-   - columns: Name, Status, + price fields per project (see config/databases.md (Query Patterns section) common column sets)
-   - project: all
-   - analyst calculates Key Numbers with week-over-week deltas
+2. **Pull previous week's report** from Weekly Reports DB (WEEKLY_DB in config/databases.md). Extract the "Goals next week" section — this becomes the "Goals last week" baseline. Do not reconstruct from memory or daily logs.
 
-3. **Compile by project:**
-   - ## Pulse
-   - ## Kaia Rewards
-   - ## M-Band COO-PT
-   - ## ISC
+3. **Query Supplier DBs** (READ-ONLY) using config/databases.md query patterns:
+   - Pull active supplier counts, quote status, open items per project
+   - Calculate week-over-week deltas for Snapshot
 
-4. Each project section has sub-sections per topic. Blockers in prose. Next steps by project.
+4. **Determine week number and period** from daily logs.
 
-5. **Present draft** to Andre for review.
+5. **Write the report** following `.claude/knowledge/weekly-report-rules.md` exactly:
 
-6. After approval, **push to Notion** Weekly Reports DB (ID from config/databases.md, WEEKLY_DB) as Draft. Log the write to `outputs/change-log.md`.
+   ```
+   # Weekly Report | W[XX] · [Period]
+   ISC — Procurement
+
+   ## The big thing this week
+   ## Snapshot
+   ## Good
+   ## Bad
+   ## Worries
+   ## Key decisions / asks
+   ## Goals last week
+   ## Goals next week
+   ```
+
+6. **Apply editorial checklist** before finalising:
+   - The big thing: is it an outcome that shifts a trajectory? If it appears here, does NOT repeat verbatim in Good
+   - Good: outcomes only, no operational trail, supplier names only where justified; projects with only admin activity → omit from Good, keep in Snapshot as →
+   - Bad / Worries / Key decisions: no individual or supplier names — area/function only
+   - Worries: every row has a concrete impact AND a deadline — remove any that don't
+   - Goals last week: sourced from previous week's report, ordered 🔴 → 🟡 → 🚫 → 🟢; use 🚫 for goals that expired or changed scope
+   - Housekeeping anywhere: remove entirely
+   - Total length: max 1 page when rendered — cut if over
+
+6. **Present draft to André** for review before pushing anywhere.
+
+7. After approval, **push to Notion** Weekly Reports DB (WEEKLY_DB in config/databases.md) as Draft. Log the write to `outputs/change-log.md`.
+
+---
 
 ## Safety
 
-- NEVER include internal housekeeping (e.g., Notion cleanup, command testing).
-- Weekly Report status stays Draft. Only Andre marks it as Sent in Notion UI.
-- Follow CLAUDE.md Safety Rules and Writing Style sections.
-
-## Output Format
-
-Sections by project. Sub-sections per topic. Key Numbers table with W-over-W deltas. Blockers in prose. Next steps by project. Colleague tone, not consultant.
+- NEVER include internal housekeeping (Notion cleanup, command testing, session management).
+- NEVER name individuals in Bad, Worries, or Key decisions — use area/function instead.
+- Weekly Report status stays **Draft**. Only André marks it as Sent in Notion UI.
+- Follow all rules in `.claude/knowledge/weekly-report-rules.md`.
