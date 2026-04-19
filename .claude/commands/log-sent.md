@@ -19,7 +19,9 @@ Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
 
 Use .claude/procedures/scan-gmail.md with:
 - direction: "sent"
-- date_range: 1 (last 24h default, or user-specified)
+- date_range: **dynamic** — read `Last-Log-Sent` from `outputs/session-state.md`. Set date_range = days since Last-Log-Sent + 1 (round up, max 7). If Last-Log-Sent is missing or >7 days ago: use 7 and flag the gap. If session-state is unreadable: default to 2.
+  - Example: Last-Log-Sent was 38h ago → date_range: 2. Last-Log-Sent was 6h ago → date_range: 1.
+  - Rationale: a fixed 24h window misses milestones when log-sent hasn't run since yesterday (weekend, crash, skipped session).
 - project_filter: "all"
 
 Domain filtering uses .claude/config/domains.md. Keep only emails sent to known supplier domains.
