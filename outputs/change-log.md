@@ -74,6 +74,16 @@ Root cause: no pre-write existence check in check-outreach.md. Cron + manual re-
 - **#20** `skills/context-doctor/SKILL.md`: documented Invocation modes (auto-fix default vs --report-only). Makes housekeeping's "report-only mode" instruction enforceable and visible.
 - **#21** `skills/supplier-chaser/SKILL.md` Step 6: fixed duplicate step "4." numbering — renumbered to 4, 5, 6.
 
+### Structural sprint Wave 1 — 6 fixes (#22–#27)
+
+- **#22** `commands/log-sent.md` Phase 5: add M4 Last Outreach Date update after each outreach write. Completes propagation for log-sent path (was missing alongside quote-intake + rfq-workflow).
+- **#23** `skills/quote-intake/SKILL.md` Step 7: add M4 Last Outreach Date update after outreach write. Also Step 4: added prior-quote ruflo pre-check before auto-write decision — fixes backwards ordering (was running at Step 8 after the write, not before).
+- **#24** `skills/rfq-workflow/SKILL.md` Step 4a: add M4 Last Outreach Date update after outreach write.
+- **#25** `skills/supplier-rejection/SKILL.md` Step 7: added Step 7.7 — risk closure in ruflo. Searches open risks for rejected supplier and marks resolution: {status: "closed", reason: "supplier_rejected"}. Closes the learning loop that was promised but never implemented.
+- **#26** `commands/warm-up.md` Phase 8: added Step 13b — write cron IDs to session-state immediately after CronCreate, before Phase 10. Prevents orphaned crons if session crashes before Phase 10.
+- **#27** `commands/wrap-up.md` Phase 4: swapped 4b↔4c order — cron deletion now happens before change-log clear. Ensures cron deletion failures are recorded in change-log before it is wiped.
+- **#28** `skills/supplier-chaser/SKILL.md` Step 6: replaced bare "update promises.md next: field" with full promise creation — appends new entry for supplier reply expectation. Fixes CLAUDE.md §4d compliance gap (all chases were missing promises.md entries).
+
 ### Mini-sprint #14 — OI Supplier field missing from creation checklist
 Root cause: `Supplier` field exists in OI DB schema (databases.md) but was absent from `create-open-item.md` 7-field checklist and CLAUDE.md §4c required fields table. `supplier-rejection` Step 5 queried `WHERE Supplier LIKE '%{supplier}%'` — silently returned empty for all OIs created via standard flow.
 

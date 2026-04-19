@@ -133,6 +133,8 @@ In order:
    - `value`: `{ supplier, project, date, reason_internal, ois_closed, contact_email, relationship_quality }`
    After ruflo store: update checkpoint — `status: "complete"`, `steps_done: ["gmail_draft", "ois_closed", "status_updated", "ruflo"]`.
 
+7. **(Risk closure)** Close any open risks for this supplier in ruflo. Call `mcp__ruflo__memory_search` with `query: "risk {supplier_name}"`, namespace "procurement", limit 10, threshold 0.3. For each result returned with `resolution: null`: call `mcp__ruflo__memory_store` (upsert true) preserving all existing fields and adding `resolution: { status: "closed", closed_date: "{today}", closed_reason: "supplier_rejected", closed_via_skill: "supplier-rejection" }`. Log to change-log: `risk-closure | Closed N risks for {supplier}`. If ruflo MCP fails: log and proceed — rejection is already recorded in Notion.
+
 ## Rules
 
 - NEVER reveal pricing comparisons, other suppliers, or internal timelines in the rejection email.

@@ -64,6 +64,7 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 13. Start in-session recurring tasks (CronCreate):
     - Every 2 hours: silent /mail-scan. Only notify Andre if new emails found.
     - Every 3 hours: silent /log-sent. Write outreach milestones directly (auto-approved). Only notify if entries were written.
+13b. Immediately after CronCreate calls return: write the returned cron IDs to `outputs/session-state.md` under `## Session Crons` (create the section if absent). Format: one ID per line. Do NOT wait for Phase 10 — if the session crashes before Phase 10, cron IDs must already be persisted for wrap-up Phase 4b to clean up.
 14. Confirm crons started in the briefing.
 
 ### Phase 9: Day Briefing

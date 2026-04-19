@@ -106,6 +106,8 @@ Per `procedures/check-outreach.md`, write directly to the supplier's Outreach se
 ```
 After outreach write: update checkpoint — `steps_done: ["gmail_draft", "outreach"]`.
 
+**(M4)** Update `Last Outreach Date` DB field to today via `notion-update-page`. Skip if Status = 'Rejected'; skip silently if field not yet created in Notion UI. If update fails, log to change-log and proceed. After Last Outreach Date update: update checkpoint — `steps_done: ["gmail_draft", "outreach", "last_outreach_date"]`.
+
 ### 4b. Update supplier status
 
 If current status is `Identified` or `Contacted`, auto-update to `RFQ Sent` immediately — no separate approval needed (per CLAUDE.md §5 Exception 4). The send confirmation IS the approval. Skip if status is already more advanced. After status write: update checkpoint — `steps_done: ["gmail_draft", "outreach", "status"]`.

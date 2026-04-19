@@ -79,6 +79,8 @@ Per `procedures/fill-cost-fields-on-quote.md`:
    - `Unit Cost (EUR)`: 3 decimal places
    - `Tooling Cost (EUR)`: 0 decimals if >= 1,000, else 2 decimals
 
+**Prior quote pre-check (must run before auto-write decision):** Call `mcp__ruflo__memory_search` with query `"quote {supplier_name}"`, namespace "procurement", limit 1. Store result as `{prior_quote}`. This gates the auto-write condition below AND populates `delta_vs_prev_pct` in Step 8 — no second ruflo call is needed there.
+
 **Before writing:** store execution checkpoint — `key: exec::quote-intake::{supplier}`, namespace "procurement", upsert true, value: `{ skill: "quote-intake", supplier, date, status: "in-progress", steps_done: [] }`.
 
 **Auto-write path (CLAUDE.md §5 Exception 3):** If ALL conditions are true, write DB fields immediately and output a single confirmation line — `Auto-wrote: Unit Cost X.XXX EUR, Tooling X EUR (source: [currency] [amount]@[tier], FX: [rate])`:
@@ -134,6 +136,8 @@ After change-log write: update checkpoint — `steps_done: ["db_fields", "quote_
 ```
 After outreach write: update checkpoint — `steps_done: ["db_fields", "quote_section", "context_file", "change_log", "outreach"]`.
 
+**(M4)** Update `Last Outreach Date` DB field to today via `notion-update-page`. Skip if Status = 'Rejected'; skip silently if field not yet created in Notion UI. If update fails, log to change-log and proceed. After Last Outreach Date update: update checkpoint — `steps_done: ["db_fields", "quote_section", "context_file", "change_log", "outreach", "last_outreach_date"]`.
+
 ## Step 8: Store quote in ruflo memory
 
 After all Notion writes are complete, call `mcp__ruflo__memory_store`:
@@ -161,7 +165,7 @@ After all Notion writes are complete, call `mcp__ruflo__memory_store`:
   }
   ```
 
-`delta_vs_prev_pct`: calculate by searching ruflo first for a prior quote from this supplier (`mcp__ruflo__memory_search` with query `"quote {supplier_name}"`, limit 1). If a prior quote exists, compute `(new_unit - prev_unit) / prev_unit * 100`. If no prior quote, set null.
+`delta_vs_prev_pct`: use `{prior_quote}` fetched in the Step 4 pre-check (no second ruflo call needed). If a prior quote was found, compute `(new_unit - prev_unit) / prev_unit * 100`. If none found, set null.
 
 After ruflo store succeeds: update checkpoint — `status: "complete"`, `steps_done: ["db_fields", "quote_section", "context_file", "change_log", "outreach", "ruflo"]`.
 
