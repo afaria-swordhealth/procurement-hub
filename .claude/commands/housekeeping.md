@@ -77,6 +77,7 @@ Query Open Items DB (ID from .claude/config/databases.md, OI_DB) for items with 
     Note: OI Context no longer uses a leading-date prefix (see CLAUDE.md §4c). The Context date substring check may not work for compliant OIs. Flag by Deadline overage and review Notion page comments for staleness.
     Additionally, for any OI where Context contains multiple dated-prefix lines (e.g. `[2026-04-10]`, `[2026-04-15]`) or Portuguese text, flag as NEEDS YOUR DECISION: "Context cleanup needed — running-log format detected. Summarize into one English paragraph per CLAUDE.md §4c." Do NOT auto-rewrite — this is SHOW BEFORE WRITE.
 17. **REPORT ONLY**: Propose closures for items that appear resolved (present reason, do not write).
+17b. **REPORT ONLY**: For each active supplier page, fetch the ## Open Items section body. If it contains inline bullet list items (as opposed to a linked database view), flag as NEEDS YOUR DECISION: `[Supplier]: ## Open Items contains inline bullets — migrate to central OI DB and replace with linked view per CLAUDE.md Rule 8.` List the bullet items found so André can create the OI records. Do NOT auto-migrate (irreversible).
 
 ## Phase 5: Context Drift Check (REPORT ONLY)
 

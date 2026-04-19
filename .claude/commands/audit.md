@@ -55,6 +55,7 @@ For each project page (Pulse, Kaia, M-Band):
    - Links to subpages working?
 3. For each active supplier page:
    - Does it have all 5 sections (Contact, Profile, Quote, Outreach, Open Items)?
+   - Does ## Open Items contain a linked database view (not inline bullets)? Flag as Critical if inline bullets found — violates CLAUDE.md Rule 8.
    - Is Quote section populated if status is "Quote Received" or higher?
    - Are Open Items resolved or clearly flagged?
    - Would someone unfamiliar understand the supplier's status from reading the page alone?
