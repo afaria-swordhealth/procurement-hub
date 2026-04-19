@@ -20,7 +20,8 @@
 - Only if something genuinely significant happened — otherwise "None"
 - Qualifies as "big": a decision made, a milestone reached, or a risk resolved/escalated that changes the trajectory of a project
 - Does NOT qualify: an activity, a meeting held, an email sent — only outcomes that shift something
-- What appears here does NOT repeat in Good — either expand on it there with more detail, or omit it entirely from Good
+- Synthesis beats specificity — if multiple gates closed, synthesise them into one headline rather than picking just one event
+- What appears here does NOT repeat verbatim in Good — but Good may expand on it or detail its consequences
 
 ### Snapshot
 - Table: Project / Status (🟢🟡🔴) / Trend (↗ → ↘) / Note (1 line)
@@ -34,7 +35,8 @@
 - Supplier names in Bad / Worries: never — use role instead ("primary BPM supplier", "packaging supplier", "PCBA supplier")
 - Max 3 bullets per project
 - Language: "X was confirmed", "X was launched", "X was unblocked" — not "I sent / I called / I followed up"
-- A project with only administrative activity and no real decision or delivery does NOT enter Good — it shows as → in Snapshot and, if relevant, appears in Bad
+- Confirmation language: if an outcome depends on pending third-party confirmation, use "advancing" instead of "confirmed" — reserve "confirmed" for outcomes with full closure
+- A project with no deliverable that moves the project forward does NOT enter Good — it shows as → in Snapshot and, if relevant, appears in Bad. Note: a deliverable that prepares a decision (e.g. freight quotes consolidated, decision data ready) qualifies — the criterion is "did something move?" not "was a decision made?"
 
 ### Bad
 - Factual and direct
@@ -80,6 +82,8 @@
 | Internal housekeeping in any section | Omit entirely |
 
 **Housekeeping = never include:** session management, context syncs, CLAUDE.md updates, command testing, tool/skill creation, system audits, cron configuration, DB cleanup, Notion restructuring. These are invisible infrastructure — not work output.
+
+**Checklist is a filter, not a prescription.** If applying a rule mechanically produces worse output than editorial judgment would, flag the conflict rather than blindly following the rule. Quality overrides compliance.
 
 ---
 

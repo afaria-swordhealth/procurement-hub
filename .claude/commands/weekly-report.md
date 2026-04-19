@@ -26,6 +26,8 @@ Read `.claude/knowledge/weekly-report-rules.md` in full before writing a single 
 
 1. **Pull daily logs** for the current week from Daily Logs DB (DAILYLOG_DB in config/databases.md). Fetch each relevant daily log page for full content.
 
+   Then ask André: *"Any relevant inputs this week outside the daily logs? (Legal memos, regulatory alignment, decisions from meetings not logged)"* — incorporate before writing.
+
 2. **Pull previous week's report** from Weekly Reports DB (WEEKLY_DB in config/databases.md). Extract the "Goals next week" section — this becomes the "Goals last week" baseline. Do not reconstruct from memory or daily logs.
 
 3. **Query Supplier DBs** (READ-ONLY) using config/databases.md query patterns:
@@ -59,9 +61,9 @@ Read `.claude/knowledge/weekly-report-rules.md` in full before writing a single 
    - Housekeeping anywhere: remove entirely
    - Total length: max 1 page when rendered — cut if over
 
-6. **Present draft to André** for review before pushing anywhere.
+7. **Present draft to André** for review before pushing anywhere.
 
-7. After approval, **push to Notion** Weekly Reports DB (WEEKLY_DB in config/databases.md) as Draft. Log the write to `outputs/change-log.md`.
+8. After approval, **push to Notion** Weekly Reports DB (WEEKLY_DB in config/databases.md) as Draft. Log the write to `outputs/change-log.md`.
 
 ---
 
