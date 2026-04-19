@@ -1,11 +1,11 @@
 ---
 name: "Weekly Pulse"
-description: "Generate a compact weekly metrics snapshot across all 3 projects: supplier movement, quotes, OIs, email activity, and blockers. Use for a quick health check or to prepare a summary for Jorge/Anand. Lighter than /weekly-report."
+description: "Generate a compact weekly metrics snapshot across all 4 projects: supplier movement, quotes, OIs, email activity, and blockers. Use for a quick health check or to prepare a summary for Jorge/Anand. Lighter than /weekly-report."
 ---
 
 # Weekly Pulse
 
-Automated weekly metrics snapshot. Pulls data from Notion DBs, Gmail, and change-log git history. Produces a compact, shareable report. Read-only output, no writes.
+Automated weekly metrics snapshot. Pulls data from all 4 Notion project DBs, Gmail, and change-log git history. Produces a compact, shareable report. Read-only output, no writes.
 
 ## Pre-flight
 
@@ -23,7 +23,7 @@ Automated weekly metrics snapshot. Pulls data from Notion DBs, Gmail, and change
 
 ### Supplier movement (per project)
 
-For each Supplier DB (PULSE_DB, KAIA_DB, MBAND_DB):
+For each Supplier DB (PULSE_DB, KAIA_DB, MBAND_DB, BLOOMPOD_DB):
 
 ```sql
 SELECT Name, Status, Notes FROM "{SUPPLIER_DB}"
@@ -67,7 +67,7 @@ Use `scan-gmail.md` procedures with date range = window. Map domains to projects
 
 ### Per-project table
 
-Rows: Suppliers advanced, Suppliers deprioritized, New quotes received, Outreach entries logged, OIs created, OIs closed, OIs overdue, Emails sent, Emails received. Columns: Pulse, Kaia, M-Band, Total.
+Rows: Suppliers advanced, Suppliers deprioritized, New quotes received, Outreach entries logged, OIs created, OIs closed, OIs overdue, Emails sent, Emails received. Columns: Pulse, Kaia, M-Band, BloomPod, Total.
 
 ### Cross-project metrics
 
@@ -95,6 +95,7 @@ HIGHLIGHTS
 - Pulse: {highlight}
 - Kaia: {highlight}
 - M-Band: {highlight}
+- BloomPod: {highlight}
 
 CONCERNS
 - {items}

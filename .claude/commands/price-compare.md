@@ -17,6 +17,8 @@ Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
 - If 2–8h: use snapshot as baseline. Run delta scan for this task.
 - If > 8h or missing: warn André and recommend /warm-up before proceeding.
 
+Read `config/fx-rates.md`. Check the `Last updated:` header date. If rates are more than 7 days old: flag in the output footer — "FX rates last updated {date} — may be stale. Verify before using for decisions." Do not block execution; produce the analysis with the stale rates and label them.
+
 ## Steps
 
 1. Read config/databases.md for the relevant Supplier DB collection ID based on project argument.
@@ -29,6 +31,7 @@ Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
 
 3. Calculate Full Landed Cost (FLC) for each supplier:
    - Unit price (FOB or landed, flag which)
+   - Apply currency conversion using rates from `config/fx-rates.md`. Label the rate and source currency used for each supplier in the output table.
    - Freight estimate
    - Duties estimate
    - Fulfillment (see config/strategy.md Kaia baselines for Nimbl rates)

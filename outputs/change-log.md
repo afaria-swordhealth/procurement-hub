@@ -89,6 +89,13 @@ Root cause: no pre-write existence check in check-outreach.md. Cron + manual re-
 - `knowledge/weekly-report-rules.md`: new file — editorial rules for weekly report format (structure, section rules, names policy, Sword corporate model alignment)
 - `commands/weekly-report.md`: rewritten to reference weekly-report-rules.md; added "pull previous week's goals" step; added editorial checklist before finalising; removed hardcoded analyst agent call; enforced 1-page max
 
+### Micro-fix #41 — price-compare FX staleness check
+- `commands/price-compare.md` Pre-flight: added read of `config/fx-rates.md` + staleness check. If rates > 7 days old: flag in output footer, do not block execution.
+- `commands/price-compare.md` Step 3: added explicit FX conversion using fx-rates.md, with rate labelled in output table per supplier.
+
+### Micro-fix #42 — weekly-pulse BloomPod omission
+- `skills/weekly-pulse/SKILL.md`: description + body updated — "all 3 projects" → "all 4 projects". BLOOMPOD_DB added to Step 1 supplier query. BloomPod column added to per-project metrics table. BloomPod highlight added to output format.
+
 ### Structural sprint Wave 3 — MCP error handling (#40)
 
 Root cause: all 6 critical skills had no defined behavior on MCP failure. Batch skills would silently abort entire runs; single-supplier skills had no HALT instruction. No distinction between ruflo failures (non-critical) and Notion/Gmail failures (critical).
