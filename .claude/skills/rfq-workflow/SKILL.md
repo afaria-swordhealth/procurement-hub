@@ -18,7 +18,7 @@ Manages the full RFQ lifecycle: pre-check NDA, assemble the package, draft the e
 7. Read `.claude/procedures/check-outreach.md` (milestone entry format).
 8. Read `.claude/procedures/create-open-item.md` (OI field requirements).
 9. Read `.claude/knowledge/nda-process.md` to confirm NDA trigger conditions and when proprietary specs require a fully executed NDA before RFQ.
-10. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::rfq-workflow::{supplier_name}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start." If ruflo MCP fails: log warning and proceed as a fresh run — a missing checkpoint is not a blocker.
+10. **Execution checkpoint check:** per `procedures/exec-checkpoints.md`, read `outputs/checkpoints/rfq-workflow_{supplier_slug}.json`. If file exists with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {started}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start." If missing or `status: "complete"`: proceed (archive complete runs per the procedure).
 
 ## Step 1: Pre-check — NDA status
 
@@ -91,7 +91,7 @@ Never reveal: other supplier pricing, internal timelines, decision deadlines, sh
 
 1. Cross-check recipient email against Notion Contact section and `config/domains.md`. Flag mismatches.
 2. **SHOW BEFORE WRITE.** Present full draft to Andre. He may edit.
-3. Store execution checkpoint to ruflo before creating draft — `key: exec::rfq-workflow::{supplier}`, namespace "procurement", upsert true, value: `{ skill: "rfq-workflow", supplier, date, status: "in-progress", steps_done: [] }`.
+3. Store execution checkpoint per `procedures/exec-checkpoints.md` before creating draft — write `outputs/checkpoints/rfq-workflow_{supplier_slug}.json` with `{ skill: "rfq-workflow", entity: "{supplier}", started, last_update, status: "in-progress", steps_done: [], meta: { project, supplier } }`. Atomic write. On write failure: STOP.
 4. Create Gmail draft in HTML (no CDATA). Append signature from `.claude/config/signature.html`. After draft created: update checkpoint — `steps_done: ["gmail_draft"]`.
 
 ## Step 4: After sending — log and track
@@ -144,5 +144,5 @@ When checking for RFQ responses (called from /mail-scan or manually):
 - Sign-off: "Best, Andre" or "Thanks, Andre". Never "Best regards,".
 - Never reveal other supplier pricing, internal timelines, or shortlist status in the RFQ.
 - Log all Notion writes to `outputs/change-log.md`.
-- Check `outputs/change-log.md` collision guard (10-min window) before any Notion write.
+- Concurrency: session-single model (see `.claude/safety.md`). No per-write collision check.
 - **MCP error handling — single supplier:** If Notion or Gmail MCP fails at any step: HALT and surface to André — do not proceed with a partial outreach state. Ruflo failures (checkpoint check, checkpoint store): log warning and proceed fresh — checkpoint is audit-only, not a gate.

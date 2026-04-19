@@ -145,5 +145,5 @@ In order:
 - Outreach milestone (step 7.4) is auto-approved and goes directly.
 - If supplier is a PT supplier, rejection email must be in Portuguese.
 - Jorge note is always in Portuguese regardless of supplier language.
-- Check collision guard: read `outputs/change-log.md` before any Notion write (10-min window).
+- Concurrency: session-single model (see `.claude/safety.md`). No per-write collision check.
 - **MCP error handling:** Single-supplier operations (page fetch, Gmail draft, status write): if MCP fails, HALT and surface to André. Batch OI closures (Step 7.2): if one write fails, skip that OI, log `[OI title] — Notion MCP error, skipped`, and continue — report skipped OIs in the final output. Ruflo failures (checkpoint, risk closure Step 7.7): log and proceed.

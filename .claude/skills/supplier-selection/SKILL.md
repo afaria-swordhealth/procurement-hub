@@ -13,7 +13,7 @@ Produces a ranked comparison of all active suppliers for a project, generates a 
 2. Read `.claude/config/databases.md` (DB IDs, Supplier DBs, Test Reviews DB).
 3. Read `.claude/config/strategy.md` (baselines, FLC formula, decision framework).
 4. Read `context/{project}/suppliers.md` for current supplier states.
-5. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::supplier-selection::{project}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite."
+5. **Execution checkpoint check:** per `procedures/exec-checkpoints.md`, read `outputs/checkpoints/supplier-selection_{project}.json`. If file exists with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {started}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite." If missing or `status: "complete"`: proceed (archive complete runs per the procedure).
 6. **Prior selection check:** call `mcp__ruflo__memory_search` with query `"selection {project}"`, namespace "procurement", limit 1, threshold 0.5. If a prior selection record exists: surface to André — "A prior selection was run for {project} on {date}. Winner: {winner}. Confirm this is a new evaluation cycle before proceeding." If ruflo MCP fails: skip this check and proceed.
 
 ## Step 1: Pull all candidates
@@ -127,8 +127,7 @@ Next steps if André approves:
 
 After André approves the recommendation:
 
-0. Check `outputs/change-log.md` collision guard (10-min window). Write a claim entry now before any Notion write: `{timestamp} | supplier-selection | {project} | Winner: {winner} | executing status update + OI creation`
-0b. Store execution checkpoint to ruflo — `key: exec::supplier-selection::{project}`, namespace "procurement", upsert true, value: `{ skill: "supplier-selection", project, winner, date, status: "in-progress", steps_done: [] }`. **If `memory_store` returns an error: STOP.** Surface to André: "Cannot write execution checkpoint (ruflo MCP error). Supplier selection is blocked — downstream writes (status changes, rejections) are not safely re-runnable without checkpoint protection."
+0. Store execution checkpoint per `procedures/exec-checkpoints.md` — write `outputs/checkpoints/supplier-selection_{project}.json` with `{ skill: "supplier-selection", entity: "{project}", started, last_update, status: "in-progress", steps_done: [], meta: { project, winner } }`. Atomic write. **On write failure: STOP.** Surface to André: "Cannot write execution checkpoint (filesystem error). Supplier selection is blocked — downstream writes (status changes, rejections) are not safely re-runnable without checkpoint protection." (Concurrency: see `safety.md` — session-single model, no 10-min guard.)
 1. Update winner's Status → `Shortlisted` in Notion. After write succeeds: update checkpoint — `steps_done: ["winner_shortlisted"]`.
 2. For suppliers to reject: offer to run `/supplier-rejection` for each.
 3. Create Decision OI in Open Items DB:

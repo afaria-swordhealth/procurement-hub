@@ -11,7 +11,7 @@ Iterates over all active supplier pages in Notion, reads each ## Outreach sectio
 
 1. Read `outputs/session-state.md` for freshness timestamps.
 2. Read `.claude/procedures/check-outreach.md` (milestones policy, condensation rules, entry format).
-3. Read `outputs/change-log.md` for collision guard.
+3. Read `outputs/change-log.md` for context on recent writes. Concurrency: session-single model (see `.claude/safety.md`); no collision guard.
 4. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::outreach-healer::{YYYY-MM-DD}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: surface to André — "Incomplete prior run detected on {date}. Suppliers processed: {suppliers_processed}. Resume (skip already-processed) or start fresh?" If ruflo MCP fails: skip this check and proceed.
 
 ## Step 1: Query active suppliers
@@ -79,15 +79,16 @@ Update if stale (last date doesn't match most recent entry) or missing.
 
 Outreach writes are auto-approved (per check-outreach.md write permissions). For each supplier that needs fixes:
 
-1. Check `outputs/change-log.md` for same-page writes in last 10 min. If found, skip that supplier.
-2. Append to `outputs/change-log.md` first (claim the slot).
-3. Write the corrected ## Outreach section to Notion via `notion-update-page`.
-4. If the Notion write fails, note the failure in change-log.
-5. After each successful write: update checkpoint — append supplier name to `suppliers_processed[]`.
+1. Write the corrected ## Outreach section to Notion via `notion-update-page`.
+2. On success: append an entry to `outputs/change-log.md`.
+3. On failure: append a FAILED entry to change-log and continue with the next supplier.
+4. After each successful write: update checkpoint — append supplier name to `suppliers_processed[]`.
+
+Concurrency: session-single model (see `.claude/safety.md`); no per-write collision check.
 
 ## Step 5: Output summary
 
-Table with columns: #, Project, Supplier, Fixes Applied, Before (count), After (count). Then list any skipped suppliers (collision guard) and missing outreach sections. End with totals: scanned, fixed, skipped, missing.
+Table with columns: #, Project, Supplier, Fixes Applied, Before (count), After (count). Then list any skipped suppliers (MCP errors) and missing outreach sections. End with totals: scanned, fixed, skipped, missing.
 
 After output complete: update checkpoint — `status: "complete"`.
 
@@ -98,7 +99,7 @@ After output complete: update checkpoint — `status: "complete"`.
 - NEVER change the factual content of an entry. Only fix format, order, language, and duplicates.
 - NEVER touch Rejected supplier pages.
 - Outreach writes go directly to Notion without approval (exception to SHOW BEFORE WRITE, per check-outreach.md).
-- Collision guard: always check change-log before writing. Skip if same page was written in last 10 min.
+- Concurrency: session-single model (see `.claude/safety.md`). No collision guard.
 - All Notion content in English. Translate Portuguese entries but preserve factual accuracy.
 - Log every fix to `outputs/change-log.md` with supplier name and fix type.
 - If Notion MCP fails mid-run (after some suppliers processed), report partial results. Do not retry failed writes.

@@ -11,7 +11,7 @@ Compares Notion supplier DB state against context/{project}/suppliers.md files, 
 
 1. Read `outputs/session-state.md` for freshness timestamps.
 2. Read `.claude/config/databases.md` for DB IDs and query patterns.
-3. Read `outputs/change-log.md` to check for recent writes (collision guard: skip any page written in last 10 min).
+3. Read `outputs/change-log.md` for context on recent writes. Concurrency: session-single model (see `.claude/safety.md`); no collision guard.
 
 ## Step 1: Query Notion supplier DBs
 
@@ -72,9 +72,10 @@ Safe to auto-fix (no approval needed):
 - **Section header counts:** If the count in a section header (e.g., "## Shortlisted (2)") no longer matches the entries below it, fix the count.
 
 Before each write:
-1. Check `outputs/change-log.md` for same-file writes in last 10 min. Skip if found.
-2. Write to change-log first (claim the slot).
-3. Apply the edit to the context file.
+1. Apply the edit to the context file.
+2. Log the auto-fix to `outputs/change-log.md`.
+
+Concurrency: session-single model (see `.claude/safety.md`); no collision check required.
 
 ## Step 6: Report
 

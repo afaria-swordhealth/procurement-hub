@@ -4,6 +4,41 @@
 
 ## 2026-04-19
 
+### Layer 1 — Architecture Foundation
+
+Follows Layer 0 Bug Sprint (commit `689eb0d`, unpushed per improvement-plan.md spec). Session C scope: system files only. Do not push.
+
+**New files:**
+- `.claude/safety.md` — verbatim extract of CLAUDE.md §5 (Levels 1/2/3, Core Rules, Exceptions 1-5). Added concurrency section establishing session-single model and retirement notice for the 10-min collision guard. Notes that new auto-approvals must be promoted via `autonomy.md`, not added ad-hoc.
+- `.claude/autonomy.md` — evidence-based auto-approval ledger. Format `{date} | {action_class} | {decision} | {skill} | {notes}` with decisions `approved_clean|approved_edited|rejected`. Promotion rule: 20 consecutive approved_clean + 0 rejected in last 50 + 0 approved_edited in last 20. Hard stops (never promote): supplier-facing content, status→Rejected, NDA changes, price writes failing Exception 3, irreversible downstream effects. Demotion: any rejected → revert + 30d cooldown.
+- `.claude/procedures/event-log.md` — structured change-log schema `[EVENT: TYPE key=value ...]` one line before prose. 14 canonical TYPEs (OUTREACH, QUOTE, OI_CREATE, OI_UPDATE, OI_STATUS, OI_CLOSE, SUPPLIER_STATUS, NDA, DB_FIELD, CONTEXT_SYNC, AUTOCLEAN, SYSTEM, SKILL_RUN, FAIL). Key conventions: supplier=Underscore_Name, project lowercase, booleans omit false.
+- `.claude/procedures/exec-checkpoints.md` — local JSON sidecar at `outputs/checkpoints/{skill}_{entity}.json`. Schema `{skill, entity, started, last_update, status: in-progress|complete|failed, steps_done[], meta{}}`. Atomic write (tmp + rename). `/wrap-up` archives complete files >24h to `.done`; deletes `.done` >14d. Replaces ruflo `memory_store`/`memory_retrieve` for checkpoint role.
+
+**Migrated off ruflo for checkpoints (3 skills):**
+- `skills/quote-intake/SKILL.md` — Step 9 pre-flight + "Before writing" checkpoint now local file read/atomic write. On write failure: STOP.
+- `skills/rfq-workflow/SKILL.md` — Step 10 pre-flight + Step 3 before-draft checkpoint migrated.
+- `skills/supplier-selection/SKILL.md` — Step 5 pre-flight + Step 0 checkpoint migrated; collapsed 0/0b into single step.
+
+Ruflo remains valid for pattern/learning data (patterns, embeddings, aidefence, quote-delta memory_search, chase:: and negotiation:: stores). Only checkpoint use migrated.
+
+**Collision guard sweep (13 files).** Principle #5 — no parallel architectures. Plan named 4 files; expanded to full sweep after discovering 9 additional sites:
+- `procedures/check-outreach.md`, `procedures/create-open-item.md` (## Collision guard → ## Concurrency)
+- `skills/context-doctor`, `skills/supplier-chaser`, `skills/outreach-healer` (4 occurrences), `skills/quote-intake`, `skills/supplier-onboarding`, `skills/rfq-workflow`, `skills/supplier-rejection`
+- `agents/testing.md`, `agents/logistics.md`
+- `commands/test-update.md`
+
+Standard replacement: `Concurrency: session-single model (see .claude/safety.md). No per-write collision check.`
+
+**Session-single model adopted.** Deleted CLAUDE.md §4b (three-session A/B/C scope). The session-single note in safety.md replaces it. Operational session C distinction kept as an execution pattern; no separate permission model.
+
+**Friction-log renamed.**
+- `outputs/friction-log.md` → `outputs/friction-signals.md` (via `git mv` — history preserved).
+- `skills/improve/SKILL.md` — 6 references updated (pre-flight step 4, Source E header + body, micro/mini/structural resolved lines, Step 6 persist target).
+
+**CLAUDE.md slimmed.** 560 lines → 112 lines (target <120). Deleted §5 (moved to safety.md) and §4b (session-single adopted). Preserved §4c Open Items Discipline, §4d Global Pre-flight, Notion workspace map (compressed), agents roster (one-line), skills/commands pointer. Safety pointer added at §5; autonomy pointer added at §5 + §9.
+
+**`.gitignore`** — added `outputs/checkpoints/` to prevent runtime checkpoint files from entering commits.
+
 ### session-doctor auto-fix
 - change-log date header cleared: 2026-04-18 → 2026-04-19 (stale from previous session)
 

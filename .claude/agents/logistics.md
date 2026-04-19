@@ -21,7 +21,7 @@ Track samples, coordinate shipping, manage DHL/FedEx labels.
 
 ## Rules
 See `.claude/config/rules-quick.md` for safety and writing rules.
-- Log every Samples Status update to `outputs/change-log.md`. Check the 10-minute collision guard before writing.
+- Log every Samples Status update to `outputs/change-log.md`. Concurrency: session-single model (see `.claude/safety.md`); no collision guard.
 
 ## Does NOT touch
 - Pricing negotiations

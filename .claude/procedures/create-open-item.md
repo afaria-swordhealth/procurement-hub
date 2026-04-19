@@ -81,5 +81,5 @@ If Context has multiple dated entries (old format), condense into one English su
 - Status changes to Closed: SHOW BEFORE WRITE.
 - Owner/Deadline changes: SHOW BEFORE WRITE.
 
-## Collision guard
-Before writing, check `outputs/change-log.md`. If another session touched this OI in the last 10 minutes, skip and log the conflict.
+## Concurrency
+Session-single model (see `.claude/safety.md`). No collision guard — only one Claude session is expected to be writing at any time.

@@ -35,7 +35,7 @@ Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
    - DB fields (scores, status)
    - Page body (test notes, observations)
 
-5. Log each approved write to `outputs/change-log.md`. Check the 10-minute collision guard before writing.
+5. Log each approved write to `outputs/change-log.md`. Concurrency: session-single model (see `.claude/safety.md`); no collision guard.
 
 ## Safety Rules
 - Follow CLAUDE.md Safety Rules and Writing Style sections.

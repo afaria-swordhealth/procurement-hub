@@ -12,7 +12,7 @@ Identifies system friction signals from operational session output, classifies t
 1. Read `outputs/session-state.md` for context and Carry-Over section.
 2. Read `outputs/change-log.md` for today's operational signals.
 3. Read `outputs/promises.md` for recurring or overdue promises.
-4. Read `outputs/friction-log.md` `## Pending` section — accumulated signals from prior sessions.
+4. Read `outputs/friction-signals.md` `## Pending` section — accumulated signals from prior sessions.
 5. **Session C scope.** Do NOT write to Notion, Gmail, or `context/` files.
 
 ## Step 1: Scan for friction signals
@@ -41,8 +41,8 @@ If change-log is empty or thin (improvement session without prior operational se
 - Read last 3 commit messages via `git log --oneline -5` for recent fix themes
 - Check if the same file or skill appears in multiple recent commits (systemic churn)
 
-### Source E — friction-log.md (accumulated pending)
-Read `## Pending` in `outputs/friction-log.md`. Each `- [ ]` entry is a signal from a prior session that was identified but not executed. Add all to the current queue. De-duplicate against signals already found in Sources A-D (same file + same description = same signal).
+### Source E — friction-signals.md (accumulated pending)
+Read `## Pending` in `outputs/friction-signals.md`. Each `- [ ]` entry is a signal from a prior session that was identified but not executed. Add all to the current queue. De-duplicate against signals already found in Sources A-D (same file + same description = same signal).
 
 ## Step 2: Classify each signal
 
@@ -95,26 +95,26 @@ One signal at a time. Finish + commit before starting the next.
 2. Edit directly. No agents.
 3. Log to `outputs/change-log.md`.
 4. Commit: `Micro-fix: [one-line description]`.
-5. Remove the signal from `## Pending` in `friction-log.md`. Append to `## Resolved`: `- [x] [{original_date} → {today}] {description} — micro — fixed in {file}`.
+5. Remove the signal from `## Pending` in `friction-signals.md`. Append to `## Resolved`: `- [x] [{original_date} → {today}] {description} — micro — fixed in {file}`.
 
 ### Mini-sprint
 1. Launch 3-5 parallel Explore agents, each analyzing one dimension.
 2. Synthesize findings.
 3. Present implementation plan to André (1 confirmation before writing).
 4. Implement (2-4 files). Log + commit.
-5. Remove executed signals from `## Pending` in `friction-log.md`. Append each to `## Resolved`: `- [x] [{original_date} → {today}] {description} — mini — fixed in {files}`.
+5. Remove executed signals from `## Pending` in `friction-signals.md`. Append each to `## Resolved`: `- [x] [{original_date} → {today}] {description} — mini — fixed in {files}`.
 
 ### Structural sprint
 1. Launch 10 parallel Explore agents across 5 lenses (per milestone methodology in memory).
 2. Synthesize → consensus table → present to André for approval.
 3. Implement after approval. Verify. Log + commit.
-4. Remove executed signals from `## Pending` in `friction-log.md`. Append each to `## Resolved`: `- [x] [{original_date} → {today}] {description} — structural — fixed in {files}`.
+4. Remove executed signals from `## Pending` in `friction-signals.md`. Append each to `## Resolved`: `- [x] [{original_date} → {today}] {description} — structural — fixed in {files}`.
 
 ## Step 6: Persist unexecuted signals
 
 After execution is complete (or André ends the session early):
 
-For each signal in the queue that was NOT executed: append to `## Pending` in `outputs/friction-log.md`:
+For each signal in the queue that was NOT executed: append to `## Pending` in `outputs/friction-signals.md`:
 ```
 - [ ] [{today}] {skill/file}: {signal description} — {tier}
 ```

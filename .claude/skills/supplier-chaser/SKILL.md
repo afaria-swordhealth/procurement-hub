@@ -162,7 +162,7 @@ For all other items: after André approves (may edit drafts):
 
 1. Create Gmail drafts for approved email chasers (HTML format, append signature).
 2. For Slack chasers, present the message text for André to send manually.
-3. Before writing to Notion: check `outputs/change-log.md`. If another session wrote to this supplier's page in the last 10 minutes, skip the comment write and note it in the output.
+3. Concurrency: session-single model (see `.claude/safety.md`). No per-write collision check before the Notion comment write.
 4. Add a Notion page comment on the OI via notion-create-comment: `Follow-up sent [channel] [date]. [Brief note].`
 5. Add to `outputs/promises.md`: extract soft deadline from the draft body (pattern: "by YYYY-MM-DD" or similar date phrase). If none found, use today + 7 days. Append entry:
    `- [ ] {Supplier contact} ({Company}) | Reply to {item} chase | promised: {today} | due: {soft_deadline} | next: waiting on supplier reply | OI: {oi_id or —} | source: supplier-chaser {[AUTO] or [Review]} Tier {N}`

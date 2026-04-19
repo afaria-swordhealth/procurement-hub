@@ -5,3 +5,4 @@ Sandbox/
 .claude/config/_test_draft_body.html
 *.env
 credentials*
+outputs/checkpoints/

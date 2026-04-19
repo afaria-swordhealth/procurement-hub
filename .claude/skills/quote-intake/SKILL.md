@@ -17,7 +17,7 @@ Extracts pricing from a supplier quote, converts to EUR, calculates FLC, updates
 6. Read `.claude/procedures/check-outreach.md` (milestone entry format).
 7. Read `.claude/procedures/create-open-item.md` (OI field requirements).
 8. Read `context/{project}/suppliers.md` for the supplier's current state.
-9. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::quote-intake::{supplier_name}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite."
+9. **Execution checkpoint check:** per `procedures/exec-checkpoints.md`, read `outputs/checkpoints/quote-intake_{supplier_slug}.json`. If file exists with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {started}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite." If missing or `status: "complete"`: proceed (archive complete runs per the procedure).
 
 ## Step 1: Extract pricing from quote
 
@@ -82,7 +82,7 @@ Per `procedures/fill-cost-fields-on-quote.md`:
 
 **Prior quote pre-check (must run before auto-write decision):** Call `mcp__ruflo__memory_search` with query `"quote {supplier_name}"`, namespace "procurement", limit 1. Store result as `{prior_quote}`. This gates the auto-write condition below AND populates `delta_vs_prev_pct` in Step 8 — no second ruflo call is needed there. If ruflo MCP fails: treat as no prior quote found — route to SHOW BEFORE WRITE (no anchor for the 30% delta check).
 
-**Before writing:** store execution checkpoint — `key: exec::quote-intake::{supplier}`, namespace "procurement", upsert true, value: `{ skill: "quote-intake", supplier, date, status: "in-progress", steps_done: [] }`.
+**Before writing:** store execution checkpoint per `procedures/exec-checkpoints.md` — write `outputs/checkpoints/quote-intake_{supplier_slug}.json` with `{ skill: "quote-intake", entity: "{supplier}", started, last_update, status: "in-progress", steps_done: [], meta: { project, supplier } }`. Atomic write (tmp + rename). On write failure: STOP (checkpoint is load-bearing).
 
 **Auto-write path (CLAUDE.md §5 Exception 3):** If ALL conditions are true, write DB fields immediately and output a single confirmation line — `Auto-wrote: Unit Cost X.XXX EUR, Tooling X EUR (source: [currency] [amount]@[tier], FX: [rate])`:
 - No flags raised in Steps 1-3 (no: >30% delta from median, FOB/landed mix, missing required fields, tier mismatch)
@@ -181,6 +181,6 @@ After ruflo store succeeds: update checkpoint — `status: "complete"`, `steps_d
 - Round EUR: 3 decimals for Unit Cost, 0 decimals for Tooling >= 1,000 EUR.
 - Flag incomplete FLC. Never present partial data as final.
 - Log all Notion writes to `outputs/change-log.md`.
-- Check `outputs/change-log.md` collision guard (10-min window) before any Notion write.
+- Concurrency: session-single model (see `.claude/safety.md`). No per-write collision check.
 - OI Context rewrites require approval. OI comment adds via notion-create-comment are auto-approved (per CLAUDE.md §5 Exception 2) — write directly, log to change-log.
 - **MCP error handling — single supplier:** If Notion MCP fails at any write step (DB fields, Quote section): HALT, log to change-log, surface to André — do not write partial data. If ruflo MCP fails (pre-check Step 4, checkpoint store, memory store Step 8): log and proceed — ruflo is non-critical and its failure routes auto-write to SHOW BEFORE WRITE.

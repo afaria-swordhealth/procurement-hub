@@ -128,5 +128,5 @@ After change-log write: update checkpoint — `status: "complete"`, `steps_done:
 - Verify supplier does not exist (Step 0) before any writes.
 - Set Currency by region automatically (CN=RMB, US=USD, PT/DE=EUR).
 - Log all writes to `outputs/change-log.md`.
-- Check `outputs/change-log.md` collision guard (10-min window) before any Notion write.
+- Concurrency: session-single model (see `.claude/safety.md`). No per-write collision check.
 - **MCP error handling — single supplier, HALT-only:** All operations are single-supplier. If Notion MCP fails at any step: HALT immediately and surface the exact failed step to André. A partial onboarding (page created but fields incomplete, or domain added without a page) is dangerous — it can cause duplicate-creation errors on retry. Do NOT continue past the failure point.
