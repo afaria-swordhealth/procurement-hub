@@ -55,6 +55,8 @@ Five H2 sections in order: `## Contact` (table: Role, Name, Email, Phone), `## P
 
 **SHOW BEFORE WRITE.** Present the full page to Andre before creating.
 
+**Post-creation field check:** After Notion page is created, verify these DB fields are non-null before continuing: Name, Status, Region, Currency, Notes. If any are null, do NOT proceed to Step 3 — fix the missing fields first and re-present for André's approval. Log the check result to `outputs/change-log.md`.
+
 ## Step 3: Add domain to config/domains.md
 
 Add one row per domain to the relevant project table:
