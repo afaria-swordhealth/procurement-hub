@@ -343,6 +343,7 @@ questions or ad-hoc tasks, follow these before responding:
 - Follow the writing style rules (no em dashes, short sentences, EN in Notion).
 - Log any Notion writes to outputs/change-log.md.
 - Change-log is a rolling daily file. It contains only today's entries. History is in git log.
+- **Change-log date rule:** When writing or updating the date header (`## YYYY-MM-DD`) in `outputs/change-log.md`, always use `currentDate` from the system-provided context. Never compute or derive the date. If the date you are about to write is after `currentDate`, use `currentDate` instead and log: `Warning: future date corrected to currentDate`. This prevents session-doctor recurring auto-fixes.
 
 ---
 

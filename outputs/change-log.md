@@ -54,3 +54,12 @@ Root cause: no pre-write existence check in check-outreach.md. Cron + manual re-
 
 ### Micro-fix #10 — check-outreach language check
 - `procedures/check-outreach.md`: translate to English before writing. Do not write PT then translate later.
+
+### Micro-fix #11 — NDA Status validation at onboarding
+- `skills/supplier-onboarding/SKILL.md` Step 5: added post-NDA field check — after NDA decision, verify NDA Status is non-null before proceeding to Step 6. Previously absent; caused 12+ null NDA Status fields requiring bulk audit cleanup.
+
+### Micro-fix #12 — wrap-up Phase 2 completion guard
+- `commands/wrap-up.md` Phase 2 Step 8: added completion check — after writing context files, re-read each file's `# Last synced` header to verify update succeeded. Do not proceed to Phase 3 if any file is still stale. Prevents silent partial syncs.
+
+### Micro-fix #13 — change-log future date guard
+- `CLAUDE.md` §4d: added change-log date rule — always use `currentDate` from system context, never compute. If date would be in the future, use `currentDate` and log a warning. Eliminates recurring session-doctor auto-fix pattern.

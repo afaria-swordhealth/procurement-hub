@@ -79,6 +79,8 @@ Add a new entry following the existing format in that file. Include: name, statu
 - **Not needed:** Set NDA Status = "Not Required" in DB.
 - **Unsure:** Flag for Andre. Default "needed" for CN manufacturing.
 
+**Post-NDA field check:** After the decision above, verify `NDA Status` is non-null before proceeding to Step 6. Acceptable values: `Not Required`, `Pending`, `Sent`, `Signed`, or any active workflow state. If still blank, do NOT proceed — resolve the NDA Status field first. Log to `outputs/change-log.md`.
+
 ## Step 6: First outreach — context package only
 
 **Andre writes the first outreach email personally** (CLAUDE.md Level 2 rule). This skill prepares the context package, never drafts the first email.

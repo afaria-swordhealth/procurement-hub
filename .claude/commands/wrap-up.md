@@ -26,6 +26,8 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 7. Query all 4 Supplier DBs following config/databases.md (Query Patterns section). Include columns: Name, Status, Notes, "NDA Status", "Samples Status", "Last Outreach Date", Region, Currency. A partial sync causes drift — all fields must be included.
 8. Update context files (paths listed in .claude/config/databases.md). After updating, set the `# Last synced: YYYY-MM-DDTHH:MM` header to the current timestamp. If context-doctor is available, run it in report-only mode after sync to catch any remaining drift.
 
+   **Phase 2 completion check:** After all context files are written, re-read the first 3 lines of each file and verify the `# Last synced` header matches the current timestamp (within this session's execution window). If any file still shows a stale or missing timestamp, re-sync that file before advancing to Phase 3. Do NOT proceed with a partial sync — context drift is the primary cause of stale daily logs.
+
 ### Phase 2b: External Work
 8b. Read outputs/external-work.md. If it contains entries beyond the header comments, include them in the daily log under ## ISC (or the relevant project section if specified).
 8c. After inclusion in the daily log draft, clear the file back to headers only.
