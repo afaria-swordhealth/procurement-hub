@@ -75,6 +75,7 @@ Query Open Items DB (ID from .claude/config/databases.md, OI_DB) for items with 
     ORDER BY Deadline ASC
     ```
     Note: OI Context no longer uses a leading-date prefix (see CLAUDE.md §4c). The Context date substring check may not work for compliant OIs. Flag by Deadline overage and review Notion page comments for staleness.
+    Additionally, for any OI where Context contains multiple dated-prefix lines (e.g. `[2026-04-10]`, `[2026-04-15]`) or Portuguese text, flag as NEEDS YOUR DECISION: "Context cleanup needed — running-log format detected. Summarize into one English paragraph per CLAUDE.md §4c." Do NOT auto-rewrite — this is SHOW BEFORE WRITE.
 17. **REPORT ONLY**: Propose closures for items that appear resolved (present reason, do not write).
 
 ## Phase 5: Context Drift Check (REPORT ONLY)

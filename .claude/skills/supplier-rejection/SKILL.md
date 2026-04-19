@@ -118,7 +118,7 @@ Before executing writes: store execution checkpoint — `key: exec::supplier-rej
 
 In order:
 1. Create Gmail draft for rejection email (HTML format, append signature). After draft created: update checkpoint — `steps_done: ["gmail_draft"]`.
-2. Update OI statuses to Closed with resolution text (per Step 5 approval). After OI closures: update checkpoint — `steps_done: ["gmail_draft", "ois_closed"]`.
+2. Update OI statuses to Closed with resolution text (per Step 5 approval). For each OI closed, also add a Notion page comment via `notion-create-comment`: `Supplier rejected [date]. OI closed via /supplier-rejection.` (auto-approved per CLAUDE.md §5 Exception 2). After OI closures: update checkpoint — `steps_done: ["gmail_draft", "ois_closed"]`.
 3. Update Supplier DB: Status → Rejected, NDA Status → Not Required. After status write: update checkpoint — `steps_done: ["gmail_draft", "ois_closed", "status_updated"]`.
 4. Log milestone to Outreach section (direct write, auto-approved):
    `**[Date]** -- Supplier rejected. Rejection email drafted. OIs closed.`

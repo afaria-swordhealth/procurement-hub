@@ -97,6 +97,8 @@ Create OIs per `procedures/create-open-item.md` (all 7 fields required). **SHOW 
 
 **OI 2:** `{Supplier} — first outreach follow-up` | Pending | Action Item | Owner: Andre | Deadline: outreach date + 5 biz days | Context: what was sent, part category, expected response.
 
+**If either OI is later delayed** (NDA stalls, onboarding blocked, outreach unanswered beyond deadline): add updates via `notion-create-comment` on the OI page. Do NOT prepend dated lines to Context. Rewrite Context only if owner, scope, or blocker changes materially.
+
 ## Step 8: Log to change-log.md
 
 ```

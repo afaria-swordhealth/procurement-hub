@@ -137,6 +137,7 @@ After André approves the recommendation:
    - Owner: André Faria
    - Deadline: today
    - Context: summary of selection rationale, score, key factors, alternatives considered
+   This OI is created as Closed — no further updates expected. If the decision is later revisited, add context via `notion-create-comment` on the OI page. Do NOT prepend dated lines to Context.
    After OI created: update checkpoint — `steps_done: ["winner_shortlisted", "decision_oi"]`.
 4. Store selection decision in ruflo:
    - `key`: `selection::{project}::{YYYY-MM-DD}`

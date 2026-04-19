@@ -70,7 +70,8 @@ Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
        - Does it contradict the OI's current Context (e.g., deadline slipped, scope changed)?
     e. Flag if:
        - Status should change (Pending → Closed, Blocked → In Progress, etc.)
-       - Context needs a material rewrite (scope shifted, owner changed, blocker cleared)
+       - Context needs a material rewrite (scope shifted, owner changed, blocker cleared) — execute via `notion-update-page` on the Context property after approval. Never prepend a dated line.
+       - An incremental update (new info, follow-up sent) should be added as a `notion-create-comment` page comment — auto-approved per CLAUDE.md §5 Exception 2.
        - A new OI or promise should be created from what was found
     f. If no relevant activity found: skip silently (no output for that OI).
 11. Output per flagged OI: proposed action with source and rationale.

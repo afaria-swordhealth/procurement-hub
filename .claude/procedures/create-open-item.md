@@ -75,7 +75,8 @@ If Context has multiple dated entries (old format), condense into one English su
 
 ## Write permissions
 - Create: auto-execute when triggered by /mail-scan, /warm-up, /log-sent after André approves the OI set.
-- Context updates (append new line): auto-execute, no approval needed (treated like outreach milestones).
+- OI comment additions via `notion-create-comment`: auto-execute, no approval needed (auto-approved per CLAUDE.md §5 Exception 2).
+- Context field rewrites (material changes only): SHOW BEFORE WRITE.
 - Status changes to Closed: SHOW BEFORE WRITE.
 - Owner/Deadline changes: SHOW BEFORE WRITE.
 

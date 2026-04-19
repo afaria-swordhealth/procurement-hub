@@ -124,6 +124,7 @@ If running `all active`, sort cards by project, then by recommendation urgency (
 ## Rules
 
 - READ-ONLY for Notion and Gmail. This skill does not write to Supplier DBs or draft emails. Step 4b writes to ruflo memory only, when André confirms a negotiation outcome.
+- OI Context field is read-only in this skill. If analysis surfaces an update that should be added to an OI, direct André to use /log-sent or `notion-create-comment` for the update. Never prepend dated lines to Context.
 - Never include competing supplier names, prices, or rankings in any output that could be shared externally.
 - Always flag FOB vs landed distinction when comparing across suppliers (per config/strategy.md).
 - Use fx-rates.md for cross-currency normalization. Show both original and converted values.

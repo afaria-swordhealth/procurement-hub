@@ -20,7 +20,7 @@ Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
 
 1. Run `.claude/procedures/scan-gmail.md` with mode: "filtered", direction: "both" (incoming + sent), lookback: 3 days.
 2. Use config/databases.md (Query Patterns section) to cross-reference each sender against Notion supplier pages (status, last outreach, open items).
-3. For each email with a commitment, pending decision, unresolved question, or blocker, propose a new OI OR an append-line update to an existing OI per `.claude/procedures/create-open-item.md`. Present as part of the recommendation output.
+3. For each email with a commitment, pending decision, unresolved question, or blocker, propose a new OI OR an OI page comment on an existing OI per `.claude/procedures/create-open-item.md`. When updating an existing OI, use `notion-create-comment` — do NOT rewrite the Context field.
 4. Follow CLAUDE.md Safety Rules and Writing Style sections.
 
 ## Output
@@ -30,7 +30,7 @@ Present a summary table per project (Pulse, Kaia, M-Band):
 | Supplier | Subject | Date | Recommendation | Reason |
 |----------|---------|------|----------------|--------|
 
-Recommendation values: Log, Draft Reply, Ignore, Escalate, Create OI, Update OI Context.
+Recommendation values: Log, Draft Reply, Ignore, Escalate, Create OI, Add OI Comment.
 
 Use `notion-query-data-sources` with SQL for DB queries instead of fetching pages individually.
 
@@ -78,7 +78,7 @@ For each Jira ISC Shipping email:
 6. Output row:
    - Links column: embed `[Jira ISCSB-XXXX](url)` and `[Track DHL AWB](url)` as clickable links.
    - Recommendation: Log (informational) / Update OI (if shipment resolves an OI action) / Escalate (if shipment delayed or cancelled).
-   - If matched to OI: propose OI context update referencing both links.
+   - If matched to OI: propose an OI page comment via `notion-create-comment` referencing both links (auto-approved per CLAUDE.md §5 Exception 2). Do NOT rewrite OI Context.
 
 ### Output table for internal platform emails
 
