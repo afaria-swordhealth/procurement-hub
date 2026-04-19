@@ -78,6 +78,7 @@ Per `procedures/fill-cost-fields-on-quote.md`:
 3. Propose values for:
    - `Unit Cost (EUR)`: 3 decimal places
    - `Tooling Cost (EUR)`: 0 decimals if >= 1,000, else 2 decimals
+   - `FX Rate at Quote`: the actual rate used from `config/fx-rates.md` (e.g. `0.128` for RMB→EUR). For EUR quotes, set to `1.0`. Stamps the rate basis on each quote so cost comparisons later can detect FX drift without guessing which rate was applied.
 
 **Prior quote pre-check (must run before auto-write decision):** Call `mcp__ruflo__memory_search` with query `"quote {supplier_name}"`, namespace "procurement", limit 1. Store result as `{prior_quote}`. This gates the auto-write condition below AND populates `delta_vs_prev_pct` in Step 8 — no second ruflo call is needed there. If ruflo MCP fails: treat as no prior quote found — route to SHOW BEFORE WRITE (no anchor for the 30% delta check).
 

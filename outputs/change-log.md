@@ -7,6 +7,18 @@
 ### session-doctor auto-fix
 - change-log date header cleared: 2026-04-18 → 2026-04-19 (stale from previous session)
 
+### Gate 0 #4 — OI Supplier backfill (3 writes)
+- OI "Novares — find direct contact at China office" → Supplier = Novares
+- OI "Unique Scales — initiate NDA process" → Supplier = Unique Scales
+- OI "Cerler — send volumes + technical documentation (scope: electronics)" → Supplier = Cerler
+- 5 other null-Supplier OIs left null per §4c ISC-level exemption (Kaia meta-tracker, PLD legal, Pulse packaging, BloomPod investigation, TCR QARA)
+
+### Gate 0 closed (schema changes by André via Notion UI)
+- Pulse Supplier DB: added `Last Outreach Date` (Date) + `FX Rate at Quote` (Number) — matches Kaia/M-Band/BloomPod
+- OI DB `Type` select: added `Commitment` as 5th option (alongside Question/Action Item/Decision/Blocker)
+- OI DB: removed stray `Commitment` property, `Last Outreach Date`, `FX Rate at Quote` (those belong on Supplier DBs only)
+- Config/databases.md update pending next improvement sprint
+
 ### Micro-fix — friction-log + /improve persistence
 - `outputs/friction-log.md`: new file — persistent signal store across sessions. Pending section holds unexecuted signals; Resolved section holds executed signals with fix date.
 - `skills/improve/SKILL.md`: Pre-flight step 4 reads friction-log Pending; Source E added to Step 1 scan; Step 5 (all tiers) moves executed signals to Resolved; new Step 6 persists unexecuted queue items to Pending before session ends.
@@ -168,3 +180,23 @@ Root cause: `Supplier` field exists in OI DB schema (databases.md) but was absen
 - `procedures/create-open-item.md`: field checklist updated from 7 → 8 fields; Supplier added as #8 with guidance (exact DB Name match, omit for ISC-level OIs)
 - `CLAUDE.md §4c`: Supplier row added to Required Fields table
 - `skills/supplier-rejection/SKILL.md` Step 5: SQL updated with dual filter — `Supplier LIKE OR Item LIKE` — covers post-fix OIs (Supplier set) + legacy OIs (supplier in Item title)
+
+### Layer 0 Bug Sprint — B1→B8
+
+Scheduled cron d9ae297d fired 2026-04-19 09:01. Session C scope (system files only, no Notion/Gmail/context writes). Gate 0 pieces (Notion schema additions, OI Supplier backfill) were completed earlier today — this sprint applied the skill/command/procedure edits.
+
+- **B1** `procedures/decision-queue-render.md` — Stale flagging block: replaced broken `SUBSTR(Context, 1, 10)` with deadline-age proxy (`julianday('now') - julianday(Deadline) > 21`). Blocked calculation (lines 96-106) was already corrected in micro-fix #16; the Stale block was a second site that still used the broken SUBSTR. Now both use the same julianday proxy.
+- **B2** `config/writing-style.md` — Removed "Best regards,\nAndré Faria" from all 7 email templates (First outreach, Follow-up, Sample request, Goodwill sample, Technical question, Acknowledgment, Document request). All now end with "Best," — consistent with core rule line 13 (signature block carries the name).
+- **B3** `procedures/check-outreach.md` — Inverted write order in Write Permissions. Old: append to change-log first (claim slot), write Notion, log failure. New: write Notion first, append to change-log on success, append FAILED entry on failure. Dedup guard (mini-sprint #2) makes slot-claiming redundant; post-write logging means change-log never holds phantoms for silently failed writes.
+- **B4** Surface silent M4 fallback: two read-sites were falling back silently when `Last Outreach Date` is null.
+  - `skills/risk-radar/SKILL.md` Step 1a: collect null-LOD supplier names during scan; emit one consolidated line `[M4 fallback: Last Outreach Date null for N suppliers: <list>] — will self-correct on next outreach write.`
+  - `skills/supplier-chaser/SKILL.md` Step 2.1: same pattern, consolidated line in chase-table preamble.
+  - Dedup is per-run, not per-supplier — no noise, one report.
+- **B6** FX refresh + per-quote stamp + cost-comparison use:
+  - `commands/wrap-up.md` — new Phase 4b: parse `config/fx-rates.md` Last updated column; if >30 days, flag `REFRESH FX RATES` at top of Phase 5 summary. Non-blocking.
+  - `skills/quote-intake/SKILL.md` Step 4: `FX Rate at Quote` added to DB-field write list (3 fields now: Unit Cost EUR, Tooling Cost EUR, FX Rate at Quote). Value is the actual rate from fx-rates.md used for the conversion (1.0 for EUR quotes).
+  - `commands/price-compare.md` Step 2+3: query now selects `FX Rate at Quote`; per-supplier FX basis rule — use stamped rate if present (flag >5% drift vs current rate in Notes), fall back to current rate with `no stamped FX — current rate applied` label when null. Stale-rate backfill is deferred to next quote-intake run for that supplier (skill is read-only).
+- **B7** `procedures/autoclean-scan-lists.md` — Prune rule now requires BOTH: (a) no activity in last 21 days AND (b) ≥3 chase attempts in the 90-day chase window. Ghosting suppliers who received one RFQ and went dark are now flagged as "Silent but not prunable" in housekeeping report, not auto-removed. Only genuinely-abandoned threads (3+ chases with no reply) are pruned.
+- **B8** `commands/ping.md` — NEW file. 30-sec parallel health check: Gmail (list_labels), Notion (OI DB query), Slack (search_users), ruflo (memory_retrieve on sentinel key). Per-service status + latency table. Overall status rule: GREEN (all OK), DEGRADED (1-2 fail), RED (3+ fail or Notion fail — Notion is load-bearing). Read-only, no writes, does not count as warm-up. Registered in CLAUDE.md §4 after /cross-check.
+
+Ship metric check: all 8 bugs from improvement-plan.md Layer 0 addressed. B4/B5/B6 Notion-schema prerequisites were closed in Gate 0 earlier today; this sprint closed the skill/command/procedure halves.

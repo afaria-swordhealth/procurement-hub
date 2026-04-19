@@ -66,8 +66,7 @@ I would love to set up a quick call to go over the requirements together. I'm fl
 
 Looking forward to connecting.
 
-Best regards,
-André Faria
+Best,
 ```
 
 ## Follow-up (requesting info)
@@ -81,8 +80,7 @@ A few follow-up questions:
 2. [Question]
 3. [Question]
 
-Best regards,
-André Faria
+Best,
 ```
 
 ## Sample request
@@ -93,8 +91,7 @@ Dear [Name],
 
 Could you please prepare samples of [models]? Once you provide the package dimensions, weight, and a proforma invoice for customs, we will arrange a DHL shipping label.
 
-Best regards,
-André Faria
+Best,
 ```
 
 ## Goodwill sample negotiation
@@ -105,8 +102,7 @@ As part of our standard evaluation process, Sword Health covers the internationa
 
 If you are open to this arrangement, please share the exact dimensions and weight once the parcel is packed, and we will arrange the shipping label immediately.
 
-Best regards,
-André Faria
+Best,
 ```
 
 ## Technical question
@@ -119,8 +115,7 @@ Thank you for [context].
 
 Could you confirm if [specific behavior/spec]?
 
-Best regards,
-André Faria
+Best,
 ```
 
 ## Acknowledgment (short)
@@ -129,8 +124,7 @@ Hi [Name],
 
 Thank you for [what they provided]. I will [next action] and keep you posted.
 
-Best regards,
-André Faria
+Best,
 ```
 
 ## Document request (regulatory/compliance)
@@ -143,8 +137,7 @@ For the [model], could you please share [specific documents]?
 
 These documents are essential for our screening process.
 
-Best regards,
-André Faria
+Best,
 ```
 
 ---

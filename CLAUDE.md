@@ -168,6 +168,9 @@ Broader Gmail scan without domain filter. Catches emails from unknown senders. S
 ## /cross-check
 Cross-reference Gmail, Slack, and Notion to find gaps in documentation. See .claude/commands/cross-check.md.
 
+## /ping
+30-second connectivity health check across Gmail, Notion, Slack, and ruflo MCPs. Parallel probes, fail-fast with per-service diagnostics. Run before long operational commands to confirm the substrate is healthy. See .claude/commands/ping.md.
+
 ---
 
 # 4b. Multi-Session Scope

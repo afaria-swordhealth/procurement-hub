@@ -46,8 +46,10 @@ For each overdue item linked to a supplier or person:
    FROM "{SUPPLIER_DB}" WHERE Name LIKE '%{supplier_name}%'
    ```
    - If `last_outreach IS NOT NULL`: use this as "last sent" date. Days since = `CAST(julianday('now') - julianday(last_outreach) AS INTEGER)`. Scan Gmail for **inbound direction only** (`direction: "incoming"`) in step 2.
-   - If `last_outreach IS NULL`: fall back to full Gmail scan (`direction: "both"`) in step 2.
+   - If `last_outreach IS NULL`: fall back to full Gmail scan (`direction: "both"`) in step 2. **(B4 surfacing)** collect this supplier's name into a session-scoped `null_lod_suppliers` list. Do not log per-supplier here.
    - If Notion MCP fails: treat as `last_outreach IS NULL` — fall back to Gmail scan. If Gmail MCP also fails: skip this supplier and mark as `[MCP ERROR — skipped]` in the chase table.
+
+   **(B4 consolidated log)** After Step 2 completes for every overdue item, if `null_lod_suppliers` is non-empty, emit exactly one line into the chase-table preamble: `[M4 fallback: Last Outreach Date null for N suppliers: <comma-separated list>] — will self-correct on next outreach write.` Single line per session, not per supplier.
 
 2. Use `scan-gmail.md` (direction per step 1, date_range: 14) to find last received email (and last sent if DB field is null).
 3. Calculate days since last exchange.

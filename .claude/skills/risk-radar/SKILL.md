@@ -30,6 +30,7 @@ For each non-Rejected supplier, check:
 ### 1a. Gone cold (no outreach >14 days)
 - **(M4) DB-first:** query `"date:Last Outreach Date:start"` from the supplier DB (same pattern as supplier-chaser Step 2). If non-null, use that date directly — no page fetch needed.
 - **Fallback:** if `Last Outreach Date` is null, fetch last outreach entry date from the supplier page Outreach section.
+- **(M4 surfacing, B4):** collect the names of every non-Rejected supplier where `Last Outreach Date` is null across the full scan. After Step 1 completes, emit exactly one consolidated line at the top of the report: `[M4 fallback: Last Outreach Date null for N suppliers: <comma-separated list>] — will self-correct on next outreach write.` If N = 0, skip the line. Do not emit per-supplier noise. This surfaces previously-silent fallbacks without spamming.
 - If last contact >14 days ago and Status is not Rejected or Identified, flag.
 
 ### 1b. NDA pending >14 days (individual signal)

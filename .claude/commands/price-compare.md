@@ -26,12 +26,17 @@ Read `config/fx-rates.md`. Check the `Last updated:` header date. If rates are m
 
 2. Query the relevant Supplier DB using notion-query-data-sources:
    ```sql
-   SELECT "Name", "Status", "Device", "Region", {price_columns} FROM "{collection_id}"
+   SELECT "Name", "Status", "Device", "Region",
+          "Unit Cost (EUR)", "Tooling Cost (EUR)", "FX Rate at Quote",
+          {other_price_columns}
+   FROM "{collection_id}"
    ```
 
 3. Calculate Full Landed Cost (FLC) for each supplier:
    - Unit price (FOB or landed, flag which)
-   - Apply currency conversion using rates from `config/fx-rates.md`. Label the rate and source currency used for each supplier in the output table.
+   - **FX basis per supplier:**
+     - If `FX Rate at Quote` is stamped on the supplier row: use the EUR value already stored — it was computed at the stamped rate, which is the honest basis for that quote. In the output table, show the stamped rate and its delta vs the current rate from `config/fx-rates.md`. If `|stamped - current| / current > 5%`, add a `⚠ FX drift {+/-X%}` annotation in the row's Notes column.
+     - If `FX Rate at Quote` is null (quote processed before B6, or manually entered): apply the current rate from `config/fx-rates.md` and label the Notes column `no stamped FX — current rate applied`. Do not rewrite the DB field here (read-only skill); instead flag for next quote-intake run to backfill.
    - Freight estimate
    - Duties estimate
    - Fulfillment (see config/strategy.md Kaia baselines for Nimbl rates)

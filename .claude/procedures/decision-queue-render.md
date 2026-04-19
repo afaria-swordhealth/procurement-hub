@@ -114,13 +114,16 @@ Render as `· Xd past deadline`. If Deadline is null, show `· blocked (no deadl
 
 ## Stale flagging (inline, not a separate bucket)
 
-For any item in `overdue` or `blocked`, check if the leading Context date is older than 21 days. If yes, append ` ⚠ stale` to the item line. This satisfies Task 1.5 (stale detection) inside the queue render instead of as a separate /housekeeping output.
+For any item in `overdue` or `blocked`, flag as stale when it is more than 21 days past its Deadline. Append ` ⚠ stale` to the item line. This satisfies Task 1.5 (stale detection) inside the queue render instead of as a separate /housekeeping output.
 
 Stale check in SQL (add to SELECT):
 ```sql
-CASE WHEN Context IS NOT NULL AND SUBSTR(Context, 1, 10) < date('now', '-21 days')
+CASE WHEN "date:Deadline:start" IS NOT NULL
+       AND CAST(julianday('now') - julianday("date:Deadline:start") AS INTEGER) > 21
      THEN 1 ELSE 0 END AS IsStale
 ```
+
+**Why deadline-age, not Context date:** CLAUDE.md §4c removed dated Context prefixes. Context is now a summary paragraph with no parseable leading date. Deadline-age is queryable, always present, and a meaningful proxy: an OI that is 21+ days past its deadline and still open has been sitting without resolution for that long. Same pattern as the Blocked `BlockedDays` calc above.
 
 ## Output placement in /warm-up
 

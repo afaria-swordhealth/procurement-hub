@@ -58,6 +58,15 @@ If no meeting-prep entry found this session: skip silently.
     b. **Stop session crons:** read the `## Session Crons` section of `outputs/session-state.md`. For each cron ID listed, call `CronDelete`. If the cron no longer exists (already expired or deleted), skip silently. If the section is empty or absent, skip — no crons were started this session. Then clear the `## Session Crons` section in session-state.md (leave the header, remove the ID lines). This prevents stale crons from firing after session end.
     c. Only after crons are stopped: clear outputs/change-log.md — keep only the header lines (# Change Log, policy comment, and today's date heading). If git push (step a) failed, halt and report the error. Do NOT clear the change-log until push succeeds — the entries are the only local record of today's writes.
 
+### Phase 4b: FX Refresh Check (monthly)
+
+Read the first ~12 lines of `.claude/config/fx-rates.md` and parse the `Last updated` column of the Current rates table. Compute days since that date.
+
+- If >30 days: include the line `REFRESH FX RATES — last updated {date}, {N}d ago. Update ECB reference rates in config/fx-rates.md before next quote-intake.` at the top of the Phase 5 summary under a `## Action needed` header.
+- If ≤30 days: skip silently.
+
+This is a non-blocking flag. The commit still proceeds. The flag ensures André sees the refresh prompt exactly once per month during EOD rather than discovering stale rates mid-quote.
+
 ### Phase 5: Summary
 11. Present summary:
     - Sent emails logged (list entries written)
@@ -65,6 +74,7 @@ If no meeting-prep entry found this session: skip silently.
     - Daily log status (created or updated)
     - Git commit hash + push status
     - Pending items for tomorrow (from Open Items DB + unanswered emails)
+    - `REFRESH FX RATES` flag from Phase 4b if triggered
 
 ## Rules
 - Always run log-sent BEFORE context sync (outreach may change during log-sent).
