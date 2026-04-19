@@ -20,3 +20,11 @@ Root cause: `mail-scan.md` used "Update OI Context" as a recommendation label wi
 - `commands/housekeeping.md` Phase 4 rule 16: detects running-log Context (dated prefixes, PT text) → flags NEEDS YOUR DECISION for cleanup
 - `procedures/create-open-item.md` Write permissions: clarified "OI comment additions via notion-create-comment: auto-execute" vs "Context field rewrites: SHOW BEFORE WRITE"
 - `commands/cross-check.md` Phase 5: distinguishes material Context rewrite (notion-update-page, SHOW BEFORE WRITE) from incremental update (notion-create-comment, auto-approved)
+
+### Mini-sprint #2 — Outreach duplicate prevention
+
+Root cause: no pre-write existence check in check-outreach.md. Cron + manual re-runs wrote the same milestone twice.
+
+**2 files updated:**
+- `procedures/check-outreach.md`: added pre-write dedup guard — before append, check for same-date + same-event-category entry. Skip + log if found. Makes all Outreach writes idempotent.
+- `commands/log-sent.md` Phase 3: replaced "email_date > last_entry_date" comparison with per-entry date+event check. Idempotent re-runs now skip already-logged emails silently.

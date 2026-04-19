@@ -33,7 +33,15 @@ Read the ## Outreach section. Find the last logged entry date.
 
 ## Phase 3: Compare and Flag
 
-For each sent email where the date is newer than the last Notion outreach entry, flag as "not logged".
+For each sent email, check against the existing Outreach entries fetched in Phase 2:
+1. **Date match:** does any entry contain `**[email date in Mon DD format]**`?
+2. **Event match:** does any same-date entry reference the same event category (RFQ / Quote / Follow-up / Sample / NDA / Meeting — using the keyword list in check-outreach.md dedup guard)?
+
+If both match: **skip silently** — already logged. Do not flag or write.
+If no match: flag as "not logged" and proceed to Phase 4.
+
+This replaces the previous "email_date > last_entry_date" check, which failed when log-sent ran twice in the same day (second run would re-flag already-logged emails). The per-entry check is idempotent.
+
 Also flag if the email content differs significantly from a draft (Andre may have edited manually).
 
 ## Phase 4: Filter for Milestones
