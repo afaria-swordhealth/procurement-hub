@@ -375,6 +375,8 @@ Every Notion write must be:
 
 **Exception 4:** Supplier status → `RFQ Sent` in rfq-workflow is auto-approved immediately after André confirms the RFQ was sent. The send confirmation IS the approval; a second SHOW BEFORE WRITE gate is redundant.
 
+**Exception 5:** OI Status → `In Progress` (from `Pending` or `Blocked`) is auto-approved when an email or Slack message clearly shows the blocking condition has resolved or active work has started (e.g., supplier confirms they are working on a re-quote, an internal blocker is explicitly unblocked in writing). Rationale: `In Progress` is informational and reversible — it does not close the OI or commit to any outcome. Does NOT apply to Status → `Closed`.
+
 ## CORE RULES
 1. SHOW BEFORE WRITE: Display changes, wait for approval.
 2. NEVER DELETE: Set status to Rejected/Archived.
