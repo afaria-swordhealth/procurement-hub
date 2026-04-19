@@ -61,9 +61,11 @@ Before writing milestones, check whether any sent email in Phase 1 implies a quo
 
 ## Phase 5: Write
 
-Write milestone entries directly to Notion per check-outreach.md write permissions.
+Write **one supplier at a time**. After each supplier's entry is written to Notion, log it to `outputs/change-log.md` before moving to the next. If a Notion write fails mid-phase: log the failure, note which suppliers were already processed, and stop. Re-running is safe — the dedup guard in check-outreach.md prevents duplicates for already-written entries.
+
+If Gmail MCP returns an error during Phase 1: log `log-sent Phase 1 failed: Gmail MCP error` to `outputs/change-log.md` and exit cleanly. Do NOT proceed with partial data. Re-run when MCP recovers.
+
 Apply condensation rules from check-outreach.md (>7 visible entries triggers archiving).
-Log all writes to outputs/change-log.md.
 
 If an email was sent to a supplier not in any Notion DB, flag it (may need DB entry created first).
 

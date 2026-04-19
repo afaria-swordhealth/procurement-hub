@@ -28,3 +28,7 @@ Root cause: no pre-write existence check in check-outreach.md. Cron + manual re-
 **2 files updated:**
 - `procedures/check-outreach.md`: added pre-write dedup guard — before append, check for same-date + same-event-category entry. Skip + log if found. Makes all Outreach writes idempotent.
 - `commands/log-sent.md` Phase 3: replaced "email_date > last_entry_date" comparison with per-entry date+event check. Idempotent re-runs now skip already-logged emails silently.
+
+### Micro-fix #3 — log-sent Gmail MCP resilience
+
+- `commands/log-sent.md` Phase 5: writes one supplier at a time, logs each before moving to next. On Gmail MCP failure: log and exit cleanly, do not proceed with partial data. Re-run is safe (dedup guard).
