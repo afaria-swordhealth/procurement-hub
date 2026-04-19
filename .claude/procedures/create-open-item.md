@@ -10,7 +10,7 @@ Authoritative rules live in CLAUDE.md section `4c. Open Items Discipline`. This 
   - Kaia: `https://www.notion.so/313b4a7d7207810ca19fda03a61f8057`
   - M-Band: `https://www.notion.so/311b4a7d720781674b2cd9f88167d04`
 
-## Field checklist (every create must have all 7)
+## Field checklist (every create must have all 8)
 1. **Item** — `Supplier/Area — specific action`. Max ~70 chars. Verb or noun-action.
 2. **Status** — `Pending` / `In Progress` / `Blocked` / `Closed`.
 3. **Type** — `Action Item` / `Decision` / `Question` / `Blocker`.
@@ -18,6 +18,7 @@ Authoritative rules live in CLAUDE.md section `4c. Open Items Discipline`. This 
 5. **Deadline** — always present. Use `date:Deadline:start` (ISO YYYY-MM-DD) when calling create-pages.
 6. **Project** — relation URL (mandatory).
 7. **Context** — first entry must be assertive, self-contained (2-4 sentences). What, why it matters, what blocks, reference.
+8. **Supplier** — exact match to the supplier's DB Name field (e.g. "Transtek", "Urion"). Required for supplier-based OI filtering in `/supplier-rejection` and cross-skill queries. Omit only for ISC-level OIs with no specific supplier (e.g. "M-Band — component risk review").
 
 ## Mandatory OI triggers — create without waiting to be asked
 

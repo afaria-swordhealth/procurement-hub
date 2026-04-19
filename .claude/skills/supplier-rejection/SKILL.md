@@ -95,8 +95,10 @@ Query Open Items DB for OIs linked to this supplier:
 SELECT Item, Status, Type, Owner, "date:Deadline:start" AS Deadline
 FROM "collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0"
 WHERE Status != 'Closed'
-  AND Supplier LIKE '%{supplier}%'
+  AND (Supplier LIKE '%{supplier}%' OR Item LIKE '%{supplier}%')
 ```
+
+The dual filter catches: (a) OIs created after this fix with `Supplier` field set (primary match), and (b) legacy OIs created before the `Supplier` field was required, where the supplier name appears in the `Item` title (fallback). Both are needed during the transition period.
 
 For each open OI:
 - Propose: Status = Closed, Resolution = "Supplier rejected on [date]. No further action."

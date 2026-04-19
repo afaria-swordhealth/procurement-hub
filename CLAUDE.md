@@ -281,6 +281,7 @@ Create an OI whenever any of these appear, from any source:
 | Deadline | Always present. If unknown, conservative date + note in Context. No deadline = not an OI. |
 | Project | Relation to Pulse / Kaia / M-Band / ISC. Mandatory. |
 | Context | Summarized current-state paragraph (see Context as a Summary below). |
+| Supplier | Exact match to supplier DB Name field. Required for `/supplier-rejection` OI cleanup and cross-skill queries. Omit only for ISC-level OIs with no specific supplier. |
 
 On close: set Status=Closed and fill `Resolution` (1-2 sentences: what happened, who resolved, date, link).
 

@@ -63,3 +63,11 @@ Root cause: no pre-write existence check in check-outreach.md. Cron + manual re-
 
 ### Micro-fix #13 — change-log future date guard
 - `CLAUDE.md` §4d: added change-log date rule — always use `currentDate` from system context, never compute. If date would be in the future, use `currentDate` and log a warning. Eliminates recurring session-doctor auto-fix pattern.
+
+### Mini-sprint #14 — OI Supplier field missing from creation checklist
+Root cause: `Supplier` field exists in OI DB schema (databases.md) but was absent from `create-open-item.md` 7-field checklist and CLAUDE.md §4c required fields table. `supplier-rejection` Step 5 queried `WHERE Supplier LIKE '%{supplier}%'` — silently returned empty for all OIs created via standard flow.
+
+**3 files updated:**
+- `procedures/create-open-item.md`: field checklist updated from 7 → 8 fields; Supplier added as #8 with guidance (exact DB Name match, omit for ISC-level OIs)
+- `CLAUDE.md §4c`: Supplier row added to Required Fields table
+- `skills/supplier-rejection/SKILL.md` Step 5: SQL updated with dual filter — `Supplier LIKE OR Item LIKE` — covers post-fix OIs (Supplier set) + legacy OIs (supplier in Item title)
