@@ -23,8 +23,8 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 6. Report what was written and what was skipped.
 
 ### Phase 2: Context Sync
-7. Query all 4 Supplier DBs following config/databases.md (Query Patterns section).
-8. Update context files (paths listed in .claude/config/databases.md).
+7. Query all 4 Supplier DBs following config/databases.md (Query Patterns section). Include columns: Name, Status, Notes, "NDA Status", "Samples Status", "Last Outreach Date", Region, Currency. A partial sync causes drift — all fields must be included.
+8. Update context files (paths listed in .claude/config/databases.md). After updating, set the `# Last synced: YYYY-MM-DDTHH:MM` header to the current timestamp. If context-doctor is available, run it in report-only mode after sync to catch any remaining drift.
 
 ### Phase 2b: External Work
 8b. Read outputs/external-work.md. If it contains entries beyond the header comments, include them in the daily log under ## ISC (or the relevant project section if specified).
