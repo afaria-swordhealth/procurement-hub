@@ -31,7 +31,8 @@ Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
    - filter: updated today
 
 3. **Check for existing entry** in Daily Logs DB (ID from config/databases.md, DAILYLOG_DB):
-   - If entry for today exists, append to it. NEVER create a duplicate.
+   - If entry for today exists: check whether it already contains substantive content under all 4 sections (## Pulse, ## Kaia, ## M-Band, ## ISC — not just the headers). If complete: output "Daily log for today already complete — nothing to append." and stop. If partial (some sections missing or empty): append only the missing sections. NEVER re-write sections that already have content.
+   - If no entry for today: create a new one.
 
 4. **Compile per-project sections:**
    - ## Pulse
