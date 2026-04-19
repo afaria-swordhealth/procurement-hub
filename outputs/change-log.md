@@ -7,6 +7,10 @@
 ### session-doctor auto-fix
 - change-log date header cleared: 2026-04-18 → 2026-04-19 (stale from previous session)
 
+### Micro-fix — friction-log + /improve persistence
+- `outputs/friction-log.md`: new file — persistent signal store across sessions. Pending section holds unexecuted signals; Resolved section holds executed signals with fix date.
+- `skills/improve/SKILL.md`: Pre-flight step 4 reads friction-log Pending; Source E added to Step 1 scan; Step 5 (all tiers) moves executed signals to Resolved; new Step 6 persists unexecuted queue items to Pending before session ends.
+
 ### Structural sprint #1 — OI Context running log propagation fix
 
 Root cause: `mail-scan.md` used "Update OI Context" as a recommendation label without specifying the Notion operation. 4 skills had no guidance on notion-create-comment for OI updates.
