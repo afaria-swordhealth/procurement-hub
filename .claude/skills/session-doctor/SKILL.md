@@ -45,6 +45,23 @@ Required sections that must be present:
 
 Do NOT attempt to repair a corrupt session-state.md. Only /warm-up can rebuild it.
 
+## Step 1c: Verify session crons (only if Last-Warm-Up < 2h)
+
+If `Last-Warm-Up >= 2h`: skip this step — crons are expected to be unregistered before warm-up.
+
+If `Last-Warm-Up < 2h`:
+1. Read the `## Session Crons` section from `outputs/session-state.md`. Count listed entries (N).
+2. Call `CronList`.
+
+| Condition | Action |
+|-----------|--------|
+| session-state lists N crons AND CronList is empty | REPORT: session crons dropped — warm-up ran but crons are not registered. Re-run /warm-up. |
+| session-state lists N crons AND CronList matches (same count) | OK |
+| session-state has no `## Session Crons` section | OK — no crons configured |
+| CronList has crons but session-state lists none | REPORT: unregistered crons found — session-state may be stale |
+
+This check catches the case where the session restarted after warm-up (crons are session-scoped and lost on restart) while the timestamp still looks fresh.
+
 ## Step 2: Check context file freshness
 
 For each project, read the first 3 lines of the context file to get the "Last synced" header:
@@ -95,7 +112,7 @@ Log each fix to `outputs/change-log.md` after ensuring it has today's date.
 
 ## Step 6: Output report
 
-Compact report with sections: TIMESTAMPS (each with age and status), CONTEXT FILES (each with age), CHANGE-LOG status, GIT STATE (uncommitted files, unpushed count, last commit), AUTO-FIXED list, RECOMMENDED ACTIONS (numbered, specific commands).
+Compact report with sections: TIMESTAMPS (each with age and status), CONTEXT FILES (each with age), CRONS (registered vs expected, only if Last-Warm-Up < 2h), CHANGE-LOG status, GIT STATE (uncommitted files, unpushed count, last commit), AUTO-FIXED list, RECOMMENDED ACTIONS (numbered, specific commands).
 
 ## Rules
 
@@ -103,6 +120,6 @@ Compact report with sections: TIMESTAMPS (each with age and status), CONTEXT FIL
 - NEVER modify session-state.md timestamps except to fix future-dated values.
 - NEVER run git push, git commit, or any destructive git commands. Only read git state.
 - NEVER modify promises.md. Use promise-tracker for that.
-- This skill must be fast. No Notion queries, no Gmail scans, no full file reads. Headers and git commands only.
+- This skill must be fast. No Notion queries, no Gmail scans, no full file reads. Headers, git commands, and CronList only.
 - Log all auto-fixes to `outputs/change-log.md`.
 - Output the report directly. Do not write it to a file.
