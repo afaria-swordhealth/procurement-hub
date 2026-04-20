@@ -1,5 +1,5 @@
 # M-Band Suppliers  - Context File
-# Last synced: 2026-04-18T00:00
+# Last synced: 2026-04-20T23:00
 
 ## Quote Received (5)
 - **Vangest**  - Plastic Housings. Revised quote Apr 9 analyzed. EUR 3.080/unit @255k + EUR 429,850 tooling. Quote consolidated inline in supplier page Apr 14 (sub-pages [MERGED]). DB fields: EUR 3.080 / 429,850. Quote Apr 9 (expired Apr 14). NDA executed.
@@ -10,9 +10,9 @@
 
 ## RFQ Sent (6)
 - **Ribermold**  - Plastic Housings. Meeting Apr 15: magnets confirmed NdFeB N45 nickel-plated, automated assembly line in development (single-button operation), IP68 as primary validation (no separate pull-force test), pin assembly method TBD (press-fit or adhesive). Ribermold finalizing quote with adhesive supplier recs. NDA executed.
-- **TransPak**  - Packaging. Quote in progress with SE Asia team (Kevin acknowledged Apr 7). Apr 14: plain white box sent. Apr 17: Nimbl customized sample boxes picked up in USA — Kevin + Vin notified (3 white + 2 full-design in transit). NDA executed.
+- **TransPak**  - Packaging. Quote in progress with SE Asia team (Kevin acknowledged Apr 7). Apr 14: plain white box sent. Apr 17: Nimbl customized sample boxes picked up in USA — Kevin + Vin notified (3 white + 2 full-design in transit). Apr 20: Vin Mun confirmed white boxes received; custom samples still in transit. NDA executed.
 - **JXwearable**  - Straps. Currency USD. Production capability confirmed Apr 17 (Daisy). TPU plug placement feasible. Quote organizing. NDA executed.
-- **Uartronica**  - PCBAs. ~EUR 22.07/unit. NDA executed.
+- **Uartrónica**  - PCBAs. ~EUR 22.07/unit (indicative, Dec 2025). NDA executed. Sofia Amaro confirmed re-quote delivery "early next week" (Apr 17). OI deadline Apr 22.
 - **Quantal**  - Sheet Metal. NDA fully executed Apr 14. Zip #3006 fully approved Apr 14. RFQ package sent to Miguel Costa Apr 14.
 - **Xinrui Group**  - Plastic Housings + Sheet Metal. OEM (China), 21y experience. First contact Apr 11 on M-Band scope. NDA fully executed Apr 15 (Dropbox Sign, SHUFENG ZHANG). Zip #3146 fully approved Apr 15. RFQ package sent Apr 15 to Asher (scope: housings + sheet metal).
 

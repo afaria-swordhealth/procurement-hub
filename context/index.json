@@ -1,0 +1,37 @@
+{
+  "generated": "2026-04-20T23:00",
+  "projects": {
+    "pulse": {
+      "last_synced": "2026-04-20T23:00",
+      "supplier_count_active": 3,
+      "supplier_count_rejected": 10,
+      "active_suppliers": ["Transtek Medical", "Unique Scales", "Urion Technology"],
+      "blocker_count": 0,
+      "top_deadline": null
+    },
+    "kaia": {
+      "last_synced": "2026-04-20T23:00",
+      "supplier_count_active": 5,
+      "supplier_count_rejected": 8,
+      "active_suppliers": ["Tiger Fitness", "Second Page Yoga", "ProImprint", "Nimbl", "4imprint"],
+      "blocker_count": 0,
+      "top_deadline": null
+    },
+    "mband": {
+      "last_synced": "2026-04-20T23:00",
+      "supplier_count_active": 15,
+      "supplier_count_rejected": 10,
+      "active_suppliers": ["Quantal", "Ribermold", "TransPak", "JXwearable", "Xinrui Group", "MCM", "Vangest", "SHX Watch", "Uartrónica", "GAOYI", "Lihua", "Falcon Electronica", "Sanmina", "Electronica Cerler", "Novares"],
+      "blocker_count": 0,
+      "top_deadline": null
+    },
+    "bloompod": {
+      "last_synced": "2026-04-20T23:00",
+      "supplier_count_active": 0,
+      "supplier_count_rejected": 0,
+      "active_suppliers": [],
+      "blocker_count": 0,
+      "top_deadline": null
+    }
+  }
+}

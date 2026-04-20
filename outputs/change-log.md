@@ -4,6 +4,9 @@
 
 ## 2026-04-20
 
+### /improve — session-doctor micro-fix (Step 1c)
+- `.claude/skills/session-doctor/SKILL.md`: added Step 1c — CronList check when Last-Warm-Up < 2h. Detects crons dropped after session restart (session-state timestamp looks fresh but crons unregistered). Updated Step 6 report (CRONS section) and Rules (allow CronList). Commit `806d78a`.
+
 ### /supplier-enrichment — pair-work session closed
 
 [EVENT: PAIR_WORK_COMPLETE skill=supplier-enrichment runs_validated=3 open_questions_resolved=5]
@@ -353,3 +356,18 @@ Plan §4 explicitly flags "Rewrite context files might need pair work for suppli
 - OI created: `348b4a7d…c9cb` — Unique Scales US documentation revision (Owner: André + Sofia, Deadline: Apr 28)
 - promises.md: 4 entries added (Jorge/MSA, Bianca/Berlin Wall, João-Bianca/Qualio, Queenie/US docs)
 - Note: Project + Supplier relations not set on new OIs (relation field limitation) — set manually in Notion
+
+### OI closures + status updates (Apr 20 evening)
+- OI 33eb4a7d…9059 (Transtek Finance onboarding) → Closed. NetSuite vendor record created via Zip.
+- OI 33eb4a7d…e2e2 (Unique Scales Finance onboarding) → Closed. NetSuite vendor record created via Zip.
+- OI 345b4a7d…8bae (Transtek NDA Sword Health Inc.) → In Progress. Bradley pinged Apr 20 (bundled with Unique Scales NDA ping).
+
+[EVENT: STATUS_CHANGE page=33eb4a7d…9059 status=Closed ts=2026-04-20]
+[EVENT: STATUS_CHANGE page=33eb4a7d…e2e2 status=Closed ts=2026-04-20]
+[EVENT: STATUS_CHANGE page=345b4a7d…8bae status=In Progress ts=2026-04-20]
+
+### /log-sent — Unique Scales open items email (Apr 20 22:32)
+- Outreach: entry added (57+ milestones, Last: Apr 20 open items summary).
+- Email sent to Queenie: 6 action items — QTA/SQA, ISTA, ISO certs, UDI-DI/FDA, US packaging baseline, partial delivery LT. CC Paulo Alves, Jorge Garcia.
+- OI comments written: ISTA (345b4a7d…3797), US docs (348b4a7d…c9cb), SQA (33eb4a7d…81ee).
+- Last Outreach Date already 2026-04-20 — no update needed.
