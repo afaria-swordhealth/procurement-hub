@@ -8,3 +8,4 @@ credentials*
 outputs/checkpoints/
 .swarm/
 Procurement-hub/
+node_modules/
