@@ -133,3 +133,25 @@ All four L4B deliverables landed in one commit. Launch gates and operator action
 **Not shipped, not planned:**
 - `/ask-rebuild` slash command — `ask-index.md` procedure is invokable directly; a thin command wrapper can be added later if the rebuild cadence proves manual-intensive.
 - Pattern store schema versioning — readers are defensive on missing keys; no migration layer until second schema change.
+
+### Layer 5 — Context densification (tooling only; file rewrites deferred as pair-work gate)
+
+Follows Layer 4B. Session C scope. Do not push.
+
+Plan §4 explicitly flags "Rewrite context files might need pair work for supplier details — 1-2 sessions" — so context file content rewrites are held back to avoid destructive automation of live operational data. All L5 *tooling* lands now; the actual pulse/kaia/mband file rewrites are gated on André pair work.
+
+**New files:**
+- `.claude/procedures/context-loader.md` — progressive disclosure spec. 3 layers: (1) `context/index.json` always loaded; (2) per-project `context/{project}/suppliers.md` loaded on demand based on message content + skill scope; (3) deep corpus opt-in only (via `/ask`). Defines v1 dense schema per supplier: structured bullet header (`status`, `nda`, `currency`, `unit_cost`, `tooling_cost`, `last_outreach`, `open_ois`, `next`, `blocker`) plus free-form `notes:` block preserving existing prose. Readers fall back to free-form for v0 (no Schema header) files.
+- `context/bloompod/suppliers.md` — scaffold only. BloomPod in pre-sourcing (Pedro BOM due 2026-04-24). No active suppliers yet; shortlist research names listed; v1 schema header present so future fills integrate cleanly.
+
+**Wirings:**
+- `/warm-up` modes rewritten: Light (default, reads `context/index.json` + per-project on demand per context-loader Layer 1/2, ~10k tokens, <30s target), Full (`--full`, reads all 4 files + Notion verification, ~40k tokens), Quick (deprecated alias → Light). Auto-promotes to Full on missing session-state, Last-Warm-Up > 8h, or missing index.
+- `/warm-up` Phase 1 amended: Light reads index only; Full reads all 4 context files. Staleness warning now triggers on index >24h, not just per-file.
+- `/wrap-up` Phase 2a new: regenerate `context/index.json` atomically from updated context files after Phase 2 sync. Parses section headers + (for v1 schema files) structured fields to compute active/rejected counts, active_suppliers list, blocker_count, top_deadline. Fail-open: missing index triggers Full warm-up next session.
+- `context-doctor` Step 3b new: v1 schema validation block. Validates required structured fields, enum values, numeric fields (unit_cost/tooling_cost), last_outreach sync with DB, open_ois count against OI DB, stale blocker auto-null. v0 files skipped silently — migration is pair work.
+
+**Deferred pair-work gate (explicitly not this sprint):**
+- `context/pulse/suppliers.md`, `context/kaia/suppliers.md`, `context/mband/suppliers.md` rewrites from prose to v1 dense schema — **requires André pair work**. Plan §4 labels this 1-2 sessions. Autonomous rewrite risks silent data loss (prose entries contain audit-history detail not fully reconstructable from Notion). Files remain v0 format; context-doctor skips Step 3b on them.
+- First `context/index.json` generation — happens on next `/wrap-up` Full run once files are migrated OR on any `/wrap-up` now (v0 files generate a degraded index without blocker/top_deadline fields; usable as warm-up fallback).
+
+**Not shipped in L5 (nothing extra planned beyond pair-work gate).**

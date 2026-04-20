@@ -28,6 +28,17 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 
    **Phase 2 completion check:** After all context files are written, re-read the first 3 lines of each file and verify the `# Last synced` header matches the current timestamp (within this session's execution window). If any file still shows a stale or missing timestamp, re-sync that file before advancing to Phase 3. Do NOT proceed with a partial sync — context drift is the primary cause of stale daily logs.
 
+### Phase 2a: Regenerate context/index.json
+8a. Per `.claude/procedures/context-loader.md` §Layer 1, regenerate `context/index.json` from the 4 updated context files. Parse each file for:
+    - `last_synced` from the `# Last synced:` header
+    - `supplier_count_active` = entries not in the Rejected section
+    - `supplier_count_rejected` = entries in Rejected section
+    - `active_suppliers` = name list from non-Rejected sections
+    - `blocker_count` = entries with `blocker:` field set (v1 schema only; v0 files return 0)
+    - `top_deadline` = earliest deadline from blocker + next fields (v1 schema only)
+
+    Write atomically: tmp file, then rename. If generation fails, log `[EVENT: FAIL target=context_index]` and continue — warm-up falls back to Full mode when index is missing.
+
 ### Phase 2b: External Work
 8b. Read outputs/external-work.md. If it contains entries beyond the header comments, include them in the daily log under ## ISC (or the relevant project section if specified).
 8c. After inclusion in the daily log draft, clear the file back to headers only.

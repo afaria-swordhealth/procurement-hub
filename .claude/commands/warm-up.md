@@ -7,25 +7,30 @@ model: opus
 
 **Agents:** notion-ops (pending items), supplier-comms (email scan), logistics (tracking)
 
-## Quick Mode (`/warm-up --quick`)
+## Modes
 
-Use when: returning to session after a short break, or Last-Warm-Up is same day and context is still fresh.
+| Mode | Invocation | Loads | When to use |
+|---|---|---|---|
+| **Light** (default) | `/warm-up` or `/warm-up --light` | Session-state + `context/index.json` (context-loader Layer 1). Project context files loaded on demand per `.claude/procedures/context-loader.md`. No Notion re-queries beyond Decision Queue. | Most mornings. Target <30s, ~10k tokens. Relies on last `/wrap-up` context sync being fresh (<24h). |
+| **Full** | `/warm-up --full` | All 4 context files (Layer 2) + Notion verification of supplier DBs + full email + Slack + calendar. | After a gap >24h, crash recovery, or when Last-Wrap-Up is stale. ~40k tokens. |
+| **Quick** (deprecated alias) | `/warm-up --quick` | Same as Light. Preserved for backward compat. | Prefer `--light`. |
 
-**Skips:**
-- Phase 1: Do NOT read context files. Use session-state.md snapshot directly.
-- Phase 6: Skip change-log review. Proceed to Phase 7.
+Rule: if `session-state.md` is missing, `Last-Warm-Up > 8h`, or `context/index.json` is missing/stale → auto-promote to Full and note it in the briefing.
 
-**Keeps:** Decision Queue, Promises, Email scan, Slack scan, Calendar, Crons, Briefing — all unchanged.
+**Skips in Light:**
+- Phase 1: Do NOT read context files eagerly. Load per `context-loader.md` Layer 2 rules when the briefing references a specific project/supplier.
+- Phase 6: Skip change-log review (trust /wrap-up handoff).
 
-If session-state.md is missing or Last-Warm-Up > 8h, fall back to full warm-up automatically and note it.
+**Keeps in Light:** Decision Queue, Promises, Email scan, Slack scan, Calendar, Crons, Briefing — unchanged.
 
 Follow CLAUDE.md Safety Rules and Writing Style sections.
 
 ## Steps
 
 ### Phase 1: Context Load
-1. Read all 3 context files (pulse, kaia, mband suppliers.md). Paths listed in .claude/config/databases.md.
-2. Flag any context file older than 24h (may be stale, suggest /cross-check).
+1. **Light mode:** read `context/index.json` only (context-loader Layer 1). Per-project context files load on demand per `.claude/procedures/context-loader.md`.
+1a. **Full mode:** read all 4 context files (pulse, kaia, mband, bloompod suppliers.md). Paths listed in .claude/config/databases.md.
+2. Flag any context file or index older than 24h (may be stale, suggest `/warm-up --full` or `/wrap-up`).
 
 ### Phase 2: Decision Queue + Promises
 3. Run the Decision Queue render per `.claude/procedures/decision-queue-render.md`. This is the FIRST thing Andre sees: OIs grouped by Overdue / Today / This week / Blocked, with inline stale flag (⚠ stale if leading Context date >21d old on overdue or blocked items).

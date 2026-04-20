@@ -57,6 +57,22 @@ For each supplier in Notion, check against the context file:
 
 **Notion is authoritative.** When Status or NDA Status differs, update the context file to match Notion.
 
+## Step 3b: Schema validation (v1 files only)
+
+Check the header `# Schema: v1` marker. If present, validate each supplier block per `.claude/procedures/context-loader.md` §Dense format specification:
+
+| Check | Classification |
+|---|---|
+| Missing required structured field (`status`, `nda`, `currency`) | AUTO-FIX if derivable from Notion; else REPORT |
+| Field value not in allowed enum (e.g., `status: Chasing` instead of canonical `RFQ Sent`) | REPORT — ask André before rewriting |
+| `unit_cost` / `tooling_cost` numeric but non-null in Notion and missing in context | AUTO-FIX from Notion |
+| `last_outreach` is null in context but Notion has `Last Outreach Date` set | AUTO-FIX |
+| `open_ois` count mismatch with OI DB query | AUTO-FIX from OI DB |
+| `blocker` is set in context but the referenced OI is Closed | AUTO-FIX to null |
+| `notes:` block missing | REPORT — prose preserves historical detail; never silently drop |
+
+If the header is missing (v0 legacy file), skip Step 3b entirely — do not attempt schema migration autonomously. Migration is pair work per improvement-plan.md §4.
+
 ## Step 4: Check promises.md for rejected-supplier references
 
 1. Read `outputs/promises.md`.
