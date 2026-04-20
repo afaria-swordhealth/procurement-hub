@@ -77,6 +77,7 @@ If the field set on the Notion page differs from the table above: HALT on first 
 5. IAF CertSearch + national ISO certification registries.
 6. FDA Establishment Registration DB (Pulse device suppliers only).
 7. Wikipedia (corporate history only — never for technical claims).
+8. **PRNewswire + BusinessWire + BioSpace** (M&A / press releases, 24-month window — added 2026-04-21).
 
 **Not allowed:**
 - Generic news aggregators without attribution.
@@ -89,6 +90,18 @@ Execute searches via `WebSearch` with queries shaped per field. Examples:
 - `"{supplier_name}" ISO 13485 certificate`
 - `{supplier_name} FDA establishment registration`
 - `{supplier_name} headquarters site:linkedin.com`
+- `"{supplier_name}" acquisition OR acquired OR merger` (M&A check — always run)
+
+### Research rigor rules (added 2026-04-21, after Crestline/Kimball/Zewa/Cerler retrospective)
+
+Four mandatory rules — failing any of these on a run means re-running Step 2 before presenting the data card:
+
+1. **Multi-page cross-check (minimum set).** On a company website, fetch at minimum: `/about` + `/history` OR `/company` + `/industries` OR `/markets` + `/certifications` OR `/quality` + `/products` OR `/solutions` + `/contact`. Never conclude from a subset. Missed case: Cerler — read /certificates-awards + /contact + /history + /overview but skipped /industries, then wrote "no medical vertical" as an absolute. `/industries` listed Electromedicine at position #6.
+2. **M&A / news check.** Always run one M&A query on WebSearch with 24-month scope. Consult PRNewswire / BusinessWire / BioSpace / respiratory-therapy / medicalbuyer hits. Missed case: Zewa — Veridian Healthcare acquired Zewa 2024-09-04, trivially findable on PRNewswire. 18 months of stale company framing missed.
+3. **Absolute-negative framing.** Never write `None`, `No X`, `Not applicable`, or `Independent` as bare absolute claims from a finite search. Always scope to evidence: `No X identified on public pages reviewed`, `No parent disclosed in reviewed filings`, etc. Missed case: Crestline — wrote "None ISO" based on absence, when the correct phrasing is absence-of-evidence.
+4. **Cert list full-dump.** When a certifications / quality page exists, capture the ENTIRE per-site matrix, not a summary sampled from /overview or /about. If a public cert number (PDF/registration number) is surfaced, include it. Missed case: Kimball — had ISO 13485 at 7 sites + IATF 16949 at 6 sites, but write only named 3 sites. Also missed FDA Registered multi-site.
+
+Apply these before presenting the data card. If any rule fails, halt and re-run Step 2 with the missing fetch.
 
 For each finding, capture `{field, value, source_url, confidence}`. Confidence tiers:
 - **High** — from the company's own website or a registry.
@@ -184,3 +197,7 @@ Checklist closed. Three validation runs executed on Rejected suppliers:
 Field allowlist confirmed in `field-allowlist.md` — Options A (structured Website/Region where empty) + B (`## Profile` prose) are canonical. Option C (schema extension) deferred.
 
 **Skill is now ACTIVE for live suppliers** in any Status — not just Rejected. Normal rules still apply (SHOW BEFORE WRITE, allowlist enforcement, contradiction rule on `[MANUAL]` fields, HQ conflict detection).
+
+## Post-first-run retrospective — COMPLETE (2026-04-21)
+
+Gemini + 3 internal review agents double-checked all 4 runs (Crestline, Kimball, Zewa, Cerler). Convergent errors found in all 4. Corrections written back to Notion 2026-04-21. Four research-rigor rules added to Step 2 (multi-page cross-check, M&A/news check, absolute-negative framing, cert list full-dump). Allowlist extended with PRNewswire + BusinessWire + BioSpace for M&A events. Case studies captured in `lessons.md`.

@@ -4,6 +4,30 @@
 
 ## 2026-04-21
 
+### /supplier-enrichment — post-retrospective corrections (Crestline + Kimball + Zewa)
+
+[EVENT: SUPPLIER_ENRICH_CORRECTION suppliers=3 rules_added=4 lesson_cases=10]
+
+Retrospective triggered by user Gemini cross-check on Cerler (2026-04-20) surfaced systemic research-rigor gaps. 3 internal review agents + Gemini double-check validated errors across all 4 test runs (Crestline, Kimball, Zewa, Cerler). Corrections written back to Notion pages 2026-04-21.
+
+**WebFetch verifications:**
+- Crestline ZIP 04240 CONFIRMED (Yellow Pages + BBB + D&B). 04241 is PO Box ZIP.
+- Veridian Healthcare acquired Zewa 2024-09-04 CONFIRMED (PRNewswire + BioSpace + Medical Buyer + PrivSource).
+
+**Notion writes:**
+- Zewa page (`311b4a7d…3118`): Profile rewritten — Veridian acquisition added, business model corrected (self-described manufacturer, not distributor-only), product list expanded (nebulizers, TENS, glucometer, etc.), 510(k) dates corrected (filed Jun 2004, cleared Sep 20 2004), ⚠ Owner/Operator 1417572 flagged as Baxter (do-not-use).
+- Kimball page (`313b4a7d…8636`): Profile edits — spin-off wording (not IPO), revenue precision ($1,486.7M), employees precision (approximately 5,700), ISO 13485 list expanded to 7 sites, IATF 16949 6 sites, markets corrected (Public Safety dropped from top-level).
+- Crestline page (`318b4a7d…c318`): Profile edits — ZIP 04240, Parent Geiger added, business-model expanded (distributor, 8,000+ products), customer verticals added, sustainability credentials added, "None ISO" → "No ISO certifications identified on public pages reviewed".
+
+**SKILL.md updates:**
+- Step 2 allowlist #8: PRNewswire + BusinessWire + BioSpace added for M&A events.
+- Step 2 new "Research rigor rules" section: 4 mandatory rules (multi-page cross-check, M&A/news check, absolute-negative framing, cert list full-dump).
+- "Post-first-run retrospective — COMPLETE (2026-04-21)" section added to bottom of SKILL.md.
+
+**New file:** `.claude/skills/supplier-enrichment/lessons.md` — 10 lessons captured (chronological, most recent first). Pre-read by skill per `lessons-read.md` procedure.
+
+**Open follow-up:** Zewa re-engagement via Veridian Healthcare channels — separate decision pending (RFQ silence Mar 2026 now contextualized as post-acquisition integration, not disinterest).
+
 ### /improve — mini #3: create_draft threading — verified, no fix needed
 - Audit confirmou regra corretamente documentada em 4 locais (supplier-rejection L74, supplier-chaser L190, CLAUDE.md L104, supplier-comms.md L34–42). Sinal fechado por verificação.
 
