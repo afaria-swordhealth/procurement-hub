@@ -17,6 +17,7 @@ Adds a new supplier to the procurement system. Creates the Notion page, register
 6. Read `.claude/config/strategy.md` (negotiation guardrails for context package).
 7. Read `.claude/knowledge/supplier-onboarding-process.md` for 3-track timeline expectations (Procurement + Finance/AP + QARA) and dependencies before executing steps.
 8. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::supplier-onboarding::{supplier_name}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite." If ruflo MCP fails: log warning and proceed.
+9. **Lessons read:** per `.claude/procedures/lessons-read.md`, read `.claude/skills/supplier-onboarding/lessons.md` (top 10). Apply before executing onboarding steps. If missing or empty, skip.
 
 ## Step 0: Validate — supplier does not already exist
 

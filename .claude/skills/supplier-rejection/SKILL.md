@@ -14,6 +14,7 @@ Manages the full exit workflow for a supplier being rejected: communication, int
 3. Read `.claude/config/strategy.md` (never reveal other suppliers or pricing reasons).
 4. Read `.claude/config/databases.md` (DB IDs, collection URLs).
 5. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::supplier-rejection::{supplier}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite."
+6. **Lessons read:** per `.claude/procedures/lessons-read.md`, read `.claude/skills/supplier-rejection/lessons.md` (top 10). Apply before composing rejection email. If missing or empty, skip.
 
 ## Step 1: Pull supplier state
 
@@ -147,3 +148,4 @@ In order:
 - Jorge note is always in Portuguese regardless of supplier language.
 - Concurrency: session-single model (see `.claude/safety.md`). No per-write collision check.
 - **MCP error handling:** Single-supplier operations (page fetch, Gmail draft, status write): if MCP fails, HALT and surface to André. Batch OI closures (Step 7.2): if one write fails, skip that OI, log `[OI title] — Notion MCP error, skipped`, and continue — report skipped OIs in the final output. Ruflo failures (checkpoint, risk closure Step 7.7): log and proceed.
+- **Autonomy ledger:** after every SHOW BEFORE WRITE decision on supplier status, NDA, or OI closure, append one line to `outputs/autonomy-ledger.md` per `.claude/procedures/ledger-append.md`. Classes: `supplier_status_rejected` (`never_promote`), `nda_status_write` (`never_promote`), `oi_status_closed`. Email drafts log as `email_draft_send` (`never_promote`).

@@ -18,6 +18,7 @@ Extracts pricing from a supplier quote, converts to EUR, calculates FLC, updates
 7. Read `.claude/procedures/create-open-item.md` (OI field requirements).
 8. Read `context/{project}/suppliers.md` for the supplier's current state.
 9. **Execution checkpoint check:** per `procedures/exec-checkpoints.md`, read `outputs/checkpoints/quote-intake_{supplier_slug}.json`. If file exists with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {started}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite." If missing or `status: "complete"`: proceed (archive complete runs per the procedure).
+10. **Lessons read:** per `.claude/procedures/lessons-read.md`, read `.claude/skills/quote-intake/lessons.md` (top 10). Apply before default behavior. If missing or empty, skip.
 
 ## Step 1: Extract pricing from quote
 
@@ -184,3 +185,4 @@ After ruflo store succeeds: update checkpoint — `status: "complete"`, `steps_d
 - Concurrency: session-single model (see `.claude/safety.md`). No per-write collision check.
 - OI Context rewrites require approval. OI comment adds via notion-create-comment are auto-approved (per CLAUDE.md §5 Exception 2) — write directly, log to change-log.
 - **MCP error handling — single supplier:** If Notion MCP fails at any write step (DB fields, Quote section): HALT, log to change-log, surface to André — do not write partial data. If ruflo MCP fails (pre-check Step 4, checkpoint store, memory store Step 8): log and proceed — ruflo is non-critical and its failure routes auto-write to SHOW BEFORE WRITE.
+- **Autonomy ledger:** after every SHOW BEFORE WRITE decision on a cost-field or Quote-section payload, append one line to `outputs/autonomy-ledger.md` per `.claude/procedures/ledger-append.md`. Classes: `cost_field_within_30pct` or `cost_field_outside_30pct` (latter is `never_promote`); `fx_stamp_write` for FX Rate stamps.

@@ -64,3 +64,36 @@ Scope shipped: scaffolding + skill + producer wiring. Deferred: cron redesign (n
 - #3 promises.md retirement — deferred. Retiring now would regress active promises tracking; needs staged migration.
 - #4 risk-radar as producer — ✅ landed (Step 6b).
 - #5 /mail-scan cron re-route — deferred until morning-brief cron is wired.
+
+### Layer 4A — Learning loop (autonomy ledger + per-skill lessons)
+
+Follows Layer 3. Session C scope. Do not push.
+
+L4 split into A (ledger + lessons, this sprint) and B (`/ask` skill + supplier pattern store + aidefence PII check, next sprint). L4B deferred because it requires embedding index build + 20-question validation harness.
+
+**New files:**
+- `outputs/autonomy-ledger.md` — append-only scaffold. Schema `{ISO_ts} | {action_class} | {decision} | {skill} | {notes}`. Rules live in `.claude/autonomy.md` (shipped L1). Consumer: `/improve` Source F.
+- `.claude/procedures/ledger-append.md` — write-side procedure. Defines when to append (SHOW BEFORE WRITE outcomes only), schema, canonical `action_class` table (15 values including 4 `never_promote` classes), implementation note (atomic single append, session-single concurrency). Append-on-error policy: log `[EVENT: FAIL target=autonomy_ledger]` and continue — ledger append never fails parent operation.
+- `.claude/procedures/lessons-read.md` — read-side procedure. Per-skill `.claude/skills/{skill}/lessons.md` scaffold (top 10 lines, newest first). Applied in pre-flight before default behavior. Lessons vs memory: memory = cross-skill/durable, lessons = per-skill delta. Monthly retention drops >180d-old unless reinforced.
+- `.claude/skills/{quote-intake,rfq-workflow,supplier-chaser,supplier-rejection,supplier-onboarding,outreach-healer}/lessons.md` — 6 empty scaffolds, one per write-heavy skill.
+
+**Wiring — 6 skills, pre-flight `Lessons read` step:**
+- `quote-intake` step 10, `rfq-workflow` step 11, `supplier-chaser` step 6, `supplier-rejection` step 6, `supplier-onboarding` step 9, `outreach-healer` step 5.
+- Each reads `.claude/skills/{skill}/lessons.md` (top 10) via `lessons-read.md` procedure. Missing/empty → skip.
+
+**Wiring — 3 skills, Rules section ledger-append:**
+- `quote-intake` — `cost_field_within_30pct` / `cost_field_outside_30pct` (latter never_promote) / `fx_stamp_write`.
+- `supplier-rejection` — `supplier_status_rejected` (never_promote), `nda_status_write` (never_promote), `oi_status_closed`, `email_draft_send` (never_promote).
+- `rfq-workflow` — `email_draft_send` (never_promote), `oi_create_action`, `oi_create_decision`.
+
+**`/improve` skill:**
+- Pre-flight line 5 added: read autonomy-ledger.md.
+- Step 1 Source F added: promotion-candidate detection per autonomy.md rule (20 clean + 0 rejected/50 + 0 edited/20 + not never_promote). Also surfaces classes hitting threshold 3+ times with rejections for `never_promote` tagging.
+
+**Note on ruflo checkpoints:** `supplier-rejection`, `supplier-onboarding`, `outreach-healer` still use `mcp__ruflo__memory_retrieve` for exec checkpoints — L1 migrated only `quote-intake`, `rfq-workflow`, `supplier-selection`. Migrating the remaining 3 to local checkpoints is a follow-on micro-fix, not blocking L4.
+
+**Deferred to L4B:**
+- `/ask` skill (embeddings index build + 20-question validation).
+- Supplier behavioral pattern store (ruflo namespace `supplier::{name}::pattern`).
+- `aidefence_has_pii` pre-check on `create_draft` calls (fail-open, log-only).
+- `/wrap-up` Phase 5 ledger delta summary.

@@ -14,6 +14,7 @@ Scans all overdue commitments (Open Items DB + promises.md), cross-references Gm
 3. Read `.claude/config/strategy.md` (never reveal prices, timelines, or shortlist status).
 4. Read `.claude/config/domains.md` (supplier contacts and email addresses).
 5. Read `outputs/promises.md` for open commitments.
+6. **Lessons read:** per `.claude/procedures/lessons-read.md`, read `.claude/skills/supplier-chaser/lessons.md` (top 10). Apply before composing drafts. If missing or empty, skip.
 
 ## Step 1: Collect overdue items
 

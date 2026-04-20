@@ -13,7 +13,8 @@ Identifies system friction signals from operational session output, classifies t
 2. Read `outputs/change-log.md` for today's operational signals.
 3. Read `outputs/promises.md` for recurring or overdue promises.
 4. Read `outputs/friction-signals.md` `## Pending` section — accumulated signals from prior sessions.
-5. **Session C scope.** Do NOT write to Notion, Gmail, or `context/` files.
+5. Read `outputs/autonomy-ledger.md` for promotion-candidate detection (see Source F).
+6. **Session C scope.** Do NOT write to Notion, Gmail, or `context/` files.
 
 ## Step 1: Scan for friction signals
 
@@ -43,6 +44,27 @@ If change-log is empty or thin (improvement session without prior operational se
 
 ### Source E — friction-signals.md (accumulated pending)
 Read `## Pending` in `outputs/friction-signals.md`. Each `- [ ]` entry is a signal from a prior session that was identified but not executed. Add all to the current queue. De-duplicate against signals already found in Sources A-D (same file + same description = same signal).
+
+### Source F — autonomy-ledger.md (promotion candidates)
+Read `outputs/autonomy-ledger.md` `## Entries`. Group entries by `action_class`. For each class, apply the promotion rule from `.claude/autonomy.md`:
+
+- 20 consecutive `approved_clean` AND
+- Zero `rejected` in last 50 AND
+- Zero `approved_edited` in last 20 AND
+- Class is not marked `never_promote` in `.claude/procedures/ledger-append.md`.
+
+Each eligible class becomes one signal in the queue, tier `structural` (creating a new auto-approval touches `safety.md` + affected skills). Surface format:
+
+```
+Autonomy candidate: {action_class}
+  Evidence: {N} clean approvals since {date}, 0 rejections in last 50, 0 edits in last 20.
+  Skills affected: {list}
+  Proposed Exception text: {draft}
+```
+
+Also surface classes that have hit threshold 3+ times but keep getting rejected at review — propose `never_promote` tag for monthly pass.
+
+Never auto-append to `safety.md`. André must explicitly accept each promotion.
 
 ## Step 2: Classify each signal
 

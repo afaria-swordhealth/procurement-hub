@@ -13,6 +13,7 @@ Iterates over all active supplier pages in Notion, reads each ## Outreach sectio
 2. Read `.claude/procedures/check-outreach.md` (milestones policy, condensation rules, entry format).
 3. Read `outputs/change-log.md` for context on recent writes. Concurrency: session-single model (see `.claude/safety.md`); no collision guard.
 4. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::outreach-healer::{YYYY-MM-DD}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: surface to André — "Incomplete prior run detected on {date}. Suppliers processed: {suppliers_processed}. Resume (skip already-processed) or start fresh?" If ruflo MCP fails: skip this check and proceed.
+5. **Lessons read:** per `.claude/procedures/lessons-read.md`, read `.claude/skills/outreach-healer/lessons.md` (top 10). Apply before batch processing. If missing or empty, skip.
 
 ## Step 1: Query active suppliers
 
