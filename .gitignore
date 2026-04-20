@@ -6,3 +6,5 @@ Sandbox/
 *.env
 credentials*
 outputs/checkpoints/
+.swarm/
+Procurement-hub/
