@@ -57,6 +57,13 @@ Read DMs from: Jorge Garcia, Miguel Pais, Sofia Lourenço, Pedro Rodrigues, Kevi
 
 Apply `attention-budget.md` scoring to every candidate from 1a + 1b + 1d. Calendar items (1c) are not scored — they go to the Calendar block as-is.
 
+### 2a. Supplier pattern urgency multiplier
+
+For each candidate naming a supplier, fetch pattern record per `.claude/procedures/supplier-pattern-store.md` §Consumers.2:
+- `mcp__ruflo__memory_retrieve` key `supplier::{slug}::pattern`.
+- Apply `×1.3` urgency multiplier (capped at attention-budget cap) when either: `response_rate_90d < 0.2`, OR (`last_chase_ts` > 7d ago AND `risk_flags` non-empty).
+- If ruflo fails or record missing: skip multiplier for that candidate.
+
 Fill blocks in order: Top 3 Decisions → Overdue → New Signals. Overflow to `## Deferred` with computed score.
 
 Dedup: same `supplier + type` keeps highest score.

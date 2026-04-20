@@ -97,3 +97,39 @@ L4 split into A (ledger + lessons, this sprint) and B (`/ask` skill + supplier p
 - Supplier behavioral pattern store (ruflo namespace `supplier::{name}::pattern`).
 - `aidefence_has_pii` pre-check on `create_draft` calls (fail-open, log-only).
 - `/wrap-up` Phase 5 ledger delta summary.
+
+### Layer 4B — Learning loop (ask skill + pattern store + PII pre-check + wrap-up delta)
+
+Follows Layer 4A. Session C scope. Do not push.
+
+All four L4B deliverables landed in one commit. Launch gates and operator actions documented; nothing auto-activates until André approves.
+
+**New files:**
+- `.claude/skills/ask/SKILL.md` — read-only Q&A over corpus via `mcp__ruflo__embeddings_search`. Answer rules: 1–5 sentences, every claim cited as `{path}:{line}`, never fabricate citations, conflicting-source handling. Logs `[EVENT: ASK query=… top_score=…]` (no answer body). Hard CRITICAL STOP at launch gate: skill refuses to run until validation harness shows ≥18/20 PASS.
+- `.claude/procedures/ask-index.md` — index build procedure. Corpus: CLAUDE.md + configs + procedures + skills + agents + knowledge + context + promises + ledger + 60d git history of change-log. Excluded: hooks, transient state (session-state, pending-signals, friction-signals), binaries. Chunking 800 tok max / 50 tok min. Nightly rebuild cron documented (not yet registered — pending André). Incremental rebuild on wrap-up. State file `ask-index.state.md` tracks `Last rebuilt`.
+- `.claude/skills/ask/validation.md` — 20-question harness template. Questions authored; **expected answers + expected sources columns left blank** — André authors before launch. Re-validation trigger on full index rebuild. Pass/fail log appended to file. Clear operator process documented.
+- `.claude/procedures/supplier-pattern-store.md` — ruflo namespace `supplier::{slug}::pattern`, upsert-always. Schema: 11 fields (channel_pref, language, avg_response_days, response_rate_90d, last_chase_tier_that_worked/failed, chase_count_90d, response_count_90d, known_patterns, risk_flags). Producers: supplier-chaser Step 6, /log-sent Phase 5 (inbound response observer), /wrap-up Phase 4c (daily rollup self-heal). Consumers: supplier-chaser Step 4a (tone tier escalation), morning-brief Step 2a (×1.3 urgency multiplier), /ask (indirect — not indexed). Retention: no TTL, rolling 90d counters. On supplier rejection → risk_flags=["rejected"], record preserved.
+- `.claude/procedures/aidefence-precheck.md` — fail-open PII pre-check procedure. Decision tree with 4 false-positive carve-outs (supplier phone, recipient domain email, etc.). STOP on novel PII type (NIF, credit card, passport, non-config street). `[EVENT: PII_CHECK result=… skill=…]` log line. Scope: Gmail drafts only — not Notion, not attachments, not link content.
+
+**Wirings — 4 skills:**
+- `supplier-chaser` Step 4a rewritten to formally consume pattern store (prior ad-hoc `memory_search` replaced). Step 6a new PII pre-check block before any draft ([AUTO] or reviewed). Step 6.7 new pattern-write producer (chase-side fields). Steps renumbered; no other behavior change.
+- `rfq-workflow` §Before creating draft: PII pre-check inserted as step 3 between SHOW BEFORE WRITE and checkpoint store. Subsequent steps renumbered.
+- `supplier-rejection` Step 7 (Execute): PII pre-check inserted as step 1 before Gmail draft creation. Subsequent numbered steps renumbered.
+- `/log-sent` Phase 5 amended with supplier pattern observer write on inbound-response milestones (response-side fields; rolling 90d counters with self-reset on >90d stale).
+- `/wrap-up` new Phase 4c supplier pattern rollup (self-heal `response_rate_90d` from chase log) + Phase 4d autonomy ledger delta (counts since last wrap-up, streak detection, promotion-approaching + demotion-candidate flags). Phase 5 summary now includes ledger delta + patterns-touched count.
+- `morning-brief` Step 2a new pattern-based urgency multiplier (×1.3 on unresponsive-supplier + stale-chase-with-risk). Capped at attention-budget cap.
+
+**Intentionally NOT activated in this sprint (gated on André actions):**
+- `/ask` launch — blocked by CRITICAL STOP in validation.md until André fills the 20 answer+source columns and marks ≥18 PASS.
+- Nightly embeddings rebuild cron — documented in `ask-index.md` §Rebuild schedule but not registered via `schedule` skill. Waiting for André to approve the cron schedule.
+- Slack DM target for morning-brief 07:30 cron — still gated (L3 leftover, unchanged).
+- promises.md retirement — still deferred (L3 decision unchanged).
+
+**Fail-open semantics preserved throughout:**
+- Ruflo MCP failures (pattern store, embeddings, aidefence) log `[EVENT: FAIL target=…]` and proceed with default behavior.
+- AIDefence PII check is fail-open by design — a missing check never blocks a draft.
+- Ledger append failures (L4A) already fail-open; ledger delta in /wrap-up continues even if append misses.
+
+**Not shipped, not planned:**
+- `/ask-rebuild` slash command — `ask-index.md` procedure is invokable directly; a thin command wrapper can be added later if the rebuild cadence proves manual-intensive.
+- Pattern store schema versioning — readers are defensive on missing keys; no migration layer until second schema change.

@@ -67,6 +67,24 @@ Read the first ~12 lines of `.claude/config/fx-rates.md` and parse the `Last upd
 
 This is a non-blocking flag. The commit still proceeds. The flag ensures André sees the refresh prompt exactly once per month during EOD rather than discovering stale rates mid-quote.
 
+### Phase 4c: Supplier Pattern Rollup
+9c. Per `.claude/procedures/supplier-pattern-store.md` §Producers.3: for each supplier touched today (any Outreach write in Phase 1 or status change in Phase 2), re-derive `response_rate_90d` from the chase log (`chase::{supplier}::*` keys via `mcp__ruflo__memory_search`, tag filter `chase`) and store back into the pattern record. This self-heals drift from missed per-event updates. Trim `known_patterns` to the last 5. Ruflo failures non-blocking.
+
+### Phase 4d: Autonomy Ledger Delta
+9d. Read `outputs/autonomy-ledger.md`. Compute delta since last `/wrap-up` (use `Last-Wrap-Up` from `outputs/session-state.md` as cutoff):
+- Count new entries by `action_class` × `decision`.
+- For each class with `approved_clean` entries, compute consecutive-clean streak (reset on any `approved_edited` or `rejected` inside last 20).
+- Flag any class hitting these thresholds: ≥15 clean streak (approaching promotion), ≥3 rejected in last 20 (demotion candidate).
+- Format as a 3-5 line block:
+  ```
+  Ledger delta ({N} new entries since {last_wrap_up}):
+  - {action_class}: {clean}/{edited}/{rejected} — streak={N}
+  - ...
+  Promotion-approaching: {class1}, {class2}
+  Demotion-candidates: {class3}
+  ```
+- Store this block in a variable; emit in Phase 5 summary.
+
 ### Phase 5: Summary
 11. Present summary:
     - Sent emails logged (list entries written)
@@ -75,6 +93,8 @@ This is a non-blocking flag. The commit still proceeds. The flag ensures André 
     - Git commit hash + push status
     - Pending items for tomorrow (from Open Items DB + unanswered emails)
     - `REFRESH FX RATES` flag from Phase 4b if triggered
+    - **Autonomy ledger delta** from Phase 4d (new entries, promotion-approaching, demotion-candidates).
+    - **Supplier patterns touched** — count of pattern records upserted in Phase 4c.
 
 ## Rules
 - Always run log-sent BEFORE context sync (outreach may change during log-sent).

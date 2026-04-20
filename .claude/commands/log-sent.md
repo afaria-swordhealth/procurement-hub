@@ -63,7 +63,12 @@ Before writing milestones, check whether any sent email in Phase 1 implies a quo
 
 ## Phase 5: Write
 
-Write **one supplier at a time**. After each supplier's entry is written to Notion: **(M4)** update the supplier's `Last Outreach Date` DB field to today via `notion-update-page` (skip if Status = 'Rejected'; skip silently if field does not exist; if update fails, log to change-log and proceed). Then log to `outputs/change-log.md` before moving to the next supplier. If a Notion write fails mid-phase: log the failure, note which suppliers were already processed, and stop. Re-running is safe — the dedup guard in check-outreach.md prevents duplicates for already-written entries.
+Write **one supplier at a time**. After each supplier's entry is written to Notion:
+- **(M4)** update the supplier's `Last Outreach Date` DB field to today via `notion-update-page` (skip if Status = 'Rejected'; skip silently if field does not exist; if update fails, log to change-log and proceed).
+- **Supplier pattern observer write** per `.claude/procedures/supplier-pattern-store.md` §Producers.2: if this milestone is an André response to an inbound supplier email (Direction "incoming response"), update the pattern record's response-side fields (`last_inbound_ts`, `response_count_90d`, `last_response_days`, `avg_response_days`, `response_rate_90d`, `last_chase_tier_that_worked`). Upsert via `mcp__ruflo__memory_store`. If ruflo fails, log `[EVENT: FAIL target=supplier_pattern supplier={slug}]` and proceed — pattern write is audit-only.
+- Then log to `outputs/change-log.md` before moving to the next supplier.
+
+If a Notion write fails mid-phase: log the failure, note which suppliers were already processed, and stop. Re-running is safe — the dedup guard in check-outreach.md prevents duplicates for already-written entries.
 
 If Gmail MCP returns an error during Phase 1: log `log-sent Phase 1 failed: Gmail MCP error` to `outputs/change-log.md` and exit cleanly. Do NOT proceed with partial data. Re-run when MCP recovers.
 

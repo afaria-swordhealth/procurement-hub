@@ -92,8 +92,9 @@ Never reveal: other supplier pricing, internal timelines, decision deadlines, sh
 
 1. Cross-check recipient email against Notion Contact section and `config/domains.md`. Flag mismatches.
 2. **SHOW BEFORE WRITE.** Present full draft to Andre. He may edit.
-3. Store execution checkpoint per `procedures/exec-checkpoints.md` before creating draft — write `outputs/checkpoints/rfq-workflow_{supplier_slug}.json` with `{ skill: "rfq-workflow", entity: "{supplier}", started, last_update, status: "in-progress", steps_done: [], meta: { project, supplier } }`. Atomic write. On write failure: STOP.
-4. Create Gmail draft in HTML (no CDATA). Append signature from `.claude/config/signature.html`. After draft created: update checkpoint — `steps_done: ["gmail_draft"]`.
+3. **PII pre-check.** Per `.claude/procedures/aidefence-precheck.md`, call `mcp__ruflo__aidefence_has_pii` on draft body. Clean / fail-open → proceed. PII detected (not false positive) → STOP, surface to André.
+4. Store execution checkpoint per `procedures/exec-checkpoints.md` before creating draft — write `outputs/checkpoints/rfq-workflow_{supplier_slug}.json` with `{ skill: "rfq-workflow", entity: "{supplier}", started, last_update, status: "in-progress", steps_done: [], meta: { project, supplier } }`. Atomic write. On write failure: STOP.
+5. Create Gmail draft in HTML (no CDATA). Append signature from `.claude/config/signature.html`. After draft created: update checkpoint — `steps_done: ["gmail_draft"]`.
 
 ## Step 4: After sending — log and track
 

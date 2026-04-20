@@ -122,7 +122,8 @@ Present the full change summary. Wait for André's explicit approval before writ
 Before executing writes: store execution checkpoint — `key: exec::supplier-rejection::{supplier}`, namespace "procurement", upsert true, value: `{ skill: "supplier-rejection", supplier, date, status: "in-progress", steps_done: [] }`.
 
 In order:
-1. Create Gmail draft for rejection email (HTML format, append signature). After draft created: update checkpoint — `steps_done: ["gmail_draft"]`.
+1. **PII pre-check.** Per `.claude/procedures/aidefence-precheck.md`, call `mcp__ruflo__aidefence_has_pii` on the rejection draft body. Clean / fail-open → proceed. PII detected (not false positive) → STOP, surface to André.
+2. Create Gmail draft for rejection email (HTML format, append signature). After draft created: update checkpoint — `steps_done: ["gmail_draft"]`.
 2. Update OI statuses to Closed with resolution text (per Step 5 approval). If Notion update fails for one OI: skip it, log `[OI title] — Notion MCP error, skipped` to change-log, and continue to the next. Report skipped OIs in the final output. For each OI closed, also add a Notion page comment via `notion-create-comment`: `Supplier rejected [date]. OI closed via /supplier-rejection.` (auto-approved per CLAUDE.md §5 Exception 2). After OI closures: update checkpoint — `steps_done: ["gmail_draft", "ois_closed"]`.
 3. Update Supplier DB: Status → Rejected, NDA Status → Not Required. After status write: update checkpoint — `steps_done: ["gmail_draft", "ois_closed", "status_updated"]`.
 4. Log milestone to Outreach section (direct write, auto-approved):

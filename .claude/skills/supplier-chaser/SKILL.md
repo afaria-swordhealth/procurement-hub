@@ -72,20 +72,19 @@ Sort by chase urgency:
 
 ## Step 4: Draft follow-up emails
 
-### 4a: Check ruflo for supplier patterns
+### 4a: Read supplier pattern record
 
-Before applying tone tiers, call `mcp__ruflo__memory_search` for each supplier:
-- `query`: "chase patterns for [supplier_name]"
+Per `.claude/procedures/supplier-pattern-store.md`, call `mcp__ruflo__memory_retrieve` for each supplier:
+- `key`: `supplier::{supplier_slug}::pattern`
 - `namespace`: "procurement"
-- `limit`: 3
-- `threshold`: 0.5
 
-If results exist, use them to inform the draft:
-- Prior tone tier that got a response → prefer that tier
-- Typical response time → adjust soft deadline accordingly
-- Channel preference (email vs Slack) → note in draft header
+If a record is returned, apply the Consumer rules in supplier-pattern-store.md §Consumers.1:
+- `response_rate_90d < 0.3` AND `chase_count_90d ≥ 3` → escalate tone tier by +1 (capped at Tier 3 — fourth miss is a human escalation decision, not a fourth draft).
+- `last_chase_tier_that_worked` set → prefer that tier over default logic.
+- `avg_response_days` set → treat supplier as "not yet overdue" until `last_chase_ts + 1.5 × avg_response_days`; skip chase if within the window.
+- `language` set → override default language inference.
 
-If no results, proceed with default tone tier logic below.
+If no record or ruflo MCP fails: fall back to default tone tier logic below. Log `[EVENT: FAIL target=supplier_pattern supplier={slug}]` to change-log and proceed.
 
 For each P1-P3 item, draft a follow-up email. Apply these rules:
 
@@ -157,7 +156,15 @@ Then, for each item with a draft:
 
 ## Step 6: Execute chasers
 
-For **[AUTO] items** (Tier 1, all conditions met): create Gmail drafts immediately after Step 5 presentation without waiting for approval. Output confirmation line per item: `Auto-created draft: [Supplier] — [subject] (Tier 1, chase 1, [N]d overdue)`.
+### 6a: PII pre-check
+
+Before creating any Gmail draft ([AUTO] or reviewed), run the PII pre-check per `.claude/procedures/aidefence-precheck.md`:
+- Clean / fail-open → proceed.
+- PII detected (not a known false positive) → STOP and surface to André. Do not create the draft.
+
+### 6b: Create drafts
+
+For **[AUTO] items** (Tier 1, all conditions met, PII clean): create Gmail drafts immediately after Step 5 presentation without waiting for approval. Output confirmation line per item: `Auto-created draft: [Supplier] — [subject] (Tier 1, chase 1, [N]d overdue)`.
 
 For all other items: after André approves (may edit drafts):
 
@@ -176,7 +183,13 @@ For all other items: after André approves (may edit drafts):
    - `tags`: ["chase", project_name, supplier_name]
    - `value`: `{ supplier, tone_tier, channel, days_overdue, item, outcome: "sent", response_received: false, days_to_reply: null }` — update `response_received: true, days_to_reply: N` if a reply arrives
 
-7. **(M4)** Update the supplier's `Last Outreach Date` DB field to today via `notion-update-page`. Applies to all chase tiers, including [AUTO] items. If the field does not exist yet (not yet added via Notion UI), skip silently. If update fails, log to change-log and proceed.
+7. **Update supplier pattern record** per `.claude/procedures/supplier-pattern-store.md` §Producers.1:
+   - Read existing `supplier::{slug}::pattern` record (or start fresh if missing).
+   - Update `last_chase_ts`, `chase_count_90d` (increment; reset if `last_updated > 90d`), `language`, `channel_preference`.
+   - `mcp__ruflo__memory_store` upsert.
+   - If ruflo fails, log `[EVENT: FAIL target=supplier_pattern supplier={slug}]` and proceed — pattern update is audit-only, not a gate.
+
+8. **(M4)** Update the supplier's `Last Outreach Date` DB field to today via `notion-update-page`. Applies to all chase tiers, including [AUTO] items. If the field does not exist yet (not yet added via Notion UI), skip silently. If update fails, log to change-log and proceed.
 
 ## Rules
 
