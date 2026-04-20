@@ -36,3 +36,31 @@ Phase split: Phase A (non-blocking, shipped now) vs Phase B (blocking PreToolUse
 - `pre-create-draft-style-guard.sh` — block `create_draft` unless `config/writing-style.md` was Read in the same turn.
 
 Both need transcript-parsing which is fragile; a false positive could prevent a legitimate reply. Gated behind 1–2 week Phase A observation window per improvement-plan.md Layer 2 ship metric.
+
+### Layer 3 — System owns the clock (proactive loop)
+
+Follows Layer 2A. Session C scope. Do not push.
+
+Scope shipped: scaffolding + skill + producer wiring. Deferred: cron redesign (needs DM target), promises.md retirement (operational data).
+
+**New files:**
+- `outputs/pending-signals.md` — append-only queue with 3 sections: Pending, Deferred, Consumed. Signals formatted as `[EVENT: TYPE key=value ...] score=N ts=ISO`. Purged monthly by `/wrap-up`, history in git.
+- `.claude/procedures/attention-budget.md` — scoring formula `urgency × type_weight × project_weight` with hard caps (Top 3 Decisions=3, Overdue=5, New Signals=5, Calendar=uncapped). Tie-break: earliest deadline, then alphabetical. Kaia drops to weight 0.3 (not 0) so urgent items still surface. Overflow → Deferred with `[EVENT: DEFER]`; 5 consecutive defers auto-escalates `type_weight` by +0.3.
+- `.claude/skills/morning-brief/SKILL.md` — 6-step skill: pre-flight → gather (OI DB + pending-signals + calendar + optional Slack DMs) → score → compose 4-block brief → deliver → persist consumed/deferred + session-state timestamp. Same-day dedup via `--force`. Notion HALT policy; calendar and Slack MCP failures tolerated.
+
+**Producer wiring:**
+- `skills/risk-radar/SKILL.md` new Step 6b — for each CRITICAL/HIGH/MEDIUM risk, append `[EVENT: RISK supplier=X project=Y severity=Z risk_type=T]` to pending-signals.md. LOW stays report-only. Dedup by supplier+risk_type within 24h (in-place severity bump if higher). Risk-radar does not score — severity maps to `type_weight` in attention-budget.md.
+
+**Delivery gating:**
+- Default output: chat (no Slack write). Slack DM activates when `config/morning-brief-target.md` exists with `channel_id`. Until André approves target, `/morning-brief` runs on-demand and prints to chat.
+- 07:30 cron deferred until DM target confirmed.
+- Existing `/log-sent` cron (510d3725) unchanged — milestone writes remain auto-approved per `feedback_outreach_milestones_only`. Plan's "crons as observers" applies to new observer crons, not to the documented auto-write one.
+
+**CLAUDE.md §4:** added `/morning-brief` to daily/weekly core list and a Proactive loop note pointing at pending-signals.md + attention-budget.md.
+
+**Deferred from improvement-plan.md §2b EVALUATE (not this sprint):**
+- #1 weekly-pulse vs morning-brief — plan keeps both (different cadence); no change needed.
+- #2 project-dashboard — keep; no change needed.
+- #3 promises.md retirement — deferred. Retiring now would regress active promises tracking; needs staged migration.
+- #4 risk-radar as producer — ✅ landed (Step 6b).
+- #5 /mail-scan cron re-route — deferred until morning-brief cron is wired.

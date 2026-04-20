@@ -175,6 +175,21 @@ Scanned: {n} suppliers, {n} open items, {n} promises
 1. {action, who, by when}
 ```
 
+## Step 6b: Emit as producer to pending-signals.md
+
+For each risk classified CRITICAL, HIGH, or MEDIUM, append one line to `outputs/pending-signals.md` under `## Pending`:
+
+```
+[EVENT: RISK supplier={Supplier_Name} project={project} severity={CRITICAL|HIGH|MEDIUM} risk_type={cold|nda_pending|quote_expiring|single_source|overdue_oi|unanswered|risk_keyword}] ts={ISO}
+{one-line risk summary with next-step verb}
+```
+
+LOW severity is report-only — not emitted to pending-signals.md (too noisy for morning-brief).
+
+Dedup: before appending, scan existing `## Pending` entries. If an entry exists with the same `supplier + risk_type` from the last 24h, skip the append (update severity in-place only if it has increased).
+
+The `morning-brief` skill consumes these and applies `attention-budget.md` scoring. Risk-radar does not score — severity maps to type_weight in the budget procedure.
+
 ## Step 7: Store scan results in ruflo
 
 After presenting the report, call `mcp__ruflo__memory_store` to record what was found:

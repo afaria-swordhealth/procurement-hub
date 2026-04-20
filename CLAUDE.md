@@ -31,7 +31,7 @@ Route by domain; each agent file in `.claude/agents/` defines its writes and NOT
 
 # 4. Skills and Commands
 
-Commands (`.claude/commands/`) are thin orchestrators; skills (`.claude/skills/`) are end-to-end workflows. Run `/skills` for the full list. Daily/weekly core: `/warm-up`, `/wrap-up`, `/mail-scan`, `/log-sent`, `/housekeeping`, `/cross-check`, `/ping`, `/daily-log`, `/weekly-report`.
+Commands (`.claude/commands/`) are thin orchestrators; skills (`.claude/skills/`) are end-to-end workflows. Run `/skills` for the full list. Daily/weekly core: `/morning-brief` (proactive filter), `/warm-up`, `/wrap-up`, `/mail-scan`, `/log-sent`, `/housekeeping`, `/cross-check`, `/ping`, `/daily-log`, `/weekly-report`. Proactive loop (Layer 3): `/morning-brief` reads `outputs/pending-signals.md` (producers: `risk-radar`, future crons) and applies `.claude/procedures/attention-budget.md`.
 
 **Session-state sync** (`outputs/session-state.md`): every command reads first. `Last-Warm-Up` <2h → use snapshot; 2–8h → baseline + delta scan; >8h → `/warm-up`. Load only the context file for the relevant project unless the command requires full state.
 
