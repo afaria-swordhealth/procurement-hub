@@ -4,6 +4,24 @@
 
 ## 2026-04-20
 
+### /supplier-enrichment — pair-work session closed
+
+[EVENT: PAIR_WORK_COMPLETE skill=supplier-enrichment runs_validated=3 open_questions_resolved=5]
+
+- Pair-work checklist formally closed after 3 validation runs (Crestline/Kimball/Zewa) + André Q&A on 5 open questions.
+- **5 decisions:**
+  1. Options **A + B** canonical (structured Website/Region + `## Profile` prose). Option C (schema extension) deferred.
+  2. Pulse FDA writes: **prose-only**. Structured `FDA` / `Scale FDA Code` / `Scale FDA Status` selects never touched while Option C deferred. Reassess after 5–10 clean runs.
+  3. Region: accept as Country proxy, write when empty only.
+  4. `[MANUAL]` marker confirmed + **contradiction rule added**: on detected conflict with a locked field, surface in data card for review instead of overwriting.
+  5. `## Profile` is canonical heading; additive mode preserves `## Company` / `## Capabilities` when present.
+- **3 new rules formalized in SKILL.md:**
+  - Mode auto-detect (replace vs additive vs insert-after-Contact based on existing headings)
+  - HQ conflict detection extended — compare against `## Contact` AND `Notes` DB property's parenthesized location (lesson from Crestline Cincinnati→Lewiston)
+  - Pulse FDA structured fields explicitly excluded from writes
+- **Skill status:** ACTIVE for any supplier Status (Rejected + Identified + Contacted + Quote Received + Shortlisted). Still requires SHOW BEFORE WRITE, allowlist enforcement, HQ conflict detection.
+- `field-allowlist.md` updated: header changed DRAFT→CONFIRMED; 5 open questions replaced with RESOLVED answers.
+
 ### /build-deck — M-Band component risk deck
 - `outputs/mband-component-risk-jorge.pptx` created (144 KB, 5 slides). Audience: Jorge Garcia. Key message: zero-cost window via Future Electronics pre-order offer.
 - Logo skipped: `sword-logo.png` missing from `.claude/assets/` (only template .pptx present). Manual fix: extract logo + save as sword-logo.png.

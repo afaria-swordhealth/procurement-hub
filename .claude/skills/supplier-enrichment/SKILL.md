@@ -37,7 +37,15 @@ Pull the current Profile block state. Classify each field as:
 
 - **Empty** — candidate for enrichment.
 - **Populated** — skip unless `--fields` includes it with explicit override.
-- **Locked** — fields manually flagged by André (e.g., prefixed `[MANUAL]` in the field value). Never touch.
+- **Locked** — fields manually flagged by André with `[MANUAL]` prefix in the field value. Never overwrite. **Contradiction rule (added 2026-04-20):** if enrichment finds evidence that contradicts a `[MANUAL]` field (e.g., locked HQ says Lisbon but website + registry say Porto), do NOT overwrite — instead surface the conflict in the data card as a separate line: `⚠ LOCKED field '{name}' has value '{current}' but evidence suggests '{proposed}' from {source}. Review manually.` André then updates (or removes the lock) in Notion directly.
+
+**Mode auto-detect (added 2026-04-20):** decide write mode per section heading, not globally:
+
+- If the page has `## Profile` → **replace mode**: rewrite the `## Profile` section body with the enriched prose block. Do not touch any other section.
+- If the page has no `## Profile` but has `## Company` / `## Capabilities` (Kimball-style M-Band convention) → **additive mode**: insert a new `## Profile` section between `## Contact` and the first existing company block. Preserve the human-curated `## Company` / `## Capabilities` verbatim.
+- If the page has neither → **insert-after-Contact mode**: add `## Profile` immediately below `## Contact`.
+
+Canonical heading is always `## Profile`. Never rename existing `## Company` or `## Capabilities` blocks.
 
 Target Profile fields (subject to confirmation with André on first run — see §Rules):
 
@@ -119,6 +127,12 @@ Apply `.claude/procedures/typed-edit-payloads.md` for the approval gate — `app
 
 **HQ address override semantics:** if the enrichment finds a canonical HQ that conflicts with the existing `## Contact` value, surface the diff in the data card with both "current" and "proposed" shown side-by-side. Only when André passes `approve_with_edit {hq_override: true}` does the skill also rewrite the `## Contact` city/state line and the `Notes` DB property's parenthesized location if present. Without `hq_override: true`, the skill writes only the `## Profile` block and flags the `## Contact` / `Notes` mismatch for manual resolution.
 
+**HQ conflict detection (extended 2026-04-20, lesson from Crestline):** do not trust `## Contact` as authoritative when checking for conflicts. Always compare the enrichment-discovered HQ against BOTH `## Contact` text AND the `Notes` DB property's parenthesized location (e.g., `RESELLER (Cincinnati, OH)`). If the discovered HQ differs from either, surface as a conflict even when `## Contact` is populated. Intake-stage city errors cannot be caught by a "populated means correct" heuristic.
+
+**Pulse FDA structured fields (added 2026-04-20, lesson from Zewa):** while Option C (schema extension) is deferred, the skill writes FDA information as prose in `## Profile` ONLY. Never touch the structured `FDA`, `Scale FDA Code`, or `Scale FDA Status` select fields — those remain André-managed. FDA 510(k) numbers, establishment registration numbers, and product codes go into the `## Profile` Regulatory line. Reason: structured FDA writes are effectively irreversible for audit purposes; the prose path preserves the evidence without committing to a structured state change.
+
+**Region enrichment (added 2026-04-20):** Region is a coarse proxy for Country per the per-DB option list (see `field-allowlist.md`). Write `Region` only when empty, and only when the discovered HQ maps unambiguously to one of the DB's select options. Never invent a Region outside the DB's option list. Never overwrite a populated Region.
+
 ---
 
 ## Step 4: Write to Notion
@@ -159,14 +173,14 @@ After André approves (possibly with edits):
 
 ---
 
-## First-run pair-work checklist
+## First-run pair-work — COMPLETE (2026-04-20)
 
-Before the first real run, André and Claude walk through together:
+Checklist closed. Three validation runs executed on Rejected suppliers:
 
-1. Confirm the Profile field allowlist against the actual Notion schema (schema may differ across the 4 DBs).
-2. Save the confirmed list to `field-allowlist.md` in this directory.
-3. Run on ONE safe supplier (suggest: a Rejected supplier, so an error has no live-flow impact) to validate the write path.
-4. Review the change-log entry together.
-5. Only after a clean first run: enable for active suppliers.
+1. **Crestline (Kaia)** — empty-Profile baseline. Discovered HQ intake error (Cincinnati → Lewiston). Led to `HQ address override` typed-edit field + HQ conflict detection rule extension.
+2. **Kimball (M-Band)** — populated-Profile edge case with human-curated `## Company` / `## Capabilities`. Validated additive mode.
+3. **Zewa (Pulse)** — FDA-field interaction. Validated structured Pulse FDA fields stay untouched; prose-only in `## Profile`.
 
-Until the pair-work checklist runs, the skill HALTs after Step 3 with: `First-run validation pending. Review data card, confirm Profile field allowlist, save to field-allowlist.md before writing.`
+Field allowlist confirmed in `field-allowlist.md` — Options A (structured Website/Region where empty) + B (`## Profile` prose) are canonical. Option C (schema extension) deferred.
+
+**Skill is now ACTIVE for live suppliers** in any Status — not just Rejected. Normal rules still apply (SHOW BEFORE WRITE, allowlist enforcement, contradiction rule on `[MANUAL]` fields, HQ conflict detection).
