@@ -4,6 +4,62 @@
 
 ## 2026-04-20
 
+### Layer 6 follow-up — `/supplier-enrichment` scaffolded
+
+- `.claude/skills/supplier-enrichment/SKILL.md` — web-search enrichment of Notion Profile fields. Allowlist: company website, LinkedIn, SEC EDGAR, EU/PT registries, IAF CertSearch, FDA Establishment DB, Wikipedia. Flow: search → propose data card → typed-edit approval → write to Notion Profile fields only. First-run pair-work checklist: confirm field allowlist against live Supplier DB schema, save to `field-allowlist.md`, test on a Rejected supplier before live use. HALTs after Step 3 until pair-work completes.
+
+### Supplier enrichment — Kimball Electronics (M-Band)
+
+[EVENT: SUPPLIER_ENRICH supplier=Kimball project=mband fields_written=8 manual_gaps=0 mode=additive]
+
+- `/supplier-enrichment` run on Kimball Electronics (M-Band, Rejected Mar 30). Edge-case test for **populated-Profile** scenario — existing `## Company` + `## Capabilities` blocks from Mar 6 sales call were human-curated narrative. Approach: additive insertion of new `## Profile` block between `## Contact` and `## Company`, preserving the existing narrative intact.
+- Profile written: Legal entity (Kimball Electronics, Inc. — Nasdaq: KE), HQ (1205 Kimball Blvd, Jasper, IN 47546), Founded (1961 / IPO 2014 spin-off from Kimball International), Employees (5,700+ FY25), Revenue ($1.49B FY25), Parent (Independent public company since 2014), Certifications (ISO 13485:2016 at 3 sites, ISO 14001, ISO 45001, ESD S20.20, FDA registered), Markets (Automotive, Medical, Industrial, Public Safety).
+- Sources: kimballelectronics.com, SEC EDGAR 10-K FY25, LinkedIn, BSI ISO 13485 registry, Kimball Jasper quality page. All within SKILL.md §Step 2 allowlist.
+- Structured DB writes: none needed (Website + Region already populated, no HQ conflict).
+- Notion comment created. Ruflo memory_store attempted below.
+
+### Supplier enrichment — Zewa Inc. (Pulse)
+
+[EVENT: SUPPLIER_ENRICH supplier=Zewa project=pulse fields_written=8 manual_gaps=2 mode=replace]
+
+- `/supplier-enrichment` run on Zewa Inc. (Pulse, Rejected). Pulse FDA-field interaction test. Replaced sparse `## Profile` block (2 sentences) with enriched prose.
+- Profile written: Legal entity (Zewa, Inc. d/b/a Zewa Medical Technology), HQ (12960 Commerce Lakes Drive Suite 29, Fort Myers FL 33913), Founded (originally Switzerland, US ops since 2000), Business model (US distributor; OEM via Transtek per Jorge Slack Mar 17), Products (BP monitors, pulse oximetry, thermometry, digital scales, BLE connected), Customer profile (Hello Heart + CVS/Walgreens private label), Regulatory (FDA 510(k) K041491 DXN Jun 2004; Owner/Operator 1417572), Status note (RFQ Mar 4, no response → Rejected).
+- Sources: zewa.com, FDA 510(k) database, FDA Establishment Registration DB, LinkedIn. All within SKILL.md §Step 2 allowlist.
+- Structured `FDA: Cleared` select left UNCHANGED per SKILL.md rule (prose-only enrichment on Pulse FDA fields).
+- Manual gaps: Employee count (not publicly disclosed anywhere), Establishment reg # (Owner/Operator number found, but associated registration number not verified — left as "not yet verified" in prose for André to close or confirm).
+- Notion comment created.
+- Ruflo memory_store: both Kimball + Zewa failed with known bug (`Cannot read properties of null (reading 'model')`). Non-critical per SKILL.md — pattern persistence is audit-only, not a gate. Same bug seen on Crestline earlier today.
+
+### Supplier enrichment — first live run (Crestline)
+
+[EVENT: SUPPLIER_ENRICH supplier=Crestline project=kaia fields_written=6 manual_gaps=0 hq_corrected=1]
+
+- First live execution of `/supplier-enrichment` on Crestline (Kaia, Rejected). André approved Options A+B (structured + `## Profile` prose rewrite).
+- `## Profile` block rewritten on Notion page (URL: https://www.notion.so/318b4a7d7207816eb6c4dfab1470c318). New fields: Legal entity (Crestline Specialties, Inc.), HQ (70 Mount Hope Ave, Lewiston ME 04241), Founded (1962), Employees (51–200), Parent (Geiger, acquired 1997), Certifications (None ISO; LEED Gold + EcoVadis Platinum + FSC).
+- **HQ correction:** `## Contact` block changed `Cincinnati, OH` → `Lewiston, ME` (exception approved by André). Notes DB property also corrected: `RESELLER (Cincinnati, OH)` → `RESELLER (Lewiston, ME)`. Verified via crestline.com/contact (only Lewiston PO Box listed), LinkedIn, 207 area code on Rebecca's signature. No Crestline presence in Ohio — intake error at original page creation.
+- Sources: crestline.com (About Us, Contact), LinkedIn, SEC EDGAR (Geiger = private, no filings). All within SKILL.md §Step 2 allowlist.
+- No structured DB writes needed (Website + Region already populated correctly).
+- Notion page comment created documenting enrichment.
+- Exception logged: `## Contact` + `Notes` DB property writes crossed normal skill boundary. Approved case-by-case by André. Not a general policy change.
+- Lessons for SKILL.md: add `HQ address override` as high-risk typed-edit field so future HQ corrections don't need per-run exceptions.
+
+### log-sent
+- Outreach write: Transtek Medical — Apr 18 — SQA v0.2 comparison document sent. Summary updated (61+ milestones, Last: Apr 18).
+
+### meeting-prep + notes processed — André/Sofia 2026-04-20 15:00
+OI comments written (6):
+- 33eb4a7d…85dc (Transtek SQA QARA review): Track Changes received; SQ→UDI change; MSA flagged
+- 33eb4a7d…8198 (Pulse packaging artwork): Transtek labels confirmed compliant; mandatory label requirements documented
+- 343b4a7d…cc39 (labeler classification): mandatory label reqs confirmed; João 'Berlin Wall' strategy → Bianca to confirm
+- 33eb4a7d…8140 (Transtek Qualio): overdue, chase João/Bianca
+- 33eb4a7d…8150 (Unique Scales Qualio): overdue, chase João/Bianca
+- 33eb4a7d…81ee (Unique Scales SQA): major doc gaps (EN/CN manual, wrong market assumption); US examples arrived Apr 20 morning
+- Outreach write: Transtek Medical — Apr 20 — ISTA 2A documentation requested. Summary updated (62+ milestones, Last: Apr 20). M4 Last Outreach Date updated to 2026-04-20.
+- OI comment: Transtek ISTA OI (345b4a7d…9e84) — Apr 20 follow-up sent; awaiting docs for closure.
+- Skipped (already logged): Transtek Apr 17 × 6, Unique Scales Apr 17 × 3, Urion Apr 17, MCM Apr 17.
+- Skipped (logistics): TransPak Apr 20 (package tracking update).
+- Skipped (deprioritized): Vangest Apr 17.
+
 ### Layer 6 — Procurement leverage (partial)
 
 Follows Layer 5 (commit `1e87611`, unpushed). Session C scope: system files only. Do not push.
@@ -221,3 +277,10 @@ Plan §4 explicitly flags "Rewrite context files might need pair work for suppli
 - First `context/index.json` generation — happens on next `/wrap-up` Full run once files are migrated OR on any `/wrap-up` now (v0 files generate a degraded index without blocker/top_deadline fields; usable as warm-up fallback).
 
 **Not shipped in L5 (nothing extra planned beyond pair-work gate).**
+
+### André/Sofia meeting Apr 20 — OIs + promises
+
+- OI created: `348b4a7d…da68` — Transtek MSA (Owner: André → Bradley, Deadline: Apr 27)
+- OI created: `348b4a7d…c9cb` — Unique Scales US documentation revision (Owner: André + Sofia, Deadline: Apr 28)
+- promises.md: 4 entries added (Jorge/MSA, Bianca/Berlin Wall, João-Bianca/Qualio, Queenie/US docs)
+- Note: Project + Supplier relations not set on new OIs (relation field limitation) — set manually in Notion

@@ -53,15 +53,33 @@ Use notion-query-data-sources with SQL format:
 SELECT {columns} FROM "{collection_id}" [WHERE {filter}]
 ```
 
+### Date-column convention (CRITICAL)
+
+Notion `date` property types are exposed in the SQLite interface as **three split columns**, not one. For a Notion field named `Foo`:
+
+| SQL column | Contains |
+|---|---|
+| `"date:Foo:start"` | Start date (ISO 8601 string, e.g. `2026-04-20`) |
+| `"date:Foo:end"` | End date (for date ranges; `NULL` if single-date) |
+| `"date:Foo:is_datetime"` | Boolean — `1` if the field includes a time component, `0` if date-only |
+
+**Always query with the `date:` prefix for date fields.** A query like `SELECT "Last Outreach Date" FROM PULSE_DB` returns `no such column` even when the field exists — use `SELECT "date:Last Outreach Date:start"` instead.
+
+Confirmed date fields across the workspace:
+- Supplier DBs (all 4): `"date:Last Outreach Date:start"`
+- Open Items DB: `"date:Deadline:start"`
+- (Daily Logs DB's `Date` field is a plain string, NOT a date property — see note below.)
+
 ### Known DB Schemas (use these for direct queries — no schema discovery needed)
 
-**Supplier DBs (Pulse / Kaia / M-Band):**
+**Supplier DBs (Pulse / Kaia / M-Band / BloomPod):**
 ```
 Name, Status, Notes, Currency, Region, "NDA Status", "Samples Status",
-"Unit Cost (EUR)", "Tooling Cost (EUR)",
-"Last Outreach Date", id, url
+"Unit Cost (EUR)", "Tooling Cost (EUR)", "FX Rate at Quote",
+"date:Last Outreach Date:start", "date:Last Outreach Date:end", "date:Last Outreach Date:is_datetime",
+id, url
 ```
-Note: `"Unit Cost (EUR)"` and `"Tooling Cost (EUR)"` are written by quote-intake Step 4. `"Last Outreach Date"` (M4) must be added manually via Notion UI to all 4 Supplier DBs before first use — Date field type.
+Note: `"Unit Cost (EUR)"`, `"Tooling Cost (EUR)"`, and `"FX Rate at Quote"` are written by quote-intake Step 4. `"date:Last Outreach Date:start"` is live on all 4 Supplier DBs — writers use `notion-update-page` with property name `Last Outreach Date` (the unprefixed name is used for writes; the `date:` prefix is read-side only).
 
 **Open Items DB:**
 ```
@@ -83,24 +101,24 @@ Name, Status, id, url
 
 | Caller | Columns to SELECT |
 |--------|---------|
-| context-sync (wrap-up) | Name, Status, Notes, "NDA Status", "Samples Status", "Last Outreach Date", Region, Currency, id |
+| context-sync (wrap-up) | Name, Status, Notes, "NDA Status", "Samples Status", "date:Last Outreach Date:start", Region, Currency, id |
 | daily-log check | title, Date, Status, id, createdTime |
 | OI triage | Item, Status, Type, Owner, "date:Deadline:start", id |
 | housekeeping | Name, Status, Notes, Currency, "NDA Status", Region |
 | price-compare | Name, Status, "Unit Cost (EUR)", "Tooling Cost (EUR)", Notes, id |
 
-## M4 Field Setup (one-time, via Notion UI)
+## M4 Field Setup — DONE
 
-Before M4 queries work, add these fields to all 4 Supplier DBs manually in Notion:
+All M4 fields are live on the 4 Supplier DBs (added via Notion UI, confirmed 2026-04-18):
 
-| Field | Type | Writer | Notes |
+| Field | Type | Writer | Read via |
 |-------|------|--------|-------|
-| `Last Outreach Date` | Date | check-outreach.md, supplier-chaser Step 7, quote-intake Step 7 | Auto-populated on every outreach write after this field exists |
+| `Last Outreach Date` | Date | check-outreach.md, supplier-chaser Step 7, quote-intake Step 7 | `"date:Last Outreach Date:start"` |
+| `Unit Cost (EUR)` | Number | quote-intake Step 4 | Plain column name |
+| `Tooling Cost (EUR)` | Number | quote-intake Step 4 | Plain column name |
+| `FX Rate at Quote` | Number | quote-intake Step 4 | Plain column name |
 
-Optional (deferred — formula fields untested):
-| `Days Since Last Contact` | Formula: `dateBetween(now(), prop("Last Outreach Date"), "days")` | Notion (auto) | Test formula field query in sql-capabilities.md before relying on it |
-
-`Unit Cost (EUR)` and `Tooling Cost (EUR)` already exist — no action needed.
+Optional (deferred — formula fields untested): `Days Since Last Contact` as a Notion formula. Test formula field query in `sql-capabilities.md` before relying on it.
 
 ## Error Handling
 
