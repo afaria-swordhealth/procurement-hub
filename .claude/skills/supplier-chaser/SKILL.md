@@ -86,6 +86,46 @@ If a record is returned, apply the Consumer rules in supplier-pattern-store.md �
 
 If no record or ruflo MCP fails: fall back to default tone tier logic below. Log `[EVENT: FAIL target=supplier_pattern supplier={slug}]` to change-log and proceed.
 
+### 4b: Signal-triggered cadence
+
+Before drafting, compute the supplier's send window. This layer suppresses or shifts chases that would land in a low-response-probability slot.
+
+**Timezone map** (derived from `.claude/config/domains.md` region field, with pattern-record override if present):
+
+| Supplier region | Business hours (local) | André's action window (UTC+1 WEST) | Weekend rule |
+|---|---|---|---|
+| CN | 09:00–18:00 CST (UTC+8) | Draft created any time; **send window 01:00–10:00 WEST** so it lands 09:00–18:00 CST | Never send Sat/Sun local (CN Mon–Fri only). Never send on mainland-China public holidays if known. |
+| EU / PT | 09:00–18:00 local | 09:00–18:00 WEST | No send Sat/Sun local. |
+| US East | 09:00–17:00 EDT (UTC−4) | 14:00–22:00 WEST | No send Sat/Sun local. |
+| US West | 09:00–17:00 PDT (UTC−7) | 17:00–01:00 WEST (next day) | No send Sat/Sun local. |
+| DE (Nimbl, Helmut Schmid) | 09:00–18:00 CEST | 08:00–17:00 WEST | No send Sat/Sun local. |
+| Internal (Jorge, Sofia PT) | Porto business hours | 09:00–18:00 WEST | Never Sat/Sun. |
+
+**Rules applied at Step 6 execution time** (drafts may still be prepared and queued outside the window):
+
+1. **CN suppliers, Sat/Sun local:** suppress send. Defer to Monday 01:00 WEST (09:00 CST). Flag `[DEFERRED: CN weekend]` in the chase table.
+2. **PT suppliers, first send of the day before 09:00 WEST:** hold until 09:00 WEST. Morning-arrival matters in Porto (memory: steady-gentle-pressure; a 06:30 email reads as pushy, a 09:15 email reads as professional).
+3. **CN supplier, current WEST time outside 01:00–10:00:** queue for the next window. If André approves in the afternoon, draft is created but not auto-sent. (Gmail draft creation is already the only write — no auto-send exists. This rule is advisory: mark the draft `[SEND AFTER: 01:00 WEST tomorrow]` so André opens and sends within the window.)
+4. **Supplier timezone unknown:** default to PT rules (safe: business-hours send from André's clock).
+
+**Gmail signal-triggered modifiers** (optional — applied when `mcp__claude_ai_Gmail__get_thread` can retrieve read receipts or recent inbound activity):
+
+1. **Supplier opened the prior outreach <24h ago but did not reply:** skip chase. They are processing. Flag `[DEFERRED: recent-open]` with the open timestamp. Re-evaluate tomorrow.
+2. **Supplier sent any email to André in the last 48h (even on another topic):** downgrade tone tier by −1 (Tier 3 → Tier 2, Tier 2 → Tier 1). They are engaged; don't escalate.
+3. **Supplier inbox has an auto-reply / OOO indicator:** defer chase until the OOO end-date + 1 business day. Flag `[DEFERRED: OOO until {date}]`.
+
+If Gmail `get_thread` fails or read-receipt data is unavailable: skip these modifiers silently. This is an optimiser, not a gate.
+
+**Output of Step 4b:** per chase row, a computed `send_window` and optional `defer_reason`. Feed into Step 5 presentation:
+
+| # | Supplier | Tone tier | Send window | Defer reason |
+|---|---|---|---|---|
+| 3 | Ribermold | Tier 2 | 09:00–18:00 WEST | — |
+| 4 | Lihua (Jessica) | Tier 1 | 01:00–10:00 WEST | — |
+| 5 | GAOYI | Tier 1 | — | DEFERRED: CN weekend → Monday 01:00 |
+
+Draft creation still happens for deferred rows (André can open and send when the window opens). Only the `[AUTO]` path is suppressed for deferred rows — never auto-create a draft that would ship outside the send window.
+
 For each P1-P3 item, draft a follow-up email. Apply these rules:
 
 ### Chase tone tiers
@@ -127,7 +167,7 @@ For each P1-P3 item, draft a follow-up email. Apply these rules:
 
 ## Step 5: Present to André
 
-Show a single table. Mark Tier 1 items meeting auto-create conditions as `[AUTO]` in the Action column — these will execute immediately after presentation. All others are `[Review]` and wait for approval.
+Show a single table. Mark Tier 1 items meeting auto-create conditions as `[AUTO]` in the Action column — these will execute immediately after presentation. All others are `[Review]` and wait for approval. Deferred rows (Step 4b) surface their `defer_reason` in place of a send window and are never auto-created.
 
 ```
 CHASE QUEUE — Apr DD

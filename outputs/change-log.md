@@ -4,6 +4,44 @@
 
 ## 2026-04-20
 
+### Layer 6 — Procurement leverage (partial)
+
+Follows Layer 5 (commit `1e87611`, unpushed). Session C scope: system files only. Do not push.
+
+Scope shipped: safe read-only skills + chaser extension + typed-edit spec. Gated-for-André (not shipped): `/supplier-enrichment` (writes Notion directly), `/quote-intake` PDF upgrade (complex rewrite of existing skill).
+
+**New skills (3, all read-only):**
+
+- `.claude/skills/nda-check/SKILL.md` — compare supplier NDA vs Sword standard clause checklist (term, governing law, IP, non-solicit, residuals, etc.). Output: delta table + routing recommendation (proceed via Zip / Slack Bradley / return template / decline). References `.claude/knowledge/nda-process.md` as the canonical reference. Never writes Notion, Zip, or email. Logs `[EVENT: NDA_CHECK supplier=X blockers=N redlines=N recommendation=Y]`.
+- `.claude/skills/scenario-optimizer/SKILL.md` — award-split permutation analysis. Takes `/scenario-optimizer {project}` + optional `--volume` / `--constraints`. Computes per-supplier FLC (normalized per strategy.md §3), generates Single-source / 70-30 / 50-50 / Capacity-capped / Tooling-amortized scenarios, ranks by cost + single-source risk + qualification risk. Output: top-5 scenarios + 1-paragraph recommendation + open questions. Informational prefix when project is upstream-gated (e.g., Kaia awaiting Max/Caio). Logs `[EVENT: SCENARIO_RUN project=X shortlist=N scenarios=M]`.
+- `.claude/skills/part-lookup/SKILL.md` — Nexar/Octopart MPN lookup. **CRITICAL STOP block at top:** Nexar MCP not yet in `.mcp.json`. Skill scaffolds the workflow (query shape, cross-reference against 4 Supplier DBs, alternate parts, lifecycle flags) but HALTs until André adds `nexar` MCP config. Setup instructions embedded. Designed for NPM1300 + Renesas (M-Band) and coin cells (BloomPod).
+
+**Skill extension:**
+
+- `.claude/skills/supplier-chaser/SKILL.md` — Step 4b new: signal-triggered cadence. Timezone map (CN / EU / PT / US East / US West / DE / Internal) → send-window table. Rules: suppress CN weekend sends, hold PT sends until 09:00 WEST, advisory `[SEND AFTER: ...]` tags on CN chases created outside the 01:00–10:00 WEST window. Optional Gmail signal modifiers (skip if opened <24h, downgrade tier if inbound <48h, defer on OOO) — applied best-effort, skipped silently if `get_thread` unavailable. Deferred rows never auto-create drafts. Step 5 presentation table amended with send window / defer reason.
+
+**New procedure:**
+
+- `.claude/procedures/typed-edit-payloads.md` — SHOW BEFORE WRITE v2 spec. `{approve | approve_with_edit: {...} | reject}` payload shape. Per-skill edit contracts for `quote-intake`, `rfq-workflow`, `supplier-rejection` with high-risk / low-risk field classification. Natural-language parse strategy (no JSON required from André). Migration order: quote-intake → rfq-workflow → supplier-rejection, one week observation between. Ledger integration: `approved_edited` now carries `edits_detail` for promotion-candidate pattern detection. This is spec only — skill rewrites are follow-up sprints per §6 Migration Order.
+
+**Gated for André (not shipped):**
+
+- `/supplier-enrichment` — would web-search + write Notion Profile fields (legal entity, ISO certs, FDA registration, parent company). Critical gate because Notion write path is new. Requires André to (a) confirm web-search source allowlist, (b) approve Profile-field write list, (c) approve SHOW BEFORE WRITE semantics for auto-populated fields. Deferred to next L6 sprint.
+- `/quote-intake` PDF upgrade — would accept PDF attachment, extract unit cost / tooling / MOQ / LT / INCO / payment terms / FX base, prefill Notion fields. Risky rewrite of existing complex skill with live production use. Needs pair-work session to avoid breaking the current supplier flow mid-week. Deferred to dedicated mini-sprint after L7 cleanup lands.
+
+**Nexar MCP gate:**
+
+- `/part-lookup` ships as a stub. Activation blocked on André configuring `nexar` MCP in `.mcp.json`. No fallback to web-scraping (Octopart ToS).
+
+**Ship metrics (pending validation):**
+
+- `/nda-check` unused until next supplier NDA arrives — validation on first use.
+- `/scenario-optimizer` validation target: run on current Pulse shortlist before Jorge 1:1 Apr 27. Compare output with André's mental model.
+- `/part-lookup` blocked on Nexar setup.
+- Chaser cadence: observe 2 weeks, measure reduction in CN-weekend sends and 07:00 PT sends.
+
+**No context/* writes. No Notion writes. No Gmail writes. No git push.**
+
 ### session-doctor auto-fix
 - change-log date header cleared: 2026-04-19 → 2026-04-20 (L1 entries preserved in commit `45809bf`)
 
