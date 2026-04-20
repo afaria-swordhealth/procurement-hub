@@ -314,6 +314,12 @@ Plan §4 explicitly flags "Rewrite context files might need pair work for suppli
 
 ### /improve — micro-fix queue (2026-04-20)
 
+#### #0 — CCR agent findings (replicated locally — push from CCR blocked by proxy 403)
+- `build-deck.md`: pre-flight now warns explicitly when `sword-logo.png` absent; QA step warns if LibreOffice not on PATH
+- `settings.local.json`: UserPromptSubmit hook — `jq` (not installed) replaced with `python3`. `/log-sent` reminder after `/mail-scan` was silently broken since Layer 2A.
+- `friction-signals.md`: 3 signals added (Berlin Wall OI ID mismatch, ruflo checkpoint migration incomplete, create_draft threading unverified)
+- CCR trigger finding: git push blocked by proxy 127.0.0.1:46406 → 403. Trigger needs redesign — detection-only mode or GitHub PAT config. See memory.
+
 #### #1 — Commit .mcp.json Windows cmd wrapper + accumulated settings.local.json permissions
 - `.mcp.json`: `npx` → `cmd /c npx` (Windows shell wrapper for ruflo MCP — functional fix, ruflo fails on Windows without it)
 - `.claude/settings.local.json`: +74 permission entries accumulated across prior sessions (git, node, npx, curl, hooks, WebFetch, MCP tools)

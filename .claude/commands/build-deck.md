@@ -10,7 +10,7 @@ model: opus
 
 ## Pre-flight
 1. Read .claude/config/presentation-guidelines.md (brand, structure, content rules)
-2. Extract assets from .claude/assets/sword-template.pptx (logo, gradient backgrounds)
+2. Extract assets from .claude/assets/sword-template.pptx (logo, gradient backgrounds). Check that `.claude/assets/sword-logo.png` exists — if missing, WARN André before proceeding: "sword-logo.png not found in .claude/assets/ — slides will have no logo. Add it manually or continue without."
 3. Read .claude/config/writing-style.md Style Rules section (no em dashes, short sentences)
 4. Read .claude/config/strategy.md for any data rules (FOB vs landed, baselines)
 
@@ -25,7 +25,7 @@ model: opus
    - Logo top-left on all content slides
    - Tables: blue headers, alternating rows
    - Cards: white fill, shadow
-5. Run QA: convert to PDF, verify no clipping, no dark slides
+5. Run QA: check LibreOffice is on PATH (`libreoffice --version`). If missing, WARN: "LibreOffice not found — PDF conversion skipped. Verify slides manually." Otherwise convert to PDF, verify no clipping, no dark slides.
 6. Present to Andre for review
 
 ## Rules

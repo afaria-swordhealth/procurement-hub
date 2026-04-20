@@ -166,7 +166,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '.prompt // \"\"' | grep -q 'mail-scan' && touch /tmp/claude-mail-scan-pending.flag; exit 0"
+            "command": "python3 -c \"import sys,json; d=json.load(sys.stdin); print(d.get('prompt',''))\" | grep -q 'mail-scan' && touch /tmp/claude-mail-scan-pending.flag; exit 0"
           }
         ]
       }
