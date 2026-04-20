@@ -42,6 +42,34 @@ Scope shipped: safe read-only skills + chaser extension + typed-edit spec. Gated
 
 **No context/* writes. No Notion writes. No Gmail writes. No git push.**
 
+### Layer 7 — Cleanup
+
+Follows Layer 6 partial (commit `852db49`, unpushed). Session C scope. Do not push.
+
+**Deleted (5 files, 674 lines):**
+
+- `context-pulse-suppliers.md` (repo root, 91 lines) — superseded by `context/pulse/suppliers.md` (per improvement-plan.md §3 Layer 7).
+- `Dashboard.md` (63 lines) — Obsidian Dataview dashboard, never integrated into operational flow.
+- `implementation-playbook.md` (199 lines) — historical onboarding doc from pre-Claude-Code-only migration; no longer relevant.
+- `outputs/architecture-review.md` (214 lines) — token-optimization review from 2026-04-13; content absorbed into improvement-plan.md waves 1-3 + L5 densification spec.
+- `safety-control-analysis.md` (107 lines) — pre-safety.md analysis; content absorbed into `.claude/safety.md` during L1.
+
+Pre-deletion audit: grep confirmed no operational references from skills / commands / procedures / agents / config. Only references were (a) improvement-plan.md (expected — it plans the deletions) and (b) `.obsidian/workspace.json` recent-files cache (not operational).
+
+**New procedures:**
+
+- `.claude/procedures/commands-vs-skills.md` — disposition audit for all 15 commands vs 24 skills. Finding: NONE require merge or deletion. `weekly-report` (command) vs `weekly-pulse` (skill) are different audiences; `price-compare` (command) vs `scenario-optimizer` (skill) are different scopes (ranking vs permutation). No parallel architectures detected. No command is a thin wrapper on an identically-named skill. Re-audit cadence documented: triggered by new overlap, not scheduled.
+- `.claude/procedures/ruflo-memory-purge.md` — manual, André-gated purge process. 5 steps: snapshot → classify → present candidates → execute → verify. Abort conditions for pagination bugs (ruflo #827). Categories: stale (>12mo rejected), orphan (no matching supplier in DB), test/debug (auto-removable). NEVER deletes without André-approved candidate list. Snapshot added to `.gitignore` pattern (supplier-confidential excerpts). First-run checklist included. Not scheduled — André triggers when warranted.
+
+**What L7 does NOT do:**
+
+- Does not execute a ruflo memory purge. That is a live operation needing André review of candidate list per-key.
+- Does not merge `weekly-report`/`weekly-pulse` without André-confirmed usage data.
+- Does not delete any command or skill — no obsolete ones found.
+- Does not enforce a new file-size rule for commands. Organic growth is fine.
+
+**No context/* writes. No Notion writes. No Gmail writes. No git push.**
+
 ### session-doctor auto-fix
 - change-log date header cleared: 2026-04-19 → 2026-04-20 (L1 entries preserved in commit `45809bf`)
 
