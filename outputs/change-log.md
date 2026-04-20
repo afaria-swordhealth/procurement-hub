@@ -4,6 +4,22 @@
 
 ## 2026-04-20
 
+### /build-deck — M-Band component risk deck
+- `outputs/mband-component-risk-jorge.pptx` created (144 KB, 5 slides). Audience: Jorge Garcia. Key message: zero-cost window via Future Electronics pre-order offer.
+- Logo skipped: `sword-logo.png` missing from `.claude/assets/` (only template .pptx present). Manual fix: extract logo + save as sword-logo.png.
+- No PDF QA: LibreOffice not on machine.
+
+### M-Band component LTs — OI updated
+- OI 345b4a7d…81c3: comment added with full LT table (Manuel Beito Apr 20). Risks flagged: AS7058A 30wk, BMI270 pre-alloc Q4, Grepow MP 16-18wk sea, Macronix Q2 alloc.
+- promises.md: Pedro Rodrigues NPM1300 BOM qty entry removed (BOM qty is ISC-internal).
+
+### /log-sent — Unique Scales outreach logged
+
+- Outreach: 2 entries written to Unique Scales (Notion) — Regulatory follow-up (Apr 20T17:36) + Branding reframe (Apr 20T17:42). Archive updated (Feb–Apr 9 → Feb–Apr 11). Summary line updated to 56+.
+- Last Outreach Date DB field updated to 2026-04-20.
+- OI comments written: ISTA OI (345b4a7d…3797) + US docs revision OI (348b4a7d…c9cb).
+- ⚠️ Berlin Wall OI (343b4a7d…cc39) referenced in promises.md does not exist in DB. Closest match: Sarah labeler OI 343b4a7d…4c39.
+
 ### Layer 6 follow-up — `/supplier-enrichment` scaffolded
 
 - `.claude/skills/supplier-enrichment/SKILL.md` — web-search enrichment of Notion Profile fields. Allowlist: company website, LinkedIn, SEC EDGAR, EU/PT registries, IAF CertSearch, FDA Establishment DB, Wikipedia. Flow: search → propose data card → typed-edit approval → write to Notion Profile fields only. First-run pair-work checklist: confirm field allowlist against live Supplier DB schema, save to `field-allowlist.md`, test on a Rejected supplier before live use. HALTs after Step 3 until pair-work completes.
@@ -277,6 +293,24 @@ Plan §4 explicitly flags "Rewrite context files might need pair work for suppli
 - First `context/index.json` generation — happens on next `/wrap-up` Full run once files are migrated OR on any `/wrap-up` now (v0 files generate a degraded index without blocker/top_deadline fields; usable as warm-up fallback).
 
 **Not shipped in L5 (nothing extra planned beyond pair-work gate).**
+
+### /improve — micro-fix queue (2026-04-20)
+
+#### #1 — Commit .mcp.json Windows cmd wrapper + accumulated settings.local.json permissions
+- `.mcp.json`: `npx` → `cmd /c npx` (Windows shell wrapper for ruflo MCP — functional fix, ruflo fails on Windows without it)
+- `.claude/settings.local.json`: +74 permission entries accumulated across prior sessions (git, node, npx, curl, hooks, WebFetch, MCP tools)
+
+#### #2 — .gitignore: suppress .swarm/ ruflo runtime DB
+- `.swarm/memory.db` + `schema.sql` are runtime data created each session. Added `.swarm/` to .gitignore.
+
+#### #3 — .gitattributes: normalize CRLF ghost modifications
+- `databases.md` and `ask/validation.md` appearing as modified with zero content diff (CRLF-only). Added `.gitattributes` rule `* text=auto eol=lf` to prevent recurrence.
+
+#### #4 — Commit outputs/improvement-plan.md (untracked session artifact)
+- Apr 19 draft "Operator Second Brain Evolution" — committed alongside session work.
+
+#### #5 — Delete empty Procurement-hub/ directory
+- Empty untracked directory left over from prior session. Removed.
 
 ### André/Sofia meeting Apr 20 — OIs + promises
 
