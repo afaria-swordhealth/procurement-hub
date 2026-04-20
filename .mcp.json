@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "ruflo": {
-      "command": "npx",
-      "args": ["claude-flow@latest", "mcp", "start"],
+      "command": "cmd",
+      "args": ["/c", "npx", "claude-flow@latest", "mcp", "start"],
       "env": {
         "NODE_NO_WARNINGS": "1"
       }

@@ -106,7 +106,80 @@
       "Bash(mkdir -p \"C:/Users/SWORD/Documents/GitHub/procurement-hub/.claude/skills/know-me\")",
       "Bash(mklink /D \"test-symlink\" \"C:\\\\Users\\\\SWORD\\\\Documents\\\\GitHub\\\\ruflo\\\\.claude\\\\skills\\\\skill-builder\")",
       "Bash(ls test-symlink/SKILL.md)",
-      "Bash(cmd /c 'mklink /D \"test-symlink\" \"C:\\\\Users\\\\SWORD\\\\Documents\\\\GitHub\\\\ruflo\\\\.claude\\\\skills\\\\skill-builder\"')"
+      "Bash(cmd /c 'mklink /D \"test-symlink\" \"C:\\\\Users\\\\SWORD\\\\Documents\\\\GitHub\\\\ruflo\\\\.claude\\\\skills\\\\skill-builder\"')",
+      "Bash(git -C /c/Users/SWORD/Documents/GitHub/log_man_update log --oneline --since=\"2026-04-15\")",
+      "Bash(git -C /c/Users/SWORD/Documents/GitHub/log_man_update log --oneline --since=\"2026-04-15\" --format=\"%h %s \\(%ad\\)\" --date=short)",
+      "mcp__claude_ai_Slack__slack_send_message",
+      "mcp__claude_ai_Gmail__list_drafts",
+      "Bash(jq --version)",
+      "mcp__claude_ai_n8n__search_workflows",
+      "mcp__claude_ai_Notion__notion-create-database",
+      "Bash(node *)",
+      "Bash(npx claude-flow@latest --version)",
+      "Bash(npx claude-flow@latest --help)",
+      "Bash(npx claude-flow@latest mcp --help)",
+      "Bash(npx claude-flow@latest mcp tools)",
+      "Bash(npx claude-flow@latest mcp start --help)",
+      "mcp__ruflo__embeddings_init",
+      "Bash(git *)",
+      "Bash(awk '/^[a-f0-9]/{commit=1; next} commit{if\\($0==\"\"\\) commit=0; if\\($0==\"outputs/change-log.md\"\\) count++} END {print count \" times in 30 commits\"}')",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.anthropic.com)",
+      "Bash(curl -s -L \"https://raw.githubusercontent.com/ruvnet/claude-flow/main/README.md\")",
+      "Bash(curl *)",
+      "WebFetch(domain:claude.com)",
+      "WebFetch(domain:docs.claude.com)",
+      "Bash(chmod +x .claude/hooks/*.sh)",
+      "Bash(bash -n .claude/hooks/session-start-env.sh)",
+      "Bash(bash -n .claude/hooks/post-notion-write-flag.sh)",
+      "Bash(bash -n .claude/hooks/stop-changelog-guard.sh)",
+      "Bash(bash -n .claude/hooks/post-oi-status-event.sh)",
+      "Bash(CLAUDE_PROJECT_DIR=\"C:/Users/SWORD/Documents/GitHub/procurement-hub\" bash *)",
+      "Bash(CLAUDE_PROJECT_DIR=\"/c/Users/SWORD/Documents/GitHub/procurement-hub\" bash .claude/hooks/session-start-env.sh)",
+      "Bash(CLAUDE_PROJECT_DIR=\"/c/Users/SWORD/Documents/GitHub/procurement-hub\" bash .claude/hooks/post-oi-status-event.sh)",
+      "Bash(echo \"EXIT=$?\")",
+      "WebFetch(domain:nexar.com)",
+      "mcp__ruflo__memory_store",
+      "WebFetch(domain:www.crestline.com)",
+      "Read(//g/My Drive/Pulse/Device Procurement/BIA Scale/BIA Scale Packaging/dielines CF635/CF635BLE+WIFI die line/**)",
+      "Read(//g/My Drive/Pulse/Device Procurement/BIA Scale/BIA Scale Packaging/BIA Scale OEM pacakging/**)",
+      "Bash(echo \"EXIT:$?\")"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "ruflo"
+  ],
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"SessionStart\", \"additionalContext\": \"MANDATORY FIRST ACTION: Before responding to the user, run /session-doctor now.\"}}'",
+            "statusMessage": "Checking session health..."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.prompt // \"\"' | grep -q 'mail-scan' && touch /tmp/claude-mail-scan-pending.flag; exit 0"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -f /tmp/claude-mail-scan-pending.flag ] && rm /tmp/claude-mail-scan-pending.flag && echo '{\"hookSpecificOutput\": {\"hookEventName\": \"Stop\", \"additionalContext\": \"MANDATORY: /mail-scan just completed. Run /log-sent now as your next action.\"}}' || true"
+          }
+        ]
+      }
     ]
   }
 }
