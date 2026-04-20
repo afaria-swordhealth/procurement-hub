@@ -2,236 +2,37 @@
 # Rolling daily file. Keeps only today's entries.
 # History lives in git log. On wrap-up, this file is committed then cleared for tomorrow.
 
-## 2026-04-19
-
-### Layer 1 — Architecture Foundation
-
-Follows Layer 0 Bug Sprint (commit `689eb0d`, unpushed per improvement-plan.md spec). Session C scope: system files only. Do not push.
-
-**New files:**
-- `.claude/safety.md` — verbatim extract of CLAUDE.md §5 (Levels 1/2/3, Core Rules, Exceptions 1-5). Added concurrency section establishing session-single model and retirement notice for the 10-min collision guard. Notes that new auto-approvals must be promoted via `autonomy.md`, not added ad-hoc.
-- `.claude/autonomy.md` — evidence-based auto-approval ledger. Format `{date} | {action_class} | {decision} | {skill} | {notes}` with decisions `approved_clean|approved_edited|rejected`. Promotion rule: 20 consecutive approved_clean + 0 rejected in last 50 + 0 approved_edited in last 20. Hard stops (never promote): supplier-facing content, status→Rejected, NDA changes, price writes failing Exception 3, irreversible downstream effects. Demotion: any rejected → revert + 30d cooldown.
-- `.claude/procedures/event-log.md` — structured change-log schema `[EVENT: TYPE key=value ...]` one line before prose. 14 canonical TYPEs (OUTREACH, QUOTE, OI_CREATE, OI_UPDATE, OI_STATUS, OI_CLOSE, SUPPLIER_STATUS, NDA, DB_FIELD, CONTEXT_SYNC, AUTOCLEAN, SYSTEM, SKILL_RUN, FAIL). Key conventions: supplier=Underscore_Name, project lowercase, booleans omit false.
-- `.claude/procedures/exec-checkpoints.md` — local JSON sidecar at `outputs/checkpoints/{skill}_{entity}.json`. Schema `{skill, entity, started, last_update, status: in-progress|complete|failed, steps_done[], meta{}}`. Atomic write (tmp + rename). `/wrap-up` archives complete files >24h to `.done`; deletes `.done` >14d. Replaces ruflo `memory_store`/`memory_retrieve` for checkpoint role.
-
-**Migrated off ruflo for checkpoints (3 skills):**
-- `skills/quote-intake/SKILL.md` — Step 9 pre-flight + "Before writing" checkpoint now local file read/atomic write. On write failure: STOP.
-- `skills/rfq-workflow/SKILL.md` — Step 10 pre-flight + Step 3 before-draft checkpoint migrated.
-- `skills/supplier-selection/SKILL.md` — Step 5 pre-flight + Step 0 checkpoint migrated; collapsed 0/0b into single step.
-
-Ruflo remains valid for pattern/learning data (patterns, embeddings, aidefence, quote-delta memory_search, chase:: and negotiation:: stores). Only checkpoint use migrated.
-
-**Collision guard sweep (13 files).** Principle #5 — no parallel architectures. Plan named 4 files; expanded to full sweep after discovering 9 additional sites:
-- `procedures/check-outreach.md`, `procedures/create-open-item.md` (## Collision guard → ## Concurrency)
-- `skills/context-doctor`, `skills/supplier-chaser`, `skills/outreach-healer` (4 occurrences), `skills/quote-intake`, `skills/supplier-onboarding`, `skills/rfq-workflow`, `skills/supplier-rejection`
-- `agents/testing.md`, `agents/logistics.md`
-- `commands/test-update.md`
-
-Standard replacement: `Concurrency: session-single model (see .claude/safety.md). No per-write collision check.`
-
-**Session-single model adopted.** Deleted CLAUDE.md §4b (three-session A/B/C scope). The session-single note in safety.md replaces it. Operational session C distinction kept as an execution pattern; no separate permission model.
-
-**Friction-log renamed.**
-- `outputs/friction-log.md` → `outputs/friction-signals.md` (via `git mv` — history preserved).
-- `skills/improve/SKILL.md` — 6 references updated (pre-flight step 4, Source E header + body, micro/mini/structural resolved lines, Step 6 persist target).
-
-**CLAUDE.md slimmed.** 560 lines → 112 lines (target <120). Deleted §5 (moved to safety.md) and §4b (session-single adopted). Preserved §4c Open Items Discipline, §4d Global Pre-flight, Notion workspace map (compressed), agents roster (one-line), skills/commands pointer. Safety pointer added at §5; autonomy pointer added at §5 + §9.
-
-**`.gitignore`** — added `outputs/checkpoints/` to prevent runtime checkpoint files from entering commits.
+## 2026-04-20
 
 ### session-doctor auto-fix
-- change-log date header cleared: 2026-04-18 → 2026-04-19 (stale from previous session)
+- change-log date header cleared: 2026-04-19 → 2026-04-20 (L1 entries preserved in commit `45809bf`)
 
-### Gate 0 #4 — OI Supplier backfill (3 writes)
-- OI "Novares — find direct contact at China office" → Supplier = Novares
-- OI "Unique Scales — initiate NDA process" → Supplier = Unique Scales
-- OI "Cerler — send volumes + technical documentation (scope: electronics)" → Supplier = Cerler
-- 5 other null-Supplier OIs left null per §4c ISC-level exemption (Kaia meta-tracker, PLD legal, Pulse packaging, BloomPod investigation, TCR QARA)
+### Layer 2A — Mechanical Enforcement (non-blocking hooks)
 
-### Gate 0 closed (schema changes by André via Notion UI)
-- Pulse Supplier DB: added `Last Outreach Date` (Date) + `FX Rate at Quote` (Number) — matches Kaia/M-Band/BloomPod
-- OI DB `Type` select: added `Commitment` as 5th option (alongside Question/Action Item/Decision/Blocker)
-- OI DB: removed stray `Commitment` property, `Last Outreach Date`, `FX Rate at Quote` (those belong on Supplier DBs only)
-- Config/databases.md update pending next improvement sprint
+Follows Layer 1 (commit `45809bf`, unpushed). Session C scope: system files only. Do not push.
 
-### Micro-fix — friction-log + /improve persistence
-- `outputs/friction-log.md`: new file — persistent signal store across sessions. Pending section holds unexecuted signals; Resolved section holds executed signals with fix date.
-- `skills/improve/SKILL.md`: Pre-flight step 4 reads friction-log Pending; Source E added to Step 1 scan; Step 5 (all tiers) moves executed signals to Resolved; new Step 6 persists unexecuted queue items to Pending before session ends.
+Phase split: Phase A (non-blocking, shipped now) vs Phase B (blocking PreToolUse, deferred 1–2 weeks for observation). User approved "A only; B after".
 
-### Structural sprint #1 — OI Context running log propagation fix
+**New directory `.claude/hooks/` with 4 scripts:**
 
-Root cause: `mail-scan.md` used "Update OI Context" as a recommendation label without specifying the Notion operation. 4 skills had no guidance on notion-create-comment for OI updates.
+- `session-start-env.sh` (SessionStart) — emits `additionalContext` with `CURRENT_DATE`, `CURRENT_WEEK_ISO`, `ACTIVE_PROJECT` (derived from most-recently-modified `context/*/suppliers.md`). Kills 3–4 re-derivations per session. Uses `printf` only — no jq dependency.
+- `post-notion-write-flag.sh` (PostToolUse: notion-update-page, notion-create-pages, notion-update-data-source) — touches `/tmp/claude-notion-write.flag` so Stop hook can detect unlogged writes.
+- `stop-changelog-guard.sh` (Stop) — advisory: if Notion write flag exists but `outputs/change-log.md` is older than the flag, emit reminder via `additionalContext`. Non-blocking.
+- `post-oi-status-event.sh` (PostToolUse: notion-update-page) — when payload contains `Status` select change, appends `[EVENT: STATUS_CHANGE page=<short_id> status=<name> ts=<YYYY-MM-DDTHH:MM>]` under `### Hook events` in change-log. Uses `python -c` for stdin JSON parsing (python3 confirmed on PATH; jq is not).
+- `README.md` — documents Phase A shipped table + Phase B deferred table. Phase B activation checklist: 5-session report-only mode → 3-skill validation (quote-intake, supplier-chaser, risk-radar) → flip to `decision:"block"` → commit as L2B.
 
-**8 files updated:**
-- `commands/mail-scan.md`: renamed "Update OI Context" → "Add OI Comment"; step 3 + Jira step now explicitly use notion-create-comment, not Context rewrite
-- `skills/supplier-rejection/SKILL.md` Step 7.2: adds notion-create-comment for each OI closed
-- `skills/supplier-selection/SKILL.md` Step 7.3: adds note — future Decision OI updates via notion-create-comment only
-- `skills/supplier-onboarding/SKILL.md`: adds OI delay update path (notion-create-comment, not Context prepend)
-- `skills/negotiation-tracker/SKILL.md` Rules: OI Context read-only; updates via /log-sent or notion-create-comment
-- `commands/housekeeping.md` Phase 4 rule 16: detects running-log Context (dated prefixes, PT text) → flags NEEDS YOUR DECISION for cleanup
-- `procedures/create-open-item.md` Write permissions: clarified "OI comment additions via notion-create-comment: auto-execute" vs "Context field rewrites: SHOW BEFORE WRITE"
-- `commands/cross-check.md` Phase 5: distinguishes material Context rewrite (notion-update-page, SHOW BEFORE WRITE) from incremental update (notion-create-comment, auto-approved)
+**Wired in `.claude/settings.json`** (new file, committed). `.claude/settings.local.json` remains gitignored; Claude Code merges both at runtime.
 
-### Mini-sprint #2 — Outreach duplicate prevention
+**Fail-open semantics:** every script uses `set +e` / exits 0 on any parse or I/O failure. Harness bugs cannot brick operational skills.
 
-Root cause: no pre-write existence check in check-outreach.md. Cron + manual re-runs wrote the same milestone twice.
+**Finding during smoke test:** `jq` not on PATH in this environment. Existing `.claude/settings.local.json` UserPromptSubmit hook uses `jq -r '.prompt // ""'` and has been silently broken (suffix `; exit 0` masks failure). Not fixed in this sprint — out of scope for L2A. Flagged for user awareness.
 
-**2 files updated:**
-- `procedures/check-outreach.md`: added pre-write dedup guard — before append, check for same-date + same-event-category entry. Skip + log if found. Makes all Outreach writes idempotent.
-- `commands/log-sent.md` Phase 3: replaced "email_date > last_entry_date" comparison with per-entry date+event check. Idempotent re-runs now skip already-logged emails silently.
+**Smoke tests passed:**
+- SessionStart emitted `{"hookSpecificOutput":{"hookEventName":"SessionStart","additionalContext":"Session env: CURRENT_DATE=2026-04-20 CURRENT_WEEK_ISO=2026-W17 ACTIVE_PROJECT=kaia"}}`
+- post-oi-status-event correctly parsed a `notion-update-page` payload with Status select and appended one `[EVENT: STATUS_CHANGE …]` line to change-log.md (test residue cleaned before commit).
 
-### Micro-fix #3 — log-sent Gmail MCP resilience
+**Phase B deferred** — PreToolUse guards documented but not activated:
+- `pre-notion-update-fetch-guard.sh` — block writes to Supplier DBs without a prior `notion-fetch` on the same page in the same turn.
+- `pre-create-draft-style-guard.sh` — block `create_draft` unless `config/writing-style.md` was Read in the same turn.
 
-- `commands/log-sent.md` Phase 5: writes one supplier at a time, logs each before moving to next. On Gmail MCP failure: log and exit cleanly, do not proceed with partial data. Re-run is safe (dedup guard).
-
-### Micro-fix #4 — log-sent dynamic lookback
-- `commands/log-sent.md` Phase 1: date_range now reads Last-Log-Sent from session-state, covers full gap (max 7d). Fixed 24h window was missing milestones after weekend gaps.
-
-### Micro-fix #5 — daily-log completeness check
-- `commands/daily-log.md` Step 3: stops if all 4 sections already complete; appends only missing sections if partial.
-
-### Micro-fix #6 — supplier-onboarding field validation
-- `skills/supplier-onboarding/SKILL.md`: post-creation check for Name/Status/Region/Currency/Notes before proceeding to Step 3.
-
-### Mini-sprint #7 — OI inline bullet detection
-- `commands/housekeeping.md` Phase 4 rule 17b: detects inline bullets in ## Open Items, flags NEEDS YOUR DECISION for migration.
-- `commands/audit.md` Phase 2: marks inline bullets in ## Open Items as Critical violation.
-
-### Micro-fix #8 — wrap-up context sync explicit fields
-- `commands/wrap-up.md` Phase 2: lists all 8 required sync fields; adds Last-synced timestamp update + context-doctor call.
-
-### Micro-fix #9 — Exception 5: OI In Progress auto-approved
-- `CLAUDE.md` §5: Exception 5 — OI Status Pending/Blocked → In Progress auto-approved when email/Slack confirms active work started.
-
-### Micro-fix #10 — check-outreach language check
-- `procedures/check-outreach.md`: translate to English before writing. Do not write PT then translate later.
-
-### Micro-fix #11 — NDA Status validation at onboarding
-- `skills/supplier-onboarding/SKILL.md` Step 5: added post-NDA field check — after NDA decision, verify NDA Status is non-null before proceeding to Step 6. Previously absent; caused 12+ null NDA Status fields requiring bulk audit cleanup.
-
-### Micro-fix #12 — wrap-up Phase 2 completion guard
-- `commands/wrap-up.md` Phase 2 Step 8: added completion check — after writing context files, re-read each file's `# Last synced` header to verify update succeeded. Do not proceed to Phase 3 if any file is still stale. Prevents silent partial syncs.
-
-### Micro-fix #13 — change-log future date guard
-- `CLAUDE.md` §4d: added change-log date rule — always use `currentDate` from system context, never compute. If date would be in the future, use `currentDate` and log a warning. Eliminates recurring session-doctor auto-fix pattern.
-
-### Micro-fixes #15–#21 — 3rd retroactive scan (deepest)
-
-- **#15** `skills/risk-radar/SKILL.md` Step 1a: add M4 DB-first `Last Outreach Date` query before falling back to page fetch. Consistent with supplier-chaser Step 2 pattern.
-- **#16** `procedures/decision-queue-render.md`: replace broken `SUBSTR(Context, 1, 10)` blocked-since calc (fails post-CLAUDE.md §4c reform) with deadline-age proxy `julianday('now') - julianday(Deadline)`. Renders as "Xd past deadline".
-- **#17** `commands/wrap-up.md` Phase 4c: add CronDelete step — reads Session Crons from session-state.md and deletes each before git push. Prevents cron accumulation across sessions.
-- **#18** `commands/housekeeping.md` Phase 4 rule 16: replace `SUBSTR(Context, 1, 10) < date(...)` stale SQL (broken post §4c reform) with `Deadline < date('now', '-21 days')` deadline-age proxy.
-- **#19** `config/databases.md` context-sync column set: updated to include `Region`, `Currency`, `"Last Outreach Date"` — matches wrap-up.md explicit field list added in micro-fix #8.
-- **#20** `skills/context-doctor/SKILL.md`: documented Invocation modes (auto-fix default vs --report-only). Makes housekeeping's "report-only mode" instruction enforceable and visible.
-- **#21** `skills/supplier-chaser/SKILL.md` Step 6: fixed duplicate step "4." numbering — renumbered to 4, 5, 6.
-
-### Structural sprint Wave 1 — 6 fixes (#22–#27)
-
-- **#22** `commands/log-sent.md` Phase 5: add M4 Last Outreach Date update after each outreach write. Completes propagation for log-sent path (was missing alongside quote-intake + rfq-workflow).
-- **#23** `skills/quote-intake/SKILL.md` Step 7: add M4 Last Outreach Date update after outreach write. Also Step 4: added prior-quote ruflo pre-check before auto-write decision — fixes backwards ordering (was running at Step 8 after the write, not before).
-- **#24** `skills/rfq-workflow/SKILL.md` Step 4a: add M4 Last Outreach Date update after outreach write.
-- **#25** `skills/supplier-rejection/SKILL.md` Step 7: added Step 7.7 — risk closure in ruflo. Searches open risks for rejected supplier and marks resolution: {status: "closed", reason: "supplier_rejected"}. Closes the learning loop that was promised but never implemented.
-- **#26** `commands/warm-up.md` Phase 8: added Step 13b — write cron IDs to session-state immediately after CronCreate, before Phase 10. Prevents orphaned crons if session crashes before Phase 10.
-- **#27** `commands/wrap-up.md` Phase 4: swapped 4b↔4c order — cron deletion now happens before change-log clear. Ensures cron deletion failures are recorded in change-log before it is wiped.
-- **#28** `skills/supplier-chaser/SKILL.md` Step 6: replaced bare "update promises.md next: field" with full promise creation — appends new entry for supplier reply expectation. Fixes CLAUDE.md §4d compliance gap (all chases were missing promises.md entries).
-
-### Structural sprint — weekly-report editorial overhaul
-
-- `knowledge/weekly-report-rules.md`: new file — editorial rules for weekly report format (structure, section rules, names policy, Sword corporate model alignment)
-- `commands/weekly-report.md`: rewritten to reference weekly-report-rules.md; added "pull previous week's goals" step; added editorial checklist before finalising; removed hardcoded analyst agent call; enforced 1-page max
-
-### Sprint #45-#46 — Ruflo orphaned records + execution checkpoints
-
-**#45 — Ruflo write-only records closed (rejection::, selection::)**
-- `skills/supplier-onboarding/SKILL.md` Step 0: added rejection:: retrieval — if supplier was previously rejected, surface date + reason to André before proceeding. Prevents silent re-onboarding of a supplier who was deliberately rejected.
-- `skills/supplier-selection/SKILL.md` Pre-flight step 6: added selection:: retrieval — if a prior selection was run for this project, surface winner + date to André before starting a new evaluation cycle.
-- Note: chase:: already retrieved in supplier-chaser Step 4a. negotiation:: already retrieved in negotiation-tracker Step 2b. Neither was orphaned.
-
-**#46 — Execution checkpoints: supplier-onboarding + outreach-healer**
-- `skills/supplier-onboarding/SKILL.md`:
-  - Pre-flight step 8: execution checkpoint check (resume incomplete run or confirm fresh start)
-  - Before Step 2: store checkpoint `steps_done: []`
-  - After page created: update `steps_done: ["notion_page"]`
-  - After domain registered: update `steps_done: [..., "domain_added"]`
-  - After context updated: update `steps_done: [..., "context_updated"]`
-  - After NDA handled: update `steps_done: [..., "nda_handled"]`
-  - After Step 8 log: update `status: "complete"`
-  - Also fixed: "7 fields required" → "8 fields" (aligned with Mini-sprint #14 fix)
-- `skills/outreach-healer/SKILL.md`:
-  - Pre-flight step 4: execution checkpoint check (can resume from last processed supplier)
-  - Step 1: store checkpoint with `suppliers_processed: []` before batch begins
-  - Step 4: update `suppliers_processed[]` after each successful write
-  - Step 5: mark `status: "complete"` after output presented
-
-### Micro-fix #43 — project-dashboard BloomPod coverage
-- `skills/project-dashboard/SKILL.md`: description + Pre-flight updated — "Pulse, Kaia, or M-Band" → "Pulse, Kaia, M-Band, or BloomPod". BLOOMPOD_DB added with note: light scaffold — skip Steps 2/4/Timeline if context file absent.
-
-### Micro-fix #44 — mail-scan promises.md closure loop
-- `commands/mail-scan.md` Step 2b: added promise closure check. For each inbound supplier reply, cross-reference open `- [ ]` entries in promises.md. If matched, propose `Resolve promise` recommendation — André approves before promises.md is updated.
-- `commands/mail-scan.md` Output: added "Resolve promise" to valid Recommendation values.
-
-### Housekeeping — deleted weekly_report_W16_draft.md from repo root
-- Untracked W16 draft (Apr 11–17) was sitting at root instead of outputs/. Deleted — content was from last week and already superseded.
-
-### Micro-fix #41 — price-compare FX staleness check
-- `commands/price-compare.md` Pre-flight: added read of `config/fx-rates.md` + staleness check. If rates > 7 days old: flag in output footer, do not block execution.
-- `commands/price-compare.md` Step 3: added explicit FX conversion using fx-rates.md, with rate labelled in output table per supplier.
-
-### Micro-fix #42 — weekly-pulse BloomPod omission
-- `skills/weekly-pulse/SKILL.md`: description + body updated — "all 3 projects" → "all 4 projects". BLOOMPOD_DB added to Step 1 supplier query. BloomPod column added to per-project metrics table. BloomPod highlight added to output format.
-
-### Structural sprint Wave 3 — MCP error handling (#40)
-
-Root cause: all 6 critical skills had no defined behavior on MCP failure. Batch skills would silently abort entire runs; single-supplier skills had no HALT instruction. No distinction between ruflo failures (non-critical) and Notion/Gmail failures (critical).
-
-**Policy applied:** Single-supplier operations → HALT on Notion/Gmail MCP failure. Batch loops → skip + log, continue. Ruflo failures → log and proceed (non-critical audit trail).
-
-**6 files updated:**
-- `skills/supplier-chaser/SKILL.md`: Rules + Step 2 — batch skip-and-report; Notion DB failure falls back to Gmail scan; Gmail also fails = skip supplier
-- `skills/quote-intake/SKILL.md`: Rules + Step 4 — single-supplier HALT; ruflo pre-check failure routes to SHOW BEFORE WRITE
-- `skills/rfq-workflow/SKILL.md`: Rules + Pre-flight Step 10 — single-supplier HALT; ruflo checkpoint failure = proceed fresh
-- `skills/supplier-rejection/SKILL.md`: Rules + Step 7.2 — single-supplier HALT for main ops; batch OI closures skip-and-report
-- `skills/supplier-onboarding/SKILL.md`: Rules — HALT-only policy; partial onboarding is dangerous (duplicate on retry)
-- `commands/housekeeping.md`: Error Handling section + MCP ERRORS output bucket — batch skip-and-report; phase-level query failure skips phase, doesn't abort run
-
-### Structural sprint Wave 2 — 9 fixes (#29–#37)
-
-- **#29** `procedures/create-open-item.md`: "Mandatory OI triggers — create without waiting" → "Recommended OI triggers — propose to André before creating." Removes undocumented auto-write behavior not covered by any §5 exception.
-- **#30** `skills/rfq-workflow/SKILL.md` Step 4c: OI creation changed from "Auto-approved after send confirmation" → SHOW BEFORE WRITE. No §5 exception covered OI creation; was an undocumented gap.
-- **#31** `skills/rfq-workflow/SKILL.md` Pre-flight line 9: added `nda-process.md` read. Ensures NDA trigger conditions are validated before RFQ proceeds — was missing from 6 of 8 knowledge files in skill pre-flights.
-- **#32** `commands/test-update.md` Pre-flight: added `sample-testing-process.md` read. Tester roles, eliminators, scoring system now loaded before querying test data.
-- **#33** `skills/supplier-onboarding/SKILL.md` Pre-flight line 7: added `supplier-onboarding-process.md` read. 3-track timeline and dependencies now loaded before executing onboarding steps.
-- **#34** `skills/supplier-qualification/SKILL.md` Pre-flight line 5: added `qara-engagement.md` read (Pulse-conditional). QARA clearance is a gate for Pulse suppliers — previously absent from pre-flight.
-- **#35** `skills/risk-radar/SKILL.md` Step 1: changed "all 3 Supplier DBs" → "all 4 Supplier DBs (Pulse, Kaia, M-Band, BloomPod)". BloomPod was silently omitted from every risk scan.
-- **#36** `commands/warm-up.md` Phase 10/9: moved session-state write to BEFORE briefing (not after). Added read-back verification. Fixes race condition where mail-scan during warm-up would hit stale state.
-- **#37** `commands/log-sent.md` Phase 1: HALT instead of silent default-to-2 when session-state is missing. Prevents silent 2d window that could skip milestones after long gaps.
-- **#38** `skills/supplier-chaser/SKILL.md` Step 4: added threading note — `create_draft` is always standalone, not threaded. André must manually reply within original thread.
-- **#39** `skills/supplier-rejection/SKILL.md` Step 3: added threading note — same limitation.
-
-### Mini-sprint #14 — OI Supplier field missing from creation checklist
-Root cause: `Supplier` field exists in OI DB schema (databases.md) but was absent from `create-open-item.md` 7-field checklist and CLAUDE.md §4c required fields table. `supplier-rejection` Step 5 queried `WHERE Supplier LIKE '%{supplier}%'` — silently returned empty for all OIs created via standard flow.
-
-**3 files updated:**
-- `procedures/create-open-item.md`: field checklist updated from 7 → 8 fields; Supplier added as #8 with guidance (exact DB Name match, omit for ISC-level OIs)
-- `CLAUDE.md §4c`: Supplier row added to Required Fields table
-- `skills/supplier-rejection/SKILL.md` Step 5: SQL updated with dual filter — `Supplier LIKE OR Item LIKE` — covers post-fix OIs (Supplier set) + legacy OIs (supplier in Item title)
-
-### Layer 0 Bug Sprint — B1→B8
-
-Scheduled cron d9ae297d fired 2026-04-19 09:01. Session C scope (system files only, no Notion/Gmail/context writes). Gate 0 pieces (Notion schema additions, OI Supplier backfill) were completed earlier today — this sprint applied the skill/command/procedure edits.
-
-- **B1** `procedures/decision-queue-render.md` — Stale flagging block: replaced broken `SUBSTR(Context, 1, 10)` with deadline-age proxy (`julianday('now') - julianday(Deadline) > 21`). Blocked calculation (lines 96-106) was already corrected in micro-fix #16; the Stale block was a second site that still used the broken SUBSTR. Now both use the same julianday proxy.
-- **B2** `config/writing-style.md` — Removed "Best regards,\nAndré Faria" from all 7 email templates (First outreach, Follow-up, Sample request, Goodwill sample, Technical question, Acknowledgment, Document request). All now end with "Best," — consistent with core rule line 13 (signature block carries the name).
-- **B3** `procedures/check-outreach.md` — Inverted write order in Write Permissions. Old: append to change-log first (claim slot), write Notion, log failure. New: write Notion first, append to change-log on success, append FAILED entry on failure. Dedup guard (mini-sprint #2) makes slot-claiming redundant; post-write logging means change-log never holds phantoms for silently failed writes.
-- **B4** Surface silent M4 fallback: two read-sites were falling back silently when `Last Outreach Date` is null.
-  - `skills/risk-radar/SKILL.md` Step 1a: collect null-LOD supplier names during scan; emit one consolidated line `[M4 fallback: Last Outreach Date null for N suppliers: <list>] — will self-correct on next outreach write.`
-  - `skills/supplier-chaser/SKILL.md` Step 2.1: same pattern, consolidated line in chase-table preamble.
-  - Dedup is per-run, not per-supplier — no noise, one report.
-- **B6** FX refresh + per-quote stamp + cost-comparison use:
-  - `commands/wrap-up.md` — new Phase 4b: parse `config/fx-rates.md` Last updated column; if >30 days, flag `REFRESH FX RATES` at top of Phase 5 summary. Non-blocking.
-  - `skills/quote-intake/SKILL.md` Step 4: `FX Rate at Quote` added to DB-field write list (3 fields now: Unit Cost EUR, Tooling Cost EUR, FX Rate at Quote). Value is the actual rate from fx-rates.md used for the conversion (1.0 for EUR quotes).
-  - `commands/price-compare.md` Step 2+3: query now selects `FX Rate at Quote`; per-supplier FX basis rule — use stamped rate if present (flag >5% drift vs current rate in Notes), fall back to current rate with `no stamped FX — current rate applied` label when null. Stale-rate backfill is deferred to next quote-intake run for that supplier (skill is read-only).
-- **B7** `procedures/autoclean-scan-lists.md` — Prune rule now requires BOTH: (a) no activity in last 21 days AND (b) ≥3 chase attempts in the 90-day chase window. Ghosting suppliers who received one RFQ and went dark are now flagged as "Silent but not prunable" in housekeeping report, not auto-removed. Only genuinely-abandoned threads (3+ chases with no reply) are pruned.
-- **B8** `commands/ping.md` — NEW file. 30-sec parallel health check: Gmail (list_labels), Notion (OI DB query), Slack (search_users), ruflo (memory_retrieve on sentinel key). Per-service status + latency table. Overall status rule: GREEN (all OK), DEGRADED (1-2 fail), RED (3+ fail or Notion fail — Notion is load-bearing). Read-only, no writes, does not count as warm-up. Registered in CLAUDE.md §4 after /cross-check.
-
-Ship metric check: all 8 bugs from improvement-plan.md Layer 0 addressed. B4/B5/B6 Notion-schema prerequisites were closed in Gate 0 earlier today; this sprint closed the skill/command/procedure halves.
+Both need transcript-parsing which is fragile; a false positive could prevent a legitimate reply. Gated behind 1–2 week Phase A observation window per improvement-plan.md Layer 2 ship metric.
