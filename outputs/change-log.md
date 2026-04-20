@@ -4,6 +4,12 @@
 
 ## 2026-04-21
 
+### /improve — mini-sprint #2: ruflo exec-checkpoint migration
+- `supplier-rejection/SKILL.md`: pre-flight + step 7 checkpoint read/write migrated from `mcp__ruflo__memory_retrieve` to `outputs/checkpoints/supplier-rejection-{supplier}.json`
+- `supplier-onboarding/SKILL.md`: pre-flight + steps 2–8 checkpoint read/write migrated to `outputs/checkpoints/supplier-onboarding-{supplier_name}.json`
+- `outreach-healer/SKILL.md`: pre-flight + steps 1/4/5 checkpoint read/write migrated to `outputs/checkpoints/outreach-healer_{YYYY-MM-DD}.json`
+- Pattern matches L4A migration of quote-intake + rfq-workflow. Risk closure (step 7.7) kept on ruflo (not crash recovery).
+
 ### /improve — micro-fix #1: Berlin Wall OI ID
 - `outputs/promises.md`: OI ID corrigido `343b4a7d…cc39` → `343b4a7d…4c39`
 - `outputs/friction-signals.md`: #1 resolvido, #2 limpo (já resolvido pelo wrap-up)

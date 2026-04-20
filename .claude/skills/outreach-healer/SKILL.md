@@ -12,7 +12,7 @@ Iterates over all active supplier pages in Notion, reads each ## Outreach sectio
 1. Read `outputs/session-state.md` for freshness timestamps.
 2. Read `.claude/procedures/check-outreach.md` (milestones policy, condensation rules, entry format).
 3. Read `outputs/change-log.md` for context on recent writes. Concurrency: session-single model (see `.claude/safety.md`); no collision guard.
-4. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::outreach-healer::{YYYY-MM-DD}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: surface to André — "Incomplete prior run detected on {date}. Suppliers processed: {suppliers_processed}. Resume (skip already-processed) or start fresh?" If ruflo MCP fails: skip this check and proceed.
+4. **Execution checkpoint check:** Read `outputs/checkpoints/outreach-healer_{YYYY-MM-DD}.json` (using today's date). If the file exists and contains `status: "in-progress"`: surface to André — "Incomplete prior run detected on {date}. Suppliers processed: {suppliers_processed}. Resume (skip already-processed) or start fresh?" If the file is missing: proceed.
 5. **Lessons read:** per `.claude/procedures/lessons-read.md`, read `.claude/skills/outreach-healer/lessons.md` (top 10). Apply before batch processing. If missing or empty, skip.
 
 ## Step 1: Query active suppliers
@@ -25,7 +25,7 @@ SELECT Name, Status, id, url FROM "{collection_id}" WHERE Status != 'Rejected'
 
 Run for all 3 DBs (PULSE_DB, KAIA_DB, MBAND_DB). If Notion MCP is unreachable, abort.
 
-**Before processing begins:** store execution checkpoint — `key: exec::outreach-healer::{YYYY-MM-DD}`, namespace "procurement", upsert true, value: `{ skill: "outreach-healer", date: "{today}", status: "in-progress", suppliers_processed: [], total_suppliers: {N} }`. If ruflo MCP fails: skip checkpoint and continue.
+**Before processing begins:** write execution checkpoint to `outputs/checkpoints/outreach-healer_{YYYY-MM-DD}.json` — value: `{ "skill": "outreach-healer", "date": "{today}", "status": "in-progress", "suppliers_processed": [], "total_suppliers": {N} }`.
 
 ## Step 2: Fetch each supplier page
 
@@ -83,7 +83,7 @@ Outreach writes are auto-approved (per check-outreach.md write permissions). For
 1. Write the corrected ## Outreach section to Notion via `notion-update-page`.
 2. On success: append an entry to `outputs/change-log.md`.
 3. On failure: append a FAILED entry to change-log and continue with the next supplier.
-4. After each successful write: update checkpoint — append supplier name to `suppliers_processed[]`.
+4. After each successful write: update checkpoint file `outputs/checkpoints/outreach-healer_{YYYY-MM-DD}.json` — append supplier name to `suppliers_processed[]`.
 
 Concurrency: session-single model (see `.claude/safety.md`); no per-write collision check.
 
@@ -91,7 +91,7 @@ Concurrency: session-single model (see `.claude/safety.md`); no per-write collis
 
 Table with columns: #, Project, Supplier, Fixes Applied, Before (count), After (count). Then list any skipped suppliers (MCP errors) and missing outreach sections. End with totals: scanned, fixed, skipped, missing.
 
-After output complete: update checkpoint — `status: "complete"`.
+After output complete: update checkpoint file — `status: "complete"`.
 
 ## Rules
 

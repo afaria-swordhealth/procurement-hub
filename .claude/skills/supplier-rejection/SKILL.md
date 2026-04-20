@@ -13,7 +13,7 @@ Manages the full exit workflow for a supplier being rejected: communication, int
 2. Read `.claude/config/writing-style.md` (tone rules).
 3. Read `.claude/config/strategy.md` (never reveal other suppliers or pricing reasons).
 4. Read `.claude/config/databases.md` (DB IDs, collection URLs).
-5. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::supplier-rejection::{supplier}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite."
+5. **Execution checkpoint check:** Read `outputs/checkpoints/supplier-rejection-{supplier}.json`. If the file exists and contains `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite." If the file is missing or unreadable: proceed.
 6. **Lessons read:** per `.claude/procedures/lessons-read.md`, read `.claude/skills/supplier-rejection/lessons.md` (top 10). Apply before composing rejection email. If missing or empty, skip.
 
 ## Step 1: Pull supplier state
@@ -119,13 +119,13 @@ Present the full change summary. Wait for André's explicit approval before writ
 
 ## Step 7: Execute (after approval)
 
-Before executing writes: store execution checkpoint — `key: exec::supplier-rejection::{supplier}`, namespace "procurement", upsert true, value: `{ skill: "supplier-rejection", supplier, date, status: "in-progress", steps_done: [] }`.
+Before executing writes: write execution checkpoint to `outputs/checkpoints/supplier-rejection-{supplier}.json` — value: `{ "skill": "supplier-rejection", "supplier": "{supplier}", "date": "{today}", "status": "in-progress", "steps_done": [] }`.
 
 In order:
 1. **PII pre-check.** Per `.claude/procedures/aidefence-precheck.md`, call `mcp__ruflo__aidefence_has_pii` on the rejection draft body. Clean / fail-open → proceed. PII detected (not false positive) → STOP, surface to André.
-2. Create Gmail draft for rejection email (HTML format, append signature). After draft created: update checkpoint — `steps_done: ["gmail_draft"]`.
-2. Update OI statuses to Closed with resolution text (per Step 5 approval). If Notion update fails for one OI: skip it, log `[OI title] — Notion MCP error, skipped` to change-log, and continue to the next. Report skipped OIs in the final output. For each OI closed, also add a Notion page comment via `notion-create-comment`: `Supplier rejected [date]. OI closed via /supplier-rejection.` (auto-approved per CLAUDE.md §5 Exception 2). After OI closures: update checkpoint — `steps_done: ["gmail_draft", "ois_closed"]`.
-3. Update Supplier DB: Status → Rejected, NDA Status → Not Required. After status write: update checkpoint — `steps_done: ["gmail_draft", "ois_closed", "status_updated"]`.
+2. Create Gmail draft for rejection email (HTML format, append signature). After draft created: update checkpoint file — `steps_done: ["gmail_draft"]`.
+2. Update OI statuses to Closed with resolution text (per Step 5 approval). If Notion update fails for one OI: skip it, log `[OI title] — Notion MCP error, skipped` to change-log, and continue to the next. Report skipped OIs in the final output. For each OI closed, also add a Notion page comment via `notion-create-comment`: `Supplier rejected [date]. OI closed via /supplier-rejection.` (auto-approved per CLAUDE.md §5 Exception 2). After OI closures: update checkpoint file — `steps_done: ["gmail_draft", "ois_closed"]`.
+3. Update Supplier DB: Status → Rejected, NDA Status → Not Required. After status write: update checkpoint file — `steps_done: ["gmail_draft", "ois_closed", "status_updated"]`.
 4. Log milestone to Outreach section (direct write, auto-approved):
    `**[Date]** -- Supplier rejected. Rejection email drafted. OIs closed.`
 5. Log to `outputs/change-log.md`.
@@ -135,7 +135,7 @@ In order:
    - `upsert`: true
    - `tags`: ["rejection", project, supplier_name]
    - `value`: `{ supplier, project, date, reason_internal, ois_closed, contact_email, relationship_quality }`
-   After ruflo store: update checkpoint — `status: "complete"`, `steps_done: ["gmail_draft", "ois_closed", "status_updated", "ruflo"]`.
+   After ruflo store: update checkpoint file — `status: "complete"`, `steps_done: ["gmail_draft", "ois_closed", "status_updated", "ruflo"]`.
 
 7. **(Risk closure)** Close any open risks for this supplier in ruflo. Call `mcp__ruflo__memory_search` with `query: "risk {supplier_name}"`, namespace "procurement", limit 10, threshold 0.3. For each result returned with `resolution: null`: call `mcp__ruflo__memory_store` (upsert true) preserving all existing fields and adding `resolution: { status: "closed", closed_date: "{today}", closed_reason: "supplier_rejected", closed_via_skill: "supplier-rejection" }`. Log to change-log: `risk-closure | Closed N risks for {supplier}`. If ruflo MCP fails: log and proceed — rejection is already recorded in Notion.
 

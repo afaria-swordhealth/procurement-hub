@@ -16,7 +16,7 @@ Adds a new supplier to the procurement system. Creates the Notion page, register
 5. Read `.claude/config/writing-style.md` (for outreach prep).
 6. Read `.claude/config/strategy.md` (negotiation guardrails for context package).
 7. Read `.claude/knowledge/supplier-onboarding-process.md` for 3-track timeline expectations (Procurement + Finance/AP + QARA) and dependencies before executing steps.
-8. **Execution checkpoint check:** call `mcp__ruflo__memory_retrieve` with key `"exec::supplier-onboarding::{supplier_name}"`, namespace "procurement". If a record is returned with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite." If ruflo MCP fails: log warning and proceed.
+8. **Execution checkpoint check:** Read `outputs/checkpoints/supplier-onboarding-{supplier_name}.json`. If the file exists and contains `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {date}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite." If the file is missing or unreadable: proceed.
 9. **Lessons read:** per `.claude/procedures/lessons-read.md`, read `.claude/skills/supplier-onboarding/lessons.md` (top 10). Apply before executing onboarding steps. If missing or empty, skip.
 
 ## Step 0: Validate — supplier does not already exist
@@ -60,9 +60,9 @@ Five H2 sections in order: `## Contact` (table: Role, Name, Email, Phone), `## P
 
 **SHOW BEFORE WRITE.** Present the full page to Andre before creating.
 
-**Before creating:** store execution checkpoint — `key: exec::supplier-onboarding::{supplier_name}`, namespace "procurement", upsert true, value: `{ skill: "supplier-onboarding", supplier: "{name}", project: "{project}", date: "{today}", status: "in-progress", steps_done: [] }`. If ruflo MCP fails: log warning and proceed.
+**Before creating:** write execution checkpoint to `outputs/checkpoints/supplier-onboarding-{supplier_name}.json` — value: `{ "skill": "supplier-onboarding", "supplier": "{name}", "project": "{project}", "date": "{today}", "status": "in-progress", "steps_done": [] }`.
 
-**Post-creation field check:** After Notion page is created, verify these DB fields are non-null before continuing: Name, Status, Region, Currency, Notes. If any are null, do NOT proceed to Step 3 — fix the missing fields first and re-present for André's approval. Log the check result to `outputs/change-log.md`. After page created and fields verified: update checkpoint — `steps_done: ["notion_page"]`.
+**Post-creation field check:** After Notion page is created, verify these DB fields are non-null before continuing: Name, Status, Region, Currency, Notes. If any are null, do NOT proceed to Step 3 — fix the missing fields first and re-present for André's approval. Log the check result to `outputs/change-log.md`. After page created and fields verified: update checkpoint file `outputs/checkpoints/supplier-onboarding-{supplier_name}.json` — `steps_done: ["notion_page"]`.
 
 ## Step 3: Add domain to config/domains.md
 
@@ -74,13 +74,13 @@ Add one row per domain to the relevant project table:
 
 If the supplier has alt domains (e.g. andmedical.com for A&D), add each on its own row with `(alt domain)` in Status.
 
-Also update the Gmail filter pattern for that project section in `domains.md` to include the new domain. After domain registered: update checkpoint — `steps_done: ["notion_page", "domain_added"]`.
+Also update the Gmail filter pattern for that project section in `domains.md` to include the new domain. After domain registered: update checkpoint file — `steps_done: ["notion_page", "domain_added"]`.
 
 ## Step 4: Add entry to context/{project}/suppliers.md
 
 Add a new entry following the existing format in that file. Include: name, status, contact, key notes, "Added YYYY-MM-DD".
 
-After context entry added: update checkpoint — `steps_done: ["notion_page", "domain_added", "context_updated"]`.
+After context entry added: update checkpoint file — `steps_done: ["notion_page", "domain_added", "context_updated"]`.
 
 ## Step 5: NDA handling
 
@@ -88,7 +88,7 @@ After context entry added: update checkpoint — `steps_done: ["notion_page", "d
 - **Not needed:** Set NDA Status = "Not Required" in DB.
 - **Unsure:** Flag for Andre. Default "needed" for CN manufacturing.
 
-**Post-NDA field check:** After the decision above, verify `NDA Status` is non-null before proceeding to Step 6. Acceptable values: `Not Required`, `Pending`, `Sent`, `Signed`, or any active workflow state. If still blank, do NOT proceed — resolve the NDA Status field first. Log to `outputs/change-log.md`. After NDA decision made and field verified: update checkpoint — `steps_done: ["notion_page", "domain_added", "context_updated", "nda_handled"]`.
+**Post-NDA field check:** After the decision above, verify `NDA Status` is non-null before proceeding to Step 6. Acceptable values: `Not Required`, `Pending`, `Sent`, `Signed`, or any active workflow state. If still blank, do NOT proceed — resolve the NDA Status field first. Log to `outputs/change-log.md`. After NDA decision made and field verified: update checkpoint file — `steps_done: ["notion_page", "domain_added", "context_updated", "nda_handled"]`.
 
 ## Step 6: First outreach — context package only
 
@@ -118,7 +118,7 @@ Create OIs per `procedures/create-open-item.md` (all 8 fields required). **SHOW 
 YYYY-MM-DD HH:MM | supplier-onboarding | Created {supplier} in {project} DB | Page: {url} | Domain added | Context updated | OIs: {list}
 ```
 
-After change-log write: update checkpoint — `status: "complete"`, `steps_done: ["notion_page", "domain_added", "context_updated", "nda_handled", "ois_created"]`.
+After change-log write: update checkpoint file `outputs/checkpoints/supplier-onboarding-{supplier_name}.json` — `status: "complete"`, `steps_done: ["notion_page", "domain_added", "context_updated", "nda_handled", "ois_created"]`.
 
 ## Rules
 
