@@ -4,6 +4,7 @@
 
 ## Pending
 - [ ] [2026-04-20] promises.md: Berlin Wall OI ID wrong — `343b4a7d…cc39` not in DB, closest match is `343b4a7d…4c39` — micro
+- [ ] [2026-04-20] promises.md: 4 entries missing post André/Sofia Apr 20 meeting — change-log says added (Jorge/MSA, Bianca/Berlin Wall, João-Bianca/Qualio, Queenie/US docs) but none present in committed file — micro
 - [ ] [2026-04-20] ruflo exec-checkpoints: supplier-rejection, supplier-onboarding, outreach-healer still use `memory_retrieve` — migration to local checkpoints incomplete (L4A note) — mini
 - [ ] [2026-04-20] create_draft threading: standalone vs thread behaviour unverified — memory rule exists but CCR test inconclusive — mini
 

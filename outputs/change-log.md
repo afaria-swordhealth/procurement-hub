@@ -336,6 +336,17 @@ Plan §4 explicitly flags "Rewrite context files might need pair work for suppli
 #### #5 — Delete empty Procurement-hub/ directory
 - Empty untracked directory left over from prior session. Removed.
 
+### /improve — scheduled run 2026-04-20
+
+[EVENT: IMPROVE_RUN mode=scheduled signals_scanned=4 executable=0 new_signals=1 mini_held=2]
+
+- Sources scanned: change-log (A), session-state (B), promises (C), git log (D), friction-signals (E), autonomy-ledger (F).
+- Autonomy ledger: empty — no promotion candidates.
+- **New signal found (Source A):** `promises.md` 4 entries missing post André/Sofia Apr 20 meeting. Change-log entry says added; committed file has none. Appended to `friction-signals.md` Pending as micro.
+- **Signals #3–4 (mini-sprint):** ruflo exec-checkpoints migration + create_draft threading — held per autonomy override. Already in `friction-signals.md` Pending.
+- **Signals #1–2 (micro):** Berlin Wall OI ID + missing promises entries — `promises.md` outside scheduled run write scope. Remain pending.
+- 0 commits from this run (no executable fixes).
+
 ### André/Sofia meeting Apr 20 — OIs + promises
 
 - OI created: `348b4a7d…da68` — Transtek MSA (Owner: André → Bradley, Deadline: Apr 27)
