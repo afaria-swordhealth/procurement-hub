@@ -4,6 +4,9 @@
 
 ## 2026-04-21
 
+### /improve — mini #3: create_draft threading — verified, no fix needed
+- Audit confirmou regra corretamente documentada em 4 locais (supplier-rejection L74, supplier-chaser L190, CLAUDE.md L104, supplier-comms.md L34–42). Sinal fechado por verificação.
+
 ### /improve — mini-sprint #2: ruflo exec-checkpoint migration
 - `supplier-rejection/SKILL.md`: pre-flight + step 7 checkpoint read/write migrated from `mcp__ruflo__memory_retrieve` to `outputs/checkpoints/supplier-rejection-{supplier}.json`
 - `supplier-onboarding/SKILL.md`: pre-flight + steps 2–8 checkpoint read/write migrated to `outputs/checkpoints/supplier-onboarding-{supplier_name}.json`
