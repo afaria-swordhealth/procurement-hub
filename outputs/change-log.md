@@ -2,6 +2,12 @@
 # Rolling daily file. Keeps only today's entries.
 # History lives in git log. On wrap-up, this file is committed then cleared for tomorrow.
 
+## 2026-04-21
+
+### /improve — micro-fix #1: Berlin Wall OI ID
+- `outputs/promises.md`: OI ID corrigido `343b4a7d…cc39` → `343b4a7d…4c39`
+- `outputs/friction-signals.md`: #1 resolvido, #2 limpo (já resolvido pelo wrap-up)
+
 ## 2026-04-20
 
 ### /improve — session-doctor micro-fix (Step 1c)

@@ -13,7 +13,7 @@ Each entry: `- [ ] {who} | {what} | promised: YYYY-MM-DD | due: YYYY-MM-DD | nex
 
 ### Internal
 - [ ] Jorge Garcia | Raise MSA topic for Transtek with Legal (Bradley) — initiate draft | promised: 2026-04-20 | due: 2026-04-27 | next: raise at next 1:1 | OI: 348b4a7d…da68 | source: André/Sofia meeting Apr 20
-- [ ] Bianca Lourenço | Confirm "Berlin Wall" regulatory strategy (own vs distributed products) | promised: 2026-04-20 | due: 2026-04-25 | next: ping Bianca on Slack | OI: 343b4a7d…cc39 | source: André/Sofia meeting Apr 20
+- [ ] Bianca Lourenço | Confirm "Berlin Wall" regulatory strategy (own vs distributed products) | promised: 2026-04-20 | due: 2026-04-25 | next: ping Bianca on Slack | OI: 343b4a7d…4c39 | source: André/Sofia meeting Apr 20
 - [ ] João Quirino / Bianca | Create Qualio supplier pages (Transtek + Unique Scales) | promised: 2026-04-20 | due: 2026-04-20 | next: message sent asking if André creates or if permissions needed — waiting reply | OI: 33eb4a7d…8140 + 33eb4a7d…8150 | source: André/Sofia meeting Apr 20
 - [ ] Jorge Garcia | Raise M-Band component risk (NPM1300 + Renesas Jul 1 price increase) at André/Jorge 1:1 | promised: 2026-04-10 | due: 2026-04-27 | next: 1:1 moved to Apr 27 — hold escalation unless Beito replies before then | OI: 345b4a7d…81c3 | source: self-initiated
 - [ ] André | Create Arrow Electronics PO in Zip — 2 samples: K11 $1 + X11 $1, Jorge as follower | promised: 2026-04-20 | due: 2026-04-21 | next: create manually in Zip (vendor open: https://5577551.app.netsuite.com/app/common/entity/vendor.nl?id=124645) | OI: — | source: Jorge 1:1 Apr 20
