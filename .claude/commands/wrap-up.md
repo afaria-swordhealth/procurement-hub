@@ -9,6 +9,16 @@ model: opus
 
 Follow CLAUDE.md Safety Rules and Writing Style sections.
 
+## Pre-flight: Date attribution
+
+Before starting, determine `TARGET_DATE` — the date to which this wrap-up is attributed:
+
+1. Check current time using `currentDate` from session context.
+2. If current time is **between 00:00 and 03:00 (inclusive):** set `TARGET_DATE = yesterday` (the calendar day before `currentDate`). Note: "Post-midnight session — wrap-up attributed to {TARGET_DATE}." in Phase 5 summary header.
+3. Otherwise: `TARGET_DATE = currentDate`.
+
+Use `TARGET_DATE` for all date-sensitive operations below (Phase 3 daily log lookup, Phase 4 commit message, Phase 4c change-log header).
+
 ## Steps
 
 ### Phase 0: Slack Scan
@@ -44,9 +54,9 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 8c. After inclusion in the daily log draft, clear the file back to headers only.
 
 ### Phase 3: Daily Log
-9. Check if today's daily log exists in Notion (Daily Logs DB, see .claude/config/databases.md).
+9. Check if `TARGET_DATE`'s daily log exists in Notion (Daily Logs DB, see .claude/config/databases.md).
    - If yes: present current content, ask if anything to add.
-   - If no: compile from today's mail-scan results, approved actions, change-log entries, and external work (Phase 2b). Present draft for approval.
+   - If no: compile from `TARGET_DATE`'s mail-scan results, approved actions, change-log entries, and external work (Phase 2b). Present draft for approval.
 
 ### Phase 3b: Meeting Outcome Prompt
 
@@ -64,10 +74,10 @@ If no meeting-prep entry found this session: skip silently.
 10. After daily log is approved and pushed to Notion:
     a. Run:
     git add context/ outputs/ .claude/skills/ CLAUDE.md .claude/agents/ .claude/commands/ .claude/config/*.md .claude/procedures/
-    git commit -m "EOD [date]: context synced, daily log complete"
+    git commit -m "EOD {TARGET_DATE}: context synced, daily log complete"
     git push
     b. **Stop session crons:** read the `## Session Crons` section of `outputs/session-state.md`. For each cron ID listed, call `CronDelete`. If the cron no longer exists (already expired or deleted), skip silently. If the section is empty or absent, skip — no crons were started this session. Then clear the `## Session Crons` section in session-state.md (leave the header, remove the ID lines). This prevents stale crons from firing after session end.
-    c. Only after crons are stopped: clear outputs/change-log.md — keep only the header lines (# Change Log, policy comment, and today's date heading). If git push (step a) failed, halt and report the error. Do NOT clear the change-log until push succeeds — the entries are the only local record of today's writes.
+    c. Only after crons are stopped: clear outputs/change-log.md — keep only the header lines (# Change Log, policy comment, and `## {TARGET_DATE}` heading). If git push (step a) failed, halt and report the error. Do NOT clear the change-log until push succeeds — the entries are the only local record of today's writes.
 
 ### Phase 4b: FX Refresh Check (monthly)
 

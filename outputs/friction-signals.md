@@ -3,9 +3,9 @@
 # Resolved section is kept for retrospective (monthly session reads it for patterns).
 
 ## Pending
-- [ ] [2026-04-22] /wrap-up: meia-noite crossing quebra o date attribution no daily log — mini — /wrap-up precisa de detetar quando corre entre 00:00–03:00 e atribuir ao dia anterior automaticamente (daily log + change-log header)
 
 ## Resolved
+- [x] [2026-04-22 → 2026-04-22] /wrap-up: midnight crossing — micro — fixed in .claude/commands/wrap-up.md (TARGET_DATE pre-flight)
 - [x] [2026-04-21 → 2026-04-21] supplier-enrichment: ruflo memory_store Step 5 not migrated — micro — fixed in .claude/skills/supplier-enrichment/SKILL.md (commit 1443ee1)
 - [x] [2026-04-21 → 2026-04-21] change-log.md: Apr 20 section persisted below Apr 21 entries — micro — cleared in outputs/change-log.md (commit 1835131)
 - [x] [2026-04-21 → 2026-04-21] package.json + package-lock.json untracked — micro — committed (commit 39a27a3)
