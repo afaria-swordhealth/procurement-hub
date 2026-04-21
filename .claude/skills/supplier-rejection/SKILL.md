@@ -129,15 +129,15 @@ In order:
 4. Log milestone to Outreach section (direct write, auto-approved):
    `**[Date]** -- Supplier rejected. Rejection email drafted. OIs closed.`
 5. Log to `outputs/change-log.md`.
-6. Store in ruflo memory:
-   - `key`: `rejection::[supplier_name]::[YYYY-MM-DD]`
-   - `namespace`: "procurement"
-   - `upsert`: true
-   - `tags`: ["rejection", project, supplier_name]
-   - `value`: `{ supplier, project, date, reason_internal, ois_closed, contact_email, relationship_quality }`
-   After ruflo store: update checkpoint file — `status: "complete"`, `steps_done: ["gmail_draft", "ois_closed", "status_updated", "ruflo"]`.
+6. Append rejection record to `outputs/checkpoints/rejections.jsonl` (one JSONL line per rejection; consumer is `supplier-onboarding` Step 0):
 
-7. **(Risk closure)** Close any open risks for this supplier in ruflo. Call `mcp__ruflo__memory_search` with `query: "risk {supplier_name}"`, namespace "procurement", limit 10, threshold 0.3. For each result returned with `resolution: null`: call `mcp__ruflo__memory_store` (upsert true) preserving all existing fields and adding `resolution: { status: "closed", closed_date: "{today}", closed_reason: "supplier_rejected", closed_via_skill: "supplier-rejection" }`. Log to change-log: `risk-closure | Closed N risks for {supplier}`. If ruflo MCP fails: log and proceed — rejection is already recorded in Notion.
+   ```json
+   {"supplier": "{supplier_name}", "project": "{project}", "date": "{YYYY-MM-DD}", "reason_internal": "{reason}", "ois_closed": {N}, "contact_email": "{email}", "relationship_quality": "{quality}"}
+   ```
+
+   After append: update checkpoint file — `status: "complete"`, `steps_done: ["gmail_draft", "ois_closed", "status_updated", "rejections_logged"]`.
+
+7. **(Risk closure)** Read `outputs/checkpoints/risks.jsonl` if it exists. Parse line by line; dedupe by `key` keeping the last occurrence per key (append-then-dedupe-on-read semantics — see `risk-radar` Step 7). For each deduped record where `supplier == {supplier_name}` AND `resolution == null`: append a NEW JSONL line to the same file preserving all existing fields and setting `resolution: { status: "closed", closed_date: "{today}", closed_reason: "supplier_rejected", closed_via_skill: "supplier-rejection" }`. Log to change-log: `risk-closure | Closed N risks for {supplier}`. If file missing: skip, log `no risks file found — risk-radar may not have run yet`.
 
 ## Rules
 
@@ -148,5 +148,5 @@ In order:
 - If supplier is a PT supplier, rejection email must be in Portuguese.
 - Jorge note is always in Portuguese regardless of supplier language.
 - Concurrency: session-single model (see `.claude/safety.md`). No per-write collision check.
-- **MCP error handling:** Single-supplier operations (page fetch, Gmail draft, status write): if MCP fails, HALT and surface to André. Batch OI closures (Step 7.2): if one write fails, skip that OI, log `[OI title] — Notion MCP error, skipped`, and continue — report skipped OIs in the final output. Ruflo failures (checkpoint, risk closure Step 7.7): log and proceed.
+- **MCP error handling:** Single-supplier operations (page fetch, Gmail draft, status write): if MCP fails, HALT and surface to André. Batch OI closures (Step 7.2): if one write fails, skip that OI, log `[OI title] — Notion MCP error, skipped`, and continue — report skipped OIs in the final output. Local checkpoint I/O failures (Step 7.6 rejections.jsonl, Step 7.7 risks.jsonl): log and proceed — rejection is already recorded in Notion.
 - **Autonomy ledger:** after every SHOW BEFORE WRITE decision on supplier status, NDA, or OI closure, append one line to `outputs/autonomy-ledger.md` per `.claude/procedures/ledger-append.md`. Classes: `supplier_status_rejected` (`never_promote`), `nda_status_write` (`never_promote`), `oi_status_closed`. Email drafts log as `email_draft_send` (`never_promote`).

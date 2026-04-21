@@ -28,6 +28,24 @@ Retrospective triggered by user Gemini cross-check on Cerler (2026-04-20) surfac
 
 **Open follow-up:** Zewa re-engagement via Veridian Healthcare channels — separate decision pending (RFQ silence Mar 2026 now contextualized as post-acquisition integration, not disinterest).
 
+### /improve — mini-sprint L4B: rejection chain + risk cascade migration
+
+[EVENT: L4B_MIGRATION skill_count=3 ruflo_calls_removed=4]
+
+Migrated off ruflo `memory_store` / `memory_search` for 2 cross-skill flows (rejection chain + risk cascade). Motivation: known ruflo bug "Cannot read properties of null (reading 'model')" observed 3× on Kimball/Zewa/Crestline enrichment runs. JSONL is the established pattern for shared checkpoint state (L4A quote-intake/rfq-workflow, mini-sprint #2 supplier-rejection/supplier-onboarding/outreach-healer).
+
+**Files touched (4):**
+- `.claude/skills/supplier-rejection/SKILL.md` — Step 7.6 (rejections.jsonl append, producer) + Step 7.7 (risks.jsonl close, consumer); MCP error handling rule updated
+- `.claude/skills/supplier-onboarding/SKILL.md` — Step 0 re-engagement check (rejections.jsonl scan, consumer)
+- `.claude/skills/risk-radar/SKILL.md` — Step 4b learning loop (risks.jsonl scan, consumer) + Step 7 producer (risks.jsonl append, replacing ruflo memory_store)
+- `outputs/checkpoints/.gitkeep` — new directory with header describing JSONL semantics
+
+**JSONL semantics:**
+- `rejections.jsonl` — append-only, one line per rejection. Consumer scans case-insensitive by `supplier` field.
+- `risks.jsonl` — append-then-dedupe-on-read by `key`. Producer (risk-radar) appends per flagged CRITICAL/HIGH supplier. Consumer (supplier-rejection Step 7.7) appends closure line with same `key`. Readers dedupe keeping LAST occurrence per key.
+
+**Design decision:** risks.jsonl is audit backup, not source of truth. Current-state risk signals are persisted by risk-radar Step 6b to `outputs/pending-signals.md` and the Open Items DB. JSONL closes the learning loop and enables cross-session historical pattern detection.
+
 ### /improve — mini #3: create_draft threading — verified, no fix needed
 - Audit confirmou regra corretamente documentada em 4 locais (supplier-rejection L74, supplier-chaser L190, CLAUDE.md L104, supplier-comms.md L34–42). Sinal fechado por verificação.
 

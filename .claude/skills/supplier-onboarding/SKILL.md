@@ -33,7 +33,7 @@ Run against the target project's Supplier DB (IDs in `config/databases.md`). Als
 
 Check `config/domains.md` for the domain. If the supplier or domain already exists, STOP and report to Andre with the existing page URL.
 
-Also call `mcp__ruflo__memory_search` with query `"rejection {supplier_name}"`, namespace "procurement", limit 1, threshold 0.4. If a prior rejection record is found: surface to André — "This supplier was previously rejected on {date}. Reason: {reason_internal}. Confirm this is an intentional re-engagement before proceeding." Wait for confirmation. If ruflo MCP fails: skip this check and proceed.
+Also scan `outputs/checkpoints/rejections.jsonl` if it exists. Parse line by line; for any record where `supplier` matches `{supplier_name}` (case-insensitive, normalized): surface to André — "This supplier was previously rejected on {date}. Reason: {reason_internal}. Confirm this is an intentional re-engagement before proceeding." Wait for confirmation. If file missing or unreadable: skip this check and proceed.
 
 ## Step 1: Collect supplier info from Andre
 

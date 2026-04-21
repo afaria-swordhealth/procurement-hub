@@ -111,30 +111,21 @@ Read `outputs/session-state.md`. Check Carry-Over and Pending Actions for:
 - Items older than 3 days.
 - Items flagged as blocking.
 
-## Step 4b: Check ruflo for historical risk patterns
+## Step 4b: Check risks.jsonl for historical risk patterns
 
-Before classifying, call `mcp__ruflo__memory_search` to enrich findings with learned patterns:
+Before classifying, scan `outputs/checkpoints/risks.jsonl` if it exists. Parse line by line; dedupe by `key` keeping the last occurrence per key (append-then-dedupe-on-read semantics — see Step 7).
 
-```
-query: "supplier risk patterns {project}"
-namespace: "procurement"
-limit: 5
-threshold: 0.4
-```
+Filter the deduped set to records from the last 90 days. Use these to enrich classification:
 
-For each supplier flagged as "gone cold" in Step 1a, also search:
-```
-query: "gone cold {supplier_name}"
-namespace: "procurement"
-limit: 3
-```
+- For each supplier flagged in Step 1a/1b/1c/1d, match records where `supplier == {supplier_name}`. If a prior record shows the same `risk_type` resolved (non-null `resolution`), note the prior resolution pattern.
+- For cross-project patterns (e.g., NDA delays for CN suppliers), count matching `risk_type + region` combinations across the deduped set.
 
-If results exist, use them to:
-- Elevate or reduce severity if this supplier went cold before and resolved in a predictable pattern
-- Note learned signals ("NDA delays for CN suppliers typically resolve after second follow-up")
-- Surface prior actions that worked ("firm tone at Tier 3 got response within 48h")
+Use these signals to:
+- Elevate or reduce severity if this supplier had the same risk before and resolved in a predictable pattern.
+- Note learned signals ("NDA delays for CN suppliers typically resolve after second follow-up" — only if evidenced by ≥3 records).
+- Surface prior actions that worked (from the `last_action` field of resolved records).
 
-If no results, proceed with standard classification below.
+If file missing or unreadable, proceed with standard classification below without enrichment.
 
 ## Step 5: Classify risks
 
@@ -190,25 +181,23 @@ Dedup: before appending, scan existing `## Pending` entries. If an entry exists 
 
 The `morning-brief` skill consumes these and applies `attention-budget.md` scoring. Risk-radar does not score — severity maps to type_weight in the budget procedure.
 
-## Step 7: Store scan results in ruflo
+## Step 7: Append scan results to risks.jsonl
 
-After presenting the report, call `mcp__ruflo__memory_store` to record what was found:
+After presenting the report, append risk records to `outputs/checkpoints/risks.jsonl` (one JSONL line per record). If the directory or file does not exist, create it.
 
-**Overall scan record:**
-- `key`: `risk-scan::[YYYY-MM-DD]`
-- `namespace`: "procurement"
-- `upsert`: true
-- `tags`: ["risk-scan", "daily"]
-- `value`: `{ date, total_critical, total_high, total_medium, top_risk_supplier, top_risk_type }`
+**Per flagged supplier (one line per CRITICAL or HIGH risk):**
 
-**Per flagged supplier (one call per CRITICAL or HIGH risk):**
-- `key`: `risk::[supplier_name]::[risk_type]::[YYYY-MM-DD]`
-- `namespace`: "procurement"
-- `upsert`: true
-- `tags`: ["risk", project, supplier_name, risk_type]
-- `value`: `{ supplier, project, risk_type, severity, days_since_contact, last_action, resolution: null }`
+```json
+{"key": "risk::{supplier_name}::{risk_type}::{YYYY-MM-DD}", "supplier": "{supplier}", "project": "{project}", "risk_type": "{risk_type}", "severity": "{CRITICAL|HIGH}", "days_since_contact": {N}, "last_action": "{action}", "date": "{YYYY-MM-DD}", "resolution": null}
+```
 
-Update `resolution` when the risk is resolved (e.g., supplier replies, NDA executed). This closes the learning loop that was previously missing.
+**Append-then-dedupe-on-read semantics:** the file is append-only. Multiple lines with the same `key` may accumulate over time (e.g., a supplier flagged on consecutive days, or later closed by supplier-rejection Step 7.7). Consumers (Step 4b above, supplier-rejection Step 7.7) must dedupe by `key` keeping the LAST occurrence per key on read. This preserves full audit history while giving consumers a clean current-state view.
+
+MEDIUM and LOW severity risks are not persisted (too noisy). Overall scan counts are visible in the report only — not persisted.
+
+**Resolution field:** left `null` at creation. Supplier-rejection Step 7.7 appends a new line (same `key`) with `resolution: { status: "closed", closed_date, closed_reason, closed_via_skill }` when a flagged supplier is rejected. Future skills may close risks via their own paths (e.g., rfq-workflow on NDA-executed).
+
+**Local checkpoint I/O failure:** if the append fails, log to change-log.md as `risks-jsonl | append failed: {error}` and proceed — the risk is already in the presented report.
 
 ## Rules
 
