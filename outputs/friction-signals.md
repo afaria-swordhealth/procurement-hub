@@ -3,6 +3,7 @@
 # Resolved section is kept for retrospective (monthly session reads it for patterns).
 
 ## Pending
+- [ ] [2026-04-22] /wrap-up: meia-noite crossing quebra o date attribution no daily log — mini — /wrap-up precisa de detetar quando corre entre 00:00–03:00 e atribuir ao dia anterior automaticamente (daily log + change-log header)
 
 ## Resolved
 - [x] [2026-04-21 → 2026-04-21] supplier-enrichment: ruflo memory_store Step 5 not migrated — micro — fixed in .claude/skills/supplier-enrichment/SKILL.md (commit 1443ee1)
