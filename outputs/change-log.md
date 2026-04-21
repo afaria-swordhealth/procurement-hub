@@ -4,6 +4,20 @@
 
 ## 2026-04-21
 
+### /improve — micro-fix #1: supplier-enrichment ruflo → JSONL
+
+- `supplier-enrichment/SKILL.md` Step 5: replaced `ruflo memory_store` call with `outputs/checkpoints/enrichments.jsonl` append. Known bug (`Cannot read properties of null (reading 'model')`) failed 3× today (Crestline, Kimball, Zewa). Pattern matches L4A/L4B migrations. I/O failure: log and proceed.
+
+### L5 validation — Kaia enum normalization
+
+[EVENT: L5_VALIDATION findings=1 fixes=3]
+
+Ran end-to-end L5 validation. Parser regex extracts 207/207 expected structured fields across all 3 v1 files (23 suppliers × 9 fields). All NDA and currency values canonical. `/warm-up --light` Phase 1 path clean.
+
+**1 finding — Kaia status enum violation:** Tiger Fitness + Second Page Yoga + ProImprint all had `status: Under Review` (informal Kaia stage, not in `context-loader.md` enum). Normalized to `Quote Received` (factually accurate — all 3 have active quotes). Per option A.
+
+**Note:** Notion may carry a different status label for these 3 — `/context-doctor` next run will reconcile. Flag if Notion has "Under Review" as an enum value there (would mean Notion enum needs alignment too).
+
 ### L5 — context densification (Schema v1 migration)
 
 [EVENT: L5_MIGRATION files=4 suppliers=23 lines_before=172 lines_after=544]

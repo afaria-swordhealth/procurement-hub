@@ -164,11 +164,13 @@ After André approves (possibly with edits):
    - Sources consulted: {N}
    ```
 
-5. Store enrichment outcome in ruflo memory:
-   - `key`: `enrichment::{supplier_slug}::{YYYY-MM-DD}`
-   - `namespace`: "procurement"
-   - `tags`: ["enrichment", project, supplier_name]
-   - `value`: `{ fields_written, sources, confidence_mix, manual_gaps }`
+5. Append enrichment record to `outputs/checkpoints/enrichments.jsonl` (one JSONL line per run; audit trail and cross-session pattern detection):
+
+   ```json
+   {"supplier": "{supplier_name}", "project": "{project}", "date": "{YYYY-MM-DD}", "fields_written": {M}, "sources": {N}, "confidence_mix": "{high|mixed|low}", "manual_gaps": {K}}
+   ```
+
+   Local checkpoint I/O failure: log and proceed — enrichment is already recorded in Notion and change-log.
 
 ---
 
