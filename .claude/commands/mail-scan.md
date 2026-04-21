@@ -94,6 +94,16 @@ Add a **Links** column to the output table for Zip and Jira rows:
 
 Wait for user approval before any writes. No exceptions.
 
+## Closing Prompt
+
+After presenting the output table, count rows where Recommendation ≠ "Ignore". Then:
+
+- **N > 0:** end with exactly this line (substituting N):
+  > "**N recomendação(ões) pendente(s).** Responde com `aprova tudo`, `aprova [linhas]` (ex: `aprova 1,3`), ou `salta` para fechar sem escrever."
+- **N = 0:** close silently — "Nada para escrever. Scan concluído."
+
+Do NOT proceed with writes until André responds. If the session ends without a response, the recommendations are lost — this is expected behavior (next /mail-scan will resurface them).
+
 ## Note
 
 For broader scan without domain filter, use /mail-scan-deep.

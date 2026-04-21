@@ -5,6 +5,7 @@
 ## Pending
 
 ## Resolved
+- [x] [2026-04-22 → 2026-04-22] /mail-scan: sem closing prompt — incoming milestones em limbo sem resposta explícita — micro — fixed in mail-scan.md + mail-scan-deep.md
 - [x] [2026-04-22 → 2026-04-22] /wrap-up: midnight crossing — micro — fixed in .claude/commands/wrap-up.md (TARGET_DATE pre-flight)
 - [x] [2026-04-21 → 2026-04-21] supplier-enrichment: ruflo memory_store Step 5 not migrated — micro — fixed in .claude/skills/supplier-enrichment/SKILL.md (commit 1443ee1)
 - [x] [2026-04-21 → 2026-04-21] change-log.md: Apr 20 section persisted below Apr 21 entries — micro — cleared in outputs/change-log.md (commit 1835131)

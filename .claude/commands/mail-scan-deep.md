@@ -48,3 +48,11 @@ Use `notion-query-data-sources` with SQL for DB queries instead of fetching page
 ## Safety
 
 Wait for user approval before any writes. No exceptions.
+
+## Closing Prompt
+
+After presenting the output tables, count rows where Recommendation ≠ "Ignore" (Known Suppliers table only). Then:
+
+- **N > 0:** end with exactly this line (substituting N):
+  > "**N recomendação(ões) pendente(s).** Responde com `aprova tudo`, `aprova [linhas]` (ex: `aprova 1,3`), ou `salta` para fechar sem escrever."
+- **N = 0:** close silently — "Nada para escrever. Scan concluído."
