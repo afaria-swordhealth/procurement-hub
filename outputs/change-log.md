@@ -28,6 +28,28 @@ Retrospective triggered by user Gemini cross-check on Cerler (2026-04-20) surfac
 
 **Open follow-up:** Zewa re-engagement via Veridian Healthcare channels — separate decision pending (RFQ silence Mar 2026 now contextualized as post-acquisition integration, not disinterest).
 
+### Architecture audit — improvement-plan status (2026-04-21)
+
+[EVENT: PLAN_AUDIT layers=7 shipped=4 partial=2 pending=1]
+
+Audited `outputs/improvement-plan.md` ship metrics against current repo state. Added §10 "Execution status" with per-layer breakdown.
+
+**Shipped (✅):** L0 (7/8, B5 is André manual), L1 (foundation substrate complete), L2 (hooks active), L4 (lessons.md × 7 skills, ask skill, autonomy-ledger scaffolded).
+
+**Partial (⚠️):** L3 (substrate shipped, Slack DM + cron waiting André approval), L6 (4/5 new skills live, PDF prefill + chaser cadence pending), L7 (obsolete files deleted, ruflo purge pending).
+
+**Pending (❌):** L5 context densification — context files are 22–50 lines (target 150–200). This is the single biggest outstanding architecture item. Blocks Light-mode token savings target (130k → 50k).
+
+**M-track:** M2 + M3 complete; M4 Notion interface optimization partial.
+
+**Commit:** plan promoted from draft → APPROVED + IN EXECUTION. Status is now committed source of truth, not scratchfile.
+
+### /morning-brief — delivered
+
+[EVENT: SKILL_RUN skill=morning-brief status=delivered decisions=3 overdue=5 signals=0 deferred=11]
+
+Brief delivered via chat. Top actions: Sarah labeler chase (Pulse Blocker due Apr 22), Unique Scales NDA today, M-Band component chase for Wintech 12:30. 5 overdue (2 Kaia gated + PLD/SCA × 2 blocked on Legal). Calendar: Logistics 11:00 + Wintech 12:30.
+
 ### /improve — mini-sprint L4B: rejection chain + risk cascade migration
 
 [EVENT: L4B_MIGRATION skill_count=3 ruflo_calls_removed=4]

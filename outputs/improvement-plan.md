@@ -1,7 +1,7 @@
 # Integration Plan — Operator Second Brain Evolution
 
 Source: thread 2026-04-19 (critical analysis → clean architecture → ecosystem research → integration).
-Status: draft, pending André approval.
+Status: **APPROVED + IN EXECUTION**. Last audit 2026-04-21 — see §10 for per-layer status.
 Owner: André. System agents execute layer by layer after approval.
 
 ---
@@ -339,3 +339,46 @@ Everything here is a pattern port into the existing Claude Code + MCP + file sys
 | # | Observation | Action needed |
 |---|-------------|---------------|
 | 1 | **Gmail draft threading:** Apr 20 session — `create_draft` (no threadId/inReplyTo passed) produced a draft that appeared inside an existing Gmail thread. Memory rule `feedback_gmail_draft_threading.md` says "always standalone." Possible cause: Gmail conversation view groups by subject+recipient. Open question: does the sent email carry proper `In-Reply-To` / `References` headers, or does it only appear threaded in the UI? | Test: send a draft that "threaded" this way and inspect headers. Update memory rule if behavior is reliable. |
+
+---
+
+## 10. Execution status — 2026-04-21 audit
+
+Post-Audit 2.0 (2026-04-19) + L4A/L4B ruflo migrations (2026-04-19/21). Verified against current repo state (not self-reported).
+
+### Status legend
+- ✅ **Shipped** — ship metric verified in code
+- ⚠️ **Partial** — substrate in place, one or more components pending
+- ❌ **Pending** — not yet built
+- 👤 **Andre** — manual task, can't be auto-verified
+
+### Layer-by-layer
+
+| Layer | Status | Evidence | Outstanding |
+|-------|--------|----------|-------------|
+| **L0 Bug sprint** | ✅ **7/8 shipped** | B1 deadline-age proxy (`decision-queue-render.md:106,123`); B2 "Never Best regards" (`writing-style.md:13`); B3 Notion-first write order (`check-outreach.md:54`); B4 `Last Outreach Date` read/written by 4 skills; B6 `FX Rate at Quote` stamped by quote-intake, read by scenario-optimizer; B7 autoclean 21d + ≥3 chase (`autoclean-scan-lists.md:15,22`); B8 `/ping` command present | B5 Supplier field OI backfill (👤 André manual) |
+| **L1 Foundation** | ✅ **shipped** | CLAUDE.md 112 lines (<120 target); `safety.md` 55 lines; `autonomy.md` 81 lines; `event-log.md` procedure with canonical TYPE table; `exec-checkpoints.md` local-file pattern; ruflo collision-guard purge complete; `friction-signals.md` + `pending-signals.md` + `autonomy-ledger.md` all accumulating | — |
+| **L2 Hooks** | ✅ **shipped** | `settings.json` 6 hook entries; `settings.local.json` 4; SessionStart env-vars confirmed (`CURRENT_DATE`, `ACTIVE_PROJECT` surface in this session) | — |
+| **L3 Proactive loop** | ⚠️ **substrate shipped, delivery pending** | `morning-brief/SKILL.md` exists, ran live today; `attention-budget.md` procedure; `pending-signals.md` with producer format; crons registered as silent observers | Slack DM target + 07:30 cron pending André approval (on-demand only for now) |
+| **L4 Learning loop** | ✅ **shipped** | `/ask` skill + `validation.md`; 7 skills have `lessons.md` (supplier-chaser, supplier-enrichment, quote-intake, rfq-workflow, outreach-healer, supplier-onboarding, supplier-rejection); `autonomy-ledger.md` scaffolded; `supplier-pattern-store.md` procedure; `aidefence-precheck.md` on drafts | Ledger entry accumulation (only 7 lines total — first auto-promotion proposal still distant) |
+| **L5 Context densification** | ❌ **NOT SHIPPED** | `/warm-up` Light/Full modes live; `context-loader.md` progressive disclosure; context-doctor schema validation. **BUT** context files are 22–50 lines (target 150–200). Dense structured format not written. | **Primary outstanding architecture item.** Rewrite `context/{pulse,kaia,mband,bloompod}/suppliers.md` in dense structured format. Unlocks the Light-mode token savings (`~130k → ~50k` target). |
+| **L6 Procurement leverage** | ⚠️ **mostly shipped** | `/scenario-optimizer`, `/supplier-enrichment`, `/nda-check`, `/part-lookup`, typed-edit-payloads procedure all live; supplier-enrichment went through retrospective + 4 new rigor rules (2026-04-21) | quote-intake PDF-attachment prefill pipeline not verified end-to-end; signal-triggered chaser cadence not implemented |
+| **L7 Cleanup** | ⚠️ **files purged, ruflo pending** | 5/5 named obsolete files deleted (`architecture-review.md`, `safety-control-analysis.md`, `implementation-playbook.md`, `Dashboard.md`, root `context-pulse-suppliers.md`); `commands-vs-skills.md` procedure exists | Ruflo memory purge pass not run (no evidence); `ruflo-memory-purge.md` procedure exists but not executed |
+
+### M-track status (parallel track, Audit 2.0)
+
+| Milestone | Status | Notes |
+|-----------|--------|-------|
+| M2 — Self-healing Level 4 (exec-checkpoints) | ✅ | L4A (quote-intake, rfq-workflow, supplier-selection) + L4B (supplier-rejection, supplier-onboarding, outreach-healer, risk-radar, risks.jsonl, rejections.jsonl) complete 2026-04-21 |
+| M3 — Autonomy T3 (conditional auto-approve) | ✅ | Per `project_audit2.md` memory |
+| M4 — Notion interface optimization | ⚠️ | `Last Outreach Date` deployed; broader DB-field enrichment / page-body reduction pending |
+
+### Sequencing recommendation
+
+1. **L5 context densification** — the single biggest outstanding item. Blocks Light-mode token savings and `/warm-up <2h` fast-path usefulness. Rewrite one context file as template, iterate.
+2. **L7 ruflo purge** — mechanical; run `ruflo-memory-purge.md` procedure.
+3. **L3 Slack DM + cron activation** — waits on André approval.
+4. **L6 quote-intake PDF + chaser cadence** — nice-to-have, not foundational.
+5. **M4 DB-field expansion** — parallel track, not in layer model.
+
+Everything else is either shipped or an André-manual task.
