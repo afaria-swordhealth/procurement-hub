@@ -4,6 +4,10 @@
 
 ## 2026-04-21
 
+### /improve — session close: friction-signals.md updated
+
+- `outputs/friction-signals.md`: 5 signals closed in ## Resolved. ## Pending remains empty. CCR-resolved items (#4 build-deck, #5 L5) noted with attribution.
+
 ### /improve — micro-fix #2: commit package.json + package-lock.json
 
 - `package.json` + `package-lock.json`: committed untracked npm files. `pptxgenjs@^4.0.1` installed for `/build-deck` but never tracked. `node_modules/` already gitignored since commit `b722496`.
