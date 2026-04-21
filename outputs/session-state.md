@@ -78,5 +78,3 @@ Slack MCP: operational. Scanned Jorge, Miguel, Paulo, Pedro P, Bianca, Sofia, M-
 - Hold on Qualio SQM fields — Sofia asked to wait (Apr 20 23:13).
 
 ## Session Crons
-659dbeaf (every 2h at :37 — /mail-scan)
-b6c1ad69 (every 3h at :23 — /log-sent)
