@@ -361,7 +361,7 @@ Post-Audit 2.0 (2026-04-19) + L4A/L4B ruflo migrations (2026-04-19/21). Verified
 | **L2 Hooks** | ✅ **shipped** | `settings.json` 6 hook entries; `settings.local.json` 4; SessionStart env-vars confirmed (`CURRENT_DATE`, `ACTIVE_PROJECT` surface in this session) | — |
 | **L3 Proactive loop** | ⚠️ **substrate shipped, delivery pending** | `morning-brief/SKILL.md` exists, ran live today; `attention-budget.md` procedure; `pending-signals.md` with producer format; crons registered as silent observers | Slack DM target + 07:30 cron pending André approval (on-demand only for now) |
 | **L4 Learning loop** | ✅ **shipped** | `/ask` skill + `validation.md`; 7 skills have `lessons.md` (supplier-chaser, supplier-enrichment, quote-intake, rfq-workflow, outreach-healer, supplier-onboarding, supplier-rejection); `autonomy-ledger.md` scaffolded; `supplier-pattern-store.md` procedure; `aidefence-precheck.md` on drafts | Ledger entry accumulation (only 7 lines total — first auto-promotion proposal still distant) |
-| **L5 Context densification** | ❌ **NOT SHIPPED** | `/warm-up` Light/Full modes live; `context-loader.md` progressive disclosure; context-doctor schema validation. **BUT** context files are 22–50 lines (target 150–200). Dense structured format not written. | **Primary outstanding architecture item.** Rewrite `context/{pulse,kaia,mband,bloompod}/suppliers.md` in dense structured format. Unlocks the Light-mode token savings (`~130k → ~50k` target). |
+| **L5 Context densification** | ✅ **shipped** (2026-04-21) | All 4 context files now Schema v1: Pulse 143L, M-Band 262L, Kaia 101L, BloomPod 38L (scaffold). Machine-parseable structured fields per supplier (status, nda, currency, unit_cost, tooling_cost, last_outreach, open_ois, next, blocker, notes). `context/index.json` regenerated with schema + blocker_count + top_deadline. Pair-work validation: @5K unit_cost convention confirmed; BU (not GU) Alignment typo fixed. | M-Band exceeds 200-line heuristic (15 active suppliers × structured block). Trade-off accepted. |
 | **L6 Procurement leverage** | ⚠️ **mostly shipped** | `/scenario-optimizer`, `/supplier-enrichment`, `/nda-check`, `/part-lookup`, typed-edit-payloads procedure all live; supplier-enrichment went through retrospective + 4 new rigor rules (2026-04-21) | quote-intake PDF-attachment prefill pipeline not verified end-to-end; signal-triggered chaser cadence not implemented |
 | **L7 Cleanup** | ⚠️ **files purged, ruflo pending** | 5/5 named obsolete files deleted (`architecture-review.md`, `safety-control-analysis.md`, `implementation-playbook.md`, `Dashboard.md`, root `context-pulse-suppliers.md`); `commands-vs-skills.md` procedure exists | Ruflo memory purge pass not run (no evidence); `ruflo-memory-purge.md` procedure exists but not executed |
 
@@ -375,8 +375,8 @@ Post-Audit 2.0 (2026-04-19) + L4A/L4B ruflo migrations (2026-04-19/21). Verified
 
 ### Sequencing recommendation
 
-1. **L5 context densification** — the single biggest outstanding item. Blocks Light-mode token savings and `/warm-up <2h` fast-path usefulness. Rewrite one context file as template, iterate.
-2. **L7 ruflo purge** — mechanical; run `ruflo-memory-purge.md` procedure.
+1. ~~**L5 context densification**~~ — ✅ shipped 2026-04-21. Dense Schema v1 format applied across all 4 project files; index.json regenerated. Light-mode token savings now possible.
+2. **L7 ruflo purge** — mechanical; run `ruflo-memory-purge.md` procedure (André-gated 45-60min session per procedure).
 3. **L3 Slack DM + cron activation** — waits on André approval.
 4. **L6 quote-intake PDF + chaser cadence** — nice-to-have, not foundational.
 5. **M4 DB-field expansion** — parallel track, not in layer model.

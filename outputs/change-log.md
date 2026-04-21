@@ -4,6 +4,30 @@
 
 ## 2026-04-21
 
+### L5 — context densification (Schema v1 migration)
+
+[EVENT: L5_MIGRATION files=4 suppliers=23 lines_before=172 lines_after=544]
+
+Rewrote all 4 project context files in dense Schema v1 format per `.claude/procedures/context-loader.md` §Dense format specification. Pair-work extraction validated with André (2 corrections applied: @5K unit_cost convention for Pulse consistency; "GU Alignment" → "BU Alignment" typo).
+
+**Files touched (5):**
+- `context/pulse/suppliers.md` — 51L → 143L. 3 active suppliers (Transtek, Unique Scales, Urion) with structured fields + preserved prose notes.
+- `context/mband/suppliers.md` — 45L → 262L. 15 active suppliers (5 Quote Received, 6 RFQ Sent, 3 Contacted, 1 Identified). Exceeds 200-line heuristic — accepted trade-off for 15-supplier coverage.
+- `context/kaia/suppliers.md` — 23L → 101L. 5 active suppliers; gated on Caio/Max header captured.
+- `context/bloompod/suppliers.md` — unchanged (already Schema v1 scaffold, 38L).
+- `context/index.json` — regenerated with `schema: v1`, `blocker_count` per project (2/6/4/0), `top_deadline` per project (2026-04-21 for Kaia + M-Band).
+
+**Structured fields per supplier:** status, nda, currency, unit_cost, tooling_cost, last_outreach, open_ois, next, blocker, notes (multi-line prose preserved).
+
+**Unlocks:** `/warm-up` Light mode now hits the ~50k-token target (was ~130k); `context-doctor` can run Step 3b schema validation against all project files; index.json progressive disclosure is reliable.
+
+**Plan update:** `outputs/improvement-plan.md` §10 L5 flipped ❌ NOT SHIPPED → ✅ shipped. Sequencing recommendation #1 closed.
+
+### /morning-brief — 2026-04-21 (--force)
+
+[EVENT: SKILL_RUN skill=morning-brief status=delivered decisions=3 overdue=4 signals=1 deferred=12]
+Brief delivered via chat. Scanned 26 OIs, 0 pending signals, 5 DMs.
+
 ### /supplier-enrichment — post-retrospective corrections (Crestline + Kimball + Zewa)
 
 [EVENT: SUPPLIER_ENRICH_CORRECTION suppliers=3 rules_added=4 lesson_cases=10]

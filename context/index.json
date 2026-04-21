@@ -1,37 +1,41 @@
 {
-  "generated": "2026-04-20T23:00",
+  "generated": "2026-04-21T10:30",
   "projects": {
     "pulse": {
-      "last_synced": "2026-04-20T23:00",
+      "last_synced": "2026-04-21T10:30",
+      "schema": "v1",
       "supplier_count_active": 3,
       "supplier_count_rejected": 10,
       "active_suppliers": ["Transtek Medical", "Unique Scales", "Urion Technology"],
-      "blocker_count": 0,
-      "top_deadline": null
+      "blocker_count": 2,
+      "top_deadline": "2026-04-22"
     },
     "kaia": {
-      "last_synced": "2026-04-20T23:00",
+      "last_synced": "2026-04-21T10:30",
+      "schema": "v1",
       "supplier_count_active": 5,
       "supplier_count_rejected": 8,
       "active_suppliers": ["Tiger Fitness", "Second Page Yoga", "ProImprint", "Nimbl", "4imprint"],
-      "blocker_count": 0,
-      "top_deadline": null
+      "blocker_count": 4,
+      "top_deadline": "2026-04-21"
     },
     "mband": {
-      "last_synced": "2026-04-20T23:00",
+      "last_synced": "2026-04-21T10:30",
+      "schema": "v1",
       "supplier_count_active": 15,
       "supplier_count_rejected": 10,
-      "active_suppliers": ["Quantal", "Ribermold", "TransPak", "JXwearable", "Xinrui Group", "MCM", "Vangest", "SHX Watch", "Uartrónica", "GAOYI", "Lihua", "Falcon Electronica", "Sanmina", "Electronica Cerler", "Novares"],
-      "blocker_count": 0,
-      "top_deadline": null
+      "active_suppliers": ["Vangest", "SHX Watch", "MCM", "GAOYI", "Lihua", "Ribermold", "TransPak", "JXwearable", "Uartrónica", "Quantal", "Xinrui Group", "Falcon Electronica", "Sanmina", "Electronica Cerler", "Novares"],
+      "blocker_count": 6,
+      "top_deadline": "2026-04-21"
     },
     "bloompod": {
-      "last_synced": "2026-04-20T23:00",
+      "last_synced": "2026-04-20T16:00",
+      "schema": "v1",
       "supplier_count_active": 0,
       "supplier_count_rejected": 0,
       "active_suppliers": [],
       "blocker_count": 0,
-      "top_deadline": null
+      "top_deadline": "2026-04-24"
     }
   }
 }
