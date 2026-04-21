@@ -2,7 +2,90 @@
 # Rolling daily file. Keeps only today's entries.
 # History lives in git log. On wrap-up, this file is committed then cleared for tomorrow.
 
+## 2026-04-22
+
+### /log-sent — session start (continued from Apr 21 compaction)
+
+[EVENT: LOG_SENT supplier=Transtek entries=1 last_outreach_date_updated=yes oi_comments=0]
+[EVENT: LOG_SENT supplier=Unique_Scales entries=1 oi_comments=1]
+
+- **Transtek:** Apr 21 23:17 — GBF-2008-B1 scale inquiry sent to Mika. Kevin Wang authorized. Outreach entry written. Last Outreach Date updated 2026-04-20 → 2026-04-21.
+- **Unique Scales:** Apr 21 22:20 — Revised QTA sent to Queenie (response to 6-point open items reply). Outreach entry written. Summary updated to 59+. OI comment on SQA OI `33eb4a7d…81ee`.
+- **Skipped:** Daxin 15:00 reply (Rejected, T2D parked per Jorge/Kevin direction).
+- **Condensation note:** Unique Scales has 14 visible entries (threshold: 10). Archive Apr 13–15 (4 entries) on next /housekeeping or /wrap-up.
+
+### /session-doctor — 2026-04-22
+
+[EVENT: SESSION_DOCTOR status=complete auto_fixes=0 reports=5]
+
+- Last-Warm-Up: 24h stale — full /warm-up needed before operational commands.
+- Last-Wrap-Up: 5d stale — /wrap-up overdue.
+- Change-log: stale date header (Apr 21) — auto-fix suppressed due to uncommitted outputs/ changes. /wrap-up will commit + clear.
+- Git: 7 uncommitted files in outputs/ + context/ (session ended without /wrap-up).
+- Cron check: skipped (Last-Warm-Up ≥ 2h).
+
 ## 2026-04-21
+
+### /wrap-up /log-sent — Transtek + Unique Scales late-day milestones
+
+[EVENT: LOG_SENT supplier=Transtek_Medical entries=1 oi_comments=pending]
+[EVENT: LOG_SENT supplier=Unique_Scales entries=1 oi_comments=pending]
+
+- **Transtek Medical** (page `311b4a7d…de5f`): Outreach entry written — Apr 21 scale sourcing inquiry (GBF-2008-B1; alt path vs Unique Scales). Summary line updated to 63+ milestones. Last Outreach Date → 2026-04-21.
+- **Unique Scales** (page `311b4a7d…4e1e`): Outreach entry written — Apr 21 revised QTA (v0.2) shared with Queenie. Sofia's revisions incorporated. Elena/Sofia/Bianca/Paulo/Jorge CC'd. Last Outreach Date already 2026-04-21 (no change).
+- Daxin (Apr 21 15:00 Kerry pricing tiers) — SKIPPED: status=Rejected, T2D parked per `project_t2d_expansion`.
+
+### /log-sent — 19:45 run (manual)
+
+[EVENT: LOG_SENT entries=0 reason="no new sent supplier emails since 10:40; crons 17:23 + 19:23 confirmed clean"]
+
+### /log-sent — 16:30 run (manual)
+
+[EVENT: LOG_SENT entries=0 reason="no new sent supplier emails since 14:23; cron 17:23 already confirmed clean"]
+
+### BU email sent — Pulse delivery timeline + path options
+
+[EVENT: GMAIL_SENT to=k.wang+p.alves cc=j.garcia+a.singh+mc subject="Pulse — Delivery Timeline + Path Options (BPM + Scale)"]
+
+- BPM: Jul 13 (workaround) vs Jul 28 (without). Decision by Apr 24.
+- Scale: FDA strategy pending, 4 internal gates. Transtek as alternative option raised.
+- OTS 2K bridge (unbranded) proposed for both devices.
+- Finance silence flagged: Anand's PLD alignment email unanswered since Apr 9.
+- Consequences per decision added: BPM → Jul 13 vs Jul 28; Finance hard-stop → extends scale timeline.
+- 4 decisions requested by Friday Apr 24.
+
+### /log-sent — Unique Scales Apr 21 outreach milestone
+
+[EVENT: LOG_SENT supplier=Unique_Scales entries=1 oi_comments=1]
+
+- Outreach entry written: **Apr 21** — FDA/UDI-DI response (importer listing ask, 1BYONE precedent, QARA CC'd).
+- Last Outreach Date updated to 2026-04-21.
+- OI comment added to `348b4a7d…81c9` (US market docs): FDA importer approach clarified.
+- Skipped: Apr 20 17:36 + 22:32 emails (already logged in prior /log-sent run).
+
+### /improve — EVALUATE closures + Type-enum drift fix
+
+[EVENT: PLAN_EVALUATE_CLOSE decisions=5 drift_fixes=1]
+
+Closed all 5 EVALUATE decisions in `outputs/improvement-plan.md`:
+- #1 weekly-pulse — KEEP (different cadence than morning-brief).
+- #2 project-dashboard — KEEP (deep dive vs shallow scan).
+- #3 promise-tracker — DECIDED RETIRE, implementation DEFERRED to separate sprint. 14 open promises to migrate to OI DB `Type=Commitment`. Dual source tolerated until migration.
+- #4 risk-radar — already shipped as producer/consumer split.
+- #5 /mail-scan cadence — DEFERRED (blocked on L3 Slack DM + 07:30 cron pending André).
+
+**Drift fix:** `.claude/procedures/create-open-item.md` line 16 Type enum aligned to CLAUDE.md §4c (added `Commitment` — was 4 types, now 5). Independent of #3 decision.
+
+### Unique Scales — UDI-DI / FDA escalation to QARA
+
+[EVENT: INTERNAL_ESCALATION channel=pulse-qara + sofia-dm topic=UDI-DI-refusal ts=2026-04-21T09:50]
+
+Queenie (Unique Scales) replied Apr 21 08:24+08:30 refusing to add Sword/Pulse SKU to their FDA registration. Offering declaration-of-equivalence only. Escalated to QARA team:
+- DM Sofia Lourenço (Portuguese): orientation on UDI-DI + QTA edits before replying to Queenie.
+- #pulse-qara (English): tagged Elena Cavallini, Sarah Hamid, Bianca Lourenço, Sofia — contrasted Transtek (accepted UDI-DI) vs Unique Scales (refused), asked if declaration-of-equivalence is acceptable under PLD model.
+
+Awaiting QARA direction before responding to Queenie.
+
 
 ### /improve — session close: friction-signals.md updated
 

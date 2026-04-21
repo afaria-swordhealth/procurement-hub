@@ -1,5 +1,5 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-04-21T10:30
+# Last synced: 2026-04-22T09:00
 # Schema: v1
 
 ## Active (3)
@@ -10,9 +10,9 @@
 - currency: USD
 - unit_cost: 19.20
 - tooling_cost: null
-- last_outreach: 2026-04-20
+- last_outreach: 2026-04-21
 - open_ois: 3
-- next: Chase Bradley on NDA + SCA escalation; await Sofia SQA legal review
+- next: Chase Bradley on NDA + SCA escalation; await Sofia SQA legal review; await Mika scale (GBF-2008-B1) quote
 - blocker: Labelling classification (Sarah Hamid, OI 343b4a7d…4c39 deadline 2026-04-22)
 - notes: |
   MANUFACTURER (Zhongshan, CN). Entity: Guangdong Transtek Medical Electronics Co., Ltd
@@ -45,16 +45,20 @@
   Qualio SQM draft created 2026-04-20 (Risk: Critical, Sponsor: Elena Cavallini VP QARA);
   awaiting Sofia for Supplier Management Record + Approvers fields.
 
+  SCALE PATH (new 2026-04-21 23:17): GBF-2008-B1 sourcing inquiry sent to Mika as alt
+  path to Unique Scales (Kevin Wang-authorized). Asked about full-Sword branding + FDA
+  path, MSRP timeline, MOQ, golden sample schedule, ISTA, packaging. Awaiting reply.
+
 ### Unique Scales
 - status: Shortlisted
 - nda: In Progress
 - currency: USD
 - unit_cost: 9.24
 - tooling_cost: null
-- last_outreach: 2026-04-20
+- last_outreach: 2026-04-21
 - open_ois: 2
-- next: Chase Bradley on NDA + SCA; respond to Bradley Zip #3214 (Shenzhen address); chase ISTA capability
-- blocker: SCA circular dependency (same as Transtek)
+- next: Chase Bradley on NDA + SCA; respond to Bradley Zip #3214 (Shenzhen address); await QARA direction on UDI-DI declaration-of-equivalence
+- blocker: UDI-DI refused by Unique Scales 2026-04-21 (QARA escalation pending)
 - notes: |
   MANUFACTURER (Shenzhen, CN). BIA scale CF635BLE dual-freq selected. Pricing FOB SZ:
   $9.24/unit @5K ($46,200 total), $8.76/unit @20K ($175,200 total). LT 35-40 days.
@@ -70,12 +74,20 @@
 
   NDA Sword Inc. (Zip #3214): In Progress — Bradley reviewing (pinged 2026-04-20).
   Bradley comment 2026-04-20 17:52 asking for Shenzhen address. SCA blocked same as
-  Transtek. ISTA capability asked 2026-04-17 (OI 345b4a7d…3797) — no reply.
+  Transtek. ISTA capability asked 2026-04-17 (OI 345b4a7d…3797).
 
   Open-items email sent to Queenie 2026-04-20 22:32 (CC: Sofia + Paulo): QTA/SQA scope,
   ISTA testing, ISO 9001/13485 certs, US packaging standards, CF635BLE sample label.
   Qualio SQM draft created 2026-04-20 (Risk: Critical, Sponsor: Elena Cavallini);
   awaiting Sofia for SMR + Approvers fields.
+
+  Queenie replied 2026-04-21 08:24+08:30 on 6-point email. Substantive answers:
+  (1) ISTA in own lab, ~20pp Chinese docs translation pending. (2) QTA with their edits
+  sent. (3) ISO certs "we got all" — needs her to send. (4) **UDI-DI REFUSED** —
+  declaration-of-equivalence template offered instead (regulatory escalation to
+  Sofia / #pulse-qara on 2026-04-21). (5) US packaging: "use what we sent". (6) LT
+  35-40 working days, gated on 30% deposit + final packing details. Revised QTA v0.2
+  (Sofia edits + Appendix II) sent to Queenie 2026-04-21 22:20.
 
 ### Urion Technology
 - status: Quote Received
@@ -118,6 +130,12 @@ Notes condensed (2-line max) on Xinrui, Yilai, Daxin, Zewa per 2026-04-09 audit.
   testing. Sofia Lourenço added to project for regulatory + SQA/QTA.
 - 2026-04-15 (Legal): Sarah Hamid + Bianca agreed on PLD legal framework (private label
   distributor, Sword Inc. as importer). Finance Jira status TBD.
+- 2026-04-20 (Finance): Zip #3139 Transtek + #3145 Unique Scales + #3134 Arrow all
+  FULLY APPROVED. NetSuite vendor records created. PO issuance unblocked on both sides.
+- 2026-04-21 (Regulatory): Queenie refused to add Sword SKU to Unique Scales FDA
+  registration — offered declaration-of-equivalence only. Escalated to QARA (Sofia DM
+  in PT; #pulse-qara with Elena/Sarah/Bianca/Sofia tagged). Transtek GBF-2008-B1 scale
+  inquiry opened as alt path.
 
 ## Open Actions (ISC-level)
 

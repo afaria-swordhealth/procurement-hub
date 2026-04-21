@@ -1,8 +1,8 @@
 {
-  "generated": "2026-04-21T10:30",
+  "generated": "2026-04-22T09:00",
   "projects": {
     "pulse": {
-      "last_synced": "2026-04-21T10:30",
+      "last_synced": "2026-04-22T09:00",
       "schema": "v1",
       "supplier_count_active": 3,
       "supplier_count_rejected": 10,
@@ -11,7 +11,7 @@
       "top_deadline": "2026-04-22"
     },
     "kaia": {
-      "last_synced": "2026-04-21T10:30",
+      "last_synced": "2026-04-22T09:00",
       "schema": "v1",
       "supplier_count_active": 5,
       "supplier_count_rejected": 8,
@@ -20,16 +20,16 @@
       "top_deadline": "2026-04-21"
     },
     "mband": {
-      "last_synced": "2026-04-21T10:30",
+      "last_synced": "2026-04-22T09:00",
       "schema": "v1",
       "supplier_count_active": 15,
       "supplier_count_rejected": 10,
-      "active_suppliers": ["Vangest", "SHX Watch", "MCM", "GAOYI", "Lihua", "Ribermold", "TransPak", "JXwearable", "Uartrónica", "Quantal", "Xinrui Group", "Falcon Electronica", "Sanmina", "Electronica Cerler", "Novares"],
+      "active_suppliers": ["Vangest", "SHX Watch", "MCM", "GAOYI", "Lihua", "Uartrónica", "Ribermold", "TransPak", "JXwearable", "Quantal", "Xinrui Group", "Falcon Electronica", "Sanmina", "Electronica Cerler", "Novares"],
       "blocker_count": 6,
-      "top_deadline": "2026-04-21"
+      "top_deadline": "2026-04-22"
     },
     "bloompod": {
-      "last_synced": "2026-04-20T16:00",
+      "last_synced": "2026-04-22T09:00",
       "schema": "v1",
       "supplier_count_active": 0,
       "supplier_count_rejected": 0,

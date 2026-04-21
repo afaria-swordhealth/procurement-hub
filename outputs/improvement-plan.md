@@ -73,10 +73,10 @@ Closes gap C1 (skill landscape not mapped) + C2 (`improve` / `know-me` overlap w
 | `supplier-onboarding` | KEEP | — | Stable |
 | `know-me` | KEEP, scope clarified | — | Operator profile only, distinct from supplier patterns (see below) |
 | `improve` | **MERGE** | L1, L4 | Rewrite to consume `friction-signals.md` + `autonomy-ledger.md` (spec below) |
-| `weekly-pulse` | **EVALUATE** | L3, I3 | Overlaps morning-brief data source |
-| `project-dashboard` | **EVALUATE** | L3 | Overlaps per-project block in morning-brief |
-| `promise-tracker` | **EVALUATE** | I5 | Decide: keep promises.md or retire into OI DB |
-| `risk-radar` | **EVALUATE** | L3 | Morning-brief consumes signals; risk-radar produces them |
+| `weekly-pulse` | KEEP (resolved 2026-04-21) | L3, I3 | Weekly roll-up of 7 morning-briefs; different cadence |
+| `project-dashboard` | KEEP (resolved 2026-04-21) | L3 | On-demand deep dive; brief is shallow 4-project scan |
+| `promise-tracker` | **RETIRE — defer** (decided 2026-04-21) | I5 | Migrate 14 open promises to OI DB Type=Commitment; separate sprint |
+| `risk-radar` | KEEP as producer (resolved 2026-04-21) | L3 | Producer/consumer split: risk-radar → pending-signals.md; morning-brief ranks |
 
 ### Commands (14 existing + 7 new)
 
@@ -87,7 +87,7 @@ Closes gap C1 (skill landscape not mapped) + C2 (`improve` / `know-me` overlap w
 | `/log-sent` | EXTEND | L4 | Feed `supplier::{name}::pattern` on send |
 | `/housekeeping` | EXTEND | L0-B3, L5 | Use new check-outreach order; use upgraded context-doctor |
 | `/weekly-report` | EXTEND | I4 | Add stakeholder-facing summary for Jorge 1:1 |
-| `/mail-scan` | **EVALUATE** | L3 | If morning-brief pre-filters, mail-scan becomes on-demand |
+| `/mail-scan` | KEEP on-demand — cron route deferred | L3 | Cron re-route blocked on L3 (Slack DM + 07:30 cron pending André); on-demand stays |
 | `/mail-scan-deep` | KEEP | — | Complement to mail-scan |
 | `/daily-log` | KEEP | — | Stable |
 | `/audit` | KEEP | — | Stable |
@@ -104,13 +104,13 @@ Closes gap C1 (skill landscape not mapped) + C2 (`improve` / `know-me` overlap w
 | `/nda-check` | **NEW** | L6 | Compare supplier NDA vs Sword standard |
 | `/part-lookup` | **NEW** | L6 | Nexar MCP; M-Band + BloomPod BOM |
 
-### 5 EVALUATE decisions required before Layer 0
+### 5 EVALUATE decisions — ALL CLOSED 2026-04-21
 
-1. **`weekly-pulse` vs morning-brief (L3)** — both aggregate supplier movement, quotes, OIs. **Recommendation:** morning-brief runs daily; `weekly-pulse` rolls up 7 morning-briefs on Friday. Not redundant if cadence is different.
-2. **`project-dashboard` vs morning-brief per-project block** — dashboard is single-project deep dive; brief is 4-project shallow scan. **Recommendation:** keep both; morning-brief stays simple; `project-dashboard` remains on-demand for deep dives.
-3. **`promise-tracker` — keep `promises.md` or retire into OI DB?** — OI DB already has Deadline, Owner, Supplier. **Recommendation:** retire `promises.md`; add `Type = Commitment` to OI DB; `/log-sent` creates OIs of this type when André commits in a sent email. One source of truth.
-4. **`risk-radar` vs morning-brief signal source** — risk-radar scans for risks; morning-brief ranks signals. **Recommendation:** risk-radar becomes a producer of `[EVENT: RISK ...]` entries in `pending-signals.md`. Morning-brief ranks. Clear producer/consumer split.
-5. **`/mail-scan` cadence** — currently on-demand plus cron. With morning-brief pre-filtering via `pending-signals.md`, is mail-scan still the entry point? **Recommendation:** cron calls morning-brief (not mail-scan); `/mail-scan` stays for on-demand deep search and catch-up after a break.
+1. ✅ **`weekly-pulse` vs morning-brief (L3)** — KEEP both. Cadence differs: morning-brief daily, weekly-pulse rolls up 7 briefs on Friday.
+2. ✅ **`project-dashboard` vs morning-brief per-project block** — KEEP both. Dashboard = deep dive; brief = shallow 4-project scan.
+3. ✅ **`promise-tracker` / `promises.md` retirement** — DECIDED RETIRE, implementation DEFERRED. OI DB is canonical; `Type=Commitment` already in CLAUDE.md §4c (drift in `create-open-item.md` fixed 2026-04-21). Migration of 14 open promises → separate sprint; dual source of truth tolerated until then.
+4. ✅ **`risk-radar` vs morning-brief signal source** — Producer/consumer split SHIPPED. risk-radar Step 6b writes to `pending-signals.md`; morning-brief consumes.
+5. ✅ **`/mail-scan` cadence** — DEFERRED. Cron re-route to morning-brief blocked on L3 (Slack DM target + 07:30 cron pending André approval). On-demand `/mail-scan` stays.
 
 ### `improve` skill rewrite spec (MERGE)
 

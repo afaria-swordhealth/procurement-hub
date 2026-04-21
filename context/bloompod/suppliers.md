@@ -1,5 +1,5 @@
 # BloomPod Suppliers — Context File
-# Last synced: 2026-04-20T16:00
+# Last synced: 2026-04-22T09:00
 # Schema: v1
 
 Scaffold only. BloomPod Battery (coin cell) is in pre-sourcing phase — Pedro Rodrigues BOM + specs due 2026-04-24. RFQ template + compliance package prep is a parallel track (ISC-level OI).

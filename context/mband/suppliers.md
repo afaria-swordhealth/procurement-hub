@@ -1,5 +1,5 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-04-21T10:30
+# Last synced: 2026-04-22T09:00
 # Schema: v1
 
 ## Active (15)
@@ -69,7 +69,7 @@
 
 ### Lihua
 - status: Quote Received
-- nda: Signed
+- nda: Not Required
 - currency: USD
 - unit_cost: 0.994
 - tooling_cost: 0
@@ -131,18 +131,20 @@
   Quote organizing.
 
 ### Uartrónica
-- status: RFQ Sent
+- status: Quote Received
 - nda: Signed
 - currency: EUR
 - unit_cost: 22.07
-- tooling_cost: null
+- tooling_cost: 7112
 - last_outreach: 2026-04-17
 - open_ois: 1
 - next: Chase re-quote (promise: "early next week" = Apr 21-22)
 - blocker: null
 - notes: |
-  PCBAs (PT). ~EUR 22.07/unit indicative (Dec 2025). Sofia Amaro confirmed re-quote
-  delivery "early next week" (2026-04-17). OI 33eb4a7d…818d deadline 2026-04-22.
+  PCBAs (PT). ~EUR 22.07/unit + EUR 7,112 tooling (Dec 2025 indicative). Sofia Amaro
+  confirmed re-quote delivery "early next week" (2026-04-17). OI 33eb4a7d…818d deadline
+  2026-04-22. DB promoted to Quote Received on indicative data; fresh re-quote still
+  pending.
 
 ### Quantal
 - status: RFQ Sent
@@ -176,7 +178,7 @@
 
 ### Falcon Electronica
 - status: Contacted
-- nda: Not Started
+- nda: Pending
 - currency: EUR
 - unit_cost: null
 - tooling_cost: null
@@ -189,7 +191,7 @@
 
 ### Sanmina
 - status: Contacted
-- nda: Not Started
+- nda: Pending
 - currency: USD
 - unit_cost: null
 - tooling_cost: null
@@ -202,7 +204,7 @@
 
 ### Electronica Cerler
 - status: Contacted
-- nda: Not Started
+- nda: Pending
 - currency: EUR
 - unit_cost: null
 - tooling_cost: null
@@ -215,7 +217,7 @@
 
 ### Novares
 - status: Identified
-- nda: Not Started
+- nda: Not Required
 - currency: EUR
 - unit_cost: null
 - tooling_cost: null
@@ -256,7 +258,9 @@
 
 ## Summary
 
-- 26 suppliers total. 15 active (5 Quote Received, 6 RFQ Sent, 3 Contacted, 1 Identified),
+- 25 suppliers total. 15 active (6 Quote Received, 5 RFQ Sent, 3 Contacted, 1 Identified),
   10 rejected.
-- 14 NDAs executed. 5/5 part categories covered (Housings, PCBAs, Sheet Metal, Straps,
+- 10 NDAs executed (GAOYI, MCM, SHX Watch, Uartrónica, Vangest, JXwearable, Quantal,
+  Ribermold, TransPak, Xinrui). 3 pending (Cerler, Falcon, Sanmina). 2 not required
+  (Lihua, Novares). 5/5 part categories covered (Housings, PCBAs, Sheet Metal, Straps,
   Packaging). Active strap pool: SHX Watch + JXwearable only.

@@ -1,12 +1,12 @@
 # Kaia Suppliers — Context File
-# Last synced: 2026-04-21T10:30
+# Last synced: 2026-04-22T09:00
 # Schema: v1
 # Note: All Kaia sourcing decisions gated on Caio + Max (memory `project_kaia_dependency`).
 
 ## Active (5)
 
 ### Tiger Fitness
-- status: Under Review
+- status: Quote Received
 - nda: Signed
 - currency: USD
 - unit_cost: 3.65
@@ -23,7 +23,7 @@
   created Mar 2026, PT entries translated, stale OI closed.
 
 ### Second Page Yoga
-- status: Under Review
+- status: Quote Received
 - nda: Signed
 - currency: USD
 - unit_cost: 3.39
@@ -38,7 +38,7 @@
   details for 6mm/8mm 2026-04-09, shared with logistics for freight analysis.
 
 ### ProImprint
-- status: Under Review
+- status: Quote Received
 - nda: Not Required
 - currency: USD
 - unit_cost: 9.99
