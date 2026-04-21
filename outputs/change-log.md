@@ -4,6 +4,10 @@
 
 ## 2026-04-21
 
+### /improve — micro-fix #2: commit package.json + package-lock.json
+
+- `package.json` + `package-lock.json`: committed untracked npm files. `pptxgenjs@^4.0.1` installed for `/build-deck` but never tracked. `node_modules/` already gitignored since commit `b722496`.
+
 ### /improve — micro-fix #3: clear stale Apr 20 entries from change-log
 
 - `outputs/change-log.md`: removed ## 2026-04-20 section (lines 122–491). All Apr 20 entries in git history (commits 845d8d1 and prior). Root cause: Apr 21 section was prepended above Apr 20 content rather than the file being cleared; session-doctor didn't auto-fix because the first date header was already today's.
