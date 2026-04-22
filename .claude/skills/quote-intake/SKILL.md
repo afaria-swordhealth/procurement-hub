@@ -22,13 +22,34 @@ Extracts pricing from a supplier quote, converts to EUR, calculates FLC, updates
 
 ## Step 1: Extract pricing from quote
 
-Parse the quote source (email body, attachment, or Andre's input).
+Parse the quote source (email body, PDF/XLSX attachment, or André's input).
 
 **Required:** unit price(s) per tier, currency (verify vs. region), MOQ, tooling/NRE (itemized, "no tooling" = 0), lead time (tooling + production separately), Incoterms (FOB/EXW/FCA/DDP).
 
 **If stated:** payment terms, sample cost, certifications (ISO 13485, FDA, CE), quote validity (flag if < 30 days).
 
 If any required field is missing, list gaps and recommend asking the supplier.
+
+### Step 1a: PDF attachment prefill (Levelpath pattern)
+
+When the quote source is a PDF attachment (detected by `.pdf` extension in André's input or Gmail attachment):
+
+1. Load the PDF via the Read tool. For PDFs > 10 pages, read in chunks using `pages` param (pricing tables usually first 3-5 pages).
+2. Extract the 7 canonical fields into a single structured payload:
+   - `unit_price_tier_table` (list of `{qty, unit_price, currency}` rows)
+   - `tooling_nre` (amount + currency; "no tooling" = 0)
+   - `moq` (integer)
+   - `lead_time` (tooling weeks + production weeks; flag if only one stated)
+   - `incoterm` (FOB/EXW/FCA/DDP + named place if present)
+   - `payment_terms` (e.g. "30% deposit / 70% before shipment")
+   - `fx_base` (currency stated on the quote — not the FX rate)
+3. Record extraction confidence per field: `high` (explicit label + value), `medium` (inferred from table header), `low` (guessed from context — requires André confirm). Low-confidence fields cannot be auto-written; route to SHOW BEFORE WRITE regardless of Step 4 conditions.
+4. If the PDF is scanned (image-only, no text layer): report "PDF OCR required — paste values manually or re-send text PDF" and HALT Step 1a. Do not fabricate values.
+5. Log the extraction to change-log as `[EVENT: PDF_EXTRACT supplier={name} pdf={filename} fields_high={N} fields_low={N}]`.
+
+Output of Step 1a is the same structured payload that feeds Steps 2-4. One parse, one approval gate (Step 4 auto-write OR SHOW BEFORE WRITE), instead of 3-4 approvals.
+
+**Never send drafts or trigger supplier emails from this skill.** Step 1a only reads and prefills.
 
 ## Step 2: Currency conversion
 
