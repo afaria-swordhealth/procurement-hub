@@ -75,7 +75,7 @@ Closes gap C1 (skill landscape not mapped) + C2 (`improve` / `know-me` overlap w
 | `improve` | **MERGE** | L1, L4 | Rewrite to consume `friction-signals.md` + `autonomy-ledger.md` (spec below) |
 | `weekly-pulse` | KEEP (resolved 2026-04-21) | L3, I3 | Weekly roll-up of 7 morning-briefs; different cadence |
 | `project-dashboard` | KEEP (resolved 2026-04-21) | L3 | On-demand deep dive; brief is shallow 4-project scan |
-| `promise-tracker` | **RETIRE — defer** (decided 2026-04-21) | I5 | Migrate 14 open promises to OI DB Type=Commitment; separate sprint |
+| `promise-tracker` | **RETIRED** (2026-04-23) | I5 | All 11 open promises have OI links; promises.md deprecated; OI DB canonical |
 | `risk-radar` | KEEP as producer (resolved 2026-04-21) | L3 | Producer/consumer split: risk-radar → pending-signals.md; morning-brief ranks |
 
 ### Commands (14 existing + 7 new)
@@ -108,7 +108,7 @@ Closes gap C1 (skill landscape not mapped) + C2 (`improve` / `know-me` overlap w
 
 1. ✅ **`weekly-pulse` vs morning-brief (L3)** — KEEP both. Cadence differs: morning-brief daily, weekly-pulse rolls up 7 briefs on Friday.
 2. ✅ **`project-dashboard` vs morning-brief per-project block** — KEEP both. Dashboard = deep dive; brief = shallow 4-project scan.
-3. ✅ **`promise-tracker` / `promises.md` retirement** — DECIDED RETIRE, implementation DEFERRED. OI DB is canonical; `Type=Commitment` already in CLAUDE.md §4c (drift in `create-open-item.md` fixed 2026-04-21). Migration of 14 open promises → separate sprint; dual source of truth tolerated until then.
+3. ✅ **`promise-tracker` / `promises.md` retirement** — SHIPPED 2026-04-23. 4 OIs created for promises without links; promises.md deprecated (header updated); all 11 open entries now have OI IDs. OI DB is sole source of truth.
 4. ✅ **`risk-radar` vs morning-brief signal source** — Producer/consumer split SHIPPED. risk-radar Step 6b writes to `pending-signals.md`; morning-brief consumes.
 5. ✅ **`/mail-scan` cadence** — DEFERRED. Cron re-route to morning-brief blocked on L3 (Slack DM target + 07:30 cron pending André approval). On-demand `/mail-scan` stays.
 
@@ -269,7 +269,7 @@ Specific changes:
 |------|--------|------|--------|
 | Add `Last Outreach Date` field to 4 Supplier DBs in Notion UI | 10 min | Before Layer 1 | All M4 optimizations |
 | Add `FX Rate at Quote` field to 4 Supplier DBs in Notion UI | 10 min | Before Layer 0 B6 | Per-quote FX stamping |
-| Backfill Supplier field on active OIs | 30-60 min | During Layer 0 | `/supplier-rejection` reliability |
+| ~~Backfill Supplier field on active OIs~~ | ✅ done (2026-04-23) | During Layer 0 | All null-Supplier OIs verified as ISC-level |
 | Approve `safety.md` + `autonomy.md` before Layer 2 hooks activate | 30 min review | Start of Layer 1 | Layers 2+ |
 | Approve morning-brief Slack DM target + schedule | 10 min | Start of Layer 3 | Layer 3 |
 | Run `/ask` validation (20 known-answer test) | 30 min | End of Layer 4 | `/ask` launch |
@@ -356,7 +356,7 @@ Post-Audit 2.0 (2026-04-19) + L4A/L4B ruflo migrations (2026-04-19/21). Verified
 
 | Layer | Status | Evidence | Outstanding |
 |-------|--------|----------|-------------|
-| **L0 Bug sprint** | ✅ **7/8 shipped** | B1 deadline-age proxy (`decision-queue-render.md:106,123`); B2 "Never Best regards" (`writing-style.md:13`); B3 Notion-first write order (`check-outreach.md:54`); B4 `Last Outreach Date` read/written by 4 skills; B6 `FX Rate at Quote` stamped by quote-intake, read by scenario-optimizer; B7 autoclean 21d + ≥3 chase (`autoclean-scan-lists.md:15,22`); B8 `/ping` command present | B5 Supplier field OI backfill (👤 André manual) |
+| **L0 Bug sprint** | ✅ **8/8 shipped** | B1 deadline-age proxy (`decision-queue-render.md:106,123`); B2 "Never Best regards" (`writing-style.md:13`); B3 Notion-first write order (`check-outreach.md:54`); B4 `Last Outreach Date` read/written by 4 skills; B5 Supplier field audit: all 5 null-Supplier OIs verified as legitimately ISC-level (no backfill needed) (2026-04-23); B6 `FX Rate at Quote` stamped by quote-intake, read by scenario-optimizer; B7 autoclean 21d + ≥3 chase (`autoclean-scan-lists.md:15,22`); B8 `/ping` command present | — |
 | **L1 Foundation** | ✅ **shipped** | CLAUDE.md 112 lines (<120 target); `safety.md` 55 lines; `autonomy.md` 81 lines; `event-log.md` procedure with canonical TYPE table; `exec-checkpoints.md` local-file pattern; ruflo collision-guard purge complete; `friction-signals.md` + `pending-signals.md` + `autonomy-ledger.md` all accumulating | — |
 | **L2 Hooks** | ✅ **shipped** | `settings.json` 6 hook entries; `settings.local.json` 4; SessionStart env-vars confirmed (`CURRENT_DATE`, `ACTIVE_PROJECT` surface in this session) | — |
 | **L3 Proactive loop** | ✅ **shipped** (2026-04-23) | `morning-brief/SKILL.md` exists, ran live; `attention-budget.md` procedure; `pending-signals.md` with producer format; crons registered as silent observers; `config/morning-brief-target.md` (channel_id: U03BKAV990S); 07:32 weekdays cron active (session-scoped, re-register at warm-up) | `/mail-scan` cron re-route to morning-brief still deferred (EVALUATE #5) |

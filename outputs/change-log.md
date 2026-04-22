@@ -2,6 +2,23 @@
 # Rolling daily file. Keeps only today's entries.
 # History lives in git log. On wrap-up, this file is committed then cleared for tomorrow.
 
+## 2026-04-23
+
+[WARNING: STALE_LOCK ts=2026-04-23T00:50 sessionId=3ec755a2]
+Prior /improve session left .claude/scheduled_tasks.lock stale (>5h old). Treated as crashed prior run. Proceeding normally.
+
+[EVENT: OI_CREATE count=4 source=promise_retirement]
+Created OIs: 34ab4a7d…810a (Pulse T2D / Kevin Wang), 34ab4a7d…8106 (Kaia sourcing decision / Caio), 34ab4a7d…8132 (Transtek LoE / André), 34ab4a7d…813e (Transtek UDI-DI / André).
+
+[EVENT: PROMISE_RETIREMENT status=deprecated]
+promises.md: added DEPRECATED header; all 11 open promises now have OI links. OI DB is canonical. File retained for backward compat.
+
+[EVENT: B5_AUDIT result=no_action]
+5 active OIs with null Supplier verified as legitimately ISC-level. No backfill required.
+
+[EVENT: WARM_UP_UPDATE field="Phase 8 cron"]
+warm-up.md Phase 8: added morning-brief cron re-register step (weekdays 07:32, config/morning-brief-target.md).
+
 ## 2026-04-22
 
 [EVENT: NOTION_SCHEMA_UPDATE dbs=4 field="NDA Status" operation="add canonical options"]
