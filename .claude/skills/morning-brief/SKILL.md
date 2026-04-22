@@ -162,7 +162,7 @@ Set `Last-Morning-Brief: {ISO_timestamp}` under `## Timestamps` in `outputs/sess
 | attention-budget.md procedure | ✅ shipped |
 | morning-brief skill | ✅ shipped |
 | risk-radar as producer | ✅ shipped |
-| Slack DM target | ⚠️ pending André approval — chat output default until then |
-| 07:30 cron | ⚠️ deferred until DM target approved |
+| Slack DM target | ✅ shipped — config/morning-brief-target.md (channel_id: U03BKAV990S) |
+| 07:30 cron | ✅ shipped — weekdays 07:32, job f2b24a98 (session-scoped, re-register at warm-up) |
 | `/mail-scan` cron re-route to morning-brief | ⚠️ deferred (see improvement-plan.md EVALUATE #5) |
 | promises.md retirement | ⚠️ deferred (see improvement-plan.md EVALUATE #3) |

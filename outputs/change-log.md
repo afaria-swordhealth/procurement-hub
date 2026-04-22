@@ -24,3 +24,6 @@ Added Answered to Status enum: Pending/In Progress/Answered/Blocked/Closed.
 
 [EVENT: PROCEDURE_UPDATE file=create-open-item.md field=Status]
 Added Answered to field checklist #2 Status options.
+
+[EVENT: L3_SHIPPED config=morning-brief-target.md cron=f2b24a98 schedule="weekdays 07:32"]
+Created config/morning-brief-target.md (channel_id: U03BKAV990S). Cron job f2b24a98 registered for /morning-brief weekdays at 07:32. Session-scoped — must re-register at warm-up. improvement-plan.md §10 L3 row updated to ✅ shipped.
