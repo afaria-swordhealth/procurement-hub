@@ -3,9 +3,9 @@
 
 ## Timestamps
 Last-Warm-Up: 2026-04-21T09:45 | Session: A (Light delta — restart after prior 10:30 session; crons dropped and re-registered)
-Last-Mail-Scan: 2026-04-21T23:37 (cron: no new supplier emails since 22:30)
+Last-Mail-Scan: 2026-04-22T12:00 (cron: no new supplier emails since 23:37 Apr 21)
 Last-Log-Sent: 2026-04-22T00:30 (Transtek GBF scale inquiry + Unique Scales QTA send — both logged)
-Last-Wrap-Up: 2026-04-22T09:00 (closing Apr 21 session — context synced, daily log created)
+Last-Wrap-Up: 2026-04-22T20:30 (closing Apr 22 session — context synced, daily log created)
 Last-System-Session: 2026-04-20T09:00
 Last-Morning-Brief: 2026-04-21T10:35
 

@@ -1,5 +1,5 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-04-22T09:00
+# Last synced: 2026-04-22T20:30
 # Schema: v1
 
 ## Active (15)
@@ -138,13 +138,13 @@
 - tooling_cost: 7112
 - last_outreach: 2026-04-17
 - open_ois: 1
-- next: Chase re-quote (promise: "early next week" = Apr 21-22)
+- next: Chase re-quote (deadline moved to Apr 24)
 - blocker: null
 - notes: |
   PCBAs (PT). ~EUR 22.07/unit + EUR 7,112 tooling (Dec 2025 indicative). Sofia Amaro
   confirmed re-quote delivery "early next week" (2026-04-17). OI 33eb4a7d…818d deadline
-  2026-04-22. DB promoted to Quote Received on indicative data; fresh re-quote still
-  pending.
+  2026-04-24 (moved from Apr 22). DB promoted to Quote Received on indicative data; fresh
+  re-quote still pending.
 
 ### Quantal
 - status: RFQ Sent

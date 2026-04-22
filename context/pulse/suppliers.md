@@ -1,5 +1,5 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-04-22T09:00
+# Last synced: 2026-04-22T20:30
 # Schema: v1
 
 ## Active (3)
@@ -10,7 +10,7 @@
 - currency: USD
 - unit_cost: 19.20
 - tooling_cost: null
-- last_outreach: 2026-04-21
+- last_outreach: 2026-04-22
 - open_ois: 3
 - next: Chase Bradley on NDA + SCA escalation; await Sofia SQA legal review; await Mika scale (GBF-2008-B1) quote
 - blocker: Labelling classification (Sarah Hamid, OI 343b4a7d…4c39 deadline 2026-04-22)
@@ -55,9 +55,9 @@
 - currency: USD
 - unit_cost: 9.24
 - tooling_cost: null
-- last_outreach: 2026-04-21
+- last_outreach: 2026-04-22
 - open_ois: 2
-- next: Chase Bradley on NDA + SCA; respond to Bradley Zip #3214 (Shenzhen address); await QARA direction on UDI-DI declaration-of-equivalence
+- next: Chase Bradley on NDA + SCA; await QARA direction on UDI-DI declaration-of-equivalence (D336721 importer add — pivot confirmed Apr 22)
 - blocker: UDI-DI refused by Unique Scales 2026-04-21 (QARA escalation pending)
 - notes: |
   MANUFACTURER (Shenzhen, CN). BIA scale CF635BLE dual-freq selected. Pricing FOB SZ:
