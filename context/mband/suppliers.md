@@ -178,7 +178,7 @@
 
 ### Falcon Electronica
 - status: Contacted
-- nda: Pending
+- nda: Not Started
 - currency: EUR
 - unit_cost: null
 - tooling_cost: null
@@ -191,7 +191,7 @@
 
 ### Sanmina
 - status: Contacted
-- nda: Pending
+- nda: Not Started
 - currency: USD
 - unit_cost: null
 - tooling_cost: null
@@ -204,7 +204,7 @@
 
 ### Electronica Cerler
 - status: Contacted
-- nda: Pending
+- nda: Not Started
 - currency: EUR
 - unit_cost: null
 - tooling_cost: null
@@ -260,7 +260,7 @@
 
 - 25 suppliers total. 15 active (6 Quote Received, 5 RFQ Sent, 3 Contacted, 1 Identified),
   10 rejected.
-- 10 NDAs executed (GAOYI, MCM, SHX Watch, Uartrónica, Vangest, JXwearable, Quantal,
-  Ribermold, TransPak, Xinrui). 3 pending (Cerler, Falcon, Sanmina). 2 not required
+- 10 NDAs signed (GAOYI, MCM, SHX Watch, Uartrónica, Vangest, JXwearable, Quantal,
+  Ribermold, TransPak, Xinrui). 3 not started (Cerler, Falcon, Sanmina). 2 not required
   (Lihua, Novares). 5/5 part categories covered (Housings, PCBAs, Sheet Metal, Straps,
   Packaging). Active strap pool: SHX Watch + JXwearable only.

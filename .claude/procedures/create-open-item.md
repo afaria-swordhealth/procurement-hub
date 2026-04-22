@@ -12,7 +12,7 @@ Authoritative rules live in CLAUDE.md section `4c. Open Items Discipline`. This 
 
 ## Field checklist (every create must have all 8)
 1. **Item** — `Supplier/Area — specific action`. Max ~70 chars. Verb or noun-action.
-2. **Status** — `Pending` / `In Progress` / `Blocked` / `Closed`.
+2. **Status** — `Pending` / `In Progress` / `Answered` / `Blocked` / `Closed`.
 3. **Type** — `Action Item` / `Decision` / `Question` / `Blocker` / `Commitment`.
 4. **Owner** — real name. Handoff: `André → Bradley / Legal`. Default = André.
 5. **Deadline** — always present. Use `date:Deadline:start` (ISO YYYY-MM-DD) when calling create-pages.

@@ -43,7 +43,7 @@ Open Items DB is the authoritative list of every action/decision/question/blocke
 
 **Create when:** any scan, meeting, or ask yields an action with owner + deadline. OI vs `promises.md`: promises is a lightweight daily tracker for human commitments; OI DB is long-term authoritative. Items may live in both.
 
-**Required fields (all 8):** Item (`Supplier/Area — action`, ≤70 chars), Status (Pending/In Progress/Blocked/Closed), Type (Action Item/Decision/Question/Blocker/Commitment), Owner (real name, default André), Deadline (always present), Project (relation), Context (summary paragraph), Supplier (exact DB match; omit only for ISC-level).
+**Required fields (all 8):** Item (`Supplier/Area — action`, ≤70 chars), Status (Pending/In Progress/Answered/Blocked/Closed), Type (Action Item/Decision/Question/Blocker/Commitment), Owner (real name, default André), Deadline (always present), Project (relation), Context (summary paragraph), Supplier (exact DB match; omit only for ISC-level).
 
 On close: Status=Closed and fill Resolution (1-2 sentences).
 
