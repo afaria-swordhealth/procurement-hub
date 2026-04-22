@@ -71,7 +71,7 @@ Language: English for CN/US suppliers. Portuguese for PT suppliers (adjust tone 
 
 **SHOW BEFORE WRITE.** Present draft for André's review before creating Gmail draft.
 
-*(Note: Gmail draft will appear as a standalone email, not a threaded reply — `create_draft` does not thread. André must open the draft and manually reply within the original conversation thread.)*
+*(Gmail threading behaviour: see `.claude/agents/supplier-comms.md`. Draft will be standalone; André must open it and reply inside the original thread.)*
 
 ## Step 4: Draft internal note to Jorge
 

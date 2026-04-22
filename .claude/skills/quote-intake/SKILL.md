@@ -177,7 +177,7 @@ After ruflo store succeeds: update checkpoint — `status: "complete"`, `steps_d
 - SHOW BEFORE WRITE for DB cost fields (Level 2) and Quote section updates.
 - Outreach milestone entries go directly to Notion without approval (per `check-outreach.md`).
 - NEVER compare FOB and landed prices without flagging the distinction.
-- All Notion content in English. No em dashes.
+- Writing conventions: see `.claude/config/writing-style.md`.
 - Use FX rates from `config/fx-rates.md` only. Never hardcode conversion rates.
 - Round EUR: 3 decimals for Unit Cost, 0 decimals for Tooling >= 1,000 EUR.
 - Flag incomplete FLC. Never present partial data as final.

@@ -238,5 +238,5 @@ For all other items: after André approves (may edit drafts):
 - Do not chase suppliers in Rejected status.
 - Do not chase items where Owner is not André (flag for André to decide).
 - If an item has been chased 3+ times with no response, recommend escalation path instead of another chase.
-- Respect config/writing-style.md sign-off: "Best," (default) or "Thanks," (internal). Never "Best regards,".
+- Writing conventions (sign-off): see `.claude/config/writing-style.md`.
 - **MCP error handling — batch:** This skill loops over multiple suppliers and OIs. If Notion or Gmail MCP fails for one item: skip it, log `[item] — MCP error, skipped` to change-log, and continue. Report skipped items in the final chase table as `[MCP ERROR]`. Ruflo failures (Step 4a pattern search, Step 6 memory store) are non-critical: log and proceed with default behavior.

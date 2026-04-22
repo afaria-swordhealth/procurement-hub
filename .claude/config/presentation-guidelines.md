@@ -232,11 +232,7 @@ All data was gathered from:
 4. For iterations: upload the current PPTX and say "iterate on this"
 
 ### Key reminders for any Claude conversation
-- Never use em dashes
-- Short sentences
-- Write like a colleague, not a consultant
-- No filler words
-- All Notion content in English
+- Writing conventions: see `.claude/config/writing-style.md`
 - Verify every claim before putting it on a slide
 - QA every build visually (soffice + pdftoppm)
 - Color restraint: dark + muted + blue. Green/red/orange only where functional.

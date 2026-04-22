@@ -140,10 +140,8 @@ When checking for RFQ responses (called from /mail-scan or manually):
 - NEVER send emails. Gmail draft only (Level 1 safety).
 - SHOW BEFORE WRITE for Notion writes (exception: outreach milestones go direct per `check-outreach.md`).
 - NDA must be Executed or Not Required before sending RFQ with proprietary specs. Andre can override for non-proprietary RFQs.
-- All Notion content in English. No em dashes.
+- Writing conventions (em dash, English, sign-off, HTML/no-CDATA): see `.claude/config/writing-style.md`.
 - Always verify recipient email address before creating draft.
-- Always use HTML format for Gmail drafts. Never wrap body in CDATA.
-- Sign-off: "Best, Andre" or "Thanks, Andre". Never "Best regards,".
 - Never reveal other supplier pricing, internal timelines, or shortlist status in the RFQ.
 - Log all Notion writes to `outputs/change-log.md`.
 - Concurrency: session-single model (see `.claude/safety.md`). No per-write collision check.

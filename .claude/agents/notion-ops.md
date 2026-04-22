@@ -32,7 +32,7 @@ One section per project:
 See procedures/check-outreach.md for milestones policy, condensation rules, and approval rules.
 
 ## Open Items Policy
-See CLAUDE.md section 4c and procedures/create-open-item.md. Enforce schema on every write: Item, Status, Type, Owner, Deadline, Project, Context all required. Context is a summarized current-state paragraph — not a running log. New updates go as Notion page comments via notion-create-comment. Rewrite Context only when the summary changes materially (owner change, blocker cleared, scope shift). Never append dated lines to Context.
+See CLAUDE.md section 4c and `.claude/procedures/create-open-item.md` for schema, Context rules, and comment policy.
 
 ## Rules
 See `.claude/config/rules-quick.md` for safety and writing rules.

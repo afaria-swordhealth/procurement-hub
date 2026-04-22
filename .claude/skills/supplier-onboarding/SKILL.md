@@ -125,7 +125,7 @@ After change-log write: update checkpoint file `outputs/checkpoints/supplier-onb
 - NEVER send emails. Gmail draft only (Level 1 safety).
 - SHOW BEFORE WRITE for Notion page creation and OIs.
 - First outreach is always by Andre personally. Prepare context, never draft the email.
-- All Notion content in English. No em dashes.
+- Writing conventions: see `.claude/config/writing-style.md`.
 - Verify supplier does not exist (Step 0) before any writes.
 - Set Currency by region automatically (CN=RMB, US=USD, PT/DE=EUR).
 - Log all writes to `outputs/change-log.md`.
