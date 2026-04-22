@@ -30,6 +30,7 @@
 | Members | ID | Purpose |
 |---------|-----|---------|
 | André, Jorge, Miguel, Gustavo | C0AGZ2WNUEM | M-Band sourcing ops (quotes, visits, supplier questions) |
+| André, Paulo Alves, Kevin Wang | C0AUDR0D5EX | Pulse device decisions (scale/BPM quantities, supplier updates, key commercial decisions) |
 
 ## Key Channels
 

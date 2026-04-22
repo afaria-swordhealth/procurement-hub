@@ -1,5 +1,5 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-04-22T20:30
+# Last synced: 2026-04-22T23:55
 # Schema: v1
 
 ## Active (3)
@@ -10,9 +10,9 @@
 - currency: USD
 - unit_cost: 19.20
 - tooling_cost: null
-- last_outreach: 2026-04-22
+- last_outreach: 2026-04-23
 - open_ois: 3
-- next: Chase Bradley on NDA + SCA escalation; await Sofia SQA legal review; await Mika scale (GBF-2008-B1) quote
+- next: Await Sarah Hamid (Legal) review LRE-1920/MSA before Apr 23 call; await Mika project plan update (BPM + scale); await Transtek RA on manufacturing site + UDI-PI
 - blocker: Labelling classification (Sarah Hamid, OI 343b4a7d…4c39 deadline 2026-04-22)
 - notes: |
   MANUFACTURER (Zhongshan, CN). Entity: Guangdong Transtek Medical Electronics Co., Ltd

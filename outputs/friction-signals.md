@@ -4,6 +4,13 @@
 
 ## Pending
 
+[FRICTION: SLACK_INGEST_MISSING ts=2026-04-22]
+Goal: Ingest important Slack messages into Notion (OI DB, supplier pages, project context, decisions/commitments).
+Current state: /warm-up reads Slack for briefing context only — no write pipeline from Slack → Notion.
+Gap: Decisions made on Slack (e.g., scale supplier switch, quantity changes, exec alignment) are lost unless manually captured in /log-sent or meeting notes.
+Proposed: New skill /slack-scan. Reads channels/DMs marked log=true in slack-channels.md. Extracts: decisions, commitments, blockers, supplier updates, escalations. Writes to: OI DB (Commitment/Decision type), supplier page comments, context files. Trigger: inside /wrap-up or standalone cron.
+Priority: mini-sprint (not micro-fix — requires new skill file + slack-channels.md schema extension).
+
 ## Resolved
 - [x] [2026-04-22 → 2026-04-22] /mail-scan: sem closing prompt — incoming milestones em limbo sem resposta explícita — micro — fixed in mail-scan.md + mail-scan-deep.md
 - [x] [2026-04-22 → 2026-04-22] /wrap-up: midnight crossing — micro — fixed in .claude/commands/wrap-up.md (TARGET_DATE pre-flight)

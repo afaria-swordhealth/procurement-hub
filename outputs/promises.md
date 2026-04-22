@@ -16,7 +16,6 @@ Each entry: `- [ ] {who} | {what} | promised: YYYY-MM-DD | due: YYYY-MM-DD | nex
 - [ ] Bianca Lourenço | Confirm "Berlin Wall" regulatory strategy (own vs distributed products) | promised: 2026-04-20 | due: 2026-04-25 | next: ping Bianca on Slack | OI: 343b4a7d…4c39 | source: André/Sofia meeting Apr 20
 - [ ] João Quirino / Bianca | Create Qualio supplier pages (Transtek + Unique Scales) | promised: 2026-04-20 | due: 2026-04-20 | next: message sent asking if André creates or if permissions needed — waiting reply | OI: 33eb4a7d…8140 + 33eb4a7d…8150 | source: André/Sofia meeting Apr 20
 - [ ] Jorge Garcia | Raise M-Band component risk (NPM1300 + Renesas Jul 1 price increase) at André/Jorge 1:1 | promised: 2026-04-10 | due: 2026-04-27 | next: 1:1 moved to Apr 27 — hold escalation unless Beito replies before then | OI: 345b4a7d…81c3 | source: self-initiated
-- [ ] André | Create Arrow Electronics PO in Zip — 2 samples: K11 $1 + X11 $1, Jorge as follower | promised: 2026-04-20 | due: 2026-04-21 | next: create manually in Zip (vendor open: https://5577551.app.netsuite.com/app/common/entity/vendor.nl?id=124645) | OI: — | source: Jorge 1:1 Apr 20
 - [ ] Kevin Wang | Re-engage Pulse T2D procurement | promised: 2026-04-08 | due: 2026-04-24 | next: restart procurement once Jorge green-lights (blocked on Jorge) | OI: — | source: Gmail 19d6f6ac25140759
 - [ ] Caio (Kaia PM) | Kaia sourcing decision meeting | promised: 2026-04-17 | due: 2026-04-24 | next: meeting scheduled week of Apr 21 — all Kaia sourcing decisions gated on this | OI: — | source: André Apr 17
 - [ ] Pedro Rodrigues | Share full specs for Bloom Pod coin cell (Vmax/min, current avg/peak + pulse duration, dimensions + STEP 3D, target capacity min) | promised: 2026-04-17 | due: 2026-04-24 | next: waiting on Pedro — procurement prepping supplier shortlist + RFQ template in parallel | OI: 345b4a7d | source: Slack C08C96G912N
@@ -29,6 +28,7 @@ Each entry: `- [ ] {who} | {what} | promised: YYYY-MM-DD | due: YYYY-MM-DD | nex
 - [ ] Queenie (Unique Scales) | Full US market documentation revision (label/IFU/boxes) per QARA requirements | promised: 2026-04-20 | due: 2026-04-28 | next: wait for Sofia QARA requirements list first, then chase Queenie | OI: 348b4a7d…c9cb | source: André/Sofia meeting Apr 20
 
 ## Resolved
+- [x] André | Create Arrow Electronics PO in Zip — 2 samples: K11 $1 + X11 $1 | resolved: 2026-04-23 | Zip #3252 submitted Apr 21; Márcio approved Apr 22; EUC forms pending Jorge/Anand (Mary Anne Martin flagged).
 - [x] Kevin Wang / Paulo Alves | Pulse accessories — PLD timeline + 2k OTS status update | resolved: 2026-04-20 | Email sent Apr 20 (Jorge/Márcio/Anand in CC). Ball in Kevin/Paulo court.
 <!-- Move completed items here with resolution date. Prune monthly. -->
 - [x] Miguel Pais | Update on Uartronica (no response since Dec 2025 quote, re-quote pending) | resolved: 2026-04-17 | Email status update sent to Miguel Apr 17; waiting Uartrónica reply early next week. OI …818d deadline pushed to Apr 22.

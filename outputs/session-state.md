@@ -2,79 +2,73 @@
 <!-- Auto-updated by /warm-up, /mail-scan, /log-sent, /wrap-up. Do not edit manually. -->
 
 ## Timestamps
-Last-Warm-Up: 2026-04-21T09:45 | Session: A (Light delta — restart after prior 10:30 session; crons dropped and re-registered)
-Last-Mail-Scan: 2026-04-22T12:00 (cron: no new supplier emails since 23:37 Apr 21)
-Last-Log-Sent: 2026-04-22T00:30 (Transtek GBF scale inquiry + Unique Scales QTA send — both logged)
-Last-Wrap-Up: 2026-04-22T20:30 (closing Apr 22 session — context synced, daily log created)
+Last-Warm-Up: 2026-04-22T09:00 | Session: A (Full warm-up — stale prior snapshot from Apr 21 09:45)
+Last-Mail-Scan: 2026-04-22T23:55 (EOD wrap-up scan — 3 Gmail searches, Slack Jorge/Sofia/Paulo+Kevin)
+Last-Log-Sent: 2026-04-23T00:30 (Transtek Apr 23 + Unique Scales Apr 20 written post-midnight)
+Last-Wrap-Up: 2026-04-22T23:55 (EOD Apr 22 — context synced, daily log already Complete, crons stopped)
 Last-System-Session: 2026-04-20T09:00
-Last-Morning-Brief: 2026-04-21T10:35
+Last-Morning-Brief: 2026-04-22T09:00
 
 ## Active Sessions
-- Session A (Operational): started 2026-04-21T10:30
+- Session A (Operational): started 2026-04-22T09:00
 
-## Context Snapshot (Apr 21 Full warm-up)
+## Context Snapshot (Apr 22 Full warm-up)
 
-### Carry-Over from Apr 20 — still open
-- **Pulse/Transtek Finance (Zip #3139):** Sílvia Lamarão approved Apr 20 09:52. Step remaining: Rúben Silva creates NetSuite vendor record. OI `33eb4a7d…9059`.
-- **Pulse/Unique Scales Finance (Zip #3145):** Sílvia Lamarão approved Apr 20 15:42. Remaining: Rúben Silva finalize details. OI `33eb4a7d…e2e2`.
-- **Pulse/Transtek Labelling:** Sarah Hamid classification OI `343b4a7d…4c39` deadline Apr 22. Awaiting Transtek Legal/RA reply (due Apr 23 per promise to Mika/Jenna).
-- **Pulse/Transtek SQA:** OI `33eb4a7d…85dc` Sofia deadline Apr 22. SQA v0.2 diff sent Apr 18; Mika checking with legal (Apr 20 02:04). Sofia's 2026-04-20 23:13 note: "Não preenchas Qualio por já. Preciso de confirmar umas coisas."
-- **M-Band/Future Electronics:** OI `345b4a7d…81c3` deadline Apr 22. AMS-OSRAM 30wk PO overdue 15d. Escalation gated on Jorge (1:1 now Apr 27).
-- **M-Band/Uartrónica:** OI `33eb4a7d…818d` deadline Apr 22. "Early next week" = today or tomorrow.
-- **M-Band/Ribermold:** OI `33eb4a7d…d871` — clarification meeting Apr 22 (tomorrow).
-- **Urion:** Sofia ESH/BHS OI `345b4a7d…66d5` + regulatory gap pack OI `345b4a7d…e1f5` both deadline Apr 24. Strategic backup.
-- **Unique Scales NDA:** OI `344b4a7d…5e9f` deadline Apr 21 (TODAY). Bradley Zip #3214 comment Apr 20 17:52 asking for address.
-- **BloomPod:** OI `345b4a7d…9417` deadline Apr 24 — waiting Pedro Rodrigues specs.
-- **Cerler:** OI `344b4a7d…a9dc` deadline Apr 28 — Pedro PT trip until Apr 30.
-- **Novares:** OI `33fb4a7d…c45c` deadline Apr 21 (TODAY) — direct-contact search.
-- **Arrow Electronics:** Sílvia approved Apr 20 14:11. **Jorge explicit ask (Apr 20 17:49 Slack): "cria pf a PO [$1 K11 + $1 X11] e coloca-me como follower."** No OI — add today.
+### Carry-Over from Apr 21 — still open
+- **Pulse/Transtek NDA (Zip #3213):** Bradley posted Apr 21 19:14 "see attached for your review" — NDA revision ready to review.
+- **Pulse/Unique Scales NDA (Zip #3214):** Bradley posted Apr 21 19:12 "see attached for your review" — NDA revision ready to review. Same-day (Apr 20 17:52) open question from Bradley about Shenzhen address still requires reply unless the new attachment resolves it.
+- **Pulse/Transtek Labelling:** Sarah Hamid classification OI `343b4a7d…4c39` deadline was Apr 22 — still Blocked bucket. Awaiting Transtek Legal/RA reply (due Apr 23 per promise to Mika/Jenna).
+- **Pulse/Transtek SQA + QTA:** Sofia working late Apr 21 on Unique Scales QTA. Flagged LRE-1890 Jira ticket (opened by Anand) may cover open questions. Sofia asked André to confirm "Record retention = 6 years exceeds device lifetime" before replying to Transtek. QTA edits + Appendix II sent to Queenie Apr 21 22:20.
+- **Transtek NDA under Sword Inc. (OI 344b4a7d…8a4b-ish / deadline Apr 24):** In Progress — OI due Apr 24.
+- **Transtek GBF-2008-B1 scale path:** Mika replied Apr 22 04:01 WEST with substantive answers on Sword branding / FDA / MSRP / MOQ / ISTA. New data — needs review + OI.
+- **Unique Scales UDI-DI refused by Queenie:** André escalated to QARA Apr 21 10:40 (CC Elena/Sofia/Bianca). Queenie provided FCC files + CF635BLE+WIFI spec Apr 21 09:12-09:44.
+- **M-Band/Future Electronics:** OI `345b4a7d…81c3` was due Apr 22 → now overdue. AMS-OSRAM 30wk PO overdue 17d. Escalation gated on Jorge 1:1 Apr 27.
+- **M-Band/Uartrónica:** OI deadline moved Apr 22 → Apr 24. Sofia Amaro "early next week" re-quote still pending.
+- **M-Band/Ribermold:** OI `33eb4a7d…d871` — clarification meeting TODAY (Apr 22).
+- **Urion:** Sofia ESH/BHS + regulatory gap pack OIs both deadline Apr 24.
+- **Novares:** OI `33fb4a7d…c45c` Apr 21 now overdue 1d — direct-contact search outstanding.
+- **Arrow Electronics sample PO:** PO placed Apr 21 by André (Zip #3252 submitted 14:37 WEST). Jorge commented Apr 21 19:08 re: José Araújo / Finance support. Finance approval pending.
+- **Kaia ProImprint:** James Gartrell final follow-up Apr 21 14:10 — "may close order if we don't hear back". Decision still gated on Max/Caio (overdue OIs Apr 15 + Apr 17).
+- **Kaia Max decision OIs:** Both overdue — sample feedback (7d late) + Nimbl vs SV Direct fulfillment (5d late).
+- **BloomPod:** OI `345b4a7d…9417` Apr 24 — still waiting Pedro Rodrigues specs.
+- **Cerler:** OI `344b4a7d…a9dc` Apr 28 — Pedro PT trip until Apr 30.
 
-### New Apr 20 findings / overnight
-- **Daxin (Pulse T2D):** Kerry replied Apr 21 02:22 + 06:09 — blood glucose meter PPTX + oximeter quotation. T2D still parked on Jorge green-light (per memory project_t2d_expansion).
-- **Sophie Nwy tablets (Jorge scope):** 5K tablets dispatch Apr 27. Needs 30% PI payment + freight forwarder confirmation (Catarina/Fernando owners).
-- **Huangchunlian/Lefu (Unique Scales):** Complete CF635BLE+WIFI die-line resent Apr 20 09:46.
-- **Bradley Zip #3214 comment (Apr 20 17:52):** asking for Shenzhen Unique Scales address.
-- **Sofia QTA doc comments:** new comment Apr 20 16:09 + one resolved Apr 20 15:29.
-- **Jorge DM clarifications (Apr 20 17:58-18:46):** Arrow = ZIP PO (samples $1 K11 + $1 X11, Jorge as follower). Mind incentive kits = NetSuite PO (inventory, 500 units each, prices in Kendall/Mariam thread). SKUs pending finance approval.
-
-### New Apr 21 overnight + morning (since 10:30 prior snapshot)
-- **FINANCE GATES CLEARED 09:37 WEST:** 3 Zip approvals landed together.
-  - Zip #3139 Transtek — FULLY APPROVED (vendor record done; OI 33eb4a7d…9059 already Closed)
-  - Zip #3145 Unique Scales — FULLY APPROVED (vendor record done)
-  - Zip #3134 Arrow Electronics — FULLY APPROVED (André can now create sample PO)
-- **Queenie (Unique Scales) replied Apr 21 08:24 + 08:30 WEST on 6-point Open Items email.** Substantive + a new blocker:
-  1. ISTA: they test in own lab; docs in Chinese ~20 pages; translation pending.
-  2. QTA/SQA: sent attached file with their edits (needs review + route to Sofia).
-  3. ISO: "we got all" — needs her to send the certs.
-  4. **UDI-DI / FDA listing: REFUSED.** "We are unable to add your model/SKU to our FDA registration — non-compliance risk." Will issue declaration-of-equivalence only. Template attached. → Regulatory escalation to Sofia.
-  5. US packaging: "No universal standard; use what we sent" — not actionable from her side.
-  6. Lead time: 35-40 working days flat for any qty (500-5000), gated on 30% deposit + final packing details.
+### New Apr 21 findings (overnight into Apr 22)
+- **BIG exec thread Pulse timeline (Apr 21 14:22-17:02):** André sent Kevin + Paulo delivery-timeline options email. Kevin: 2K unbranded fine if box has Sword brand + digital sign-off on color; asked what "Sword brand not possible" meant. **Anand blocked July 1 Sword brand** (PLD MSA + QA sign-off + financial registration required first). Kevin probing device-vs-box scope. Exec alignment unresolved.
+- **Jorge + Anand Apr 21 17:14-17:53 #m-band_sourcing:** **Titoma is OUT of M-Band CM shortlist** (size + unit cost). Jorge to notify Titoma. Memory `project_mband_cm_shortlist` needs update (shortlist was Kinfinity + Titoma + Bitrom + TBC).
+- **Carlos Matoso (#pulse-isc Apr 21 11:04):** asked Jorge when 5K M-Bands requested Jan 21 2026 will be ready to ship. Jorge-owned, informational for André.
+- **Paulo Alves (DM Apr 21 21:34):** proposed morning meeting Apr 22 (after 10:00) to review device status. Need to confirm time.
+- **Sofia (DM Apr 21 21:52-23:33):** QTA process with Transtek/Unique Scales — needs André to confirm Record retention 6yr vs device lifetime before replying. LRE-1890 Jira ticket linkage flagged.
+- **Miguel (DM Apr 21 16:45):** Arrow onboarding PO placed, Finance approval pending. André confirmed "Onboarding está feito, PO lançada. Falta finance aprovar."
 
 ### Email State
-Last inbox scan: 2026-04-21T10:30 (is:unread 2d + sent after:2026/04/20). Gmail MCP: operational.
+Last inbox scan: 2026-04-22T09:00 (newer_than:3d across 4 streams + sent 2d). Gmail MCP: operational. New since prior snapshot: Transtek GBF-2008-B1 reply, ProImprint final chase, Bradley 2x Zip comments with attachments, Lefu FCC correction + spec, Transtek PO #3139 invoice routing question.
 
 ### Slack State
-Slack MCP: operational. Scanned Jorge, Miguel, Paulo, Pedro P, Bianca, Sofia, M-Band Group DM, #m-band_sourcing, #pulse-isc. Active threads today: Jorge (Arrow/Mind clarifications Apr 20 17-18 BST), Sofia (Apr 20 23:13 — wait on Qualio fields). No new from Miguel/Paulo/Bianca/Pedro since Apr 17.
+Slack MCP: operational. Scanned Jorge, Miguel, Paulo, Pedro P, Bianca, Sofia, M-Band Group DM, #m-band_sourcing, #pulse-isc. Active yesterday: Jorge (Arrow sample PO + Bloom 1.1 call invite missed), Miguel (Arrow finance handoff), Sofia (QTA late work), Paulo (proposed Apr 22 morning meeting).
 
 ## Upcoming Meetings
-- **Apr 21 11:00-12:00 — Weekly Logistics & Purchasing** (Meet, Ines Almeida host)
-- **Apr 21 12:30 WEST — Wintech / Sword Weekly M-Band** (Zoom, Miguel host)
-- Apr 22 — Ribermold clarification meeting (time TBC from session)
+- **Apr 22 (TODAY) — Ribermold clarification meeting** (time TBC, per OI)
+- **Apr 22 (TODAY) — Paulo Alves device-status meeting** (proposed, after 10:00 WEST — needs confirmation)
 - Apr 22 17:30 — Sword Happy Hour (optional)
 - Apr 23 16:00 — Brain Break (optional)
 - Apr 24 12:30 — Office Lunch (info)
+- Apr 27 12:00 — André/Jorge 1:1 (recurring, rescheduled from Apr 20)
 
 ## Pending Actions (for André)
-- **TODAY Arrow PO in Zip** ($1 K11 + $1 X11, Jorge as follower). Promise due Apr 21.
-- **TODAY Novares direct contact** — LinkedIn / Ribermold / MCM referrals (OI deadline Apr 21).
-- **TODAY Respond to Bradley** on Zip #3214 (Shenzhen Unique Scales address).
-- **TODAY Chase Rúben Silva** on Transtek #3139 + Unique Scales #3145 NetSuite vendor records.
-- **Sophie Nwy tablet shipping** — loop Fernando on freight, Catarina on PI payment.
-- **Daxin (Pulse T2D)** — log new reply but no action (T2D blocked on Jorge).
-- **Prep 11:00 Weekly L&P** — Pulse finance status, M-Band Future Electronics risk, Arrow.
-- Ribermold prep for Apr 22 meeting.
-- Uartrónica re-quote chase if silent today/tomorrow (OI Apr 22).
-- Letter of Equivalence — Sofia ack still pending (blocker SQA closure).
-- Hold on Qualio SQM fields — Sofia asked to wait (Apr 20 23:13).
+- **TODAY Respond to Bradley** on Zip #3213 + #3214 NDA drafts (review attached revisions).
+- **TODAY Review Transtek GBF-2008-B1 reply** and decide next step (Sword-branded scale vs Unique Scales continuation).
+- **TODAY Confirm Record retention 6yr for Sofia** (Transtek QTA point 5b) — Sofia asked last night.
+- **TODAY Schedule/confirm Paulo morning meeting.**
+- **TODAY Ribermold clarification meeting prep** (magnets, IP68, pin assembly, automated line).
+- **TODAY Kaia ProImprint reply or triage** — James pressing, gated on Max/Caio overdue OIs.
+- **TODAY Chase Novares direct contact** — 1d overdue.
+- Transtek labelling classification (Sarah Hamid) — still blocked, same status.
+- Uartrónica re-quote chase (OI Apr 24).
+- Urion regulatory gap pack + Sofia ESH/BHS (Apr 24).
+- Finance approval on Arrow Zip #3252.
+- Memory update: `project_mband_cm_shortlist` (Titoma dropped).
 
 ## Session Crons
+d88eaf89
+dec92ae5
