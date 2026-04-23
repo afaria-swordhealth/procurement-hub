@@ -141,6 +141,17 @@ Until migration, `context-loader.md` treats v0 files (no Schema header) as Layer
 - Schema version mismatch (file is v1 but parser expects v2): load as free-form; log one-line warning.
 - Supplier appears in two projects' `active_suppliers`: the parser picks both projects — correct behavior for cross-project suppliers (e.g., Xinrui on Pulse + M-Band).
 
+## Drift signals
+
+When loading a Layer 2 file, emit a drift warning inline before returning the content if either condition is met:
+
+| Condition | Signal |
+|-----------|--------|
+| `# Last synced:` > 24h old | `⚠ [DRIFT_RISK] {project}: context last synced {N}h ago — run /context-doctor {project} to verify.` |
+| `## Active (N)` count in file ≠ `supplier_count_active` in `index.json` for that project | `⚠ [COUNT_MISMATCH] {project}: file says {N} active, index says {M} — run /context-doctor {project}.` |
+
+These signals are **advisory only** — they do not block loading. Both checks are local (no Notion query). The count mismatch is the cheapest proxy for "a supplier was added or rejected in Notion since last sync."
+
 ## Out of scope
 
 - This loader does not query Notion. `context-doctor` does that.

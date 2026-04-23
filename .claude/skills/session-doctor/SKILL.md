@@ -62,21 +62,23 @@ If `Last-Warm-Up < 8h`:
 
 This check catches the case where the session restarted after warm-up (crons are session-scoped and lost on restart) while the timestamp still looks fresh.
 
-## Step 2: Check context file freshness
+## Step 2: Check context file freshness and count
 
-For each project, read the first 3 lines of the context file to get the "Last synced" header:
+Read the first 6 lines of each context file (captures `# Last synced:` header and `## Active (N)` count) plus `context/index.json`:
 - `context/pulse/suppliers.md`
 - `context/kaia/suppliers.md`
 - `context/mband/suppliers.md`
 
 | Condition | Action |
 |-----------|--------|
-| "Last synced" > 48h | REPORT: stale context, recommend /wrap-up or context-doctor |
-| "Last synced" missing | REPORT: no freshness header, recommend adding one |
-| "Last synced" in the future | AUTO-FIX: set to current timestamp |
-| File missing entirely | REPORT: critical, context file does not exist |
+| "Last synced" > 24h | REPORT: `[DRIFT_RISK]` — Notion may have changed since last sync. Recommend `/context-doctor {project}`. |
+| "Last synced" > 48h | REPORT: `[STALE]` — context is likely out of date. Recommend `/wrap-up` or `/context-doctor {project}`. |
+| "Last synced" missing | REPORT: no freshness header. |
+| "Last synced" in the future | AUTO-FIX: set to current timestamp. |
+| File missing entirely | REPORT: critical, context file does not exist. |
+| `## Active (N)` count in file ≠ `supplier_count_active` in `index.json` for that project | REPORT: `[COUNT_MISMATCH]` — file says N active, index says M. A supplier may have been added or rejected without a full sync. Recommend `/context-doctor {project}`. |
 
-Do NOT read full context files here. Only the header. This skill must stay lightweight.
+Do NOT read full context files. Maximum 6 lines per file + `index.json`. No Notion queries.
 
 ## Step 3: Check change-log.md
 

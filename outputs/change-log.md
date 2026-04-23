@@ -4,6 +4,9 @@
 
 ## 2026-04-24
 
+[EVENT: MINI_SPRINT id=T2-5 files=skills/session-doctor/SKILL.md,procedures/context-loader.md]
+Context drift detection: session-doctor Step 2 now reads 6 lines (was 3) + index.json; DRIFT_RISK flag at >24h (was 48h), STALE at >48h; COUNT_MISMATCH flag when ## Active (N) in file differs from index.json supplier_count_active. context-loader.md: added Drift signals section — advisory warnings emitted on load when >24h stale or count mismatch. No Notion queries added.
+
 [EVENT: MINI_SPRINT id=T2-6 files=procedures/mcp-error-policy.md,skills/quote-intake/SKILL.md,skills/rfq-workflow/SKILL.md,skills/supplier-chaser/SKILL.md]
 MCP error policy centralised: created procedures/mcp-error-policy.md (3-tier taxonomy: CRITICAL=Notion writes+Gmail, OPTIONAL=Slack+Calendar, NON-CRITICAL=ruflo; Notion has single-supplier HALT vs batch SKIP+LOG sub-modes). Replaced bespoke error text in quote-intake, rfq-workflow, supplier-chaser Rules with 1-line pointer to policy.
 
