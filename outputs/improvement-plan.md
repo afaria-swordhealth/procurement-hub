@@ -382,3 +382,42 @@ Post-Audit 2.0 (2026-04-19) + L4A/L4B ruflo migrations (2026-04-19/21). Verified
 5. ~~**M4 DB-field expansion**~~ — ✅ complete 2026-04-18 (10-agent discovery, 8 changes shipped).
 
 Everything else is either shipped or an André-manual task.
+
+---
+
+## 11. Architecture Audit 3.0 — Backlog (2026-04-23)
+
+Source: `outputs/arch-audit-3.md` (8-agent AI best-practices review, 2026-04-23).
+T1 items (7) seeded to `friction-signals.md` — /improve will execute them automatically.
+T2-T4 below are for dedicated mini/structural sprints. Do not start T3 before T1-1 produces ledger data (~6 weeks).
+
+### Tier 2 — Next mini-sprints
+
+| ID | Title | Effort | Files | Priority |
+|----|-------|--------|-------|----------|
+| T2-1 | MCP calls not parallelized (4 patterns: morning-brief DMs, morning-brief ruflo, scan-gmail batch, wrap-up Slack) | micro×4 | morning-brief/SKILL.md, procedures/scan-gmail.md, commands/wrap-up.md | High |
+| T2-2 | wrap-up syncs all 4 project DBs unconditionally — wasted ~2000 tokens/week | mini | commands/wrap-up.md + 3 skills (add "Projects Touched" tracking) | Med |
+| T2-3 | Skill/command/agent boundary not documented — new workflows classified ad-hoc | micro | CLAUDE.md §9 | Med |
+| T2-4 | Ruflo key naming ad-hoc across skills — orphaned records risk | mini | new config/ruflo-schema.md + 3 skills | Med |
+| T2-5 | Context files not validated vs Notion on session start — drift undetected | mini | skills/session-doctor/SKILL.md, procedures/context-loader.md | Med |
+| T2-6 | MCP error policy inconsistent (HALT vs SKIP vs LOG) across skills | mini | new procedures/mcp-error-policy.md + 3 skills | Med |
+| T2-7 | Skill handoff implicit — rfq→quote-intake has no formal queue | mini | new outputs/skill-queue.md + rfq-workflow + quote-intake | Low |
+| T2-8 | lessons.md write trigger ambiguous — skills imply auto-write, should be André-approved only | micro | procedures/lessons-read.md + 2 skills | Low |
+
+### Tier 3 — Monthly structural sprint (after T1-1 has 6+ weeks of ledger data)
+
+| ID | Title | Effort | Dependency |
+|----|-------|--------|------------|
+| T3-1 | SHOW BEFORE WRITE blast radius not tiered (COSMETIC / COST-SENSITIVE / IRREVERSIBLE) | structural | None |
+| T3-2 | Session-liveness check missing — idle Session A blocks all writes indefinitely | mini | None |
+| T3-3 | Autonomy threshold unvalidated — calibrate against real approval patterns | micro | T1-1 (need ledger data) |
+| T3-4 | Friction signal regression not tracked — same fix can re-appear without learning | mini | None |
+| T3-5 | Monthly proactive layer health check — shipped layers can silently regress | mini | None |
+
+### Tier 4 — Deferred / low priority (batch into any session as filler)
+
+- T4-1: quote-intake validity <30d flag — clarify routes to SHOW BEFORE WRITE, not halt
+- T4-2: Xinrui in both Pulse + M-Band active_suppliers — add cross_project_suppliers to index.json
+- T4-3: session-doctor cron check threshold 2h → 8h
+- T4-4: Deferred vs. skipped terminology in supplier-chaser — add one clarifying sentence
+- T4-5: Irreversibility decision tree in safety.md for new write operations

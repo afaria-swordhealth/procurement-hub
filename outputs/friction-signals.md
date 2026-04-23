@@ -4,6 +4,48 @@
 
 ## Pending
 
+[FRICTION: ARCH3_T1-1 ts=2026-04-23 tier=micro source=arch-audit-3.md]
+Autonomy ledger disconnected from SHOW BEFORE WRITE gates.
+Files: skills/quote-intake/SKILL.md, skills/supplier-chaser/SKILL.md, skills/rfq-workflow/SKILL.md, procedures/ledger-append.md
+Fix: Add ledger-append step immediately after each approval gate outcome in the 3 skills.
+Agents: A4+A5+A7 (HIGH confidence — flagged independently by 3 agents)
+
+[FRICTION: ARCH3_T1-2 ts=2026-04-23 tier=micro source=arch-audit-3.md]
+Session-state timestamps written at phase start, not completion — crash leaves false-fresh timestamp.
+Files: commands/warm-up.md, commands/log-sent.md (and mail-scan if SKILL exists)
+Fix: Move timestamp writes to AFTER phase completion. Add status: completed|started per timestamp.
+Agents: A3+A4+A6 (HIGH/MED/MED)
+
+[FRICTION: ARCH3_T1-3 ts=2026-04-23 tier=mini source=arch-audit-3.md]
+Exec-checkpoint resume path undefined — detection exists but recovery does not.
+Files: skills/quote-intake/SKILL.md, skills/rfq-workflow/SKILL.md, skills/supplier-selection/SKILL.md, procedures/exec-checkpoints.md
+Fix: Add ## Step Resumption section to each critical skill mapping steps_done arrays to entry points.
+Agents: A4+A6 (HIGH/MED)
+
+[FRICTION: ARCH3_T1-4 ts=2026-04-23 tier=micro source=arch-audit-3.md]
+supplier-chaser Step 6 still writes to deprecated promises.md.
+Files: skills/supplier-chaser/SKILL.md (Step 6)
+Fix: Replace promises.md write with OI DB Type=Commitment entry.
+Agents: A4 (HIGH)
+
+[FRICTION: ARCH3_T1-5 ts=2026-04-23 tier=micro source=arch-audit-3.md]
+Auto-write 30% delta formula undefined in quote-intake — inconsistent across sessions.
+Files: skills/quote-intake/SKILL.md (~line 112)
+Fix: Add formula: abs((new_unit_eur - prior_unit_eur) / prior_unit_eur) <= 0.30
+Agents: A2 (HIGH)
+
+[FRICTION: ARCH3_T1-6 ts=2026-04-23 tier=micro source=arch-audit-3.md]
+context/index.json missing blocker_count + top_deadline — Layer 1 fast path always falls back to L2.
+Files: commands/wrap-up.md (Phase 2a), context/index.json
+Fix: Compute + write blocker_count (Blocked OIs per project) and top_deadline (earliest OI deadline per project) in wrap-up Phase 2a.
+Agents: A3 (HIGH)
+
+[FRICTION: ARCH3_T1-7 ts=2026-04-23 tier=micro source=arch-audit-3.md]
+Exception 5 "clearly shows" subjective — inconsistent OI Status auto-transitions across sessions.
+Files: .claude/safety.md (Exception 5)
+Fix: Replace "clearly shows" with 3-condition checklist (supplier started/processing/working; unblocked/resolved/fixed; timestamp+assignee+task).
+Agents: A5 (MED)
+
 [FRICTION: SLACK_INGEST_MISSING ts=2026-04-22]
 Goal: Ingest important Slack messages into Notion (OI DB, supplier pages, project context, decisions/commitments).
 Current state: /warm-up reads Slack for briefing context only — no write pipeline from Slack → Notion.
