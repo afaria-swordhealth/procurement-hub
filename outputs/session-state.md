@@ -67,8 +67,6 @@ Slack MCP: operational. Scanned Jorge, Miguel, Paulo, Pedro P, Bianca, Sofia, M-
 - Uartrónica re-quote chase (OI Apr 24).
 - Urion regulatory gap pack + Sofia ESH/BHS (Apr 24).
 - Finance approval on Arrow Zip #3252.
-- Memory update: `project_mband_cm_shortlist` (Titoma dropped).
 
 ## Session Crons
-d88eaf89
-dec92ae5
+- f2b24a98 | /morning-brief | weekdays 07:32 | registered 2026-04-23 | auto-expires 7d
