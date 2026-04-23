@@ -4,6 +4,9 @@
 
 ## 2026-04-23
 
+[EVENT: IMPROVE_PERSIST unexecuted=2]
+ARCH3_T1-3 (exec-checkpoint resume, mini) and SLACK_INGEST_MISSING (Slack→Notion pipeline, mini) left in friction-signals.md ## Pending for next session.
+
 [EVENT: MICRO_FIX id=ARCH3_T1-2 files=commands/warm-up.md,commands/log-sent.md]
 Timestamp timing: warm-up Phase 10 now writes Last-Warm-Up with (started) suffix; Phase 9 completion updates to (completed). log-sent Final Step writes Last-Log-Sent AFTER all writes complete.
 
