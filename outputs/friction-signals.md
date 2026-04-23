@@ -5,6 +5,7 @@
 ## Pending
 
 ## Resolved
+- [x] [2026-04-24 → 2026-04-24] Ruflo key naming ad-hoc across skills — orphaned records risk — mini — created config/ruflo-schema.md (canonical schema + slug format + retrieve vs search rule); fixed meeting-prep Step 8 key to use slug
 - [x] [2026-04-24 → 2026-04-24] wrap-up synced all 4 project DBs unconditionally — mini — Phase 2 pre-step added to commands/wrap-up.md (change-log keyword scan + context freshness check; skips projects not touched + fresh < 24h)
 - [x] [2026-04-24 → 2026-04-24] Context files not validated vs Notion on session start — mini — session-doctor Step 2 (24h threshold + COUNT_MISMATCH), context-loader.md drift signals
 - [x] [2026-04-24 → 2026-04-24] MCP error policy inconsistent (HALT vs SKIP vs LOG) across skills — mini — created procedures/mcp-error-policy.md; updated quote-intake, rfq-workflow, supplier-chaser Rules

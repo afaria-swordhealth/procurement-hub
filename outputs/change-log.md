@@ -13,4 +13,7 @@ MCP error policy centralised: created procedures/mcp-error-policy.md (3-tier tax
 [EVENT: MINI_SPRINT id=T2-2 files=commands/wrap-up.md]
 Conditional wrap-up sync: Phase 2 pre-step scopes DB queries to touched projects only. Scans change-log for project keywords; skips projects not mentioned AND with context < 24h old. Fallback: if change-log empty + all fresh, skips all 4 DB queries and goes straight to Phase 2a. Saves ~3-5k tokens per skipped project (~12k on a Pulse-only day, all 4 on /improve-only sessions).
 
+[EVENT: MINI_SPRINT id=T2-4 files=config/ruflo-schema.md,skills/meeting-prep/SKILL.md]
+Ruflo key schema centralised: created config/ruflo-schema.md (canonical key patterns, slug format, namespace policy, retrieve vs search decision rule, producer/consumer map). Fixed meeting-prep Step 8 key from `meeting::[supplier_name]::` to `meeting::[supplier_slug]::` (aligns with meeting-notes). retrieve vs search for discovery paths documented as intentional (date unknown = memory_search; full key known = memory_retrieve).
+
 ## 2026-04-23

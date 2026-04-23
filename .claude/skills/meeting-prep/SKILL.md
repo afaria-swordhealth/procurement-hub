@@ -140,10 +140,10 @@ MEETING BRIEF -- {Supplier/Topic} -- {Date}
 
 After the meeting, call `mcp__ruflo__memory_store` to capture what happened:
 
-- **key**: `meeting::[supplier_name]::[YYYY-MM-DD]`
+- **key**: `meeting::[supplier_slug]::[YYYY-MM-DD]` — slug format per `config/ruflo-schema.md` (lowercase, dashes)
 - **namespace**: "procurement"
 - **upsert**: true
-- **tags**: ["meeting", project, supplier_name]
+- **tags**: ["meeting", project, supplier_slug]
 - **value**:
   ```json
   {
