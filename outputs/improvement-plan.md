@@ -379,6 +379,6 @@ Post-Audit 2.0 (2026-04-19) + L4A/L4B ruflo migrations (2026-04-19/21). Verified
 2. **L7 ruflo purge** — mechanical; run `ruflo-memory-purge.md` procedure (André-gated 45-60min session per procedure).
 3. ~~**L3 Slack DM + cron activation**~~ — ✅ shipped 2026-04-23.
 4. ~~**L6 quote-intake PDF + chaser cadence**~~ — ✅ shipped 2026-04-22 (code path). Real-data validation outstanding.
-5. **M4 DB-field expansion** — parallel track, not in layer model.
+5. ~~**M4 DB-field expansion**~~ — ✅ complete 2026-04-18 (10-agent discovery, 8 changes shipped).
 
 Everything else is either shipped or an André-manual task.

@@ -48,7 +48,8 @@ Parse today's entries for:
 - Blockers that haven't moved in 3+ days
 
 ### Source C — promises.md
-- Unchecked `- [ ]` entries where `due:` is past today AND the promise is more than 3 days old (pattern, not one-off miss)
+- **Skip if file header contains `DEPRECATED`** — promises.md was retired 2026-04-23; all entries migrated to OI DB. Source C is a no-op until a replacement tracker is live.
+- Otherwise: unchecked `- [ ]` entries where `due:` is past today AND the promise is more than 3 days old (pattern, not one-off miss)
 
 ### Source D — cross-session pattern
 If change-log is empty or thin (improvement session without prior operational session today):
