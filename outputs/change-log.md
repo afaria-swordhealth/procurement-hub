@@ -4,6 +4,9 @@
 
 ## 2026-04-23
 
+[EVENT: MICRO_FIX id=T4-5 file=.claude/safety.md]
+safety.md: added "## Classifying new write operations" — 5-step irreversibility decision tree for skill authors assigning approval levels to new writes.
+
 [EVENT: MICRO_FIX id=T4-1 file=skills/quote-intake/SKILL.md]
 quote-intake Step 1a: validity <30d flag now explicitly says "routes to SHOW BEFORE WRITE, does not halt". Prevents confusion with PDF OCR HALT path.
 

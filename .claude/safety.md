@@ -43,6 +43,34 @@ New auto-approvals must not be added as ad-hoc Exceptions. Evidence-based promot
 7. CHECK BEFORE CREATE: Verify daily log entry doesn't exist before creating.
 8. OPEN ITEMS IN SUPPLIER PAGES: The ## Open Items section in every supplier page must be a linked database view of the central Open Items DB, filtered by Supplier. Never inline bullets. All OIs must exist as records in the central Open Items DB (collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0) with all required fields populated.
 
+## Classifying new write operations
+
+When designing a new skill or adding a write step, use this decision tree to assign the correct approval level:
+
+```
+1. Is it an email send or a Notion delete?
+   → YES: Level 1. Do not implement. Use draft (email) or Status=Rejected (Notion).
+
+2. Is it one of the blocked-by-rules categories (supplier rejection, price field,
+   NDA status change, first outreach, Weekly Report → Sent)?
+   → YES: Level 2. Present to André; do not auto-execute.
+
+3. Is it covered verbatim by an existing Exception (1-5 above)?
+   → YES: follow that Exception's conditions. Do not re-gate.
+
+4. Is the write reversible in < 30 seconds by André in the Notion UI?
+   → YES (cosmetic / informational): Level 3, SHOW BEFORE WRITE.
+      If same write class is always approved cleanly, start autonomy.md process.
+   → NO (overwrites data, closes OI, changes status in a way that affects
+      downstream decisions, or is hard to find/undo): Level 2 minimum.
+
+5. Does the write affect multiple records in batch or touch shared config?
+   → YES: treat as Level 2 regardless of individual reversibility.
+      Batch errors compound; single-record reversibility does not apply.
+```
+
+No new Exceptions via ad-hoc edits here. Promotion path is `.claude/autonomy.md` only.
+
 ## Concurrency (session-single model)
 
 One Claude session at a time. The system assumes a single active session and does not coordinate writes across concurrent sessions.
