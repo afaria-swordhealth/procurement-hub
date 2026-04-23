@@ -4,6 +4,9 @@
 
 ## 2026-04-23
 
+[EVENT: MINI_SPRINT id=SLACK_INGEST_MISSING files=skills/slack-scan/SKILL.md,config/slack-channels.md,commands/wrap-up.md]
+Slack→Notion ingest pipeline: created /slack-scan skill (6-step: scan log=true channels → classify signals → dedup vs OI DB → SHOW BEFORE WRITE → write OIs + comments → update Last-Slack-Scan). Added log/log_types columns to slack-channels.md (8 DMs log=true, 2 group DMs log=true, 3 channels log=true). Added Phase 0b to wrap-up.md to call /slack-scan at EOD.
+
 [EVENT: MINI_SPRINT id=ARCH3_T1-3 files=skills/quote-intake/SKILL.md,skills/rfq-workflow/SKILL.md,skills/supplier-selection/SKILL.md,procedures/exec-checkpoints.md]
 Exec-checkpoint resume path: added ## Step Resumption section to all 3 critical skills mapping steps_done tail → next entry point. Updated pre-flight detection text to reference the section. Added lifecycle step 1b to exec-checkpoints.md procedure.
 

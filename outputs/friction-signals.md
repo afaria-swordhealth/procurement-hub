@@ -4,14 +4,8 @@
 
 ## Pending
 
-[FRICTION: SLACK_INGEST_MISSING ts=2026-04-22]
-Goal: Ingest important Slack messages into Notion (OI DB, supplier pages, project context, decisions/commitments).
-Current state: /warm-up reads Slack for briefing context only — no write pipeline from Slack → Notion.
-Gap: Decisions made on Slack (e.g., scale supplier switch, quantity changes, exec alignment) are lost unless manually captured in /log-sent or meeting notes.
-Proposed: New skill /slack-scan. Reads channels/DMs marked log=true in slack-channels.md. Extracts: decisions, commitments, blockers, supplier updates, escalations. Writes to: OI DB (Commitment/Decision type), supplier page comments, context files. Trigger: inside /wrap-up or standalone cron.
-Priority: mini-sprint (not micro-fix — requires new skill file + slack-channels.md schema extension).
-
 ## Resolved
+- [x] [2026-04-22 → 2026-04-23] Slack→Notion ingest missing — mini — created skills/slack-scan/SKILL.md, extended config/slack-channels.md (log/log_types columns), added Phase 0b to commands/wrap-up.md
 - [x] [2026-04-23 → 2026-04-23] exec-checkpoint resume path undefined — mini — fixed in quote-intake, rfq-workflow, supplier-selection SKILL.md + exec-checkpoints.md (## Step Resumption sections + lifecycle 1b)
 - [x] [2026-04-23 → 2026-04-23] session-state timestamps at phase start: warm-up (started)→(completed) split; log-sent Final Step explicit write — micro — fixed in commands/warm-up.md + commands/log-sent.md
 - [x] [2026-04-23 → 2026-04-23] safety.md Exception 5 "clearly shows" subjective — micro — replaced with 3-condition checklist in .claude/safety.md

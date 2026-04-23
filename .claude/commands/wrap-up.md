@@ -26,6 +26,9 @@ Use `TARGET_DATE` for all date-sensitive operations below (Phase 3 daily log loo
 1. For each key person: slack_read_channel with user ID. For each channel and Group DM: slack_read_channel with channel ID, slack_read_thread for replies.
 2. Extract decisions, action items, or context relevant to Pulse, Kaia, or M-Band. Include findings in the daily log and pending items.
 
+### Phase 0b: Slack → OI DB
+Run `/slack-scan`. This extracts structured signals from all `log=true` channels/DMs since `Last-Slack-Scan` and writes approved signals to OI DB. If Slack MCP fails or zero signals are found, skip silently — wrap-up continues.
+
 ### Phase 1: Log Sent Emails
 3. Run /log-sent procedure: scan Andre's sent emails for today.
 4. For each sent email to a supplier domain, check Notion Outreach for matching entry.
