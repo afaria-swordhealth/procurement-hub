@@ -47,6 +47,7 @@ Run `/slack-scan`. This extracts structured signals from all `log=true` channels
     - `supplier_count_active` = entries not in the Rejected section
     - `supplier_count_rejected` = entries in Rejected section
     - `active_suppliers` = name list from non-Rejected sections
+    - `cross_project_suppliers` = supplier names that appear in `active_suppliers` for MORE THAN ONE project. Compute by intersecting the 4 `active_suppliers` lists. Example: Xinrui Group active in both Pulse and M-Band → `"cross_project_suppliers": ["Xinrui Group"]`. Empty list `[]` if none. Warm-up uses this to flag shared suppliers that may have competing priorities.
     - `blocker_count` = COUNT of OIs with Status=Blocked for this project, queried from OI DB:
       `SELECT COUNT(*) FROM "collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0" WHERE Status='Blocked' AND Project LIKE '%{project_display_name}%'`
       Fallback if OI DB unavailable: count supplier entries with non-null `blocker:` field in the context file.

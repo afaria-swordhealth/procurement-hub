@@ -4,6 +4,9 @@
 
 ## 2026-04-23
 
+[EVENT: MICRO_FIX id=T4-2 file=commands/wrap-up.md]
+wrap-up Phase 2a: added cross_project_suppliers field to index.json generation — suppliers active in >1 project (e.g. Xinrui Group in Pulse + M-Band). Warm-up can flag competing priorities.
+
 [EVENT: MICRO_FIX id=T4-5 file=.claude/safety.md]
 safety.md: added "## Classifying new write operations" — 5-step irreversibility decision tree for skill authors assigning approval levels to new writes.
 
