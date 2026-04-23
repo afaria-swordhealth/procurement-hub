@@ -4,6 +4,9 @@
 
 ## 2026-04-23
 
+[EVENT: MICRO_FIX id=T4-3 file=skills/session-doctor/SKILL.md]
+session-doctor Step 1c: cron check threshold 2h → 8h. Crons stay valid all working day; 2h caused false "crons dropped" reports after a lunch break.
+
 [EVENT: MICRO_FIX id=IMPROVE_SOURCE_G file=skills/improve/SKILL.md]
 /improve: added Source G — improvement-plan.md §11 backlog. Pre-flight reads improvement-plan.md. T4 items surface always; T2 items surface when ungated; T3 items surface only after ledger ≥20 entries.
 

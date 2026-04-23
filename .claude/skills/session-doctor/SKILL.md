@@ -45,11 +45,11 @@ Required sections that must be present:
 
 Do NOT attempt to repair a corrupt session-state.md. Only /warm-up can rebuild it.
 
-## Step 1c: Verify session crons (only if Last-Warm-Up < 2h)
+## Step 1c: Verify session crons (only if Last-Warm-Up < 8h)
 
-If `Last-Warm-Up >= 2h`: skip this step — crons are expected to be unregistered before warm-up.
+If `Last-Warm-Up >= 8h`: skip this step — warm-up was from a prior session; crons were dropped on session end.
 
-If `Last-Warm-Up < 2h`:
+If `Last-Warm-Up < 8h`:
 1. Read the `## Session Crons` section from `outputs/session-state.md`. Count listed entries (N).
 2. Call `CronList`.
 
