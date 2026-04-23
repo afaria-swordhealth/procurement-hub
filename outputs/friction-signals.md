@@ -4,12 +4,6 @@
 
 ## Pending
 
-[FRICTION: ARCH3_T1-2 ts=2026-04-23 tier=micro source=arch-audit-3.md]
-Session-state timestamps written at phase start, not completion — crash leaves false-fresh timestamp.
-Files: commands/warm-up.md, commands/log-sent.md (and mail-scan if SKILL exists)
-Fix: Move timestamp writes to AFTER phase completion. Add status: completed|started per timestamp.
-Agents: A3+A4+A6 (HIGH/MED/MED)
-
 [FRICTION: ARCH3_T1-3 ts=2026-04-23 tier=mini source=arch-audit-3.md]
 Exec-checkpoint resume path undefined — detection exists but recovery does not.
 Files: skills/quote-intake/SKILL.md, skills/rfq-workflow/SKILL.md, skills/supplier-selection/SKILL.md, procedures/exec-checkpoints.md
@@ -24,6 +18,7 @@ Proposed: New skill /slack-scan. Reads channels/DMs marked log=true in slack-cha
 Priority: mini-sprint (not micro-fix — requires new skill file + slack-channels.md schema extension).
 
 ## Resolved
+- [x] [2026-04-23 → 2026-04-23] session-state timestamps at phase start: warm-up (started)→(completed) split; log-sent Final Step explicit write — micro — fixed in commands/warm-up.md + commands/log-sent.md
 - [x] [2026-04-23 → 2026-04-23] safety.md Exception 5 "clearly shows" subjective — micro — replaced with 3-condition checklist in .claude/safety.md
 - [x] [2026-04-23 → 2026-04-23] autonomy ledger disconnected from SHOW BEFORE WRITE: inline ledger steps added to 3 skills — micro — fixed in supplier-chaser, quote-intake, rfq-workflow SKILL.md
 - [x] [2026-04-23 → 2026-04-23] wrap-up Phase 2a: blocker_count + top_deadline from fragile text parsing → OI DB queries — micro — fixed in commands/wrap-up.md

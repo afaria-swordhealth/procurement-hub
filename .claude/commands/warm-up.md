@@ -75,7 +75,7 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 
 ### Phase 10: Write Session State
 16. **Before presenting the briefing**, write outputs/session-state.md with:
-    - Timestamps: Last-Warm-Up (now), Last-Mail-Scan, Last-Log-Sent, Last-Wrap-Up
+    - Timestamps: `Last-Warm-Up: {time} (started)`, Last-Mail-Scan, Last-Log-Sent, Last-Wrap-Up. Write `(started)` suffix on Last-Warm-Up — it will be updated to `(completed)` after Phase 9.
     - Active Sessions: this session's role (A or B) and start time
     - Context Snapshot: carry-over items, new findings, email state (last scan time + unread count), Slack state
     - Upcoming Meetings: next 5 days
@@ -84,6 +84,7 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 
 ### Phase 9: Day Briefing
 17. Present a single briefing covering all phases.
+18. **After the briefing is successfully delivered:** update the `Last-Warm-Up` line in `outputs/session-state.md` to replace `(started)` with `(completed)`. This confirms the warm-up fully completed and prevents stale-detection from treating a crashed mid-briefing session as fresh.
 
 ## Output Format
 

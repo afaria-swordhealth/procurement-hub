@@ -103,3 +103,7 @@ Use the actual sent email content (not the draft), since Andre may have edited m
 One outreach entry per email thread per day (consolidate if multiple in same thread same day).
 
 After Outreach writes: OI comments are written directly (auto-approved per CLAUDE.md §5 Exception 2). Log each to outputs/change-log.md.
+
+## Final Step: Session-State Timestamp
+
+After all writes and output are delivered, update `Last-Log-Sent` in `outputs/session-state.md` to the current timestamp with a brief result note: `Last-Log-Sent: {YYYY-MM-DDTHH:MM} ({N} supplier(s) checked, {M} new milestone(s))`. Write this AFTER completion — not at scan start — so a crash mid-run leaves a stale timestamp detectable by session-doctor.

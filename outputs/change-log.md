@@ -4,6 +4,9 @@
 
 ## 2026-04-23
 
+[EVENT: MICRO_FIX id=ARCH3_T1-2 files=commands/warm-up.md,commands/log-sent.md]
+Timestamp timing: warm-up Phase 10 now writes Last-Warm-Up with (started) suffix; Phase 9 completion updates to (completed). log-sent Final Step writes Last-Log-Sent AFTER all writes complete.
+
 [EVENT: MICRO_FIX id=ARCH3_T1-7 file=.claude/safety.md]
 Exception 5 "clearly shows" replaced with explicit 3-condition checklist: (1) explicit action language, (2) directly addresses blocking condition, (3) traceable evidence (timestamp+sender+task reference).
 
