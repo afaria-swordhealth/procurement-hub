@@ -13,7 +13,7 @@ Scans all overdue commitments (Open Items DB + promises.md), cross-references Gm
 2. Read `.claude/config/writing-style.md` (tone rules, templates).
 3. Read `.claude/config/strategy.md` (never reveal prices, timelines, or shortlist status).
 4. Read `.claude/config/domains.md` (supplier contacts and email addresses).
-5. Read `outputs/promises.md` for open commitments.
+5. *(Skipped: promises.md deprecated 2026-04-23 — commitments are in OI DB as Type=Commitment, covered by Step 1.)*
 6. **Lessons read:** per `.claude/procedures/lessons-read.md`, read `.claude/skills/supplier-chaser/lessons.md` (top 10). Apply before composing drafts. If missing or empty, skip.
 
 ## Step 1: Collect overdue items
@@ -31,7 +31,7 @@ ORDER BY Deadline ASC
 
 ### From promises.md
 
-Parse all unchecked `- [ ]` entries. Flag any where `due:` date is past today.
+*(DEPRECATED 2026-04-23 — skip this source. Open commitments live in OI DB as Type=Commitment, already covered by the OI DB query above.)*
 
 ### From session-state.md
 
@@ -212,9 +212,16 @@ For all other items: after André approves (may edit drafts):
 2. For Slack chasers, present the message text for André to send manually.
 3. Concurrency: session-single model (see `.claude/safety.md`). No per-write collision check before the Notion comment write.
 4. Add a Notion page comment on the OI via notion-create-comment: `Follow-up sent [channel] [date]. [Brief note].`
-5. Add to `outputs/promises.md`: extract soft deadline from the draft body (pattern: "by YYYY-MM-DD" or similar date phrase). If none found, use today + 7 days. Append entry:
-   `- [ ] {Supplier contact} ({Company}) | Reply to {item} chase | promised: {today} | due: {soft_deadline} | next: waiting on supplier reply | OI: {oi_id or —} | source: supplier-chaser {[AUTO] or [Review]} Tier {N}`
-   If an existing open promise already tracks this item (same supplier + same OI), update its `next:` and `due:` fields instead of adding a duplicate.
+5. Create an OI in the Open Items DB (Type=Commitment) to track the expected reply. Extract the soft deadline from the draft body (pattern: "by YYYY-MM-DD" or similar date phrase); if none found, use today + 7 days. Required fields:
+   - Item: `{Supplier} — reply to {item} chase` (≤70 chars)
+   - Type: Commitment
+   - Status: Pending
+   - Owner: André
+   - Deadline: soft_deadline
+   - Project: (relation to current project)
+   - Supplier: exact DB match
+   - Context: "Chase sent {today} via {channel}, Tier {N}. Awaiting reply on {item}."
+   If an OI with Status Pending already exists for the same Supplier + subject, add a Notion page comment with the new chase date instead of creating a duplicate.
 6. Log all actions to `outputs/change-log.md`.
 6. Store chase outcome in ruflo memory via `mcp__ruflo__memory_store`:
    - `key`: "chase::[supplier_name]::[YYYY-MM-DD]"

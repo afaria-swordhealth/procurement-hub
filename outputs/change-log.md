@@ -4,6 +4,12 @@
 
 ## 2026-04-23
 
+[EVENT: MICRO_FIX id=ARCH3_T1-4 file=skills/supplier-chaser/SKILL.md]
+Replaced 3 promises.md references with OI DB equivalents: Pre-flight step 5 (skip note), Step 1 From-promises block (deprecated note), Step 6b sub-step 5 (OI Type=Commitment create instead of promises.md append).
+
+[EVENT: SKILL_RUN skill=morning-brief status=delivered decisions=3 overdue=5 signals=5 deferred=13]
+Brief delivered via chat (Slack send failed: Proxy error). Fallback per skill rules.
+
 [WARNING: STALE_LOCK ts=2026-04-23T00:50 sessionId=3ec755a2]
 Prior /improve session left .claude/scheduled_tasks.lock stale (>5h old). Treated as crashed prior run. Proceeding normally.
 

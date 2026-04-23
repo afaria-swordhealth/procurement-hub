@@ -22,12 +22,6 @@ Files: skills/quote-intake/SKILL.md, skills/rfq-workflow/SKILL.md, skills/suppli
 Fix: Add ## Step Resumption section to each critical skill mapping steps_done arrays to entry points.
 Agents: A4+A6 (HIGH/MED)
 
-[FRICTION: ARCH3_T1-4 ts=2026-04-23 tier=micro source=arch-audit-3.md]
-supplier-chaser Step 6 still writes to deprecated promises.md.
-Files: skills/supplier-chaser/SKILL.md (Step 6)
-Fix: Replace promises.md write with OI DB Type=Commitment entry.
-Agents: A4 (HIGH)
-
 [FRICTION: ARCH3_T1-5 ts=2026-04-23 tier=micro source=arch-audit-3.md]
 Auto-write 30% delta formula undefined in quote-intake — inconsistent across sessions.
 Files: skills/quote-intake/SKILL.md (~line 112)
@@ -54,6 +48,7 @@ Proposed: New skill /slack-scan. Reads channels/DMs marked log=true in slack-cha
 Priority: mini-sprint (not micro-fix — requires new skill file + slack-channels.md schema extension).
 
 ## Resolved
+- [x] [2026-04-23 → 2026-04-23] supplier-chaser SKILL.md: Step 6 wrote to deprecated promises.md — micro — fixed in skills/supplier-chaser/SKILL.md (3 hunks: pre-flight, Step 1, Step 6b sub-step 5)
 - [x] [2026-04-22 → 2026-04-22] /mail-scan: sem closing prompt — incoming milestones em limbo sem resposta explícita — micro — fixed in mail-scan.md + mail-scan-deep.md
 - [x] [2026-04-22 → 2026-04-22] /wrap-up: midnight crossing — micro — fixed in .claude/commands/wrap-up.md (TARGET_DATE pre-flight)
 - [x] [2026-04-21 → 2026-04-21] supplier-enrichment: ruflo memory_store Step 5 not migrated — micro — fixed in .claude/skills/supplier-enrichment/SKILL.md (commit 1443ee1)
