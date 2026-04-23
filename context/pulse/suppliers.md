@@ -1,19 +1,19 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-04-22T23:55
+# Last synced: 2026-04-23T23:45
 # Schema: v1
 
-## Active (3)
+## Active (2)
 
 ### Transtek Medical
-- status: Shortlisted
-- nda: In Progress
+- status: Shortlisted (SINGLE SUPPLIER — BPM + Scale, both OTS + PLD tracks)
+- nda: In Progress (Sword Inc. Zip #3213)
 - currency: USD
-- unit_cost: 19.20
+- unit_cost: 19.20 (BPM) / 13.30 (BIA Scale)
 - tooling_cost: null
 - last_outreach: 2026-04-23
-- open_ois: 3
-- next: Await Sarah Hamid (Legal) review LRE-1920/MSA before Apr 23 call; await Mika project plan update (BPM + scale); await Transtek RA on manufacturing site + UDI-PI
-- blocker: Labelling classification (Sarah Hamid, OI 343b4a7d…4c39 deadline 2026-04-22)
+- open_ois: 8
+- next: Confirm OTS stock with Mika (Apr 24); await Kevin volumes; await Transtek 510(k) cuff-size evidence (K241351); await Sarah labeler classification
+- blocker: Labelling classification (Sarah Hamid, OI 343b4a7d…4c39); Transtek RA stock availability (OI 34bb4a7d…ce3)
 - notes: |
   MANUFACTURER (Zhongshan, CN). Entity: Guangdong Transtek Medical Electronics Co., Ltd
   (corrected 2026-04-20, Bradley notified). BP cuff BB2284-AE01. FOB ZS @5K (reference):
@@ -45,49 +45,18 @@
   Qualio SQM draft created 2026-04-20 (Risk: Critical, Sponsor: Elena Cavallini VP QARA);
   awaiting Sofia for Supplier Management Record + Approvers fields.
 
-  SCALE PATH (new 2026-04-21 23:17): GBF-2008-B1 sourcing inquiry sent to Mika as alt
-  path to Unique Scales (Kevin Wang-authorized). Asked about full-Sword branding + FDA
-  path, MSRP timeline, MOQ, golden sample schedule, ISTA, packaging. Awaiting reply.
+  TWO-TRACK CONFIRMED 2026-04-23 (Final Alignment meeting): OTS (off-the-shelf, June) +
+  PLD (private label, July+). Transtek = single supplier for both BPM + Scale after
+  Unique Scales DROPPED. OTS = Sword as distributor (lower liability), PLD = full private
+  label responsibility. Separate QTA/MSA required per track. OTS stock confirmation from
+  Mika due Apr 24. Bianca drafting OTS QT (due early next week). Kevin: "lets do DHL
+  please" (golden sample physical inspection, not photo approval). BP cuff + scale ship
+  separately (avoids additional FDA registration).
 
-### Unique Scales
-- status: Shortlisted
-- nda: In Progress
-- currency: USD
-- unit_cost: 9.24
-- tooling_cost: null
-- last_outreach: 2026-04-22
-- open_ois: 2
-- next: Chase Bradley on NDA + SCA; await QARA direction on UDI-DI declaration-of-equivalence (D336721 importer add — pivot confirmed Apr 22)
-- blocker: UDI-DI refused by Unique Scales 2026-04-21 (QARA escalation pending)
-- notes: |
-  MANUFACTURER (Shenzhen, CN). BIA scale CF635BLE dual-freq selected. Pricing FOB SZ:
-  $9.24/unit @5K ($46,200 total), $8.76/unit @20K ($175,200 total). LT 35-40 days.
-  FDA FRI+PUH. SDK received. BLE name "SWORD_PULSE". Dual-freq upgrade in progress.
-
-  Proforma requested 2026-04-08. DHL shipping label sent 2026-04-09 (to Kenny +
-  Li Qiong). Die-line files received 2026-04-09 (sticker, carton, inner box, user manual).
-  White box confirmed 2026-04-13.
-
-  Finance/NetSuite CLOSED 2026-04-20: vendor record created, PO issuance unblocked
-  (João Linhares approved 2026-04-17). QTA V0.2 shared 2026-04-17 via regulatory thread
-  (email had "Hi Mika" salutation error — content clear, no correction sent).
-
-  NDA Sword Inc. (Zip #3214): In Progress — Bradley reviewing (pinged 2026-04-20).
-  Bradley comment 2026-04-20 17:52 asking for Shenzhen address. SCA blocked same as
-  Transtek. ISTA capability asked 2026-04-17 (OI 345b4a7d…3797).
-
-  Open-items email sent to Queenie 2026-04-20 22:32 (CC: Sofia + Paulo): QTA/SQA scope,
-  ISTA testing, ISO 9001/13485 certs, US packaging standards, CF635BLE sample label.
-  Qualio SQM draft created 2026-04-20 (Risk: Critical, Sponsor: Elena Cavallini);
-  awaiting Sofia for SMR + Approvers fields.
-
-  Queenie replied 2026-04-21 08:24+08:30 on 6-point email. Substantive answers:
-  (1) ISTA in own lab, ~20pp Chinese docs translation pending. (2) QTA with their edits
-  sent. (3) ISO certs "we got all" — needs her to send. (4) **UDI-DI REFUSED** —
-  declaration-of-equivalence template offered instead (regulatory escalation to
-  Sofia / #pulse-qara on 2026-04-21). (5) US packaging: "use what we sent". (6) LT
-  35-40 working days, gated on 30% deposit + final packing details. Revised QTA v0.2
-  (Sofia edits + Appendix II) sent to Queenie 2026-04-21 22:20.
+  New Apr 23 OI (cuff sizes): 510(k) documentation request sent to Mika for evidence
+  all 3 cuff sizes (Std 22-45, XS 16-36, XL) are in K241351-cleared system config.
+  Triggered by Bianca QARA review — if any size outside cleared config, may trigger new
+  510(k)/listing requirements for XS/XL accessories.
 
 ### Urion Technology
 - status: Quote Received
@@ -110,12 +79,17 @@
   pending custom sample delivery. Sofia ESH/BHS OI 345b4a7d…66d5 + regulatory gap pack
   OI 345b4a7d…e1f5 both deadline 2026-04-24.
 
-## Rejected (10)
+## Rejected (11)
 
 - Xinrui Group, Yimi Life, Finicare, Yilai Enlighting, Daxin Health, Hingmed, Zewa Inc,
   Ullwin, A&D Medical (Status → Rejected 2026-04-18, NDA → Not Required; no rejection
   email sent).
 - IPADV (intermediary, on hold pending Jorge direction; NDA → Not Required).
+- **Unique Scales** — DROPPED 2026-04-23 (Final Alignment meeting). Analyzer integration
+  difficulties. All devices consolidated to Transtek (BPM + Scale single supplier).
+  6 open OIs closed. BLE CF635BLE selected pricing: $9.24/unit @5K. NDA Sword Inc.
+  (Zip #3214) + Bradley SCA tickets to be cancelled manually. Queenie had refused UDI-DI
+  (offered declaration-of-equivalence only) — no longer relevant.
 
 Notes condensed (2-line max) on Xinrui, Yilai, Daxin, Zewa per 2026-04-09 audit.
 
@@ -136,6 +110,16 @@ Notes condensed (2-line max) on Xinrui, Yilai, Daxin, Zewa per 2026-04-09 audit.
   registration — offered declaration-of-equivalence only. Escalated to QARA (Sofia DM
   in PT; #pulse-qara with Elena/Sarah/Bianca/Sofia tagged). Transtek GBF-2008-B1 scale
   inquiry opened as alt path.
+- 2026-04-23 (Final Alignment — Anand, Kevin, Sarah, Sofia, Bianca, Paulo, Hugo):
+  Unique Scales DROPPED (analyzer integration difficulties); Transtek = single supplier
+  for BPM + Scale. Two-track approach confirmed: OTS (June, Sword as distributor) + PLD
+  (July+, full private label). Separate QTA/MSA per track. BP cuff + BIA scale ship
+  separately (avoids additional FDA registration). 3K existing Move M-bands held as
+  safety net. Bianca drafting OTS QT. Kevin confirmed DHL physical golden sample (not
+  photo approval).
+- 2026-04-23 (QARA — Bianca): 510(k) cuff size configuration question raised. Evidence
+  required from Transtek (K241351 summary) that all 3 cuff sizes (Std/XS/XL) are in the
+  cleared system. Any size outside may trigger new 510(k) + separate listing.
 
 ## Open Actions (ISC-level)
 

@@ -4,6 +4,24 @@
 
 ## 2026-04-23
 
+[EVENT: MEETING_NOTES_PHASE2_WRITES meeting="Final Alignment: Pulse — Private Label 3rd Party FDA Devices | Apr 23, 15:30"]
+oi_close × 6: all Unique Scales OIs → Closed (supplier dropped, devices consolidated to Transtek)
+oi_create × 2: Kevin Wang volume projections (34bb4a7d…8fa1, Apr 23), André device spec email (34bb4a7d…5238, Apr 24)
+Skipped: #9 (M-Band hold decision — not related per André)
+context/pulse/suppliers.md flagged for update: Unique Scales dropped, Transtek = single supplier
+
+[EVENT: FAIL target=gmail_mcp skill=mail-scan reason="token expired — re-authorization required"]
+mail-scan cron aborted. No email data read.
+
+[EVENT: OI_CREATE count=1 supplier=Transtek id=34bb4a7d…816f]
+Transtek — 510(k) cuff size config documentation. Question, Owner=Mika Lu (chased by André), Deadline=2026-04-25. Triggered by Bianca Lourenço QARA review re: XS/XL cuffs in K241351-cleared system.
+
+[EVENT: OUTREACH_WRITE supplier=Transtek date=2026-04-23]
+Apr 23 entry added: 510(k) cuff size documentation request to Mika (K241351 — Standard/XS/XL config evidence). Auto-approved.
+
+[EVENT: OI_COMMENT oi=343b4a7d…c39 auto_approved=true]
+Sarah labeler OI: new dimension — XS/XL cuffs may trigger separate 510(k)/listing if not in cleared system config. Bianca raised Apr 23.
+
 [EVENT: MEETING_NOTES_PHASE2_COMMENTS meeting="Final Alignment: Pulse — Private Label 3rd Party FDA Devices | Apr 23, 15:30" comments=3]
 Auto-approved OI comments written:
 - OI 343b4a7d…c39 (Sarah labeler classification): two-track model, OTS=distributor/PLD=full PL

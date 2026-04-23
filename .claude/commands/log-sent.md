@@ -17,6 +17,8 @@ Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
 
 ## Phase 1: Scan Gmail Sent
 
+**MANDATORY:** Always execute `search_threads` via Gmail MCP. Never infer from session context or prior tool results — those are stale the moment a new email is sent. Skipping the search and updating the timestamp anyway silently drops milestones on every subsequent run.
+
 Use .claude/procedures/scan-gmail.md with:
 - direction: "sent"
 - date_range: **dynamic** — read `Last-Log-Sent` from `outputs/session-state.md`. Set date_range = days since Last-Log-Sent + 1 (round up, max 7). If Last-Log-Sent is missing or >7 days ago: use 7 and flag the gap. If session-state is unreadable or Last-Log-Sent is absent: HALT — output "session-state.md missing or unreadable. Run /warm-up before /log-sent." Do NOT default to 2 (a silent 2-day window may skip milestones from longer gaps).

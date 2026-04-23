@@ -38,7 +38,7 @@
 
 | Channel | ID | Purpose | log | log_types |
 |---------|----|---------|-----|-----------|
-| #pulse-packagin-artwork | C0ARTEJPMRC | Pulse packaging design | false | — |
+| #pulse-devices | C0ARTEJPMRC | Pulse device decisions (cuff sizes, QARA, packaging, BOM) | true | all |
 | #pm-npi-isc | C0AKYG8JR42 | NPI/ISC coordination | true | all |
 | #m-band_sourcing | C08170ETSKG | M-Band COO-X sourcing updates | true | all |
 | #pulse-isc | C0905Q7SFU2 | Pulse/Move ISC operations | true | all |
