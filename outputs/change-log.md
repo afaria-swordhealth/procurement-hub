@@ -4,6 +4,15 @@
 
 ## 2026-04-23
 
+[EVENT: MEETING_NOTES_PHASE2_COMMENTS meeting="Final Alignment: Pulse — Private Label 3rd Party FDA Devices | Apr 23, 15:30" comments=3]
+Auto-approved OI comments written:
+- OI 343b4a7d…c39 (Sarah labeler classification): two-track model, OTS=distributor/PLD=full PL
+- OI 348b4a7d…da68 (Transtek MSA): two-track separate agreements, Sarah drafting
+- OI 34ab4a7d…a (Transtek UDI-DI): OTS can skip FDA steps, urgency gated on stock confirmation
+
+[EVENT: MICRO_FIX id=IMPROVE_PLAN_CLEANUP file=outputs/improvement-plan.md]
+improvement-plan.md §11: removed completed items (T4-1 through T4-5 all shipped; T2-1, T2-3, T2-8 shipped). Source G will no longer re-surface them. Remaining: T2-2/4/5/6/7 (mini-sprints), T3-1 through T3-5 (structural).
+
 [EVENT: MICRO_FIX id=T2-8 file=procedures/lessons-read.md]
 lessons-read.md: removed "By skills directly" auto-write path. Skills are now readers-only — corrections collected as friction signals in friction-signals.md for /improve to propose. Prevents untracked lesson writes outside SHOW BEFORE WRITE.
 
