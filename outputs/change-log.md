@@ -19,4 +19,7 @@ Ruflo key schema centralised: created config/ruflo-schema.md (canonical key patt
 [EVENT: MINI_SPRINT id=T2-7 files=outputs/skill-queue.md,skills/rfq-workflow/SKILL.md,skills/quote-intake/SKILL.md,skills/session-doctor/SKILL.md]
 Formal skill handoff queue: created outputs/skill-queue.md. rfq-workflow Step 5 now appends a queue row on quote received. quote-intake pre-flight surfaces matching entry as context; Step 8 clears it on completion. session-doctor Step 2b checks for stale entries (>7d = REPORT). Also fixed quote-intake Step 8 ruflo key to use supplier_slug (schema alignment).
 
+[EVENT: MINI_SPRINT id=T3-2 files=safety.md,skills/session-doctor/SKILL.md,commands/wrap-up.md]
+Session-liveness check: safety.md now defines 60-minute liveness threshold (session-state.md mtime > 60min = idle/abandoned, new session may proceed). session-doctor Step 1a checks Active Sessions vs mtime — flags [IDLE_SESSION] if stale, flags conflict if active and fresh. wrap-up Phase 4b now clears ## Active Sessions on EOD to prevent next-session false-block.
+
 ## 2026-04-23

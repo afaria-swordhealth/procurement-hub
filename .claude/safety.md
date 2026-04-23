@@ -80,4 +80,8 @@ If a second session opens while the first is active:
 - Do not write Notion, Gmail drafts, or context files from the second session.
 - Read-only operations (queries, reports, /ping, /ask) are fine.
 
+**Session liveness definition:** A session is live only if `outputs/session-state.md` was modified within the last 60 minutes. If the file is older than 60 minutes, the prior session is considered idle or abandoned — the new session may proceed with full write access without waiting. The 60-minute threshold applies to ALL sessions, including Session A (operational). An abandoned session does not block indefinitely.
+
+On session start: warm-up writes `## Active Sessions` in session-state.md with the start time. On session end: wrap-up clears `## Active Sessions` to `(none)`. If a session ends without running wrap-up, the 60-minute liveness rule applies.
+
 The multi-session scope block previously in CLAUDE.md §4b is retired. No 10-minute collision guard in procedure files — dead code once session-single landed. If collision detection is ever needed again, add it here, not in each procedure.

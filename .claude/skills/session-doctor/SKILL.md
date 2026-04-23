@@ -28,6 +28,18 @@ Parse the `## Timestamps` section. For each timestamp, calculate age:
 | Any timestamp in the future | Clock error or bad write | AUTO-FIX |
 | Any timestamp missing | Incomplete session-state | REPORT |
 
+## Step 1a: Liveness check
+
+Check the `## Active Sessions` section and the mtime of `outputs/session-state.md`:
+
+| Condition | Action |
+|-----------|--------|
+| `## Active Sessions` lists a session AND session-state.md mtime > 60 min | REPORT: `[IDLE_SESSION] Session A listed as active but session-state.md is {N}h old — session likely abandoned. New session may proceed with full write access (60min liveness threshold per safety.md).` |
+| `## Active Sessions` is `(none)` or empty | OK — no prior session active |
+| `## Active Sessions` lists a session AND mtime ≤ 60 min | REPORT: `Session A active (started {time}). Write operations may conflict — confirm this is the only active session.` |
+
+This catches the common case: wrap-up ran last night, session-state still says "Session A active" from yesterday, blocks today's writes unnecessarily.
+
 ## Step 1b: Validate session-state.md structure
 
 Before checking timestamps, verify the file is structurally intact (guard against partial writes from crashed sessions):

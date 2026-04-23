@@ -5,6 +5,7 @@
 ## Pending
 
 ## Resolved
+- [x] [2026-04-24 → 2026-04-24] Session-liveness check missing — idle Session A blocks writes indefinitely — mini — safety.md: 60min liveness threshold; session-doctor Step 1a: IDLE_SESSION flag; wrap-up Phase 4b: clears ## Active Sessions on EOD
 - [x] [2026-04-24 → 2026-04-24] Skill handoff rfq→quote-intake implicit, no formal queue — mini — created outputs/skill-queue.md; rfq-workflow writes entry on quote received; quote-intake pre-flight surfaces it, Step 8 clears it; session-doctor Step 2b checks stale entries (>7d)
 - [x] [2026-04-24 → 2026-04-24] Ruflo key naming ad-hoc across skills — orphaned records risk — mini — created config/ruflo-schema.md (canonical schema + slug format + retrieve vs search rule); fixed meeting-prep Step 8 key to use slug
 - [x] [2026-04-24 → 2026-04-24] wrap-up synced all 4 project DBs unconditionally — mini — Phase 2 pre-step added to commands/wrap-up.md (change-log keyword scan + context freshness check; skips projects not touched + fresh < 24h)

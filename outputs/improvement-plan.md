@@ -401,7 +401,7 @@ T2-T4 below are for dedicated mini/structural sprints. Do not start T3 before T1
 | ID | Title | Effort | Dependency |
 |----|-------|--------|------------|
 | T3-1 | SHOW BEFORE WRITE blast radius not tiered (COSMETIC / COST-SENSITIVE / IRREVERSIBLE) | structural | None |
-| T3-2 | Session-liveness check missing — idle Session A blocks all writes indefinitely | mini | None |
+~~| T3-2 | Session-liveness check missing — idle Session A blocks all writes indefinitely | mini | None |~~ ✅ done 2026-04-24
 | T3-3 | Autonomy threshold unvalidated — calibrate against real approval patterns | micro | T1-1 (need ledger data) |
 | T3-4 | Friction signal regression not tracked — same fix can re-appear without learning | mini | None |
 | T3-5 | Monthly proactive layer health check — shipped layers can silently regress | mini | None |
