@@ -154,6 +154,7 @@ One signal at a time. Finish + commit before starting the next.
 3. Log to `outputs/change-log.md`.
 4. Commit: `Micro-fix: [one-line description]`.
 5. Remove the signal from `## Pending` in `friction-signals.md`. Append to `## Resolved`: `- [x] [{original_date} → {today}] {description} — micro — fixed in {file}`.
+6. **If signal came from Source G:** remove its row (or bullet) from `outputs/improvement-plan.md` §11 so it is not re-surfaced next session.
 
 ### Mini-sprint
 1. Launch 3-5 parallel Explore agents, each analyzing one dimension.
@@ -161,12 +162,14 @@ One signal at a time. Finish + commit before starting the next.
 3. Present implementation plan to André (1 confirmation before writing).
 4. Implement (2-4 files). Log + commit.
 5. Remove executed signals from `## Pending` in `friction-signals.md`. Append each to `## Resolved`: `- [x] [{original_date} → {today}] {description} — mini — fixed in {files}`.
+6. **If signal came from Source G:** remove its row (or bullet) from `outputs/improvement-plan.md` §11.
 
 ### Structural sprint
 1. Launch 10 parallel Explore agents across 5 lenses (per milestone methodology in memory).
 2. Synthesize → consensus table → present to André for approval.
 3. Implement after approval. Verify. Log + commit.
 4. Remove executed signals from `## Pending` in `friction-signals.md`. Append each to `## Resolved`: `- [x] [{original_date} → {today}] {description} — structural — fixed in {files}`.
+5. **If signal came from Source G:** remove its row (or bullet) from `outputs/improvement-plan.md` §11.
 
 ## Step 6: Persist unexecuted signals
 
@@ -181,7 +184,7 @@ Do not append signals that are already in `## Pending` (de-duplicate by descript
 
 ## Rules
 
-- **Session C only:** write to `.claude/` files and `outputs/change-log.md`. Never touch Notion, Gmail, `context/` files, or `session-state.md`.
+- **Session C only:** write to `.claude/` files, `outputs/change-log.md`, `outputs/friction-signals.md`, and `outputs/improvement-plan.md`. Never touch Notion, Gmail, `context/` files, or `session-state.md`.
 - **Always surface multiple signals.** Never pick one without showing the full queue first.
 - One signal at a time. Commit after each before starting the next.
 - If change-log is empty, lean on session-state Carry-Over + git log.

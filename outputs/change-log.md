@@ -10,6 +10,9 @@ Auto-approved OI comments written:
 - OI 348b4a7d…da68 (Transtek MSA): two-track separate agreements, Sarah drafting
 - OI 34ab4a7d…a (Transtek UDI-DI): OTS can skip FDA steps, urgency gated on stock confirmation
 
+[EVENT: MICRO_FIX id=IMPROVE_SOURCE_G_PRUNE file=skills/improve/SKILL.md]
+/improve: Session C scope expanded to include outputs/improvement-plan.md. Added step 6 to micro/mini/structural execution paths: after each Source G item completes, remove its row from improvement-plan.md §11. Prevents re-surfacing already-shipped backlog items.
+
 [EVENT: MICRO_FIX id=IMPROVE_PLAN_CLEANUP file=outputs/improvement-plan.md]
 improvement-plan.md §11: removed completed items (T4-1 through T4-5 all shipped; T2-1, T2-3, T2-8 shipped). Source G will no longer re-surface them. Remaining: T2-2/4/5/6/7 (mini-sprints), T3-1 through T3-5 (structural).
 
