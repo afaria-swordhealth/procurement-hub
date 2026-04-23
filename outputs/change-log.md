@@ -4,6 +4,9 @@
 
 ## 2026-04-23
 
+[EVENT: MICRO_FIX id=T2-1 files=skills/morning-brief/SKILL.md,commands/wrap-up.md]
+MCP parallelization: morning-brief Step 1d (5 DM reads in parallel), Step 2a (batch ruflo pattern retrieves). wrap-up Phase 0 (all Slack reads in parallel), Phase 2 (all 4 DB queries in parallel).
+
 [EVENT: MICRO_FIX id=T4-2 file=commands/wrap-up.md]
 wrap-up Phase 2a: added cross_project_suppliers field to index.json generation — suppliers active in >1 project (e.g. Xinrui Group in Pulse + M-Band). Warm-up can flag competing priorities.
 

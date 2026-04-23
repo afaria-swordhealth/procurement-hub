@@ -51,7 +51,7 @@ Use `mcp__claude_ai_Google_Calendar__list_events` with `time_min=now`, `time_max
 
 ### 1d. Recent Slack DMs (optional, skip on MCP failure)
 
-Read DMs from: Jorge Garcia, Miguel Pais, Sofia Lourenço, Pedro Rodrigues, Kevin Wang (per memory). Since `Last-Morning-Brief` or last 18h (whichever older). If a DM contains an unanswered message directed at André, append as a `[EVENT: DM_AWAITING_REPLY]` candidate.
+Read DMs from: Jorge Garcia, Miguel Pais, Sofia Lourenço, Pedro Rodrigues, Kevin Wang (per memory). Since `Last-Morning-Brief` or last 18h (whichever older). **Call all 5 `slack_read_channel` DM reads in parallel (one message, multiple tool calls).** If a DM contains an unanswered message directed at André, append as a `[EVENT: DM_AWAITING_REPLY]` candidate.
 
 ## Step 2: Score and rank
 
@@ -59,7 +59,7 @@ Apply `attention-budget.md` scoring to every candidate from 1a + 1b + 1d. Calend
 
 ### 2a. Supplier pattern urgency multiplier
 
-For each candidate naming a supplier, fetch pattern record per `.claude/procedures/supplier-pattern-store.md` §Consumers.2:
+For each candidate naming a supplier, fetch pattern record per `.claude/procedures/supplier-pattern-store.md` §Consumers.2. **Batch all `mcp__ruflo__memory_retrieve` calls in parallel** — one call per supplier slug, all in a single message before the scoring loop.
 - `mcp__ruflo__memory_retrieve` key `supplier::{slug}::pattern`.
 - Apply `×1.3` urgency multiplier (capped at attention-budget cap) when either: `response_rate_90d < 0.2`, OR (`last_chase_ts` > 7d ago AND `risk_flags` non-empty).
 - If ruflo fails or record missing: skip multiplier for that candidate.

@@ -23,7 +23,7 @@ Use `TARGET_DATE` for all date-sensitive operations below (Phase 3 daily log loo
 
 ### Phase 0: Slack Scan
 0. Read config/slack-channels.md for user IDs, channel IDs, and Group DMs.
-1. For each key person: slack_read_channel with user ID. For each channel and Group DM: slack_read_channel with channel ID, slack_read_thread for replies.
+1. **Call all Slack reads in parallel** — issue all `slack_read_channel` calls (key people DMs + channels + Group DMs) in a single message. Then call `slack_read_thread` in parallel for any threads with replies.
 2. Extract decisions, action items, or context relevant to Pulse, Kaia, or M-Band. Include findings in the daily log and pending items.
 
 ### Phase 0b: Slack → OI DB
@@ -36,7 +36,7 @@ Run `/slack-scan`. This extracts structured signals from all `log=true` channels
 6. Report what was written and what was skipped.
 
 ### Phase 2: Context Sync
-7. Query all 4 Supplier DBs following config/databases.md (Query Patterns section). Include columns: Name, Status, Notes, "NDA Status", "Samples Status", "Last Outreach Date", Region, Currency. A partial sync causes drift — all fields must be included.
+7. **Query all 4 Supplier DBs in parallel** (Pulse, Kaia, M-Band, BloomPod) — issue all 4 `notion-query-data-sources` calls in a single message. Follow config/databases.md Query Patterns. Include columns: Name, Status, Notes, "NDA Status", "Samples Status", "Last Outreach Date", Region, Currency. A partial sync causes drift — all fields must be included.
 8. Update context files (paths listed in .claude/config/databases.md). After updating, set the `# Last synced: YYYY-MM-DDTHH:MM` header to the current timestamp. If context-doctor is available, run it in report-only mode after sync to catch any remaining drift.
 
    **Phase 2 completion check:** After all context files are written, re-read the first 3 lines of each file and verify the `# Last synced` header matches the current timestamp (within this session's execution window). If any file still shows a stale or missing timestamp, re-sync that file before advancing to Phase 3. Do NOT proceed with a partial sync — context drift is the primary cause of stale daily logs.
