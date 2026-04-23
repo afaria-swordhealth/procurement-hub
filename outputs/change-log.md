@@ -4,6 +4,9 @@
 
 ## 2026-04-23
 
+[EVENT: MICRO_FIX id=T4-4 file=skills/supplier-chaser/SKILL.md]
+supplier-chaser Rules: added Terminology clarification — DEFERRED (draft created, send-window blocked) vs MCP ERROR/skipped (no draft created).
+
 [EVENT: MICRO_FIX id=T4-3 file=skills/session-doctor/SKILL.md]
 session-doctor Step 1c: cron check threshold 2h → 8h. Crons stay valid all working day; 2h caused false "crons dropped" reports after a lunch break.
 
