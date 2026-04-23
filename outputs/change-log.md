@@ -4,6 +4,15 @@
 
 ## 2026-04-23
 
+[EVENT: MICRO_FIX id=LEDGER_MEETING_NOTES file=skills/meeting-notes/SKILL.md]
+meeting-notes Phase 2 SHOW BEFORE WRITE: added inline ledger-append instruction at approval prompt + Rules entry. Classes: oi_create_action, oi_create_decision, oi_close.
+
+[EVENT: SKILL_CREATE skill=meeting-notes file=skills/meeting-notes/SKILL.md]
+Two-phase skill: Phase 1 stores notes to Notion (My Work Log → Meeting Notes → W{week} → page, auto-approved). Phase 2 extracts action items, supplier changes, legal decisions, proposes OI creates/closes/updates (SHOW BEFORE WRITE). Week pages auto-created. Title = verbatim meeting title + date + time.
+
+[EVENT: NOTION_STRUCTURE_CREATE pages=3 path="My Work Log → Meeting Notes → W17 → Final Alignment Pulse FDA Apr 23"]
+Created Meeting Notes section + W17 week page + first meeting page (Final Alignment: Pulse — Private Label 3rd Party FDA Devices | Apr 23, 15:30).
+
 [EVENT: MINI_SPRINT id=SLACK_INGEST_MISSING files=skills/slack-scan/SKILL.md,config/slack-channels.md,commands/wrap-up.md]
 Slack→Notion ingest pipeline: created /slack-scan skill (6-step: scan log=true channels → classify signals → dedup vs OI DB → SHOW BEFORE WRITE → write OIs + comments → update Last-Slack-Scan). Added log/log_types columns to slack-channels.md (8 DMs log=true, 2 group DMs log=true, 3 channels log=true). Added Phase 0b to wrap-up.md to call /slack-scan at EOD.
 
