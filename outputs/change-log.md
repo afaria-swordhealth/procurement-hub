@@ -10,4 +10,7 @@ Context drift detection: session-doctor Step 2 now reads 6 lines (was 3) + index
 [EVENT: MINI_SPRINT id=T2-6 files=procedures/mcp-error-policy.md,skills/quote-intake/SKILL.md,skills/rfq-workflow/SKILL.md,skills/supplier-chaser/SKILL.md]
 MCP error policy centralised: created procedures/mcp-error-policy.md (3-tier taxonomy: CRITICAL=Notion writes+Gmail, OPTIONAL=Slack+Calendar, NON-CRITICAL=ruflo; Notion has single-supplier HALT vs batch SKIP+LOG sub-modes). Replaced bespoke error text in quote-intake, rfq-workflow, supplier-chaser Rules with 1-line pointer to policy.
 
+[EVENT: MINI_SPRINT id=T2-2 files=commands/wrap-up.md]
+Conditional wrap-up sync: Phase 2 pre-step scopes DB queries to touched projects only. Scans change-log for project keywords; skips projects not mentioned AND with context < 24h old. Fallback: if change-log empty + all fresh, skips all 4 DB queries and goes straight to Phase 2a. Saves ~3-5k tokens per skipped project (~12k on a Pulse-only day, all 4 on /improve-only sessions).
+
 ## 2026-04-23

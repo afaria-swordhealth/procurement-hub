@@ -36,10 +36,25 @@ Run `/slack-scan`. This extracts structured signals from all `log=true` channels
 6. Report what was written and what was skipped.
 
 ### Phase 2: Context Sync
-7. **Query all 4 Supplier DBs in parallel** (Pulse, Kaia, M-Band, BloomPod) — issue all 4 `notion-query-data-sources` calls in a single message. Follow config/databases.md Query Patterns. Include columns: Name, Status, Notes, "NDA Status", "Samples Status", "Last Outreach Date", Region, Currency. A partial sync causes drift — all fields must be included.
-8. Update context files (paths listed in .claude/config/databases.md). After updating, set the `# Last synced: YYYY-MM-DDTHH:MM` header to the current timestamp. If context-doctor is available, run it in report-only mode after sync to catch any remaining drift.
 
-   **Phase 2 completion check:** After all context files are written, re-read the first 3 lines of each file and verify the `# Last synced` header matches the current timestamp (within this session's execution window). If any file still shows a stale or missing timestamp, re-sync that file before advancing to Phase 3. Do NOT proceed with a partial sync — context drift is the primary cause of stale daily logs.
+**Phase 2 pre-step — scope sync to touched projects:**
+
+Before querying Notion, determine which projects need syncing:
+
+1. Scan today's `outputs/change-log.md` for project keywords (case-insensitive): `pulse`, `kaia`, `m-band` / `mband`, `bloompod`.
+2. For each of the 4 projects, read the first 3 lines of its context file to get `# Last synced:`.
+3. Classify each project:
+   - **Sync:** change-log mentions the project OR context file `Last synced` > 24h old OR context file missing.
+   - **Skip:** change-log has NO mention AND `Last synced` < 24h old.
+4. **Fallback — sync all 4:** if change-log is empty (e.g., pure /improve session), sync only projects whose context file is > 24h old; if all are fresh, skip all DB queries and go directly to Phase 2a (index.json regeneration uses the existing files).
+5. Log the scope decision: `[Phase 2] Syncing: {list}. Skipping (fresh, not touched): {list}.`
+
+This saves ~3-5k tokens per skipped project. A Pulse-only day skips 3 queries (~12k tokens). An /improve-only session with fresh context skips all 4.
+
+7. **Query only the scoped Supplier DBs** (parallel if >1). Follow `config/databases.md` Query Patterns. Include columns: Name, Status, Notes, "NDA Status", "Samples Status", "Last Outreach Date", Region, Currency. A partial sync causes drift — all fields must be included for each queried project.
+8. Update context files for synced projects only. After updating, set the `# Last synced: YYYY-MM-DDTHH:MM` header to the current timestamp. If context-doctor is available, run it in report-only mode after sync to catch any remaining drift.
+
+   **Phase 2 completion check:** After all synced context files are written, re-read the first 3 lines of each and verify `# Last synced` matches the current timestamp. If any synced file still shows a stale timestamp, re-sync it before advancing. Skipped projects are not checked — their existing timestamps stand.
 
 ### Phase 2a: Regenerate context/index.json
 8a. Per `.claude/procedures/context-loader.md` §Layer 1, regenerate `context/index.json` from the 4 updated context files. Parse each file for:

@@ -395,7 +395,6 @@ T2-T4 below are for dedicated mini/structural sprints. Do not start T3 before T1
 
 | ID | Title | Effort | Files | Priority |
 |----|-------|--------|-------|----------|
-| T2-2 | wrap-up syncs all 4 project DBs unconditionally — wasted ~2000 tokens/week | mini | commands/wrap-up.md + 3 skills (add "Projects Touched" tracking) | Med |
 | T2-4 | Ruflo key naming ad-hoc across skills — orphaned records risk | mini | new config/ruflo-schema.md + 3 skills | Med |
 | T2-7 | Skill handoff implicit — rfq→quote-intake has no formal queue | mini | new outputs/skill-queue.md + rfq-workflow + quote-intake | Low |
 
