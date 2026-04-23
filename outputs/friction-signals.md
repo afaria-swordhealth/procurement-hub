@@ -5,6 +5,8 @@
 ## Pending
 
 ## Resolved
+- [x] [2026-04-23 → 2026-04-23] meeting-notes SKILL.md: Phase 2 SHOW BEFORE WRITE missing autonomy ledger wiring — micro — fixed in skills/meeting-notes/SKILL.md
+- [x] [2026-04-23 → 2026-04-23] /improve no Source G for improvement-plan.md backlog — micro — fixed in skills/improve/SKILL.md (Source G + pre-flight item 6)
 - [x] [2026-04-22 → 2026-04-23] Slack→Notion ingest missing — mini — created skills/slack-scan/SKILL.md, extended config/slack-channels.md (log/log_types columns), added Phase 0b to commands/wrap-up.md
 - [x] [2026-04-23 → 2026-04-23] exec-checkpoint resume path undefined — mini — fixed in quote-intake, rfq-workflow, supplier-selection SKILL.md + exec-checkpoints.md (## Step Resumption sections + lifecycle 1b)
 - [x] [2026-04-23 → 2026-04-23] session-state timestamps at phase start: warm-up (started)→(completed) split; log-sent Final Step explicit write — micro — fixed in commands/warm-up.md + commands/log-sent.md
