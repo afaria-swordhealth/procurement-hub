@@ -109,7 +109,7 @@ Per `procedures/fill-cost-fields-on-quote.md`:
 **Auto-write path (CLAUDE.md §5 Exception 3):** If ALL conditions are true, write DB fields immediately and output a single confirmation line — `Auto-wrote: Unit Cost X.XXX EUR, Tooling X EUR (source: [currency] [amount]@[tier], FX: [rate])`:
 - No flags raised in Steps 1-3 (no: >30% delta from median, FOB/landed mix, missing required fields, tier mismatch)
 - FX rate sourced from `fx-rates.md`
-- A prior quote exists in ruflo for this supplier AND the computed EUR value is within 30% of it. If no prior quote exists, route to SHOW BEFORE WRITE — first-ever quotes have no anchor for the range check.
+- A prior quote exists in ruflo for this supplier AND `abs((new_unit_eur - prior_unit_eur) / prior_unit_eur) <= 0.30`. If no prior quote exists, route to SHOW BEFORE WRITE — first-ever quotes have no anchor for the range check.
 
 **SHOW BEFORE WRITE path (fallback):** If any condition fails, present values (source tier, source currency, FX rate, converted amount) to André before writing.
 

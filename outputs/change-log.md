@@ -4,6 +4,9 @@
 
 ## 2026-04-23
 
+[EVENT: MICRO_FIX id=ARCH3_T1-5 file=skills/quote-intake/SKILL.md]
+Auto-write 30% delta condition: replaced vague "within 30% of it" with explicit formula abs((new_unit_eur - prior_unit_eur) / prior_unit_eur) <= 0.30.
+
 [EVENT: MICRO_FIX id=ARCH3_T1-4 file=skills/supplier-chaser/SKILL.md]
 Replaced 3 promises.md references with OI DB equivalents: Pre-flight step 5 (skip note), Step 1 From-promises block (deprecated note), Step 6b sub-step 5 (OI Type=Commitment create instead of promises.md append).
 
