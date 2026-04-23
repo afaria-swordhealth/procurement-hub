@@ -4,6 +4,12 @@
 
 ## 2026-04-23
 
+[EVENT: MICRO_FIX id=T2-8 file=procedures/lessons-read.md]
+lessons-read.md: removed "By skills directly" auto-write path. Skills are now readers-only — corrections collected as friction signals in friction-signals.md for /improve to propose. Prevents untracked lesson writes outside SHOW BEFORE WRITE.
+
+[EVENT: MICRO_FIX id=T2-3 file=CLAUDE.md]
+CLAUDE.md §9: added workflow-type decision table (skill / command / procedure / agent) with use-when criteria and defaults. Prevents ad-hoc workflow classification when building new features.
+
 [EVENT: MICRO_FIX id=T2-1 files=skills/morning-brief/SKILL.md,commands/wrap-up.md]
 MCP parallelization: morning-brief Step 1d (5 DM reads in parallel), Step 2a (batch ruflo pattern retrieves). wrap-up Phase 0 (all Slack reads in parallel), Phase 2 (all 4 DB queries in parallel).
 

@@ -39,7 +39,7 @@ At pre-flight, in the skill that owns the lessons file:
 
 ## Writing rules
 
-Lessons are written in two places:
+**Skills are readers only.** No skill may write to its own `lessons.md` automatically. Only `/improve` may propose a lesson, and only after André approves it.
 
 ### By `/improve` at end of session
 When André explicitly edits or rejects a draft and says *why*, `/improve` can propose:
@@ -51,12 +51,14 @@ Add lesson to {skill}/lessons.md?
 
 André approves → append to the top (index 1). If file now has 11 entries, drop index 11.
 
-### By skills directly (only when confidence is high)
-Skills may write a lesson automatically when:
-- The same correction has been observed 3+ times in the same session OR across consecutive sessions.
-- The correction is specific and not already covered in an existing lesson.
+### Skills: collect, never write
+When a skill notices a repeated correction mid-run, it must NOT write to `lessons.md`. Instead, append a signal to `outputs/friction-signals.md` (Source E in `/improve`):
 
-Otherwise: collect the friction as a signal in `outputs/friction-signals.md` (Source E in `/improve`) and let `/improve` decide.
+```
+- [ ] [{today}] {skill}: repeated correction observed — "{one-line description}" — micro
+```
+
+`/improve` picks this up, proposes the lesson, and André decides. Unilateral skill writes bypass SHOW BEFORE WRITE and leave no approval trail.
 
 ## Lesson quality
 

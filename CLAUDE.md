@@ -109,4 +109,15 @@ See `.claude/config/writing-style.md`. Core: no em dashes; short sentences; all 
 
 `config/` constants · `procedures/` reusable logic · `commands/` orchestrators · `skills/` end-to-end workflows · `agents/` scope boundaries · `knowledge/` Sword Insighter process (index in `INDEX.md`) · `safety.md` safety+concurrency · `autonomy.md` auto-approval promotion.
 
+**When building a new workflow — pick one:**
+
+| Type | Use when |
+|------|----------|
+| **skill** | End-to-end workflow: multi-step, has approval gates, writes to Notion/Gmail, tracks state |
+| **command** | Thin orchestrator: calls 1-3 skills in sequence, manages session lifecycle (warm-up, wrap-up) |
+| **procedure** | Reusable logic block: called by ≥2 skills/commands, no own output format, no approval gates |
+| **agent** | Scoped write access: batched DB operations, defined NOT-touch boundaries, parallel execution |
+
+Default is **skill**. Use **command** only when the logic is "run these skills in order." Use **procedure** when the same logic would be copy-pasted into multiple skills. Use **agent** when you need to isolate write scope from other agents.
+
 **New supplier:** update `config/domains.md`, create Notion page (Contact/Profile/Quote/Outreach/Open Items), add to `context/{project}/suppliers.md`, log to change-log. First outreach: André writes personally.
