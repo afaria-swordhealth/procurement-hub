@@ -42,7 +42,7 @@ Parse the quote source (email body, PDF/XLSX attachment, or André's input).
 
 **Required:** unit price(s) per tier, currency (verify vs. region), MOQ, tooling/NRE (itemized, "no tooling" = 0), lead time (tooling + production separately), Incoterms (FOB/EXW/FCA/DDP).
 
-**If stated:** payment terms, sample cost, certifications (ISO 13485, FDA, CE), quote validity (flag if < 30 days).
+**If stated:** payment terms, sample cost, certifications (ISO 13485, FDA, CE), quote validity (flag if < 30 days — routes to SHOW BEFORE WRITE in Step 4, does not halt; validity may expire before PO is placed).
 
 If any required field is missing, list gaps and recommend asking the supplier.
 

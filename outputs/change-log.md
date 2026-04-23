@@ -4,6 +4,9 @@
 
 ## 2026-04-23
 
+[EVENT: MICRO_FIX id=T4-1 file=skills/quote-intake/SKILL.md]
+quote-intake Step 1a: validity <30d flag now explicitly says "routes to SHOW BEFORE WRITE, does not halt". Prevents confusion with PDF OCR HALT path.
+
 [EVENT: MICRO_FIX id=T4-4 file=skills/supplier-chaser/SKILL.md]
 supplier-chaser Rules: added Terminology clarification — DEFERRED (draft created, send-window blocked) vs MCP ERROR/skipped (no draft created).
 
