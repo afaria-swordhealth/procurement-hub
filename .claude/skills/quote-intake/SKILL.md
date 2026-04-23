@@ -18,7 +18,8 @@ Extracts pricing from a supplier quote, converts to EUR, calculates FLC, updates
 7. Read `.claude/procedures/create-open-item.md` (OI field requirements).
 8. Read `context/{project}/suppliers.md` for the supplier's current state.
 9. **Execution checkpoint check:** per `procedures/exec-checkpoints.md`, read `outputs/checkpoints/quote-intake_{supplier_slug}.json`. If file exists with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {started}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite?" If André confirms resume: follow **## Step Resumption** below. If missing or `status: "complete"`: proceed (archive complete runs per the procedure).
-10. **Lessons read:** per `.claude/procedures/lessons-read.md`, read `.claude/skills/quote-intake/lessons.md` (top 10). Apply before default behavior. If missing or empty, skip.
+10. **Skill queue check:** read `outputs/skill-queue.md`. If a row exists where `Target Skill = quote-intake` AND `Supplier` matches the current supplier, surface one line: `Queued from rfq-workflow on {date}: {context}`. This is informational only — it confirms this run was expected. If no matching row, proceed without comment.
+11. **Lessons read:** per `.claude/procedures/lessons-read.md`, read `.claude/skills/quote-intake/lessons.md` (top 10). Apply before default behavior. If missing or empty, skip.
 
 ## Step Resumption
 
@@ -181,10 +182,10 @@ After outreach write: update checkpoint — `steps_done: ["db_fields", "quote_se
 
 After all Notion writes are complete, call `mcp__ruflo__memory_store`:
 
-- `key`: `quote::[supplier_name]::[YYYY-MM-DD]`
+- `key`: `quote::[supplier_slug]::[YYYY-MM-DD]` — slug format per `config/ruflo-schema.md`
 - `namespace`: "procurement"
 - `upsert`: true
-- `tags`: ["quote", project, supplier_name]
+- `tags`: ["quote", project, supplier_slug]
 - `value`:
   ```json
   {
@@ -207,6 +208,8 @@ After all Notion writes are complete, call `mcp__ruflo__memory_store`:
 `delta_vs_prev_pct`: use `{prior_quote}` fetched in the Step 4 pre-check (no second ruflo call needed). If a prior quote was found, compute `(new_unit - prev_unit) / prev_unit * 100`. If none found, set null.
 
 After ruflo store succeeds: update checkpoint — `status: "complete"`, `steps_done: ["db_fields", "quote_section", "context_file", "change_log", "outreach", "ruflo"]`.
+
+**Skill queue clear:** if `outputs/skill-queue.md` has a row matching this supplier (added by rfq-workflow), remove that row. If file is missing or no matching row, skip silently.
 
 ## Rules
 

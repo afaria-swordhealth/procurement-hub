@@ -143,7 +143,8 @@ Add to `context/{project}/suppliers.md`: RFQ sent date, what was requested, resp
 When checking for RFQ responses (called from /mail-scan or manually):
 
 1. Scan Gmail for replies from the supplier domain (per `procedures/scan-gmail.md`, direction: "incoming").
-2. If quote received: hand off to the **quote-intake** skill.
+2. If quote received: hand off to the **quote-intake** skill. Before surfacing the handoff to André, append a row to `outputs/skill-queue.md`:
+   `| {YYYY-MM-DD} | quote-intake | {Supplier} | {Project} | rfq-workflow | OI: {oi_id} — quote email subject |`
 3. If overdue (past deadline, no response): hand off to the **supplier-chaser** skill.
 4. Add a Notion page comment on the OI via `notion-create-comment`:
    - `[YYYY-MM-DD] No response yet. {N} days past deadline.`

@@ -16,4 +16,7 @@ Conditional wrap-up sync: Phase 2 pre-step scopes DB queries to touched projects
 [EVENT: MINI_SPRINT id=T2-4 files=config/ruflo-schema.md,skills/meeting-prep/SKILL.md]
 Ruflo key schema centralised: created config/ruflo-schema.md (canonical key patterns, slug format, namespace policy, retrieve vs search decision rule, producer/consumer map). Fixed meeting-prep Step 8 key from `meeting::[supplier_name]::` to `meeting::[supplier_slug]::` (aligns with meeting-notes). retrieve vs search for discovery paths documented as intentional (date unknown = memory_search; full key known = memory_retrieve).
 
+[EVENT: MINI_SPRINT id=T2-7 files=outputs/skill-queue.md,skills/rfq-workflow/SKILL.md,skills/quote-intake/SKILL.md,skills/session-doctor/SKILL.md]
+Formal skill handoff queue: created outputs/skill-queue.md. rfq-workflow Step 5 now appends a queue row on quote received. quote-intake pre-flight surfaces matching entry as context; Step 8 clears it on completion. session-doctor Step 2b checks for stale entries (>7d = REPORT). Also fixed quote-intake Step 8 ruflo key to use supplier_slug (schema alignment).
+
 ## 2026-04-23

@@ -395,7 +395,6 @@ T2-T4 below are for dedicated mini/structural sprints. Do not start T3 before T1
 
 | ID | Title | Effort | Files | Priority |
 |----|-------|--------|-------|----------|
-| T2-7 | Skill handoff implicit — rfq→quote-intake has no formal queue | mini | new outputs/skill-queue.md + rfq-workflow + quote-intake | Low |
 
 ### Tier 3 — Monthly structural sprint (after T1-1 has 6+ weeks of ledger data)
 

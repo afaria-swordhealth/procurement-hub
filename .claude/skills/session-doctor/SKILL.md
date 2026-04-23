@@ -80,6 +80,15 @@ Read the first 6 lines of each context file (captures `# Last synced:` header an
 
 Do NOT read full context files. Maximum 6 lines per file + `index.json`. No Notion queries.
 
+## Step 2b: Check skill queue
+
+Read `outputs/skill-queue.md`. If the file is missing or empty (header only), skip. Otherwise:
+
+| Condition | Action |
+|-----------|--------|
+| Row with date > 7 days ago | REPORT: `[STALE_HANDOFF] {target_skill} for {supplier} queued on {date} — not yet executed. Run /{target_skill} {supplier} or clear the row manually.` |
+| Row with date ≤ 7 days ago | Note in report as `[PENDING_HANDOFF] {target_skill} — {supplier} ({date})` — informational, no action required |
+
 ## Step 3: Check change-log.md
 
 Read `outputs/change-log.md`. Check the date header:
