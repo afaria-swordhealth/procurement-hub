@@ -371,7 +371,7 @@ Post-Audit 2.0 (2026-04-19) + L4A/L4B ruflo migrations (2026-04-19/21). Verified
 |-----------|--------|-------|
 | M2 — Self-healing Level 4 (exec-checkpoints) | ✅ | L4A (quote-intake, rfq-workflow, supplier-selection) + L4B (supplier-rejection, supplier-onboarding, outreach-healer, risk-radar, risks.jsonl, rejections.jsonl) complete 2026-04-21 |
 | M3 — Autonomy T3 (conditional auto-approve) | ✅ | Per `project_audit2.md` memory |
-| M4 — Notion interface optimization | ⚠️ | `Last Outreach Date` deployed; broader DB-field enrichment / page-body reduction pending |
+| M4 — Notion interface optimization | ✅ | 10-agent discovery 2026-04-18. 8 changes shipped: Unit Cost EUR + Tooling Cost EUR + FX Rate at Quote + Last Outreach Date live on all 4 DBs; quote-intake, supplier-chaser, housekeeping, check-outreach updated to use DB fields. Deferred intentionally: FLC EUR (M5), Days Since Last Contact formula, Chase Count. |
 
 ### Sequencing recommendation
 
