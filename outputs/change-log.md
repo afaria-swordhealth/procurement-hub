@@ -4,6 +4,9 @@
 
 ## 2026-04-23
 
+[EVENT: MINI_SPRINT id=ARCH3_T1-3 files=skills/quote-intake/SKILL.md,skills/rfq-workflow/SKILL.md,skills/supplier-selection/SKILL.md,procedures/exec-checkpoints.md]
+Exec-checkpoint resume path: added ## Step Resumption section to all 3 critical skills mapping steps_done tail → next entry point. Updated pre-flight detection text to reference the section. Added lifecycle step 1b to exec-checkpoints.md procedure.
+
 [EVENT: IMPROVE_PERSIST unexecuted=2]
 ARCH3_T1-3 (exec-checkpoint resume, mini) and SLACK_INGEST_MISSING (Slack→Notion pipeline, mini) left in friction-signals.md ## Pending for next session.
 

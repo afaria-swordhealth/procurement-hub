@@ -17,8 +17,24 @@ Extracts pricing from a supplier quote, converts to EUR, calculates FLC, updates
 6. Read `.claude/procedures/check-outreach.md` (milestone entry format).
 7. Read `.claude/procedures/create-open-item.md` (OI field requirements).
 8. Read `context/{project}/suppliers.md` for the supplier's current state.
-9. **Execution checkpoint check:** per `procedures/exec-checkpoints.md`, read `outputs/checkpoints/quote-intake_{supplier_slug}.json`. If file exists with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {started}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite." If missing or `status: "complete"`: proceed (archive complete runs per the procedure).
+9. **Execution checkpoint check:** per `procedures/exec-checkpoints.md`, read `outputs/checkpoints/quote-intake_{supplier_slug}.json`. If file exists with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {started}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start to overwrite?" If André confirms resume: follow **## Step Resumption** below. If missing or `status: "complete"`: proceed (archive complete runs per the procedure).
 10. **Lessons read:** per `.claude/procedures/lessons-read.md`, read `.claude/skills/quote-intake/lessons.md` (top 10). Apply before default behavior. If missing or empty, skip.
+
+## Step Resumption
+
+When André confirms resume after an in-progress checkpoint, look up the **last entry** in `steps_done` and jump to the corresponding entry point. Skip all steps already listed in `steps_done` — do not re-run them.
+
+| Last completed (`steps_done` tail) | Resume from |
+|---|---|
+| *(empty — checkpoint written, no steps done)* | Step 4: Fill Notion DB cost fields |
+| `db_fields` | Step 5: Update supplier page Quote section |
+| `quote_section` | Step 7: Update context file (`context/{project}/suppliers.md`) |
+| `context_file` | Step 7: Log to `outputs/change-log.md` |
+| `change_log` | Step 7: Log outreach milestone (check-outreach.md) |
+| `outreach` | Step 7 (M4): Update Last Outreach Date DB field |
+| `last_outreach_date` | Step 8: Store quote in ruflo memory |
+
+Re-read the checkpoint file to recover `meta.project` and `meta.supplier` before resuming. The `steps_done` list is the single source of truth for what already succeeded.
 
 ## Step 1: Extract pricing from quote
 

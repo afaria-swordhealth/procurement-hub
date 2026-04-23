@@ -18,8 +18,23 @@ Manages the full RFQ lifecycle: pre-check NDA, assemble the package, draft the e
 7. Read `.claude/procedures/check-outreach.md` (milestone entry format).
 8. Read `.claude/procedures/create-open-item.md` (OI field requirements).
 9. Read `.claude/knowledge/nda-process.md` to confirm NDA trigger conditions and when proprietary specs require a fully executed NDA before RFQ.
-10. **Execution checkpoint check:** per `procedures/exec-checkpoints.md`, read `outputs/checkpoints/rfq-workflow_{supplier_slug}.json`. If file exists with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {started}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start." If missing or `status: "complete"`: proceed (archive complete runs per the procedure).
+10. **Execution checkpoint check:** per `procedures/exec-checkpoints.md`, read `outputs/checkpoints/rfq-workflow_{supplier_slug}.json`. If file exists with `status: "in-progress"`: STOP. Surface to André: "Incomplete prior run detected on {started}. Steps completed: {steps_done}. Resume from that point, or confirm fresh start?" If André confirms resume: follow **## Step Resumption** below. If missing or `status: "complete"`: proceed (archive complete runs per the procedure).
 11. **Lessons read:** per `.claude/procedures/lessons-read.md`, read `.claude/skills/rfq-workflow/lessons.md` (top 10). Apply before default behavior. If missing or empty, skip.
+
+## Step Resumption
+
+When André confirms resume after an in-progress checkpoint, look up the **last entry** in `steps_done` and jump to the corresponding entry point. Skip all steps already listed in `steps_done`.
+
+| Last completed (`steps_done` tail) | Resume from |
+|---|---|
+| *(empty — checkpoint written, no steps done)* | Step 3: Draft RFQ email (SHOW BEFORE WRITE gate) |
+| `gmail_draft` | Step 4a: Log outreach milestone |
+| `outreach` | Step 4a (M4): Update Last Outreach Date DB field |
+| `last_outreach_date` | Step 4b: Update supplier status → RFQ Sent |
+| `status` | Step 4c: Create response-tracking OI |
+| `oi_created` | Step 4d: Update context |
+
+Re-read the checkpoint file to recover `meta.project` and `meta.supplier` before resuming.
 
 ## Step 1: Pre-check — NDA status
 

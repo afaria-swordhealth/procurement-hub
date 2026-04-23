@@ -4,12 +4,6 @@
 
 ## Pending
 
-[FRICTION: ARCH3_T1-3 ts=2026-04-23 tier=mini source=arch-audit-3.md]
-Exec-checkpoint resume path undefined — detection exists but recovery does not.
-Files: skills/quote-intake/SKILL.md, skills/rfq-workflow/SKILL.md, skills/supplier-selection/SKILL.md, procedures/exec-checkpoints.md
-Fix: Add ## Step Resumption section to each critical skill mapping steps_done arrays to entry points.
-Agents: A4+A6 (HIGH/MED)
-
 [FRICTION: SLACK_INGEST_MISSING ts=2026-04-22]
 Goal: Ingest important Slack messages into Notion (OI DB, supplier pages, project context, decisions/commitments).
 Current state: /warm-up reads Slack for briefing context only — no write pipeline from Slack → Notion.
@@ -18,6 +12,7 @@ Proposed: New skill /slack-scan. Reads channels/DMs marked log=true in slack-cha
 Priority: mini-sprint (not micro-fix — requires new skill file + slack-channels.md schema extension).
 
 ## Resolved
+- [x] [2026-04-23 → 2026-04-23] exec-checkpoint resume path undefined — mini — fixed in quote-intake, rfq-workflow, supplier-selection SKILL.md + exec-checkpoints.md (## Step Resumption sections + lifecycle 1b)
 - [x] [2026-04-23 → 2026-04-23] session-state timestamps at phase start: warm-up (started)→(completed) split; log-sent Final Step explicit write — micro — fixed in commands/warm-up.md + commands/log-sent.md
 - [x] [2026-04-23 → 2026-04-23] safety.md Exception 5 "clearly shows" subjective — micro — replaced with 3-condition checklist in .claude/safety.md
 - [x] [2026-04-23 → 2026-04-23] autonomy ledger disconnected from SHOW BEFORE WRITE: inline ledger steps added to 3 skills — micro — fixed in supplier-chaser, quote-intake, rfq-workflow SKILL.md

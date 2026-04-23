@@ -59,6 +59,22 @@ Read the checkpoint file if it exists.
   ```
 - **File present, status `failed`** → surface error + last step. Ask to resume or restart.
 
+### 1b. Resume (when André confirms)
+
+When André chooses "resume" after an in-progress detection:
+
+1. Re-read the checkpoint file to recover `steps_done` and `meta`.
+2. Look up the **last entry in `steps_done`** in the skill's `## Step Resumption` section. That section maps each completed step to the next entry point.
+3. Skip all steps listed in `steps_done`. Start execution from the mapped entry point.
+4. Continue writing checkpoint updates normally from that point forward.
+
+**Never re-run already-completed steps.** Notion writes are not idempotent — re-running a completed step overwrites existing data and pollutes the change-log audit trail.
+
+Resumption maps are defined per skill:
+- `quote-intake` → see `## Step Resumption` in `skills/quote-intake/SKILL.md`
+- `rfq-workflow` → see `## Step Resumption` in `skills/rfq-workflow/SKILL.md`
+- `supplier-selection` → see `## Step Resumption` in `skills/supplier-selection/SKILL.md`
+
 ### 2. Initial write (before first destructive step)
 
 Write the full object with `status: "in-progress"`, `started` = current time, `steps_done: []`.
