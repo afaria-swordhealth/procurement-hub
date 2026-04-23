@@ -4,6 +4,9 @@
 
 ## 2026-04-23
 
+[EVENT: MICRO_FIX id=ARCH3_T1-7 file=.claude/safety.md]
+Exception 5 "clearly shows" replaced with explicit 3-condition checklist: (1) explicit action language, (2) directly addresses blocking condition, (3) traceable evidence (timestamp+sender+task reference).
+
 [EVENT: MICRO_FIX id=ARCH3_T1-1 files=skills/supplier-chaser/SKILL.md,skills/quote-intake/SKILL.md,skills/rfq-workflow/SKILL.md]
 Autonomy ledger disconnected: added inline ledger-append instructions at SHOW BEFORE WRITE gates in all 3 skills. supplier-chaser was completely missing it; quote-intake and rfq-workflow had Rules-only note — now also inline at each gate.
 

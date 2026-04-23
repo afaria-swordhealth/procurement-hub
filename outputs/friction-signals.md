@@ -16,12 +16,6 @@ Files: skills/quote-intake/SKILL.md, skills/rfq-workflow/SKILL.md, skills/suppli
 Fix: Add ## Step Resumption section to each critical skill mapping steps_done arrays to entry points.
 Agents: A4+A6 (HIGH/MED)
 
-[FRICTION: ARCH3_T1-7 ts=2026-04-23 tier=micro source=arch-audit-3.md]
-Exception 5 "clearly shows" subjective — inconsistent OI Status auto-transitions across sessions.
-Files: .claude/safety.md (Exception 5)
-Fix: Replace "clearly shows" with 3-condition checklist (supplier started/processing/working; unblocked/resolved/fixed; timestamp+assignee+task).
-Agents: A5 (MED)
-
 [FRICTION: SLACK_INGEST_MISSING ts=2026-04-22]
 Goal: Ingest important Slack messages into Notion (OI DB, supplier pages, project context, decisions/commitments).
 Current state: /warm-up reads Slack for briefing context only — no write pipeline from Slack → Notion.
@@ -30,6 +24,7 @@ Proposed: New skill /slack-scan. Reads channels/DMs marked log=true in slack-cha
 Priority: mini-sprint (not micro-fix — requires new skill file + slack-channels.md schema extension).
 
 ## Resolved
+- [x] [2026-04-23 → 2026-04-23] safety.md Exception 5 "clearly shows" subjective — micro — replaced with 3-condition checklist in .claude/safety.md
 - [x] [2026-04-23 → 2026-04-23] autonomy ledger disconnected from SHOW BEFORE WRITE: inline ledger steps added to 3 skills — micro — fixed in supplier-chaser, quote-intake, rfq-workflow SKILL.md
 - [x] [2026-04-23 → 2026-04-23] wrap-up Phase 2a: blocker_count + top_deadline from fragile text parsing → OI DB queries — micro — fixed in commands/wrap-up.md
 - [x] [2026-04-23 → 2026-04-23] quote-intake SKILL.md: auto-write 30% delta formula undefined — micro — fixed in skills/quote-intake/SKILL.md (explicit formula added)

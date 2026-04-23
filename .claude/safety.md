@@ -29,7 +29,7 @@ Every Notion write must be:
 
 **Exception 4:** Supplier status → `RFQ Sent` in rfq-workflow is auto-approved immediately after André confirms the RFQ was sent. The send confirmation IS the approval; a second SHOW BEFORE WRITE gate is redundant.
 
-**Exception 5:** OI Status → `In Progress` (from `Pending` or `Blocked`) is auto-approved when an email or Slack message clearly shows the blocking condition has resolved or active work has started (e.g., supplier confirms they are working on a re-quote, an internal blocker is explicitly unblocked in writing). Rationale: `In Progress` is informational and reversible — it does not close the OI or commit to any outcome. Does NOT apply to Status → `Closed`.
+**Exception 5:** OI Status → `In Progress` (from `Pending` or `Blocked`) is auto-approved when an email or Slack message meets ALL THREE conditions: (1) **explicit action language** — sender uses words like "started", "processing", "working on", "in progress", "will do", or equivalent that indicate active engagement; (2) **directly addresses the blocking condition** — the message says "resolved", "fixed", "unblocked", or explicitly confirms the specific action named in the OI Context; (3) **traceable evidence** — the message has a timestamp, an identified sender or assignee, and references the specific task or OI. Rationale: `In Progress` is informational and reversible — it does not close the OI or commit to any outcome. Does NOT apply to Status → `Closed`.
 
 New auto-approvals must not be added as ad-hoc Exceptions. Evidence-based promotion lives in `autonomy.md`: a candidate auto-approval earns a place here only after the autonomy ledger shows 20 consecutive `approved_clean` outcomes with zero `rejected`. See `.claude/autonomy.md`.
 
