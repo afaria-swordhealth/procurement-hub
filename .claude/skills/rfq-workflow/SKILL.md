@@ -160,5 +160,5 @@ When checking for RFQ responses (called from /mail-scan or manually):
 - Never reveal other supplier pricing, internal timelines, or shortlist status in the RFQ.
 - Log all Notion writes to `outputs/change-log.md`.
 - Concurrency: session-single model (see `.claude/safety.md`). No per-write collision check.
-- **MCP error handling — single supplier:** If Notion or Gmail MCP fails at any step: HALT and surface to André — do not proceed with a partial outreach state. Ruflo failures (checkpoint check, checkpoint store): log warning and proceed fresh — checkpoint is audit-only, not a gate.
+- **MCP error handling:** per `.claude/procedures/mcp-error-policy.md`. Notion and Gmail = CRITICAL (single-supplier mode — HALT, do not proceed with partial outreach state). Ruflo = NON-CRITICAL (LOG only; local checkpoint file at `outputs/checkpoints/` is the resume gate, not ruflo).
 - **Autonomy ledger:** after every SHOW BEFORE WRITE decision on RFQ draft or OI creation, append one line to `outputs/autonomy-ledger.md` per `.claude/procedures/ledger-append.md`. Classes: `email_draft_send` (`never_promote`, supplier-facing), `oi_create_action`, `oi_create_decision`.

@@ -247,5 +247,5 @@ For all other items: after André approves (may edit drafts):
 - Do not chase items where Owner is not André (flag for André to decide).
 - If an item has been chased 3+ times with no response, recommend escalation path instead of another chase.
 - Writing conventions (sign-off): see `.claude/config/writing-style.md`.
-- **MCP error handling — batch:** This skill loops over multiple suppliers and OIs. If Notion or Gmail MCP fails for one item: skip it, log `[item] — MCP error, skipped` to change-log, and continue. Report skipped items in the final chase table as `[MCP ERROR]`. Ruflo failures (Step 4a pattern search, Step 6 memory store) are non-critical: log and proceed with default behavior.
+- **MCP error handling:** per `.claude/procedures/mcp-error-policy.md`. Notion and Gmail = CRITICAL (batch mode — skip failing item, log `[item] — MCP error, skipped`, continue loop, report all `[MCP ERROR]` items in summary). Ruflo = NON-CRITICAL (LOG only, use default behavior).
 - **Terminology:** `[DEFERRED]` = send-window blocked — draft IS created and holds until the window opens; André can open and send it manually. `[MCP ERROR]` / `[skipped]` = item could not be processed at all — no draft created.

@@ -221,5 +221,5 @@ After ruflo store succeeds: update checkpoint — `status: "complete"`, `steps_d
 - Log all Notion writes to `outputs/change-log.md`.
 - Concurrency: session-single model (see `.claude/safety.md`). No per-write collision check.
 - OI Context rewrites require approval. OI comment adds via notion-create-comment are auto-approved (per CLAUDE.md §5 Exception 2) — write directly, log to change-log.
-- **MCP error handling — single supplier:** If Notion MCP fails at any write step (DB fields, Quote section): HALT, log to change-log, surface to André — do not write partial data. If ruflo MCP fails (pre-check Step 4, checkpoint store, memory store Step 8): log and proceed — ruflo is non-critical and its failure routes auto-write to SHOW BEFORE WRITE.
+- **MCP error handling:** per `.claude/procedures/mcp-error-policy.md`. Notion writes = CRITICAL (single-supplier mode — HALT on failure, do not write partial data). Ruflo = NON-CRITICAL (LOG only; pre-check failure routes auto-write to SHOW BEFORE WRITE as the fallback).
 - **Autonomy ledger:** after every SHOW BEFORE WRITE decision on a cost-field or Quote-section payload, append one line to `outputs/autonomy-ledger.md` per `.claude/procedures/ledger-append.md`. Classes: `cost_field_within_30pct` or `cost_field_outside_30pct` (latter is `never_promote`); `fx_stamp_write` for FX Rate stamps.
