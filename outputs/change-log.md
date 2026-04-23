@@ -4,6 +4,9 @@
 
 ## 2026-04-23
 
+[EVENT: MICRO_FIX id=IMPROVE_SOURCE_G file=skills/improve/SKILL.md]
+/improve: added Source G — improvement-plan.md §11 backlog. Pre-flight reads improvement-plan.md. T4 items surface always; T2 items surface when ungated; T3 items surface only after ledger ≥20 entries.
+
 [EVENT: MICRO_FIX id=LEDGER_MEETING_NOTES file=skills/meeting-notes/SKILL.md]
 meeting-notes Phase 2 SHOW BEFORE WRITE: added inline ledger-append instruction at approval prompt + Rules entry. Classes: oi_create_action, oi_create_decision, oi_close.
 

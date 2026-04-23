@@ -27,7 +27,8 @@ If aborted: exit cleanly. Next cron fire retries. No alert to André — this is
 3. Read `outputs/promises.md` for recurring or overdue promises.
 4. Read `outputs/friction-signals.md` `## Pending` section — accumulated signals from prior sessions.
 5. Read `outputs/autonomy-ledger.md` for promotion-candidate detection (see Source F).
-6. **Session C scope.** Do NOT write to Notion, Gmail, or `context/` files.
+6. Read `outputs/improvement-plan.md` §11 (T2/T3/T4 backlog) for ready-to-execute items (see Source G).
+7. **Session C scope.** Do NOT write to Notion, Gmail, or `context/` files.
 
 ## Step 1: Scan for friction signals
 
@@ -79,6 +80,27 @@ Autonomy candidate: {action_class}
 Also surface classes that have hit threshold 3+ times but keep getting rejected at review — propose `never_promote` tag for monthly pass.
 
 Never auto-append to `safety.md`. André must explicitly accept each promotion.
+
+### Source G — improvement-plan.md §11 (ready backlog)
+
+Read `outputs/improvement-plan.md` §11. Surface items in this priority order:
+
+1. **T4 items** — always surface. These are micro-fixes with no stated dependencies. Surface all of them.
+2. **T2 items** — surface if: (a) the item's Notes column has no explicit gating note (e.g., "blocked on X", "requires Y first"), AND (b) the item appears in today's session (Sources A–F produced nothing, or this item is directly relevant to a signal found).
+3. **T3 items** — surface only if the autonomy ledger (Source F) has ≥20 entries for the relevant `action_class`. T3-3 is explicitly gated on ledger data — do not surface it before that threshold. T3-1, T3-2, T3-4, T3-5 have no stated dependency but are structural sprints — surface at most one per session.
+
+**Do not surface T2/T3 items** just to fill a thin queue. Only surface them when genuinely ready or when Sources A–F have no signals.
+
+Surface format (same as other sources):
+
+```
+improvement-plan.md §11 backlog — T4 ready items:
+- T4-1: [description] — micro
+- T4-2: [description] — micro
+...
+```
+
+De-duplicate against signals already found in Sources A–F.
 
 ## Step 2: Classify each signal
 
