@@ -111,7 +111,7 @@ Per `procedures/fill-cost-fields-on-quote.md`:
 - FX rate sourced from `fx-rates.md`
 - A prior quote exists in ruflo for this supplier AND `abs((new_unit_eur - prior_unit_eur) / prior_unit_eur) <= 0.30`. If no prior quote exists, route to SHOW BEFORE WRITE — first-ever quotes have no anchor for the range check.
 
-**SHOW BEFORE WRITE path (fallback):** If any condition fails, present values (source tier, source currency, FX rate, converted amount) to André before writing.
+**SHOW BEFORE WRITE path (fallback):** If any condition fails, present values (source tier, source currency, FX rate, converted amount) to André before writing. After André's decision (approved / approved+edit / rejected), append one line to `outputs/autonomy-ledger.md` per `.claude/procedures/ledger-append.md`. Class: `cost_field_within_30pct` or `cost_field_outside_30pct` depending on whether the delta was within 30%; `fx_stamp_write` for FX Rate stamps.
 
 After DB fields write succeeds: update checkpoint — `steps_done: ["db_fields"]`.
 

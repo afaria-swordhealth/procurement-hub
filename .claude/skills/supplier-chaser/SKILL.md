@@ -242,6 +242,7 @@ For all other items: after André approves (may edit drafts):
 
 - NEVER send emails. Gmail drafts only (Level 1 safety).
 - SHOW BEFORE WRITE for Gmail draft creation, except Tier 1 drafts meeting auto-create conditions (chase 1, ≤5d overdue, one unambiguous email address, language matches region) — those create immediately after presentation. OI comments via notion-create-comment are auto-approved (per CLAUDE.md §5 Exception 2) — write them directly after draft creation, no separate confirmation needed.
+- **Autonomy ledger:** after every SHOW BEFORE WRITE decision on a Gmail draft ([Review] items), append one line to `outputs/autonomy-ledger.md` per `.claude/procedures/ledger-append.md`. Class: `email_draft_send` (`never_promote`, supplier-facing). [AUTO] items do not fire a SHOW BEFORE WRITE gate and therefore do not append to the ledger.
 - Do not chase suppliers in Rejected status.
 - Do not chase items where Owner is not André (flag for André to decide).
 - If an item has been chased 3+ times with no response, recommend escalation path instead of another chase.

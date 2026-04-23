@@ -4,6 +4,9 @@
 
 ## 2026-04-23
 
+[EVENT: MICRO_FIX id=ARCH3_T1-1 files=skills/supplier-chaser/SKILL.md,skills/quote-intake/SKILL.md,skills/rfq-workflow/SKILL.md]
+Autonomy ledger disconnected: added inline ledger-append instructions at SHOW BEFORE WRITE gates in all 3 skills. supplier-chaser was completely missing it; quote-intake and rfq-workflow had Rules-only note — now also inline at each gate.
+
 [EVENT: MICRO_FIX id=ARCH3_T1-6 files=commands/wrap-up.md]
 Phase 2a blocker_count + top_deadline: replaced fragile context-file text parsing with OI DB queries (Status=Blocked COUNT; MIN(Deadline) non-Closed). Fallback preserved.
 

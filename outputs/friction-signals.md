@@ -4,12 +4,6 @@
 
 ## Pending
 
-[FRICTION: ARCH3_T1-1 ts=2026-04-23 tier=micro source=arch-audit-3.md]
-Autonomy ledger disconnected from SHOW BEFORE WRITE gates.
-Files: skills/quote-intake/SKILL.md, skills/supplier-chaser/SKILL.md, skills/rfq-workflow/SKILL.md, procedures/ledger-append.md
-Fix: Add ledger-append step immediately after each approval gate outcome in the 3 skills.
-Agents: A4+A5+A7 (HIGH confidence — flagged independently by 3 agents)
-
 [FRICTION: ARCH3_T1-2 ts=2026-04-23 tier=micro source=arch-audit-3.md]
 Session-state timestamps written at phase start, not completion — crash leaves false-fresh timestamp.
 Files: commands/warm-up.md, commands/log-sent.md (and mail-scan if SKILL exists)
@@ -36,6 +30,7 @@ Proposed: New skill /slack-scan. Reads channels/DMs marked log=true in slack-cha
 Priority: mini-sprint (not micro-fix — requires new skill file + slack-channels.md schema extension).
 
 ## Resolved
+- [x] [2026-04-23 → 2026-04-23] autonomy ledger disconnected from SHOW BEFORE WRITE: inline ledger steps added to 3 skills — micro — fixed in supplier-chaser, quote-intake, rfq-workflow SKILL.md
 - [x] [2026-04-23 → 2026-04-23] wrap-up Phase 2a: blocker_count + top_deadline from fragile text parsing → OI DB queries — micro — fixed in commands/wrap-up.md
 - [x] [2026-04-23 → 2026-04-23] quote-intake SKILL.md: auto-write 30% delta formula undefined — micro — fixed in skills/quote-intake/SKILL.md (explicit formula added)
 - [x] [2026-04-23 → 2026-04-23] supplier-chaser SKILL.md: Step 6 wrote to deprecated promises.md — micro — fixed in skills/supplier-chaser/SKILL.md (3 hunks: pre-flight, Step 1, Step 6b sub-step 5)
