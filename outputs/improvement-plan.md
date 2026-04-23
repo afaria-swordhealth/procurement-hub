@@ -72,7 +72,7 @@ Closes gap C1 (skill landscape not mapped) + C2 (`improve` / `know-me` overlap w
 | `supplier-qualification` | KEEP | — | Stable |
 | `supplier-onboarding` | KEEP | — | Stable |
 | `know-me` | KEEP, scope clarified | — | Operator profile only, distinct from supplier patterns (see below) |
-| `improve` | **MERGE** | L1, L4 | Rewrite to consume `friction-signals.md` + `autonomy-ledger.md` (spec below) |
+| `improve` | ✅ **MERGED** (2026-04-23) | L1, L4 | Consumes `friction-signals.md` (Source E), `autonomy-ledger.md` (Source F), `improvement-plan.md §11` (Source G). Rewrite complete. |
 | `weekly-pulse` | KEEP (resolved 2026-04-21) | L3, I3 | Weekly roll-up of 7 morning-briefs; different cadence |
 | `project-dashboard` | KEEP (resolved 2026-04-21) | L3 | On-demand deep dive; brief is shallow 4-project scan |
 | `promise-tracker` | **RETIRED** (2026-04-23) | I5 | All 11 open promises have OI links; promises.md deprecated; OI DB canonical |
@@ -267,8 +267,8 @@ Specific changes:
 
 | Task | Effort | When | Blocks |
 |------|--------|------|--------|
-| Add `Last Outreach Date` field to 4 Supplier DBs in Notion UI | 10 min | Before Layer 1 | All M4 optimizations |
-| Add `FX Rate at Quote` field to 4 Supplier DBs in Notion UI | 10 min | Before Layer 0 B6 | Per-quote FX stamping |
+| ~~Add `Last Outreach Date` field to 4 Supplier DBs in Notion UI~~ | ✅ done | Before Layer 1 | — |
+| ~~Add `FX Rate at Quote` field to 4 Supplier DBs in Notion UI~~ | ✅ done | Before Layer 0 B6 | — |
 | ~~Backfill Supplier field on active OIs~~ | ✅ done (2026-04-23) | During Layer 0 | All null-Supplier OIs verified as ISC-level |
 | Approve `safety.md` + `autonomy.md` before Layer 2 hooks activate | 30 min review | Start of Layer 1 | Layers 2+ |
 | Approve morning-brief Slack DM target + schedule | 10 min | Start of Layer 3 | Layer 3 |
@@ -338,7 +338,7 @@ Everything here is a pattern port into the existing Claude Code + MCP + file sys
 
 | # | Observation | Action needed |
 |---|-------------|---------------|
-| 1 | **Gmail draft threading:** Apr 20 session — `create_draft` (no threadId/inReplyTo passed) produced a draft that appeared inside an existing Gmail thread. Memory rule `feedback_gmail_draft_threading.md` says "always standalone." Possible cause: Gmail conversation view groups by subject+recipient. Open question: does the sent email carry proper `In-Reply-To` / `References` headers, or does it only appear threaded in the UI? | Test: send a draft that "threaded" this way and inspect headers. Update memory rule if behavior is reliable. |
+| 1 | ~~**Gmail draft threading:**~~ ✅ closed (2026-04-23). `create_draft` always standalone — Gmail conversation view groups by subject+recipient (UI only, no threading headers). Rule documented in `feedback_gmail_draft_threading.md`: for replies, deliver body as chat text, not via draft API. No further action needed. | — |
 
 ---
 
