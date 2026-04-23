@@ -4,6 +4,9 @@
 
 ## 2026-04-23
 
+[EVENT: MICRO_FIX id=ARCH3_T1-6 files=commands/wrap-up.md]
+Phase 2a blocker_count + top_deadline: replaced fragile context-file text parsing with OI DB queries (Status=Blocked COUNT; MIN(Deadline) non-Closed). Fallback preserved.
+
 [EVENT: MICRO_FIX id=ARCH3_T1-5 file=skills/quote-intake/SKILL.md]
 Auto-write 30% delta condition: replaced vague "within 30% of it" with explicit formula abs((new_unit_eur - prior_unit_eur) / prior_unit_eur) <= 0.30.
 

@@ -22,12 +22,6 @@ Files: skills/quote-intake/SKILL.md, skills/rfq-workflow/SKILL.md, skills/suppli
 Fix: Add ## Step Resumption section to each critical skill mapping steps_done arrays to entry points.
 Agents: A4+A6 (HIGH/MED)
 
-[FRICTION: ARCH3_T1-6 ts=2026-04-23 tier=micro source=arch-audit-3.md]
-context/index.json missing blocker_count + top_deadline — Layer 1 fast path always falls back to L2.
-Files: commands/wrap-up.md (Phase 2a), context/index.json
-Fix: Compute + write blocker_count (Blocked OIs per project) and top_deadline (earliest OI deadline per project) in wrap-up Phase 2a.
-Agents: A3 (HIGH)
-
 [FRICTION: ARCH3_T1-7 ts=2026-04-23 tier=micro source=arch-audit-3.md]
 Exception 5 "clearly shows" subjective — inconsistent OI Status auto-transitions across sessions.
 Files: .claude/safety.md (Exception 5)
@@ -42,6 +36,7 @@ Proposed: New skill /slack-scan. Reads channels/DMs marked log=true in slack-cha
 Priority: mini-sprint (not micro-fix — requires new skill file + slack-channels.md schema extension).
 
 ## Resolved
+- [x] [2026-04-23 → 2026-04-23] wrap-up Phase 2a: blocker_count + top_deadline from fragile text parsing → OI DB queries — micro — fixed in commands/wrap-up.md
 - [x] [2026-04-23 → 2026-04-23] quote-intake SKILL.md: auto-write 30% delta formula undefined — micro — fixed in skills/quote-intake/SKILL.md (explicit formula added)
 - [x] [2026-04-23 → 2026-04-23] supplier-chaser SKILL.md: Step 6 wrote to deprecated promises.md — micro — fixed in skills/supplier-chaser/SKILL.md (3 hunks: pre-flight, Step 1, Step 6b sub-step 5)
 - [x] [2026-04-22 → 2026-04-22] /mail-scan: sem closing prompt — incoming milestones em limbo sem resposta explícita — micro — fixed in mail-scan.md + mail-scan-deep.md

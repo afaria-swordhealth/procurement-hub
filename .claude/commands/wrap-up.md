@@ -44,8 +44,12 @@ Use `TARGET_DATE` for all date-sensitive operations below (Phase 3 daily log loo
     - `supplier_count_active` = entries not in the Rejected section
     - `supplier_count_rejected` = entries in Rejected section
     - `active_suppliers` = name list from non-Rejected sections
-    - `blocker_count` = entries with `blocker:` field set (v1 schema only; v0 files return 0)
-    - `top_deadline` = earliest deadline from blocker + next fields (v1 schema only)
+    - `blocker_count` = COUNT of OIs with Status=Blocked for this project, queried from OI DB:
+      `SELECT COUNT(*) FROM "collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0" WHERE Status='Blocked' AND Project LIKE '%{project_display_name}%'`
+      Fallback if OI DB unavailable: count supplier entries with non-null `blocker:` field in the context file.
+    - `top_deadline` = MIN(Deadline) across non-Closed, non-Rejected OIs for this project:
+      `SELECT MIN("date:Deadline:start") FROM "collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0" WHERE Status NOT IN ('Closed','Rejected') AND Project LIKE '%{project_display_name}%'`
+      Fallback if OI DB unavailable: parse earliest date from `blocker:` + `next:` fields in the context file.
 
     Write atomically: tmp file, then rename. If generation fails, log `[EVENT: FAIL target=context_index]` and continue — warm-up falls back to Full mode when index is missing.
 
