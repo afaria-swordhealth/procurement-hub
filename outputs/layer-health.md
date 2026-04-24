@@ -2,7 +2,7 @@
 # Updated by /improve Source H (monthly). Do not edit manually.
 # Assertions for L0-L7 regression detection. Pass = HEALTHY, failure = signal into friction-signals.md.
 
-Last-Check: null (pending first run)
+Last-Check: 2026-04-24
 Next-Due: 2026-05-24
 
 ## L0 — Bug Sprint
@@ -11,8 +11,8 @@ Next-Due: 2026-05-24
 - FILE_CHECK `.claude/procedures/check-outreach.md` — exists
 - FILE_CHECK `.claude/commands/ping.md` — exists
 - FILE_CHECK `.claude/procedures/autoclean-scan-lists.md` — exists
-- CONTENT_CHECK `.claude/procedures/autoclean-scan-lists.md` — contains "21d silence"
-- CONTENT_CHECK `.claude/config/writing-style.md` — does NOT contain "Best regards,"
+- CONTENT_CHECK `.claude/procedures/autoclean-scan-lists.md` — contains "21 days"
+- CONTENT_CHECK `.claude/config/writing-style.md` — contains `Never use "Best regards,"`
 
 ## L1 — Architecture
 - FILE_CHECK `CLAUDE.md` — exists
@@ -62,3 +62,4 @@ Next-Due: 2026-05-24
 
 | Date | Layers WARN/REGRESSED | Files missing or drifted | Notes |
 |------|----------------------|--------------------------|-------|
+| 2026-04-24 | none | none | First run. All 29 files HEALTHY, 4 cleanup absent. 2 assertions calibrated (autoclean phrasing + writing-style prohibition context). |
