@@ -16,7 +16,7 @@ Session C must not race Session A (interactive operator) on shared files. Check 
 1. **Scheduled-task lock.** If `.claude/scheduled_tasks.lock` exists AND its mtime is < 5 min old AND belongs to a different `/improve` invocation, abort with: `another /improve run active, skipping`. If lock is > 5 min stale, log a warning to change-log and proceed (treat as crashed prior run).
 2. **Active Session A.** Read `outputs/session-state.md` `## Active Sessions`. If "Session A (Operational)" was started within the last 30 min AND `outputs/session-state.md` mtime is within the last 10 min, abort with: `Session A active (interactive), deferring /improve to next fire`. Append one line to `outputs/friction-signals.md` `## Pending`: `[EVENT: IMPROVE_DEFERRED reason=session_a_active ts={now}]`.
 3. **Uncommitted working tree on shared files.** Run `git status --short -- outputs/ context/ .claude/`. If any file is modified (`M ` or `MM`) and was not touched by this invocation, abort with: `uncommitted Session A delta on {files}, skipping to avoid overwrite`. Same deferral log as #2.
-4. **scheduled_tasks.lock write.** If all checks pass, touch `.claude/scheduled_tasks.lock` with this invocation's PID/timestamp. Remove on completion (best-effort; stale cleanup handled by #1).
+4. **scheduled_tasks.lock write.** If all checks pass, touch `.claude/scheduled_tasks.lock` with this invocation's PID/timestamp. Explicit cleanup happens in Step 6 — do not rely on best-effort removal here.
 
 If aborted: exit cleanly. Next cron fire retries. No alert to André — this is expected and benign.
 
@@ -181,6 +181,8 @@ For each signal in the queue that was NOT executed: append to `## Pending` in `o
 ```
 
 Do not append signals that are already in `## Pending` (de-duplicate by description). Log the append to `outputs/change-log.md`.
+
+**Final cleanup:** Delete `.claude/scheduled_tasks.lock` (Bash: `rm .claude/scheduled_tasks.lock`). This is the definitive concurrency-guard release. Run this even if the session was interrupted mid-queue — a stale lock on next fire is handled by pre-flight #1, but an explicit delete here prevents unnecessary warnings.
 
 ## Rules
 

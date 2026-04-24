@@ -34,3 +34,6 @@ session-doctor Step 1 timestamp table: Last-Mail-Scan > 4h now recommends runnin
 
 [EVENT: MICRO_FIX id=signal-3 file=commands/wrap-up.md]
 wrap-up Phase 4c: change-log clear now strips ALL content (date sections + entries), keeping only the 3 header comment lines. Removes stale ## {TARGET_DATE} heading artifact that persisted into the next day's log. Session-doctor auto-fix adds the fresh date header on next session start.
+
+[EVENT: MICRO_FIX id=signal-4 file=skills/improve/SKILL.md]
+/improve Step 6: added explicit scheduled_tasks.lock delete as final cleanup step. Pre-flight item 4 "best-effort" language replaced with pointer to Step 6. Prevents stale lock warning on next /improve fire after session ends abruptly.
