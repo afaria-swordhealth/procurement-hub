@@ -98,6 +98,12 @@ Query Open Items DB (ID from .claude/config/databases.md, OI_DB) for items with 
 27. For each such supplier: add a NEEDS YOUR DECISION entry recommending `/supplier-chaser`.
     Format: `[Supplier]: overdue OI "{title}", unanswered email since [date]. Recommend /supplier-chaser.`
 
+## Safety
+
+NEVER call Slack write tools (`slack_send_message`, `slack_schedule_message`, `slack_send_message_draft`) during this skill. Housekeeping is report-only for all external communication — route supplier follow-ups to `/supplier-chaser`, internal pings to André manually. See `safety.md` Core Rule 5b.
+
+All Notion writes in this skill are either AUTO-EXECUTE (mechanical, reversible, documented in a numbered phase step) or explicitly SHOW BEFORE WRITE. No writes outside the documented phases.
+
 ## Error Handling
 
 **Batch loop failures (Phases 1–3, Phase 4 rule 14):** If Notion MCP fails for one supplier mid-loop: skip that supplier, log `[Supplier] — Notion MCP error, skipped` to change-log, and continue to the next. Do not abort the phase.

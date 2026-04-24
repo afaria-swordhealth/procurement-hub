@@ -5,6 +5,7 @@
 ## Pending
 
 ## Resolved
+- [x] [2026-04-24 → 2026-04-25] [REGRESSION] SAFETY_VIOLATION propagation gap (Slack) — spontaneous slack_send_message to Sofia during housekeeping without text approval; morning-brief spec used slack_send_message contradicting memory rule — structural — fixed in commands/housekeeping.md (## Safety NEVER block for all Slack write tools) + skills/morning-brief/SKILL.md (Step 4b: slack_send_message → slack_send_message_draft) [REGRESSION prior: 2026-04-24]
 - [x] [2026-04-24 → 2026-04-24] SAFETY_VIOLATION propagation gap: Core Rule 5b (Jira/Slack approval gate) in safety.md not enforced in affected skills — mail-scan made ad-hoc Jira comments from ISC Shipping email ticket IDs — mini — fixed in commands/mail-scan.md + commands/mail-scan-deep.md (Safety section: explicit Atlassian write tool prohibition + Core Rule 5b pointer)
 - [x] [2026-04-24 → 2026-04-24] Monthly proactive layer health check missing — shipped layers can silently regress without a verification gate — mini — fixed in skills/improve/SKILL.md (Source H: monthly 30d gate + assertion runner) + outputs/layer-health.md (assertion spec per L0-L7 + Last-Check/Next-Due tracking + ## History)
 - [x] [2026-04-24 → 2026-04-24] CLAUDE.md 123 lines — L1 ship metric drift (target < 120) — micro — fixed in CLAUDE.md (removed stale promises.md pre-flight rule + folded external platform line into §6 body; restored to 120 lines)

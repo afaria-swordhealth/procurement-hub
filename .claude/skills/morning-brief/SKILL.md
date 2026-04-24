@@ -109,7 +109,7 @@ Print the composed brief directly. No Slack write.
 
 ### 4b. Slack DM (after approval)
 When `config/morning-brief-target.md` exists and contains a non-empty `channel_id` line:
-- Use `mcp__claude_ai_Slack__slack_send_message` with the configured channel.
+- Use `mcp__claude_ai_Slack__slack_send_message_draft` with the configured channel. (Target is André's own DM — draft delivers a reviewable preview. Never use `slack_send_message` directly per `safety.md` Core Rule 5b + memory rule.)
 - Fallback to chat output on any Slack MCP failure. Log to change-log as `[EVENT: FAIL target=slack_morning_brief skill=morning-brief]`.
 
 ### 4c. Log delivery
