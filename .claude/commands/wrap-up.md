@@ -17,6 +17,8 @@ Before starting, determine `TARGET_DATE` — the date to which this wrap-up is a
 2. If current time is **between 00:00 and 03:00 (inclusive):** set `TARGET_DATE = yesterday` (the calendar day before `currentDate`). Note: "Post-midnight session — wrap-up attributed to {TARGET_DATE}." in Phase 5 summary header.
 3. Otherwise: `TARGET_DATE = currentDate`.
 
+4. **Same-day dedup guard.** Read `Last-Wrap-Up` from `outputs/session-state.md`. If the date portion of `Last-Wrap-Up` matches `TARGET_DATE`, exit with: `wrap-up already ran for {TARGET_DATE} (Last-Wrap-Up: {timestamp}). Use --force to override.` Skip this check if invoked with `--force`.
+
 Use `TARGET_DATE` for all date-sensitive operations below (Phase 3 daily log lookup, Phase 4 commit message, Phase 4c change-log header).
 
 ## Steps
