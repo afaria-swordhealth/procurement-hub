@@ -5,12 +5,12 @@
 Last-Warm-Up: 2026-04-24T11:45 | Session: A (Light warm-up — prior 09:05 session went idle, re-warmed) (completed)
 Last-Mail-Scan: 2026-04-24T20:45 (manual — Jira LRE-1924 closed by Maggie; LRE-1920 mention re Transtek Scale coverage)
 Last-Log-Sent: 2026-04-24T20:55 (0 suppliers — 0 new milestones since 20:33)
-Last-Wrap-Up: 2026-04-23T23:50 (EOD Apr 23 — context synced, daily log Complete, commit 22f0b2c pushed)
+Last-Wrap-Up: 2026-04-24T21:10 (EOD Apr 24 — full wrap-up complete: Outreach milestone + daily log updated, context re-synced, crons stopped)
 Last-System-Session: 2026-04-20T09:00
 Last-Morning-Brief: 2026-04-23T08:58 (on-demand, Slack fallback to chat)
 
 ## Active Sessions
-- Session A (Operational): re-started 2026-04-24T11:45 (prior 09:05 session went idle)
+(none — cleared by /wrap-up 2026-04-24)
 
 ## Context Snapshot (Apr 24 Full warm-up)
 
@@ -87,6 +87,4 @@ Slack MCP operational. Scanned Jorge, Anand, Miguel, Paulo, Sofia, Kevin, Bradle
 - Cerler volumes + tech docs (Apr 28).
 
 ## Session Crons
-- 87d46fe5 — mail-scan every 2h at :07 (silent)
-- 07b45d09 — log-sent every 3h at :17 (silent)
-- 54486ff4 — morning-brief weekdays 07:32 (durable)
+(none — cleared by /wrap-up 2026-04-24)

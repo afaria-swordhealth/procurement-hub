@@ -1,5 +1,5 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-04-24T20:50
+# Last synced: 2026-04-24T21:05
 # Schema: v1
 
 ## Active (2)
@@ -12,7 +12,7 @@
 - tooling_cost: null
 - last_outreach: 2026-04-24
 - open_ois: 8
-- next: SQA sign Apr 29; PO + 50% deposit May 6; Transtek UDI-DI (BPM + Scale) next week; Sarah OTS MSA for Apr 27/28; chase manufacturing-site confirmation (Guandong vs Zhongshan); Bianca XS cuff path
+- next: SQA sign Apr 29; PO + 50% deposit May 6; Transtek UDI-DI (BPM + Scale) next week after Pulse Logo approval; Sarah OTS MSA Monday Apr 28; manufacturing site CONFIRMED (BPM+Scale same Guangdong Transtek Medical Electronics facility); Bianca XS cuff path; chase Sofia QTA 3 legal feedback points
 - blocker: UDI-DI availability (Transtek May); Sarah OTS MSA + QTA finalization; scale LT TBD
 - notes: |
   MANUFACTURER (Zhongshan, CN). Entity: Guangdong Transtek Medical Electronics Co., Ltd
