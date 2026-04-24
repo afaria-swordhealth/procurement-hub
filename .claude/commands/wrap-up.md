@@ -101,7 +101,7 @@ If no meeting-prep entry found this session: skip silently.
     git push
     b. **Stop session crons:** read the `## Session Crons` section of `outputs/session-state.md`. For each cron ID listed, call `CronDelete`. If the cron no longer exists (already expired or deleted), skip silently. If the section is empty or absent, skip — no crons were started this session. Then clear the `## Session Crons` section in session-state.md (leave the header, remove the ID lines). This prevents stale crons from firing after session end.
     **Clear Active Sessions:** set `## Active Sessions` in `outputs/session-state.md` to `(none — cleared by /wrap-up {TARGET_DATE})`. This unblocks the 60-minute session-liveness check in `safety.md` for any CCR or next-day session.
-    c. Only after crons are stopped: clear outputs/change-log.md — keep only the header lines (# Change Log, policy comment, and `## {TARGET_DATE}` heading). If git push (step a) failed, halt and report the error. Do NOT clear the change-log until push succeeds — the entries are the only local record of today's writes.
+    c. Only after crons are stopped: clear outputs/change-log.md — keep only the 3 header comment lines (`# Change Log`, policy line, `# History lives in git log…`). Remove all date sections and entries. If git push (step a) failed, halt and report the error. Do NOT clear the change-log until push succeeds — the entries are the only local record of today's writes. Session-doctor's auto-fix will add the fresh `## {NEXT_DATE}` heading on next session start.
 
 ### Phase 4b: FX Refresh Check (monthly)
 

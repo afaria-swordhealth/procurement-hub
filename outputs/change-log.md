@@ -31,3 +31,6 @@ Session-liveness check: safety.md now defines 60-minute liveness threshold (sess
 
 [EVENT: MICRO_FIX id=signal-2 file=skills/session-doctor/SKILL.md]
 session-doctor Step 1 timestamp table: Last-Mail-Scan > 4h now recommends running /ping first to verify Gmail token before attempting /mail-scan. Prevents discovering token expiry only after log-sent or mail-scan fails.
+
+[EVENT: MICRO_FIX id=signal-3 file=commands/wrap-up.md]
+wrap-up Phase 4c: change-log clear now strips ALL content (date sections + entries), keeping only the 3 header comment lines. Removes stale ## {TARGET_DATE} heading artifact that persisted into the next day's log. Session-doctor auto-fix adds the fresh date header on next session start.
