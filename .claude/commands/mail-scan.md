@@ -94,6 +94,8 @@ Add a **Links** column to the output table for Zip and Jira rows:
 
 Wait for user approval before any writes. No exceptions.
 
+NEVER call Atlassian write tools (`addCommentToJiraIssue`, `editJiraIssue`, `transitionJiraIssue`, `createJiraIssue`) during this skill. Jira ticket IDs in emails are read-only reference data — all Jira workflow is André-manual. See `safety.md` Core Rule 5b.
+
 ## Closing Prompt
 
 After presenting the output table, count rows where Recommendation ≠ "Ignore". Then:

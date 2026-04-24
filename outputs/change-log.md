@@ -41,5 +41,10 @@ wrap-up Phase 4c: change-log clear now strips ALL content (date sections + entri
 [EVENT: MICRO_FIX id=signal-4 file=skills/improve/SKILL.md]
 /improve Step 6: added explicit scheduled_tasks.lock delete as final cleanup step. Pre-flight item 4 "best-effort" language replaced with pointer to Step 6. Prevents stale lock warning on next /improve fire after session ends abruptly.
 
+[EVENT: MAIL_SCAN 2] Items 1-3,5 approved. Items 1+2 already logged in Transtek Outreach (skipped). OI comment on OTS stock OI (34bb4a7d…ccce3): Kevin/Anand Apr 21 position logged. OI comment on M-Band component blocker OI (345b4a7d…81c3): Arrow Electronics Zip #3252 EUC forms status logged. Item 4 (ProImprint) deferred by André.
+
 [EVENT: MINI_SPRINT id=T3-4 files=skills/improve/SKILL.md]
 Regression detection added to /improve: Step 1.5 scans friction-signals.md Resolved for file+keyword matches before classifying new signals; [REGRESSION]-flagged signals escalate one tier in Step 2 and sort to top of queue in Step 3; Step 5 execution annotates re-fixed regressions with [REGRESSION prior: {date}] in Resolved entries. No format change to friction-signals.md — uses existing "fixed in {file}" field for matching.
+
+[EVENT: MINI_SPRINT id=safety-propagation files=commands/mail-scan.md,commands/mail-scan-deep.md]
+SAFETY_VIOLATION propagation gap closed: added explicit Atlassian write tool prohibition to Safety sections of mail-scan.md and mail-scan-deep.md. Model was making ad-hoc Jira API calls (addCommentToJiraIssue) from ISC Shipping email ticket IDs without approval. Core Rule 5b already existed in safety.md but was not referenced in the affected commands. Fix: NEVER call block with tool list + Core Rule 5b pointer added to both commands.

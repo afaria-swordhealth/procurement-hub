@@ -49,6 +49,8 @@ Use `notion-query-data-sources` with SQL for DB queries instead of fetching page
 
 Wait for user approval before any writes. No exceptions.
 
+NEVER call Atlassian write tools (`addCommentToJiraIssue`, `editJiraIssue`, `transitionJiraIssue`, `createJiraIssue`) during this skill. Jira ticket IDs in emails are read-only reference data — all Jira workflow is André-manual. See `safety.md` Core Rule 5b.
+
 ## Closing Prompt
 
 After presenting the output tables, count rows where Recommendation ≠ "Ignore" (Known Suppliers table only). Then:

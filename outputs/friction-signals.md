@@ -5,6 +5,7 @@
 ## Pending
 
 ## Resolved
+- [x] [2026-04-24 → 2026-04-24] SAFETY_VIOLATION propagation gap: Core Rule 5b (Jira/Slack approval gate) in safety.md not enforced in affected skills — mail-scan made ad-hoc Jira comments from ISC Shipping email ticket IDs — mini — fixed in commands/mail-scan.md + commands/mail-scan-deep.md (Safety section: explicit Atlassian write tool prohibition + Core Rule 5b pointer)
 - [x] [2026-04-24 → 2026-04-24] session-doctor: no /ping recommendation when Gmail stale — token expiry discovered only after log-sent FAIL — micro — fixed in skills/session-doctor/SKILL.md (Last-Mail-Scan > 4h now surfaces /ping-first guidance)
 - [x] [2026-04-24 → 2026-04-24] change-log stale date-section persists after wrap-up — ## {TARGET_DATE} heading preserved in clear step, next day's entries pile alongside it — micro — fixed in commands/wrap-up.md (Phase 4c: clear to 3 header comment lines only; session-doctor auto-adds fresh date header)
 - [x] [2026-04-24 → 2026-04-24] scheduled_tasks.lock not cleaned up on /improve exit — best-effort removal fails silently when session ends abruptly — micro — fixed in skills/improve/SKILL.md (Step 6 final cleanup + pre-flight item 4 wording tightened)
