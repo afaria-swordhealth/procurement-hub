@@ -67,7 +67,7 @@ Read `outputs/autonomy-ledger.md` `## Entries`. Group entries by `action_class`.
 - 20 consecutive `approved_clean` AND
 - Zero `rejected` in last 50 AND
 - Zero `approved_edited` in last 20 AND
-- Class is not marked `never_promote` in `.claude/procedures/ledger-append.md`.
+- Class `tier` is not `irreversible` (check ledger entries or `procedures/ledger-append.md` Tier column — `irreversible` classes never promote regardless of streak).
 
 Each eligible class becomes one signal in the queue, tier `structural` (creating a new auto-approval touches `safety.md` + affected skills). Surface format:
 

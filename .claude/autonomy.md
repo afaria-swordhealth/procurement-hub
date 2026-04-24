@@ -11,7 +11,7 @@ File: `outputs/autonomy-ledger.md` (created in Layer 4, append-only).
 Every SHOW BEFORE WRITE interaction writes one line:
 
 ```
-{YYYY-MM-DD HH:MM} | {action_class} | {decision} | {skill} | {notes}
+{YYYY-MM-DD HH:MM} | {action_class} | {decision} | {tier} | {skill} | {notes}
 ```
 
 - `action_class` — short canonical label for the action type (e.g., `outreach_milestone`, `oi_status_in_progress`, `cost_field_within_30pct`, `supplier_notes_reformat`). The same class groups equivalent interactions across skills.
@@ -19,6 +19,7 @@ Every SHOW BEFORE WRITE interaction writes one line:
   - `approved_clean` — André approved without edit
   - `approved_edited` — André approved but edited the payload first
   - `rejected` — André rejected
+- `tier` — one of `cosmetic`, `cost_sensitive`, `irreversible`. Lookup from `procedures/ledger-append.md` table. Determines promotion eligibility: `irreversible` classes never promote.
 - `skill` — the skill or command that produced the gate
 - `notes` — optional 1-line context (supplier, OI, flag)
 
@@ -53,7 +54,7 @@ Some action classes are permanently gated regardless of ledger state:
 - **Price field writes that fail any Exception 3 condition:** the 30% anchor, FX source, or flag check is the whole safety margin.
 - **Anything with irreversible downstream effect** (vendor onboarding, PO issuance, budget requests).
 
-Tag these in the ledger with `never_promote` so `/improve` skips them even when counters cross threshold.
+These are `tier=irreversible` in the ledger schema. `/improve` Source F skips any `action_class` where tier is `irreversible`, regardless of clean-streak count. Cross-reference `procedures/ledger-append.md` Tier column — `never_promote` classes are always `irreversible`.
 
 ## Relationship to existing Exceptions 1-5
 
