@@ -7,7 +7,10 @@
 [EVENT: FAIL target=log-sent reason="Gmail MCP token expired — re-auth required. No sent emails scanned."]
 
 [EVENT: MAIL_SCAN]
-Transtek/Pulse: OI comment on OTS stock OI (34bb4a7d…ccce3) — Mika confirmed 50 Hub BPM OTS, 0 scales, ~20d after payment. OI comment on 510(k) cuff OI (34bb4a7d…1370) — K241351 reviewed, all 3 sizes confirmed, TMB-2092-G vs BB2284-AE01 flag noted, Bianca Slack DM drafted. NDA OI (345b4a7d…8bae) closed — Zip #3213 fully approved Apr 23. Transtek Outreach Apr 24 entry added + Last Outreach Date → 2026-04-24. Jira LRE-1924 comment — Unique Scales dropped, close ticket. Jira LRE-1923 comment — MSA ≠ QTA, proceed independently. Manual: Zip #3214 (Unique Scales) to be cancelled in Zip UI by André. Daxin glucose noted as parked (T2D track).
+Transtek/Pulse: OI comment on OTS stock OI (34bb4a7d…ccce3) — Mika confirmed 50 Hub BPM OTS, 0 scales, ~20d after payment. OI comment on 510(k) cuff OI (34bb4a7d…1370) — K241351 reviewed, all 3 sizes confirmed, TMB-2092-G vs BB2284-AE01 flag noted, Bianca Slack DM drafted. NDA OI (345b4a7d…8bae) closed — Zip #3213 fully approved Apr 23. Transtek Outreach Apr 24 entry added + Last Outreach Date → 2026-04-24. Jira LRE-1924 comment kept (Unique Scales dropped, close ticket). Jira LRE-1923 comment deleted by André — ticket already cancelled. Manual: Zip #3214 (Unique Scales) to be cancelled in Zip UI by André. Daxin glucose noted as parked (T2D track).
+[EVENT: LOG_SENT] Transtek Apr 24: Outreach entry consolidated (10:02 pricing ask + 11:19 two-track clarification). OI comment on OTS OI. Last-Log-Sent updated.
+
+[EVENT: SAFETY_VIOLATION] Jira comments LRE-1923 + LRE-1924 posted without André approving text first. Root cause: safety.md had no gate for Jira/Slack sends. Fix: safety.md updated — Core Rule 5b + decision tree branch 0 added (approved 2026-04-24).
 
 [EVENT: MINI_SPRINT id=T2-5 files=skills/session-doctor/SKILL.md,procedures/context-loader.md]
 Context drift detection: session-doctor Step 2 now reads 6 lines (was 3) + index.json; DRIFT_RISK flag at >24h (was 48h), STALE at >48h; COUNT_MISMATCH flag when ## Active (N) in file differs from index.json supplier_count_active. context-loader.md: added Drift signals section — advisory warnings emitted on load when >24h stale or count mismatch. No Notion queries added.
@@ -37,3 +40,6 @@ wrap-up Phase 4c: change-log clear now strips ALL content (date sections + entri
 
 [EVENT: MICRO_FIX id=signal-4 file=skills/improve/SKILL.md]
 /improve Step 6: added explicit scheduled_tasks.lock delete as final cleanup step. Pre-flight item 4 "best-effort" language replaced with pointer to Step 6. Prevents stale lock warning on next /improve fire after session ends abruptly.
+
+[EVENT: MINI_SPRINT id=T3-4 files=skills/improve/SKILL.md]
+Regression detection added to /improve: Step 1.5 scans friction-signals.md Resolved for file+keyword matches before classifying new signals; [REGRESSION]-flagged signals escalate one tier in Step 2 and sort to top of queue in Step 3; Step 5 execution annotates re-fixed regressions with [REGRESSION prior: {date}] in Resolved entries. No format change to friction-signals.md — uses existing "fixed in {file}" field for matching.

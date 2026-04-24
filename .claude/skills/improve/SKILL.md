@@ -102,6 +102,25 @@ improvement-plan.md §11 backlog — T4 ready items:
 
 De-duplicate against signals already found in Sources A–F.
 
+## Step 1.5: Regression check
+
+After collecting all signals from Sources A–G, before classifying:
+
+For each new signal where a file is identifiable:
+1. Scan `outputs/friction-signals.md` `## Resolved` for entries where `fixed in {file}` matches the affected file.
+2. If a resolved entry is found with a similar symptom (2+ overlapping keywords in the description): flag the new signal as `[REGRESSION]`. Note the prior-fix date from the resolved entry.
+
+For signals without a clear file reference: match on 3+ consecutive keywords in the description against the Resolved section.
+
+A regression means the prior fix didn't hold — the root cause is systemic. Surface format:
+```
+[REGRESSION] {signal description}
+  Prior fix: {resolved entry date} in {file}
+  Implication: root cause was not fully addressed — escalate tier.
+```
+
+If no match in Resolved: signal is new, proceed normally.
+
 ## Step 2: Classify each signal
 
 For each signal:
@@ -116,9 +135,11 @@ For each signal:
 
 When in doubt between two levels: default to the lower level and note it.
 
+**Regression escalation:** `[REGRESSION]`-flagged signals always escalate one tier (micro → mini, mini → structural). The first fix addressed symptoms; re-emergence means the root cause needs analysis.
+
 ## Step 3: Build improvement queue
 
-Rank by: severity (blocking > degrading > cosmetic) × frequency (recurring > occasional > one-off).
+Rank by: severity (blocking > degrading > cosmetic) × frequency (recurring > occasional > one-off). **`[REGRESSION]`-flagged signals sort to the top of the queue at severity = blocking, regardless of their independent impact assessment.** A recurrence means the system's own memory failed — that is always higher priority than a new first-occurrence signal.
 
 Present the full queue — never pre-select one:
 
@@ -153,7 +174,7 @@ One signal at a time. Finish + commit before starting the next.
 2. Edit directly. No agents.
 3. Log to `outputs/change-log.md`.
 4. Commit: `Micro-fix: [one-line description]`.
-5. Remove the signal from `## Pending` in `friction-signals.md`. Append to `## Resolved`: `- [x] [{original_date} → {today}] {description} — micro — fixed in {file}`.
+5. Remove the signal from `## Pending` in `friction-signals.md`. Append to `## Resolved`: `- [x] [{original_date} → {today}] {description} — micro — fixed in {file}`. If `[REGRESSION]`-flagged, append `[REGRESSION prior: {prior_fix_date}]` at the end of the entry so the recurrence chain is traceable.
 6. **If signal came from Source G:** remove its row (or bullet) from `outputs/improvement-plan.md` §11 so it is not re-surfaced next session.
 
 ### Mini-sprint
@@ -161,7 +182,7 @@ One signal at a time. Finish + commit before starting the next.
 2. Synthesize findings.
 3. Present implementation plan to André (1 confirmation before writing).
 4. Implement (2-4 files). Log + commit.
-5. Remove executed signals from `## Pending` in `friction-signals.md`. Append each to `## Resolved`: `- [x] [{original_date} → {today}] {description} — mini — fixed in {files}`.
+5. Remove executed signals from `## Pending` in `friction-signals.md`. Append each to `## Resolved`: `- [x] [{original_date} → {today}] {description} — mini — fixed in {files}`. If `[REGRESSION]`-flagged, append `[REGRESSION prior: {prior_fix_date}]`.
 6. **If signal came from Source G:** remove its row (or bullet) from `outputs/improvement-plan.md` §11.
 
 ### Structural sprint
