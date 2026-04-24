@@ -5,7 +5,7 @@
 Last-Warm-Up: 2026-04-24T11:45 | Session: A (Light warm-up — prior 09:05 session went idle, re-warmed) (completed)
 Last-Mail-Scan: 2026-04-24T20:45 (manual — Jira LRE-1924 closed by Maggie; LRE-1920 mention re Transtek Scale coverage)
 Last-Log-Sent: 2026-04-24T20:55 (0 suppliers — 0 new milestones since 20:33)
-Last-Wrap-Up: 2026-04-24T21:10 (EOD Apr 24 — full wrap-up complete: Outreach milestone + daily log updated, context re-synced, crons stopped)
+Last-Wrap-Up: 2026-04-25T09:30 (Apr 25 light close — W17 weekly report published, daily log created, no supplier activity)
 Last-System-Session: 2026-04-20T09:00
 Last-Morning-Brief: 2026-04-23T08:58 (on-demand, Slack fallback to chat)
 
