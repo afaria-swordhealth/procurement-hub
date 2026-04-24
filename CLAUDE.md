@@ -61,7 +61,6 @@ Applies to every request.
 - Emails: load `config/writing-style.md`, `config/strategy.md`, `agents/supplier-comms.md`, relevant `context/{project}/suppliers.md`.
 - Notion writes: load `agents/notion-ops.md`, fetch current page before proposing, follow SHOW BEFORE WRITE.
 - Cost analysis: load `config/strategy.md` Cost Analysis Rules. Never compare FOB vs landed without flagging.
-- Drafting email or committing to an action → add entry to `outputs/promises.md`.
 - Never raw URLs; always embed (Slack `<URL|text>`, Gmail `<a href>text</a>`).
 - Log Notion writes to `outputs/change-log.md` (rolling daily).
 - **Change-log date rule:** always use `currentDate` from system context for `## YYYY-MM-DD` header. Never compute. If would be future, use `currentDate` + log warning.
@@ -80,9 +79,7 @@ All levels, exceptions (1–5), and auto-approval rules live in `.claude/safety.
 
 Full IDs and query patterns: `.claude/config/databases.md`. Tree: Procurement Hub → Projects → Pulse/Kaia/M-Band/BloomPod → per-project Suppliers DB. Central Open Items DB `collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0`. Test Reviews DB (Pulse) `collection://911b7778-b80b-4e94-a5c4-9f8853934d2e`. Daily Logs / Weekly Reports under My Work Log. **Maintenance Rules** READ-ONLY. **Internal Purchasing** BLOCKED.
 
-Supplier page writes: Contact/Profile read-only; Quote → notion-ops; Outreach → supplier-comms; Open Items → notion-ops (linked DB view only).
-
-External (André submits ZIP/Jira manually): Pulse Drive, `swordhealth.ziphq.com`, `swordhealth.atlassian.net/servicedesk/customer/portal/16`.
+Supplier page writes: Contact/Profile read-only; Quote → notion-ops; Outreach → supplier-comms; Open Items → notion-ops (linked DB view only). External platforms (ZIP, Jira): André submits manually.
 
 ---
 

@@ -57,7 +57,12 @@ Monthly layer health check: created outputs/layer-health.md (assertion spec for 
 [EVENT: HOUSEKEEPING]
 Phase 1 (Outreach Maintenance): No changes needed — all M-Band/Pulse/Kaia outreach sections clean (correct order, English, no duplicates, within 7-entry limit).
 Phase 2 (Notes Compliance): No changes needed — all active suppliers have compliant Notes (≤2 lines, English, no redundant pricing/contact).
-Phase 3 (DB Field Hygiene): No currency fixes needed. Unique Scales NDA fix (Sent → Not Required) deferred — requires Status → Rejected first (NEEDS DECISION).
+Phase 3 (DB Field Hygiene): Unique Scales → Status: Rejected, NDA Status: Signed (authorized by André 2026-04-24). No other currency/NDA fixes needed.
 Phase 4 (OI Comments): 11 overdue OI comments posted (auto-approved §5 Ex.2): Kaia Max samples (Apr 15), Kaia Max fulfillment (Apr 17), Transtek SCA (Apr 17), PLD alignment (Apr 17), Transtek Qualio (Apr 20), Ribermold quote (Apr 22), Transtek SQA (Apr 22), Sarah labeller (Apr 22), Future Electronics (Apr 22), UDI-DI (Apr 23), Kevin volumes (Apr 23).
+Phase 4 (OI Comment — PLD): LRE-1890 Jira link added as comment on PLD alignment OI (33eb4a7d…cd40). Monitoring status per André.
+Phase 4 (OI Close — Unique Scales): 9 Unique Scales OIs closed — ISTA test, Qualio, PUH, NDA, US docs revision, SCA, Finance onboarding, Urion monitor, SQA. Resolution: supplier dropped 2026-04-23.
 Phase 6 (Unanswered Emails): Transtek skipped (Last Outreach Apr 24, fresh). Uartrónica — last inbound Mar 18, André replied Mar 19 (no unanswered inbound; re-quote pending tracked as OI). Urion — no threads (closed supplier). No 48h violations.
 Phase 6b: No supplier chaser candidates (no overlap between overdue OIs + unanswered emails).
+
+[EVENT: MICRO_FIX id=signal-CLAUDE-lines file=CLAUDE.md]
+CLAUDE.md trimmed from 123 to 120 lines (L1 ship metric restored: < 120 soft limit). Removed stale promises.md pre-flight rule (line 64 — deprecated Apr 23). Folded external platform line into Section 6 body (removed blank + URL line, kept "(ZIP, Jira): André submits manually" inline).
