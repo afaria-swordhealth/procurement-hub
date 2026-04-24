@@ -22,7 +22,7 @@ Parse the `## Timestamps` section. For each timestamp, calculate age:
 | Last-Warm-Up > 8h | Full warm-up needed before operational commands | REPORT |
 | Last-Warm-Up 2-8h | Delta scan recommended, context snapshot usable as baseline | REPORT |
 | Last-Warm-Up < 2h | Context snapshot is fresh, no action needed | OK |
-| Last-Mail-Scan > 4h | Emails may be stale, suggest /mail-scan | REPORT |
+| Last-Mail-Scan > 4h | Emails may be stale — run `/ping` first to verify Gmail token is valid, then `/mail-scan`. If token expired, re-auth before scanning. | REPORT |
 | Last-Log-Sent > 24h | Outreach may not be logged, suggest /log-sent | REPORT |
 | Last-Wrap-Up > 24h | Context files likely stale, suggest /wrap-up | REPORT |
 | Any timestamp in the future | Clock error or bad write | AUTO-FIX |

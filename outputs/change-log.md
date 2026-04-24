@@ -4,6 +4,11 @@
 
 ## 2026-04-24
 
+[EVENT: FAIL target=log-sent reason="Gmail MCP token expired — re-auth required. No sent emails scanned."]
+
+[EVENT: MAIL_SCAN]
+Transtek/Pulse: OI comment on OTS stock OI (34bb4a7d…ccce3) — Mika confirmed 50 Hub BPM OTS, 0 scales, ~20d after payment. OI comment on 510(k) cuff OI (34bb4a7d…1370) — K241351 reviewed, all 3 sizes confirmed, TMB-2092-G vs BB2284-AE01 flag noted, Bianca Slack DM drafted. NDA OI (345b4a7d…8bae) closed — Zip #3213 fully approved Apr 23. Transtek Outreach Apr 24 entry added + Last Outreach Date → 2026-04-24. Jira LRE-1924 comment — Unique Scales dropped, close ticket. Jira LRE-1923 comment — MSA ≠ QTA, proceed independently. Manual: Zip #3214 (Unique Scales) to be cancelled in Zip UI by André. Daxin glucose noted as parked (T2D track).
+
 [EVENT: MINI_SPRINT id=T2-5 files=skills/session-doctor/SKILL.md,procedures/context-loader.md]
 Context drift detection: session-doctor Step 2 now reads 6 lines (was 3) + index.json; DRIFT_RISK flag at >24h (was 48h), STALE at >48h; COUNT_MISMATCH flag when ## Active (N) in file differs from index.json supplier_count_active. context-loader.md: added Drift signals section — advisory warnings emitted on load when >24h stale or count mismatch. No Notion queries added.
 
@@ -22,4 +27,7 @@ Formal skill handoff queue: created outputs/skill-queue.md. rfq-workflow Step 5 
 [EVENT: MINI_SPRINT id=T3-2 files=safety.md,skills/session-doctor/SKILL.md,commands/wrap-up.md]
 Session-liveness check: safety.md now defines 60-minute liveness threshold (session-state.md mtime > 60min = idle/abandoned, new session may proceed). session-doctor Step 1a checks Active Sessions vs mtime — flags [IDLE_SESSION] if stale, flags conflict if active and fresh. wrap-up Phase 4b now clears ## Active Sessions on EOD to prevent next-session false-block.
 
-## 2026-04-23
+[EVENT: WARN source=improve/preflight detail="scheduled_tasks.lock stale 2h14m (written 09:06:55, now 11:21) — treated as crashed prior run, proceeding"]
+
+[EVENT: MICRO_FIX id=signal-2 file=skills/session-doctor/SKILL.md]
+session-doctor Step 1 timestamp table: Last-Mail-Scan > 4h now recommends running /ping first to verify Gmail token before attempting /mail-scan. Prevents discovering token expiry only after log-sent or mail-scan fails.
