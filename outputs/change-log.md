@@ -64,5 +64,30 @@ Phase 4 (OI Close — Unique Scales): 9 Unique Scales OIs closed — ISTA test, 
 Phase 6 (Unanswered Emails): Transtek skipped (Last Outreach Apr 24, fresh). Uartrónica — last inbound Mar 18, André replied Mar 19 (no unanswered inbound; re-quote pending tracked as OI). Urion — no threads (closed supplier). No 48h violations.
 Phase 6b: No supplier chaser candidates (no overlap between overdue OIs + unanswered emails).
 
+[EVENT: LOG_SENT]
+Transtek Apr 24 — project timeline entry written to Outreach: "OTS Stock ~50u Jun 15; OTS Bulk Jun 30; PLD Jul 10. SQA gate Apr 27 / deposit May 6." Summary line updated to 69+ milestones. Last Outreach Date already Apr 24 (no update needed).
+OI comment posted on OTS stock OI (34bb4a7d…ccce3): timeline received, delivery dates per track.
+OI comment posted on SQA OI (33eb4a7d…5dc): SQA is critical-path gate for all tracks, Apr 27 deadline.
+Note: Transtek Outreach at 12 visible entries (threshold 10 for Shortlisted). Condensation needed — archive 2 oldest at next housekeeping.
+
 [EVENT: MICRO_FIX id=signal-CLAUDE-lines file=CLAUDE.md]
 CLAUDE.md trimmed from 123 to 120 lines (L1 ship metric restored: < 120 soft limit). Removed stale promises.md pre-flight rule (line 64 — deprecated Apr 23). Folded external platform line into Section 6 body (removed blank + URL line, kept "(ZIP, Jira): André submits manually" inline).
+
+[EVENT: MAIL_SCAN 3]
+Arrow Electronics Zip #3252 fully approved (Apr 24 17:17) — OI comment posted on M-Band component blocker OI (345b4a7d…81c3): all approval steps complete, EUC forms procurement fully unblocked.
+Unique Scales Zip #3214 fully approved (Apr 24 17:26) — informational only, supplier already Rejected and OIs closed. No action taken.
+
+[EVENT: DRAFT_CREATED]
+Transtek / Mika Lu — BB2284-AE01 XL (1,000u OTS) + GBF-2008-B1 scale (OTS, qty TBD) — MP target beginning of July. Draft ID: r-5485136575132713539. Awaiting André review before send.
+
+[EVENT: LOG_SENT]
+Transtek Apr 24 19:23 — outreach milestone written: "Consolidated delivery plan sent to Mika: 5-track plan (OTS 50u BPM SLC Jun 15; OTS bulk 1k-2k BPM+Scale SLC late Jun/early Jul; Branded Std 3,952u SLC Jul 10)." Summary line updated to 70+ milestones. Last-Log-Sent → 2026-04-24T20:33.
+
+[EVENT: AUTO_FIX target=session-cron-ids]
+Session cron IDs in session-state.md updated to reflect post-compaction re-registration: b410325d/82daeefc/2963319d → 87d46fe5/07b45d09/54486ff4.
+
+[EVENT: DAILY_LOG]
+Daily log for 2026-04-24 written to Notion Daily Logs DB as Draft (page 34cb4a7d-7207-81f0-91ae-e059596c9a4d). Sections: Pulse, Kaia, M-Band, ISC.
+
+[EVENT: MAIL_SCAN 4]
+Jira LRE-1924 (Unique Scales MSA) closed to Done by Maggie Lumley (18:18). LRE-1920 mention (18:14): Maggie asking André if Scale should be added to LRE-1920 — action on André (manual Jira reply). No other new supplier emails since 17:30. Mika 12:46 + 1:12 PM emails addressed via user relay (Gmail API limitation).

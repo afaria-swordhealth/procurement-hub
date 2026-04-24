@@ -1,19 +1,19 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-04-23T23:45
+# Last synced: 2026-04-24T20:50
 # Schema: v1
 
 ## Active (2)
 
 ### Transtek Medical
-- status: Shortlisted (SINGLE SUPPLIER — BPM + Scale, both OTS + PLD tracks)
-- nda: In Progress (Sword Inc. Zip #3213)
+- status: Shortlisted (SINGLE SUPPLIER — BPM + Scale, OTS-only launch Jun 30 per Kevin)
+- nda: Signed (Sword Inc. Zip #3213 FULLY APPROVED 2026-04-24)
 - currency: USD
 - unit_cost: 19.20 (BPM) / 13.30 (BIA Scale)
 - tooling_cost: null
-- last_outreach: 2026-04-23
+- last_outreach: 2026-04-24
 - open_ois: 8
-- next: Confirm OTS stock with Mika (Apr 24); await Kevin volumes; await Transtek 510(k) cuff-size evidence (K241351); await Sarah labeler classification
-- blocker: Labelling classification (Sarah Hamid, OI 343b4a7d…4c39); Transtek RA stock availability (OI 34bb4a7d…ce3)
+- next: SQA sign Apr 29; PO + 50% deposit May 6; Transtek UDI-DI (BPM + Scale) next week; Sarah OTS MSA for Apr 27/28; chase manufacturing-site confirmation (Guandong vs Zhongshan); Bianca XS cuff path
+- blocker: UDI-DI availability (Transtek May); Sarah OTS MSA + QTA finalization; scale LT TBD
 - notes: |
   MANUFACTURER (Zhongshan, CN). Entity: Guangdong Transtek Medical Electronics Co., Ltd
   (corrected 2026-04-20, Bradley notified). BP cuff BB2284-AE01. FOB ZS @5K (reference):
@@ -58,6 +58,21 @@
   Triggered by Bianca QARA review — if any size outside cleared config, may trigger new
   510(k)/listing requirements for XS/XL accessories.
 
+  Apr 24 OTS stock reply (Mika 08:28): ~50 Hub BPM in stock (re-flash ~20d after payment),
+  MOQ 1,000 bulk OTS 30-35d LT; Scale 0 stock + bulk 30-35d. Consolidated 5-track plan
+  received (Apr 24): OTS Stock ~50u BPM = air Jun 15; OTS Bulk 1-2k BPM+Scale = air Jun 30;
+  PLD Std 3,952u = air Jul 10; PLD XL 1,000u + Scale 2,000u = MP early Jul → delivery
+  ~mid-August. Gate for all tracks: SQA sign Apr 29 (Sword side) + UDI-DI Apr 29 (Transtek
+  side). PO + 50% deposit by May 6. BU decision Apr 24 (Kevin): launch Jun 30 with
+  OTS BPM only. Pricing from Mika Apr 24: samples +$5/unit; 1,000pcs BPM bulk ≈ $24-25
+  FOB; XS cuff pricing pending sample validation. NDA Zip #3213 FULLY APPROVED Apr 24
+  17:17. Sofia QTA plan (Apr 23 DM): OTS QTA near-identical to current doc; need UDI-DI
+  for BPM + Scale + confirm both devices produced by Guandong Transtek Medical Electronics
+  (vs Zhongshan site). Consolidated delivery plan shared with Mika Apr 24 19:23 (email
+  "Pulse — Consolidated delivery plan | Sword x Transtek"). Jira: LRE-1920 flagged for
+  Transtek Scale coverage; LRE-1924 (Unique Scales MSA) closed by Maggie — no longer
+  needed.
+
 ### Urion Technology
 - status: Quote Received
 - nda: Signed
@@ -65,8 +80,8 @@
 - unit_cost: 9.90
 - tooling_cost: null
 - last_outreach: 2026-04-15
-- open_ois: 2
-- next: Await custom sample delivery; maintain warm backup posture
+- open_ois: 0
+- next: Hold as dormant backup; no active follow-up
 - blocker: null
 - notes: |
   MANUFACTURER (Shenzhen, CN). BP cuffs U807 $9.90, U80K/U80M $9.90-$12.00, U81Y $13.00
@@ -75,9 +90,9 @@
   in production with Sword logo. Miki sent invoice + panel design 2026-04-15. DHL label
   sent 2026-04-15 for custom sample shipment.
 
-  STRATEGIC BACKUP: Urion LT ~5-6 weeks branded vs Transtek 12-16 weeks. Keep warm
-  pending custom sample delivery. Sofia ESH/BHS OI 345b4a7d…66d5 + regulatory gap pack
-  OI 345b4a7d…e1f5 both deadline 2026-04-24.
+  BACKUP DORMANT: 2026-04-24 — 2 OIs CLOSED (regulatory docs gap pack + ESH/BHS clinical
+  validation decision). Resolution: Transtek committed as primary Pulse supplier after
+  Apr 23 Final Alignment. No active follow-up. Re-engage only if Transtek track collapses.
 
 ## Rejected (11)
 
@@ -120,6 +135,19 @@ Notes condensed (2-line max) on Xinrui, Yilai, Daxin, Zewa per 2026-04-09 audit.
 - 2026-04-23 (QARA — Bianca): 510(k) cuff size configuration question raised. Evidence
   required from Transtek (K241351 summary) that all 3 cuff sizes (Std/XS/XL) are in the
   cleared system. Any size outside may trigger new 510(k) + separate listing.
+- 2026-04-24 (BU — Kevin + Paulo Group DM): Launch on Jun 30 with OTS BPM ONLY. OTS PO
+  target 1,500-2,000 units (Kevin agreed "lets move forward"; Paulo backed 1-2k safeguard).
+  Batch 1: 100-200 units end of May; Batch 2: remaining mid-June, arriving SLC late June /
+  early July. OTS MSA for Monday (Apr 27/28) per Sarah Hamid (tracked in LRE-1920 for
+  scale coverage); LRE-1924 (Unique Scales MSA) closed by Maggie.
+- 2026-04-24 (Mika project plan): 5-track delivery plan received. Manufacturing-site
+  confirmation and Record-retention 6yr still open on QTA. Transtek UDI-DI for both BPM
+  and Scale expected next week; QARA needs confirmation that both devices are produced
+  under Guangdong Transtek Medical Electronics (vs secondary Zhongshan site).
+- 2026-04-24 (K241351 review): Mika reviewed FDA 510(k) summary — all 3 cuff sizes (Std
+  22-45, XS 16-36, XL 40-52) explicitly covered in cleared system. QARA flag remains on
+  BB2284-AE01 (current model) vs TMB-2092-G (predicate in K241351). LoE (notarized) is
+  Transtek-internal — FDA Device Listing verification still required to close QARA loop.
 
 ## Open Actions (ISC-level)
 

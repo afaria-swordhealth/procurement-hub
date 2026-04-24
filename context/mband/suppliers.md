@@ -1,5 +1,5 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-04-23T23:45
+# Last synced: 2026-04-24T20:50
 # Schema: v1
 
 ## Active (15)
@@ -247,14 +247,21 @@
 
 ## Open Actions (ISC-level)
 
-- AMS-OSRAM 30wk PO overdue 15d. Escalation gated on Jorge (1:1 2026-04-27). OI
-  345b4a7d…81c3 deadline 2026-04-22.
+- AMS-OSRAM 30wk PO overdue 19d. Escalation gated on Jorge (1:1 2026-04-27). OI
+  345b4a7d…81c3 deadline 2026-04-22 (overdue).
+- Arrow Electronics Zip #3252 FULLY APPROVED 2026-04-24 (Manuel Pacheco 13:15 → Rúben
+  Silva finalize 17:17). EUC forms procurement fully unblocked — unlocks Future / Avnet
+  channel execution.
 - Nimbl boxes for TransPak: 3 M-Band boxes from Nimbl SLC needed (memory
   `project_nimbl_boxes_transpak`).
 - M-Band is hardware (physical wearable); Move + Mind are programs sharing it (memory
   `project_mband_hardware`).
 - EU distributor channel single-source: Future Electronics primary, Avnet secondary
   (OI 345b4a7d…81c3; legacy page deleted 2026-04-17).
+- Strap comparison 2026-04-23 (Miguel): Wintech ~$2.30 · JHX $1.36 · Celestica $0.58 ·
+  Bitron $2.00 · Titoma $2.22. RFQ average ~$1.50. Titoma not moving forward (Jorge).
+- Keenfinity strap sourcing: feedback sent to Keenfinity 2026-04-23 (Gustavo). SHX Watch
+  + JXwearable remain as independent strap alternatives.
 
 ## Summary
 

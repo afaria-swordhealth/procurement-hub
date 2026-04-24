@@ -1,18 +1,18 @@
 {
-  "generated": "2026-04-23T23:45",
+  "generated": "2026-04-24T20:50",
   "projects": {
     "pulse": {
-      "last_synced": "2026-04-23T23:45",
+      "last_synced": "2026-04-24T20:50",
       "schema": "v1",
       "supplier_count_active": 2,
       "supplier_count_rejected": 11,
       "active_suppliers": ["Transtek Medical", "Urion Technology"],
       "cross_project_suppliers": [],
-      "blocker_count": 3,
-      "top_deadline": "2026-04-17"
+      "blocker_count": 2,
+      "top_deadline": "2026-04-25"
     },
     "kaia": {
-      "last_synced": "2026-04-23T23:45",
+      "last_synced": "2026-04-24T20:50",
       "schema": "v1",
       "supplier_count_active": 5,
       "supplier_count_rejected": 8,
@@ -22,13 +22,13 @@
       "top_deadline": "2026-04-21"
     },
     "mband": {
-      "last_synced": "2026-04-23T23:45",
+      "last_synced": "2026-04-24T20:50",
       "schema": "v1",
       "supplier_count_active": 15,
       "supplier_count_rejected": 10,
       "active_suppliers": ["Vangest", "SHX Watch", "MCM", "GAOYI", "Lihua", "Uartrónica", "Ribermold", "TransPak", "JXwearable", "Quantal", "Xinrui Group", "Falcon Electronica", "Sanmina", "Electronica Cerler", "Novares"],
-      "cross_project_suppliers": [],
-      "blocker_count": 5,
+      "cross_project_suppliers": ["Xinrui Group"],
+      "blocker_count": 4,
       "top_deadline": "2026-04-22"
     },
     "bloompod": {
