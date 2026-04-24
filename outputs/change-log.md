@@ -41,6 +41,8 @@ wrap-up Phase 4c: change-log clear now strips ALL content (date sections + entri
 [EVENT: MICRO_FIX id=signal-4 file=skills/improve/SKILL.md]
 /improve Step 6: added explicit scheduled_tasks.lock delete as final cleanup step. Pre-flight item 4 "best-effort" language replaced with pointer to Step 6. Prevents stale lock warning on next /improve fire after session ends abruptly.
 
+[EVENT: OI_CLOSE] Urion OIs closed (2): regulatory docs gap pack (345b4a7d…81f4) + ESH/BHS clinical validation decision (345b4a7d…8166). Resolution: Transtek committed as primary Pulse supplier. Authorized by André 2026-04-24.
+
 [EVENT: MAIL_SCAN 2] Items 1-3,5 approved. Items 1+2 already logged in Transtek Outreach (skipped). OI comment on OTS stock OI (34bb4a7d…ccce3): Kevin/Anand Apr 21 position logged. OI comment on M-Band component blocker OI (345b4a7d…81c3): Arrow Electronics Zip #3252 EUC forms status logged. Item 4 (ProImprint) deferred by André.
 
 [EVENT: MINI_SPRINT id=T3-4 files=skills/improve/SKILL.md]
@@ -48,3 +50,14 @@ Regression detection added to /improve: Step 1.5 scans friction-signals.md Resol
 
 [EVENT: MINI_SPRINT id=safety-propagation files=commands/mail-scan.md,commands/mail-scan-deep.md]
 SAFETY_VIOLATION propagation gap closed: added explicit Atlassian write tool prohibition to Safety sections of mail-scan.md and mail-scan-deep.md. Model was making ad-hoc Jira API calls (addCommentToJiraIssue) from ISC Shipping email ticket IDs without approval. Core Rule 5b already existed in safety.md but was not referenced in the affected commands. Fix: NEVER call block with tool list + Core Rule 5b pointer added to both commands.
+
+[EVENT: MINI_SPRINT id=T3-5 files=skills/improve/SKILL.md,outputs/layer-health.md]
+Monthly layer health check: created outputs/layer-health.md (assertion spec for L0-L7 with FILE_CHECK/CONTENT_CHECK/LINE_COUNT/ABSENT_CHECK entries per layer; Last-Check/Next-Due tracking header; ## History table). Added Source H to /improve Step 1: if Last-Check is null or ≥30d old, surfaces "Layer health check due" as mini-sprint signal. Execution runs assertions via Glob/Grep/wc-l; WARN/MISSING feed into friction-signals.md ## Pending; REGRESSION cross-references existing ## Resolved entries; layer-health.md History updated on each run. Added "6b." read-input step and updated Rules to include outputs/layer-health.md as writable.
+
+[EVENT: HOUSEKEEPING]
+Phase 1 (Outreach Maintenance): No changes needed — all M-Band/Pulse/Kaia outreach sections clean (correct order, English, no duplicates, within 7-entry limit).
+Phase 2 (Notes Compliance): No changes needed — all active suppliers have compliant Notes (≤2 lines, English, no redundant pricing/contact).
+Phase 3 (DB Field Hygiene): No currency fixes needed. Unique Scales NDA fix (Sent → Not Required) deferred — requires Status → Rejected first (NEEDS DECISION).
+Phase 4 (OI Comments): 11 overdue OI comments posted (auto-approved §5 Ex.2): Kaia Max samples (Apr 15), Kaia Max fulfillment (Apr 17), Transtek SCA (Apr 17), PLD alignment (Apr 17), Transtek Qualio (Apr 20), Ribermold quote (Apr 22), Transtek SQA (Apr 22), Sarah labeller (Apr 22), Future Electronics (Apr 22), UDI-DI (Apr 23), Kevin volumes (Apr 23).
+Phase 6 (Unanswered Emails): Transtek skipped (Last Outreach Apr 24, fresh). Uartrónica — last inbound Mar 18, André replied Mar 19 (no unanswered inbound; re-quote pending tracked as OI). Urion — no threads (closed supplier). No 48h violations.
+Phase 6b: No supplier chaser candidates (no overlap between overdue OIs + unanswered emails).

@@ -28,6 +28,7 @@ If aborted: exit cleanly. Next cron fire retries. No alert to André — this is
 4. Read `outputs/friction-signals.md` `## Pending` section — accumulated signals from prior sessions.
 5. Read `outputs/autonomy-ledger.md` for promotion-candidate detection (see Source F).
 6. Read `outputs/improvement-plan.md` §11 (T2/T3/T4 backlog) for ready-to-execute items (see Source G).
+6b. Read first 5 lines of `outputs/layer-health.md` for `Last-Check:` date — monthly health gate (see Source H).
 7. **Session C scope.** Do NOT write to Notion, Gmail, or `context/` files.
 
 ## Step 1: Scan for friction signals
@@ -101,6 +102,22 @@ improvement-plan.md §11 backlog — T4 ready items:
 ```
 
 De-duplicate against signals already found in Sources A–F.
+
+### Source H — Monthly layer health check
+
+Read first 5 lines of `outputs/layer-health.md`. Parse `Last-Check:` line:
+
+- If `Last-Check: null` or the date is ≥ 30 days before today: surface one signal — "Layer health check due — last run: {date or 'never'}". Tier: mini.
+- If the date is < 30 days ago: skip Source H entirely.
+
+**When the signal is executed (mini-sprint):**
+1. For each assertion in `outputs/layer-health.md`: run FILE_CHECK via Glob (file exists?), LINE_COUNT via `wc -l`, CONTENT_CHECK via Grep (pattern present?), or ABSENT_CHECK via Glob (file must not exist). Record HEALTHY, WARN, or MISSING for each.
+2. For any WARN or MISSING: scan `outputs/friction-signals.md` `## Resolved` for a prior fix of the same file. If found → flag `[REGRESSION]` and apply tier escalation per Step 2.
+3. Update `outputs/layer-health.md`: set `Last-Check:` to today, `Next-Due:` to today+30d. Append a row to `## History`: `| {date} | {WARN/REGRESSED layers or "none"} | {missing files or "none"} | {notes} |`.
+4. Surface all WARN/MISSING/REGRESSION signals into `## Pending` of `outputs/friction-signals.md` (standard signal format from Step 6).
+5. Commit `outputs/layer-health.md` with message: `"Layer health check {date}: {N} layers HEALTHY, {M} WARN/REGRESSED"`.
+
+De-duplicate against signals already found in Sources A–G.
 
 ## Step 1.5: Regression check
 
@@ -207,7 +224,7 @@ Do not append signals that are already in `## Pending` (de-duplicate by descript
 
 ## Rules
 
-- **Session C only:** write to `.claude/` files, `outputs/change-log.md`, `outputs/friction-signals.md`, and `outputs/improvement-plan.md`. Never touch Notion, Gmail, `context/` files, or `session-state.md`.
+- **Session C only:** write to `.claude/` files, `outputs/change-log.md`, `outputs/friction-signals.md`, `outputs/improvement-plan.md`, and `outputs/layer-health.md`. Never touch Notion, Gmail, `context/` files, or `session-state.md`.
 - **Always surface multiple signals.** Never pick one without showing the full queue first.
 - One signal at a time. Commit after each before starting the next.
 - If change-log is empty, lean on session-state Carry-Over + git log.
