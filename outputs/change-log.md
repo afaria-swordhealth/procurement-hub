@@ -3,6 +3,10 @@
 # History lives in git log. On wrap-up, this file is committed then cleared for tomorrow.
 
 ## 2026-04-25
+[EVENT: WEEKLY_REPORT date=2026-04-25]
+W17 weekly report created in Notion (page 34cb4a7d-7207-811f, Status=Draft).
+Sources: W17 daily logs (Apr 20/21/23/24) + W16 Goals next week + user inputs (Sofia QTA branded + OTS MSA today, Kaia 3mm, Uartrónica re-quote received).
+
 [EVENT: STRUCTURAL_SPRINT id=slack-safety-propagation files=commands/housekeeping.md,skills/morning-brief/SKILL.md]
 Structural sprint: added ## Safety NEVER block (all Slack write tools) to housekeeping.md; changed morning-brief Step 4b from slack_send_message to slack_send_message_draft per Core Rule 5b + memory rule.
 [EVENT: MICRO_FIX file=commands/wrap-up.md]
