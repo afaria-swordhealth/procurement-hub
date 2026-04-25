@@ -13,3 +13,7 @@ Structural sprint: added ## Safety NEVER block (all Slack write tools) to housek
 Micro-fix: wrap-up same-day dedup guard — step 4 added to Pre-flight; exits early if Last-Wrap-Up date matches TARGET_DATE; --force bypasses.
 [EVENT: STRUCTURAL_SPRINT id=t3-1-tier-labels files=safety.md,procedures/ledger-append.md,autonomy.md,outputs/autonomy-ledger.md,skills/improve/SKILL.md]
 T3-1: SHOW BEFORE WRITE blast radius tiering — explicit [COSMETIC]/[COST-SENSITIVE] labels on Exceptions 1-5 in safety.md; tier field added to ledger schema (ledger-append.md + autonomy.md); action_class table extended with Tier column; 8 existing ledger entries backfilled (cost_sensitive); /improve Source F updated to gate on tier=irreversible.
+[EVENT: MICRO_FIX file=procedures/scan-gmail.md]
+Micro-fix: T2-1 pattern 4 — scan-gmail.md deep mode bulk Notion query; steps 2b+3 now batch all senders/suppliers into parallel queries instead of per-email serial lookups. Never previously implemented.
+[EVENT: MICRO_FIX files=skills/improve/SKILL.md,autonomy.md,outputs/autonomy-ledger.md]
+Micro-fix: T3-3 autonomy threshold calibration — monthly calibration pass added to Source F (Last-Calibration gate, rate+streak+projection per class); Last-Calibration: null field added to ledger header; calibration note added to autonomy.md Ledger hygiene.

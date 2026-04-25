@@ -20,12 +20,12 @@ Read .claude/config/domains.md for domain lists and Gmail patterns.
 ### 2b. Deep mode
 - Incoming: apply base exclusion filters only (NO domain filter)
 - Sent: use sent filter pattern from config/domains.md
-- After results: cross-reference each sender against Notion Contact fields (query all 4 Supplier DBs)
+- After results: collect all unique sender email addresses from the result set. Run 4 parallel queries (one per Supplier DB): `SELECT Name, "Contact Email", Status WHERE "Contact Email" IN (sender1@domain, sender2@domain...)`. Do NOT query one sender at a time.
 - Categorize: Known supplier | Unknown sender (flag for review)
 
 ### 3. For each email found
 - Extract: sender, recipient, subject, date, snippet
-- Query matching Notion supplier page for context (status, last outreach, open items)
+- After extracting all emails: batch-collect all supplier names matched in step 2b. Run ONE query per project DB that had matches: `SELECT Name, Status, "Last Outreach Date" WHERE Name IN (supplier1, supplier2...)`. Do NOT query one supplier per email.
 - Use notion-query-data-sources with SQL. Use known schemas from config/databases.md (DB Schemas section) — do NOT do a SELECT * schema discovery step first. Query directly with targeted columns.
 
 ### 4. Classify each email

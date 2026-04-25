@@ -5,6 +5,8 @@
 ## Pending
 
 ## Resolved
+- [x] [2026-04-25 → 2026-04-25] T2-1 pattern 4: scan-gmail.md deep mode serial Notion queries — 15 per-email lookups instead of bulk WHERE Name IN (...) batch — micro — fixed in procedures/scan-gmail.md (steps 2b + 3)
+- [x] [2026-04-25 → 2026-04-25] T3-3: autonomy threshold unvalidated — no monthly calibration pass to compute approval rates and projected promotion dates — micro — fixed in skills/improve/SKILL.md (Source F monthly calibration pass) + autonomy.md (Ledger hygiene note) + outputs/autonomy-ledger.md (Last-Calibration: null header field)
 - [x] [2026-04-25 → 2026-04-25] T3-1: SHOW BEFORE WRITE blast radius untiered — all approval gates binary, no COSMETIC/COST-SENSITIVE/IRREVERSIBLE distinction — structural — fixed in safety.md ([COSMETIC]/[COST-SENSITIVE] labels on Exceptions 1-5) + procedures/ledger-append.md (tier field + Tier column in action_class table) + autonomy.md (tier=irreversible hard-stop) + outputs/autonomy-ledger.md (schema + 8 entry backfill) + skills/improve/SKILL.md (Source F tier-aware gate)
 - [x] [2026-04-25 → 2026-04-25] wrap-up no same-day dedup guard — ran twice on Apr 24, both committed identical EOD entries — micro — fixed in commands/wrap-up.md (Pre-flight step 4: Last-Wrap-Up date check + --force bypass)
 - [x] [2026-04-24 → 2026-04-25] [REGRESSION] SAFETY_VIOLATION propagation gap (Slack) — spontaneous slack_send_message to Sofia during housekeeping without text approval; morning-brief spec used slack_send_message contradicting memory rule — structural — fixed in commands/housekeeping.md (## Safety NEVER block for all Slack write tools) + skills/morning-brief/SKILL.md (Step 4b: slack_send_message → slack_send_message_draft) [REGRESSION prior: 2026-04-24]

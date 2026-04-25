@@ -3,6 +3,7 @@
 <!-- Schema: `{YYYY-MM-DD HH:MM} | {action_class} | {decision} | {tier} | {skill} | {notes}` -->
 <!-- Rules in .claude/autonomy.md. Write procedure in .claude/procedures/ledger-append.md. -->
 <!-- /improve reads this file (Source F). /wrap-up summarizes delta in Phase 5. -->
+<!-- Last-Calibration: null -->
 
 ## Entries
 2026-04-23 23:30 | oi_status_closed | approved_clean | cost_sensitive | meeting-notes | Unique Scales SCA — supplier dropped

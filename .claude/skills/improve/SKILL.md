@@ -82,6 +82,8 @@ Also surface classes that have hit threshold 3+ times but keep getting rejected 
 
 Never auto-append to `safety.md`. André must explicitly accept each promotion.
 
+**Monthly calibration pass:** Read the `<!-- Last-Calibration:` line from the `outputs/autonomy-ledger.md` header. If the value is `null` or ≥ 30 days before today: for each `action_class` with ≥ 5 ledger entries, compute (a) approval rate = `approved_clean` / total entries for that class, (b) current consecutive `approved_clean` streak, (c) entries still needed = max(0, 20 − streak). Surface as a signal: `Calibration — {class}: {N} entries, {rate:.0%} clean, {needed} more to threshold (~{weeks:.0f}w at current pace).` Then update the ledger header line to `<!-- Last-Calibration: {today} -->`. If < 30 days ago: skip calibration entirely.
+
 ### Source G — improvement-plan.md §11 (ready backlog)
 
 Read `outputs/improvement-plan.md` §11. Surface items in this priority order:

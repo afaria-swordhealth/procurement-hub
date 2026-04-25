@@ -76,6 +76,7 @@ If a promoted auto-approval later produces any `rejected` decision:
 - `/improve` reads the ledger each run (Source in Step 1).
 - `/wrap-up` includes a ledger delta summary: new entries since last wrap-up, promotion candidates approaching threshold.
 - Monthly: `/improve` proposes `never_promote` tags for classes that have hit threshold 3+ times but keep getting rejected at review.
+- Monthly calibration: `/improve` Source F computes approval rate and projected promotion date per class (gated on `Last-Calibration` in ledger header — fires when null or ≥ 30 days old).
 
 ## Out of scope
 
