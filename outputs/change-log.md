@@ -2,18 +2,15 @@
 # Rolling daily file. Keeps only today's entries.
 # History lives in git log. On wrap-up, this file is committed then cleared for tomorrow.
 
-## 2026-04-25
-[EVENT: WEEKLY_REPORT date=2026-04-25]
-W17 weekly report created in Notion (page 34cb4a7d-7207-811f, Status=Draft).
-Sources: W17 daily logs (Apr 20/21/23/24) + W16 Goals next week + user inputs (Sofia QTA branded + OTS MSA today, Kaia 3mm, Uartrónica re-quote received).
+## 2026-04-27
+[AUTO-FIX: session-doctor] Stale entries from 2026-04-25 cleared. Date header reset to 2026-04-27.
 
-[EVENT: STRUCTURAL_SPRINT id=slack-safety-propagation files=commands/housekeeping.md,skills/morning-brief/SKILL.md]
-Structural sprint: added ## Safety NEVER block (all Slack write tools) to housekeeping.md; changed morning-brief Step 4b from slack_send_message to slack_send_message_draft per Core Rule 5b + memory rule.
-[EVENT: MICRO_FIX file=commands/wrap-up.md]
-Micro-fix: wrap-up same-day dedup guard — step 4 added to Pre-flight; exits early if Last-Wrap-Up date matches TARGET_DATE; --force bypasses.
-[EVENT: STRUCTURAL_SPRINT id=t3-1-tier-labels files=safety.md,procedures/ledger-append.md,autonomy.md,outputs/autonomy-ledger.md,skills/improve/SKILL.md]
-T3-1: SHOW BEFORE WRITE blast radius tiering — explicit [COSMETIC]/[COST-SENSITIVE] labels on Exceptions 1-5 in safety.md; tier field added to ledger schema (ledger-append.md + autonomy.md); action_class table extended with Tier column; 8 existing ledger entries backfilled (cost_sensitive); /improve Source F updated to gate on tier=irreversible.
-[EVENT: MICRO_FIX file=procedures/scan-gmail.md]
-Micro-fix: T2-1 pattern 4 — scan-gmail.md deep mode bulk Notion query; steps 2b+3 now batch all senders/suppliers into parallel queries instead of per-email serial lookups. Never previously implemented.
-[EVENT: MICRO_FIX files=skills/improve/SKILL.md,autonomy.md,outputs/autonomy-ledger.md]
-Micro-fix: T3-3 autonomy threshold calibration — monthly calibration pass added to Source F (Last-Calibration gate, rate+streak+projection per class); Last-Calibration: null field added to ledger header; calibration note added to autonomy.md Ledger hygiene.
+### Auto-Cross-Check
+
+[OUTREACH WRITE] Ribermold — Added Apr 24 follow-up entry. Updated Last Outreach Date → 2026-04-24.
+[OUTREACH WRITE] TransPak — Added Apr 20 Vin Mun confirmation entry. Updated Last Outreach Date → 2026-04-20.
+[OUTREACH WRITE] Vangest — Added Apr 17 Helmut chase + expired quote note. Updated Last Outreach Date → 2026-04-17.
+[OUTREACH WRITE] ProImprint — Added Apr 21 James final follow-up / order cancellation threat entry. Updated Last Outreach Date → 2026-04-21.
+[OUTREACH WRITE] Urion Technology — Added Apr 21–22 DHL pickup follow-up + panel sample approval entries. Updated Last Outreach Date → 2026-04-22.
+[OI COMMENT] Transtek SCA OI (33eb4a7d…396f) — Comment added: Bradley confirmed reviewing Apr 21 after entity correction (Guangdong Transtek Medical Electronics Co., Ltd).
+[REPORT WRITTEN] outputs/cross-check-report.md — Full gap report for Apr 20–27. 3 CRITICAL, 6 WARNING, 5 INFO gaps identified. 3 new OIs and 5 OI updates proposed (awaiting André approval).
