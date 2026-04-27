@@ -3,6 +3,7 @@
 # Resolved section is kept for retrospective (monthly session reads it for patterns).
 
 ## Pending
+- [ ] [2026-04-27] Concurrent /warm-up creates duplicate crons + dual Session entries — when user invokes /warm-up while another session ran warm-up <N min ago, the second run registers its own (mail-scan, log-sent, morning-brief) crons and adds Session B to ## Active Sessions, instead of detecting the live primary and either (a) refusing to register crons OR (b) joining read-only. Result: 6 crons firing in parallel until manual cleanup. — mini — fix candidates: warm-up Phase 8 pre-cron check (read CronList for IDs already in session-state ## Session Crons; abort cron registration if Last-Warm-Up < 30min AND ## Active Sessions has another live session); session-doctor Step 1c flag dual-session cron pile-up explicitly; OR a "join mode" warm-up flag (e.g. `--join` to skip cron registration when a primary exists)
 
 ## Resolved
 - [x] [2026-04-25 → 2026-04-25] T2-1 pattern 4: scan-gmail.md deep mode serial Notion queries — 15 per-email lookups instead of bulk WHERE Name IN (...) batch — micro — fixed in procedures/scan-gmail.md (steps 2b + 3)
