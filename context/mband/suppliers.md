@@ -1,5 +1,5 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-04-28T01:11
+# Last synced: 2026-04-29T01:30
 # Schema: v1
 
 ## Active (15)
@@ -98,7 +98,7 @@
 - currency: EUR
 - unit_cost: null
 - tooling_cost: null
-- last_outreach: 2026-04-15
+- last_outreach: 2026-04-24
 - open_ois: 1
 - next: Clarification meeting 2026-04-22
 - blocker: Quote finalization (adhesive supplier consultation in progress)
@@ -149,7 +149,7 @@
 - unit_cost_native: EUR 22.71
 - tooling_cost_native: EUR 7015
 - cost_basis: "@210K annual (closest to 200K), converted USD at FX 1.087"
-- last_outreach: 2026-04-17
+- last_outreach: 2026-04-24
 - open_ois: 1
 - next: Chase re-quote (deadline moved to Apr 24)
 - blocker: null
@@ -165,7 +165,7 @@
 - currency: EUR
 - unit_cost: null
 - tooling_cost: null
-- last_outreach: 2026-04-14
+- last_outreach: 2026-04-28
 - open_ois: 0
 - next: Await quote from Miguel Costa
 - blocker: null

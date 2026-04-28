@@ -1,5 +1,5 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-04-28T13:00
+# Last synced: 2026-04-29T01:30
 # Schema: v1
 
 ## Active (2)
@@ -79,7 +79,7 @@
 - currency: USD
 - unit_cost: 9.90
 - tooling_cost: null
-- last_outreach: 2026-04-15
+- last_outreach: 2026-04-22
 - open_ois: 0
 - next: Hold as dormant backup; no active follow-up
 - blocker: null

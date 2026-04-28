@@ -1,8 +1,8 @@
 {
-  "generated": "2026-04-28T13:00",
+  "generated": "2026-04-29T01:30",
   "projects": {
     "pulse": {
-      "last_synced": "2026-04-28T13:00",
+      "last_synced": "2026-04-29T01:30",
       "schema": "v1",
       "supplier_count_active": 2,
       "supplier_count_rejected": 11,
@@ -12,7 +12,7 @@
       "top_deadline": "2026-04-29"
     },
     "kaia": {
-      "last_synced": "2026-04-28T01:11",
+      "last_synced": "2026-04-29T01:30",
       "schema": "v1",
       "supplier_count_active": 5,
       "supplier_count_rejected": 8,
@@ -22,14 +22,14 @@
       "top_deadline": "2026-04-30"
     },
     "mband": {
-      "last_synced": "2026-04-28T01:11",
+      "last_synced": "2026-04-29T01:30",
       "schema": "v1",
       "supplier_count_active": 15,
       "supplier_count_rejected": 10,
       "active_suppliers": ["Vangest", "SHX Watch", "MCM", "GAOYI", "Lihua", "Uartrónica", "Ribermold", "TransPak", "JXwearable", "Quantal", "Xinrui Group", "Falcon Electronica", "Sanmina", "Electronica Cerler", "Novares"],
-      "cross_project_suppliers": ["Xinrui Group"],
+      "cross_project_suppliers": [],
       "blocker_count": 1,
-      "top_deadline": "2026-04-28"
+      "top_deadline": "2026-04-29"
     },
     "bloompod": {
       "last_synced": "2026-04-23T23:45",
