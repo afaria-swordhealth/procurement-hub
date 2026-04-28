@@ -91,7 +91,7 @@ Domain-to-supplier table and Gmail scan patterns: `.claude/config/domains.md`.
 |---|---|
 | Notion | Read + Write (no delete) |
 | Gmail | Read + Draft (no send) |
-| Slack | Read + Write (allowed channels only) |
+| Slack | Read + Draft (live send requires explicit user phrase per safety.md Core Rule 5b) |
 | ruflo | Non-critical: patterns, embeddings, aidefence, memory (audit/learning only) |
 
 ---

@@ -49,7 +49,8 @@ Start here. Add new values by convention; they become canonical after 5 uses.
 | `supplier_status_rejected` | supplier-rejection | `never_promote` (commercial decision) | irreversible |
 | `nda_status_write` | onboarding, housekeeping | `never_promote` (legal) | irreversible |
 | `email_draft_send` | supplier-chaser, supplier-rejection, rfq-workflow | `never_promote` (supplier-facing content) | irreversible |
-| `slack_message_send` | any Slack draft | `never_promote` (supplier-facing) | irreversible |
+| `slack_message_draft` | morning-brief, slack-scan, ad-hoc | Draft posted to Slack UI via `slack_send_message_draft` (André reviews + sends) | cosmetic |
+| `slack_message_send` | any live Slack send | `never_promote` (supplier-facing or shared-channel) — live `slack_send_message` only after explicit user phrase per safety.md 5b | irreversible |
 
 `never_promote` classes log for audit but never cross into promotion candidates.
 

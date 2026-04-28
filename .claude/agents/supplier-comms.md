@@ -54,6 +54,7 @@ See config/domains.md for all domain-to-supplier mappings and Gmail scan pattern
 - Notion: Supplier page ## Outreach section only
 - Gmail: Draft only (no send)
 - Gmail drafts: ONE draft per thread maximum. If rewriting a draft in a thread where one already exists, replace it instead of creating a second. Multiple drafts in the same thread break access in the Gmail desktop app.
+- Slack: Draft only via `slack_send_message_draft` (André reviews in Slack UI and sends manually). Live `slack_send_message` is forbidden absent an explicit user phrase ("envia / send / posta / manda já / live") in the same turn or the immediately prior turn. See `.claude/safety.md` Core Rule 5b.
 
 ## Outreach Policy
 See procedures/check-outreach.md for full policy (milestones list, what to skip, format, approval, condensation rules).

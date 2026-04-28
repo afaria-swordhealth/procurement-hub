@@ -41,7 +41,7 @@ New auto-approvals must not be added as ad-hoc Exceptions. Evidence-based promot
 3. SINGLE-DB SCOPE: Each agent writes only to its designated DBs.
 4. ALL NOTION CONTENT IN ENGLISH.
 5. NEVER SEND EMAIL: Gmail DRAFT only.
-5b. NEVER POST TO SHARED PLATFORMS DIRECTLY: Any outbound communication visible to parties other than André requires text approval first. Applies to: Jira comments, Slack sends (slack_send_message), Confluence writes. No auto-approval exception covers this rule.
+5b. NEVER POST TO SHARED PLATFORMS DIRECTLY: Any outbound communication visible to parties other than André requires text approval first. Applies to: Jira comments, Slack sends (`slack_send_message`), Confluence writes. No auto-approval exception covers this rule. **For Slack specifically:** the default tool is `slack_send_message_draft` (writes a reviewable draft to Slack UI; user sends manually). Live `slack_send_message` is only allowed after an explicit user phrase ("envia / send / posta / manda já / live") in the same turn or the immediately prior turn. Absent such a phrase, default to draft regardless of channel, audience, or apparent urgency.
 6. NO EM DASHES: Use commas, periods, or "or".
 7. CHECK BEFORE CREATE: Verify daily log entry doesn't exist before creating.
 8. OPEN ITEMS IN SUPPLIER PAGES: The ## Open Items section in every supplier page must be a linked database view of the central Open Items DB, filtered by Supplier. Never inline bullets. All OIs must exist as records in the central Open Items DB (collection://505b7f08-8816-4bf7-b77a-7f232b52d0a0) with all required fields populated.
@@ -54,6 +54,10 @@ When designing a new skill or adding a write step, use this decision tree to ass
 0. Does this action send a message or post content visible to any party other than André
    (Jira comment, Slack send, Confluence write)?
    → YES: STOP. Show the exact text to André and wait for explicit approval.
+     For Slack: even after approval, default tool is `slack_send_message_draft`.
+     Live `slack_send_message` is only allowed when an explicit user phrase
+     ("envia / send / posta / manda já / live") authorizes live send in the
+     same turn or the immediately prior turn. See Core Rule 5b.
    → NO: continue to check 1.
 
 1. Is it an email send or a Notion delete?

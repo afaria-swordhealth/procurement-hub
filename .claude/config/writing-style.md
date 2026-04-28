@@ -175,7 +175,7 @@ Best,
 Slack messages serve different purposes than emails. Approach them as internal coordination tools, not formal communications.
 
 ## General approach
-- Always compose via draft. André reviews and sends manually.
+- Always use `slack_send_message_draft`. André reviews the draft in Slack UI and sends manually. Live `slack_send_message` is only allowed after an explicit user phrase ("envia / send / posta / manda já / live") in the same turn or the immediately prior turn. See `.claude/safety.md` Core Rule 5b.
 - Lead with the update or ask. No preamble.
 - Keep it short. If it needs more than 5-6 lines, it probably belongs in an email or a Notion page.
 - Match the channel's energy. #pulse-packagin-artwork is operational (BU visibility). #pulse-qara is technical (regulatory alignment). M-Band group DM is tactical (sourcing ops).
