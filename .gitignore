@@ -3,6 +3,8 @@ Sandbox/
 .claude/settings.local.json
 .claude/config/signature.html
 .claude/config/_test_draft_body.html
+.claude/projects/
+.claude/scheduled_tasks.lock
 *.env
 credentials*
 outputs/checkpoints/
