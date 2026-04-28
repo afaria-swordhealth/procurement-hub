@@ -1,5 +1,5 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-04-28T01:11
+# Last synced: 2026-04-28T13:00
 # Schema: v1
 
 ## Active (2)
@@ -10,7 +10,7 @@
 - currency: USD
 - unit_cost: 19.20 (BPM) / 13.30 (BIA Scale)
 - tooling_cost: null
-- last_outreach: 2026-04-24
+- last_outreach: 2026-04-28
 - open_ois: 8
 - next: SQA sign Apr 29; PO + 50% deposit May 6; Transtek UDI-DI (BPM + Scale) next week after Pulse Logo approval; Sarah OTS MSA Monday Apr 28; manufacturing site CONFIRMED (BPM+Scale same Guangdong Transtek Medical Electronics facility); Bianca XS cuff path; chase Sofia QTA 3 legal feedback points
 - blocker: UDI-DI availability (Transtek May); Sarah OTS MSA + QTA finalization; scale LT TBD
