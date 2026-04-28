@@ -34,11 +34,12 @@ Check the `## Active Sessions` section and the mtime of `outputs/session-state.m
 
 | Condition | Action |
 |-----------|--------|
+| `## Active Sessions` lists 2+ sessions AND most recent mtime ≤ 60 min | REPORT: `[MULTI_SESSION] {N} sessions listed as active ({roles}). Likely from concurrent warm-up (e.g., post-compact light run). Crons may be duplicated (Step 1c will confirm). Run /wrap-up to clean up before next /warm-up; or rely on warm-up Phase 8 pre-cron guard going forward.` |
 | `## Active Sessions` lists a session AND session-state.md mtime > 60 min | REPORT: `[IDLE_SESSION] Session A listed as active but session-state.md is {N}h old — session likely abandoned. New session may proceed with full write access (60min liveness threshold per safety.md).` |
 | `## Active Sessions` is `(none)` or empty | OK — no prior session active |
-| `## Active Sessions` lists a session AND mtime ≤ 60 min | REPORT: `Session A active (started {time}). Write operations may conflict — confirm this is the only active session.` |
+| `## Active Sessions` lists a single session AND mtime ≤ 60 min | REPORT: `Session A active (started {time}). Write operations may conflict — confirm this is the only active session.` |
 
-This catches the common case: wrap-up ran last night, session-state still says "Session A active" from yesterday, blocks today's writes unnecessarily.
+This catches the common case: wrap-up ran last night, session-state still says "Session A active" from yesterday, blocks today's writes unnecessarily. Also catches concurrent warm-up (Session A + Session B) — the warm-up Phase 8 pre-cron guard prevents this prospectively, but Step 1a flags any pile-up that slipped through.
 
 ## Step 1b: Validate session-state.md structure
 
@@ -62,17 +63,19 @@ Do NOT attempt to repair a corrupt session-state.md. Only /warm-up can rebuild i
 If `Last-Warm-Up >= 8h`: skip this step — warm-up was from a prior session; crons were dropped on session end.
 
 If `Last-Warm-Up < 8h`:
-1. Read the `## Session Crons` section from `outputs/session-state.md`. Count listed entries (N).
-2. Call `CronList`.
+1. Read the `## Session Crons` section from `outputs/session-state.md`. Count listed cron ID lines (N) — ignore comment lines starting with `#`.
+2. Group cron IDs by task (parse the `(mail-scan ...)`, `(log-sent ...)`, `(morning-brief ...)` annotation per line). Compute max-per-task M.
+3. Call `CronList`.
 
 | Condition | Action |
 |-----------|--------|
+| Any task appears with M ≥ 2 cron IDs in session-state | REPORT: `[CRON_PILEUP] {N} crons registered, max {M} per task — likely from concurrent warm-up. Run /wrap-up Phase 4b to delete all and re-register cleanly on next warm-up.` |
 | session-state lists N crons AND CronList is empty | REPORT: session crons dropped — warm-up ran but crons are not registered. Re-run /warm-up. |
 | session-state lists N crons AND CronList matches (same count) | OK |
 | session-state has no `## Session Crons` section | OK — no crons configured |
 | CronList has crons but session-state lists none | REPORT: unregistered crons found — session-state may be stale |
 
-This check catches the case where the session restarted after warm-up (crons are session-scoped and lost on restart) while the timestamp still looks fresh.
+This check catches the case where the session restarted after warm-up (crons are session-scoped and lost on restart) while the timestamp still looks fresh, AND the case where a concurrent warm-up registered duplicate crons (M ≥ 2 per task).
 
 ## Step 2: Check context file freshness and count
 

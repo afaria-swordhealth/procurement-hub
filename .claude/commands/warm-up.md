@@ -66,6 +66,9 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 12. Check context file "Last synced" headers for staleness (>24h = warn).
 
 ### Phase 8: Start Session Crons
+
+**Pre-cron guard (concurrent warm-up).** Before calling CronCreate, read `outputs/session-state.md` sections `## Active Sessions` and `## Session Crons`. If ANOTHER session entry is listed with a start time within the last 30 min AND `## Session Crons` already contains ≥3 cron ID lines (non-comment): SKIP step 13 entirely — do NOT call CronCreate. Instead, append one line under `## Session Crons`: `# Session {role} sharing prior crons (registered {N}min ago) — no new registration`. Continue to Phase 9. This prevents duplicate registration when a second warm-up runs post-compact or in a parallel session. Wrap-up Phase 4b will tolerate the comment line (CronDelete on a non-ID skips silently).
+
 13. Start in-session recurring tasks (CronCreate):
     - Every 2 hours: silent /mail-scan. Only notify Andre if new emails found.
     - Every 3 hours: silent /log-sent. Write outreach milestones directly (auto-approved). Only notify if entries were written.
