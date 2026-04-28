@@ -5,7 +5,7 @@
 Last-Warm-Up: 2026-04-27T10:50 | Session: A (Full warm-up — auto-promoted; 54h gap since Apr 25 + context files >48h stale) (completed)
 Last-Mail-Scan: 2026-04-28T08:50 (Cron scan — 0 new supplier emails; all Apr 27 threads already processed in prior session)
 Last-Log-Sent: 2026-04-28T08:52 (1 supplier checked, 0 new milestones — SDK/APP thread already logged Apr 27)
-Last-Wrap-Up: 2026-04-28T08:55 (Catch-up wrap-up — Apr 27 session never wrapped; context sync deferred to next /warm-up; no Apr 28 daily log created — morning catch-up only)
+Last-Wrap-Up: 2026-04-28T01:11 (Session B EOD-Apr 27 — Apr 27 daily log created; context files synced; 5-file EOD commit 2b04552 pushed)
 Last-System-Session: 2026-04-20T09:00
 Last-Morning-Brief: 2026-04-23T08:58
 
