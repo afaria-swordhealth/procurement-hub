@@ -105,18 +105,26 @@ Name, Status, id, url
 | daily-log check | title, Date, Status, id, createdTime |
 | OI triage | Item, Status, Type, Owner, "date:Deadline:start", id |
 | housekeeping | Name, Status, Notes, Currency, "NDA Status", Region |
-| price-compare | Name, Status, "Unit Cost (EUR)", "Tooling Cost (EUR)", Notes, id |
+| price-compare | Name, Status, "Unit Cost (USD)", "Tooling Cost (USD)", Notes, id |
+
+**Cost field names by DB (updated 2026-04-28):**
+- **Kaia** (`KAIA_DB`): `"Unit Cost (USD)"`, `"Tooling Cost (USD)"` — renamed ✅
+- **M-Band** (`MBAND_DB`): `"Unit Cost (USD)"`, `"Tooling Cost (USD)"` — renamed ✅ 2026-04-28.
+- **Pulse** (`PULSE_DB`): fields not actively used — skip for price-compare.
+- **BloomPod** (`BLOOMPOD_DB`): fields not yet used (light scaffold) — skip.
 
 ## M4 Field Setup — DONE
 
 All M4 fields are live on the 4 Supplier DBs (added via Notion UI, confirmed 2026-04-18):
 
-| Field | Type | Writer | Read via |
-|-------|------|--------|-------|
-| `Last Outreach Date` | Date | check-outreach.md, supplier-chaser Step 7, quote-intake Step 7 | `"date:Last Outreach Date:start"` |
-| `Unit Cost (EUR)` | Number | quote-intake Step 4 | Plain column name |
-| `Tooling Cost (EUR)` | Number | quote-intake Step 4 | Plain column name |
-| `FX Rate at Quote` | Number | quote-intake Step 4 | Plain column name |
+| Field | Type | Writer | Read via | Rename status |
+|-------|------|--------|-------|--------|
+| `Last Outreach Date` | Date | check-outreach.md, supplier-chaser Step 7, quote-intake Step 7 | `"date:Last Outreach Date:start"` | n/a |
+| `Unit Cost (USD)` | Number | quote-intake Step 4 | Plain column name | Kaia ✅; M-Band pending |
+| `Tooling Cost (USD)` | Number | quote-intake Step 4 | Plain column name | Kaia ✅; M-Band pending |
+| `FX Rate at Quote` | Number | quote-intake Step 4 | Plain column name | n/a |
+
+**Cost convention (2026-04-28):** All values stored in USD @200K baseline. EUR-native suppliers converted at FX 1.087 (EUR→USD, ECB Apr 2026). Original EUR amounts in supplier Notes. Pulse/BloomPod not in scope.
 
 Optional (deferred — formula fields untested): `Days Since Last Contact` as a Notion formula. Test formula field query in `sql-capabilities.md` before relying on it.
 

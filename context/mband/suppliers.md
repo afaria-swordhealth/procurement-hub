@@ -8,8 +8,11 @@
 - status: Quote Received
 - nda: Signed
 - currency: EUR
-- unit_cost: 3.080
-- tooling_cost: 429850
+- unit_cost: 3.348
+- tooling_cost: 467228
+- unit_cost_native: EUR 3.080
+- tooling_cost_native: EUR 429850
+- cost_basis: "@255K, converted USD at FX 1.087"
 - last_outreach: 2026-04-14
 - open_ois: 0
 - next: Deprioritized per André feedback (Helmut Schmid pushy pattern)
@@ -24,12 +27,13 @@
 - status: Quote Received
 - nda: Signed
 - currency: USD
-- unit_cost: 1.36
+- unit_cost: 1.360
 - tooling_cost: 0
+- cost_basis: "@200K+ (confirmed)"
 - last_outreach: 2026-04-11
 - open_ois: 0
 - next: Validate custom samples when delivered
-- blocker: DB tier @200K instead of @5K — mismatch flag
+- blocker: null
 - notes: |
   Straps. ~$1.36/strap MP (200k+/yr). Pull force confirmed >70N. Stock samples picked up
   2026-04-11. Custom samples in progress. DB fields EUR 1.250 / 0 @200K (reference
@@ -39,8 +43,11 @@
 - status: Quote Received
 - nda: Signed
 - currency: EUR
-- unit_cost: 0.113
-- tooling_cost: 33000
+- unit_cost: 0.123
+- tooling_cost: 35870
+- unit_cost_native: EUR 0.113
+- tooling_cost_native: EUR 33000
+- cost_basis: "flat (no volume tier), converted USD at FX 1.087"
 - last_outreach: 2026-04-17
 - open_ois: 0
 - next: Hold until more sheet-metal quotes received
@@ -54,8 +61,9 @@
 - status: Quote Received
 - nda: Signed
 - currency: USD
-- unit_cost: 0.803
-- tooling_cost: 143
+- unit_cost: 0.484
+- tooling_cost: 155
+- cost_basis: "@200K EXW"
 - last_outreach: 2026-04-16
 - open_ois: 1
 - next: Review full tier pricing (20K/25K/50K/200K received 2026-04-16)
@@ -71,8 +79,9 @@
 - status: Quote Received
 - nda: Not Required
 - currency: USD
-- unit_cost: 0.994
+- unit_cost: 0.694
 - tooling_cost: 0
+- cost_basis: "@200K EXW"
 - last_outreach: 2026-04-16
 - open_ois: 1
 - next: Confirm with Jorge whether outreach remains "on hold"
@@ -101,20 +110,21 @@
   meeting 2026-04-22.
 
 ### TransPak
-- status: RFQ Sent
+- status: Quote Received
 - nda: Signed
 - currency: USD
-- unit_cost: null
-- tooling_cost: null
-- last_outreach: 2026-04-20
+- unit_cost: 0.770
+- tooling_cost: 2915
+- cost_basis: "@200K EXW (Move = Mind). Tooling: $1,457.50 Move + $1,457.50 Mind = $2,915 total"
+- last_outreach: 2026-04-28
 - open_ois: 0
-- next: Await custom sample arrival; then quote
-- blocker: Nimbl customized samples still in transit
+- next: Review vs GAOYI/Lihua; clarify sample dimension mismatch before progressing
+- blocker: null
 - notes: |
-  Packaging. Quote in progress with SE Asia team (Kevin acknowledged 2026-04-07). Plain
-  white box sent 2026-04-14. Nimbl customized sample boxes picked up in USA 2026-04-17
-  — Kevin + Vin notified (3 white + 2 full-design in transit). Vin Mun confirmed white
-  boxes received 2026-04-20; custom samples still in transit.
+  Packaging (SE Asia). Quote received 2026-04-28 from Kevin Dempsey. 6 tiers: 10K/30K/
+  50K/100K/200K/300K EXW. LT: first order 30-45 WD, repeat 30-40 WD. Boxes received
+  (Move+Mind) appear not to be latest dimension/artwork — quote based on white box dims
+  + RFQ artwork. Prices in attachment image, not yet entered into DB.
 
 ### JXwearable
 - status: RFQ Sent
@@ -134,8 +144,11 @@
 - status: Quote Received
 - nda: Signed
 - currency: EUR
-- unit_cost: 22.07
-- tooling_cost: 7112
+- unit_cost: 24.685
+- tooling_cost: 7625
+- unit_cost_native: EUR 22.71
+- tooling_cost_native: EUR 7015
+- cost_basis: "@210K annual (closest to 200K), converted USD at FX 1.087"
 - last_outreach: 2026-04-17
 - open_ois: 1
 - next: Chase re-quote (deadline moved to Apr 24)

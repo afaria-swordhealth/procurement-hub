@@ -3,8 +3,8 @@
 
 ## Timestamps
 Last-Warm-Up: 2026-04-28T09:01 | Session: B (Light warm-up — post-compact, building on Session A 09:00 Full) (completed)
-Last-Mail-Scan: 2026-04-28T09:00 (Full warm-up scan — incoming: 4 supplier-relevant threads, 1 internal Paulo. Sent: 1 (Mika BPM/Scale quantities))
-Last-Log-Sent: 2026-04-28T09:30 (1 supplier checked, 1 new milestone — Transtek BPM order quantities Apr 28 00:37)
+Last-Mail-Scan: 2026-04-29T00:00 (Delta scan — 1 new OI: Unique Scales QTA no reply 8d. TransPak/Quantal/Transtek MSA already logged. Kaia pricing internal email noted.)
+Last-Log-Sent: 2026-04-28T14:00 (2 suppliers checked, 2 new milestones — Quantal follow-up Apr 28 20:02; Transtek MSA sent Apr 28 17:44)
 Last-Wrap-Up: 2026-04-28T13:00 (EOD Apr 28 — Apr 28 daily log created; Pulse context synced; crons stopped; commit pushed)
 Last-System-Session: 2026-04-20T09:00
 Last-Morning-Brief: 2026-04-23T08:58
