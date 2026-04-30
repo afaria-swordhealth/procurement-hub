@@ -5,12 +5,18 @@
 Last-Warm-Up: 2026-04-29T08:50 | Session: B (Light delta — 23min after Session A Full) (completed)
 Last-Mail-Scan: 2026-04-29T19:17 (Delta since 17:17; 0 NEW supplier emails.)
 Last-Log-Sent: 2026-04-30T11:23 (0 suppliers checked, 0 new milestones — no new sent emails to supplier domains since Apr 29 20:23)
-Last-Wrap-Up: 2026-04-30T00:00 (Apr 30 daily log created; context sync M-Band; commit 4e22a10 pushed)
+Last-Wrap-Up: 2026-04-30T23:00 (Mini wrap-up — Notion MCP down; git-only. Daily log + log-sent PENDING next warm-up.)
 Last-System-Session: 2026-04-20T09:00
 Last-Morning-Brief: 2026-04-29T08:40 (delivered via Slack draft + chat; 3 decisions, 5 overdue, 5 signals)
 
 ## Active Sessions
-(none — cleared by /wrap-up 2026-04-30)
+(none — cleared by mini wrap-up 2026-04-30T23:00)
+
+## ⚠ PENDING AT NEXT WARM-UP
+Notion MCP token expired end of Apr 30 afternoon. These tasks were skipped:
+- /log-sent — run before anything else (sent emails since Last-Log-Sent 11:23 not logged)
+- /daily-log — Apr 30 log not pushed to Notion yet
+Run both immediately after Notion MCP confirmed live (after /ping).
 
 ## Context Snapshot (Apr 29 08:27 Full warm-up)
 

@@ -4,6 +4,10 @@
 
 ## 2026-04-30
 
+### Mini wrap-up 23:00 — git-only (Notion MCP down)
+- session-state updated: Last-Wrap-Up + PENDING flag for log-sent + daily-log
+- No Notion writes — token expired; reconnect at next warm-up
+
 ### housekeeping — Post-report fixes (approved by André)
 
 - OI "Transtek — Letter of Equivalence" → Closed (QTA signed, QARA acknowledged)
