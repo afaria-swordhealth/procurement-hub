@@ -1,8 +1,8 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-04-29T01:30
+# Last synced: 2026-04-30T22:00
 # Schema: v1
 
-## Active (15)
+## Active (18)
 
 ### Vangest
 - status: Quote Received
@@ -127,18 +127,20 @@
   + RFQ artwork. Prices in attachment image, not yet entered into DB.
 
 ### JXwearable
-- status: RFQ Sent
+- status: Under Review
 - nda: Signed
 - currency: USD
-- unit_cost: null
-- tooling_cost: null
-- last_outreach: 2026-04-17
+- unit_cost: 1.85
+- tooling_cost: 2000
+- cost_basis: "@200K+ FOB (50K+ $1.94 / 100K+ $1.90 / 200K+ $1.85)"
+- last_outreach: 2026-04-29
 - open_ois: 0
-- next: Await quote (Daisy organizing)
+- next: Compare vs SHX Watch ($1.36 silicone). Different material (nylon+TPU+SUS304+ABS).
 - blocker: null
 - notes: |
-  Straps. Production capability confirmed 2026-04-17 (Daisy). TPU plug placement feasible.
-  Quote organizing.
+  Straps. Quote JX20260429 (2026-04-29): nylon strap + TPU plug + SUS304 buckle + ABS
+  stopper. FOB tiers $1.94/$1.90/$1.85. Tooling $2,000. MOQ 3,000. LT 25-40d. T/T advance
+  or L/C at sight. +36% vs SHX silicone, different material category.
 
 ### Uartrónica
 - status: Quote Received
@@ -173,7 +175,25 @@
   Sheet Metal. NDA fully executed 2026-04-14. Zip #3006 fully approved 2026-04-14. RFQ
   package sent to Miguel Costa 2026-04-14.
 
-### Xinrui Group
+### Xinrui Group — Plastic Housings
+- status: Quote Received
+- nda: Signed
+- currency: USD
+- unit_cost: 1.7494
+- tooling_cost: 41261
+- cost_basis: "@50K EXW (200K not quoted)"
+- last_outreach: 2026-04-29
+- open_ois: 0
+- next: DFM flag → Gustavo/Miguel (Light Pipe buckle positions). Request 200K tier from Asher.
+- blocker: null
+- notes: |
+  Plastic Housings. OEM (China), 21yr experience. PI XR260429002 (unit) + XR260429001
+  (tooling). Units EXW: $1.8982 @10K / $1.8065 @30K / $1.7494 @50K. Tooling NRE $41,261
+  (Pogo Pins Plate $3,861 + Top+Light Pipe $17,550 + Rear+Lens $19,850). T0: 35-40 days.
+  Mold life 300K. Post-processing excl. DFM: Light Pipe buckle positions need design mod.
+  Valid 30d (expires 2026-05-29). Payment units 50/50; tooling 50/30/20.
+
+### Xinrui Group — Sheet Metal
 - status: RFQ Sent
 - nda: Signed
 - currency: USD
@@ -184,10 +204,36 @@
 - next: Await quote from Asher
 - blocker: null
 - notes: |
-  Plastic Housings + Sheet Metal. OEM (China), 21y experience. First contact 2026-04-11.
-  NDA fully executed 2026-04-15 (Dropbox Sign, SHUFENG ZHANG). Zip #3146 fully approved
-  2026-04-15. RFQ package sent to Asher 2026-04-15 (scope: housings + sheet metal).
-  Cross-project: also on Pulse (Rejected there).
+  Sheet Metal. OEM (China). RFQ sent 2026-04-15. Quote pending. NDA shared with
+  Xinrui Group — Plastic Housings (SHUFENG ZHANG, Dropbox Sign, Zip #3146).
+
+### Xinrui Group — Packaging
+- status: RFQ Sent
+- nda: Signed
+- currency: USD
+- unit_cost: null
+- tooling_cost: null
+- last_outreach: 2026-04-15
+- open_ois: 0
+- next: Await quote from Asher (secondary scope)
+- blocker: null
+- notes: |
+  Packaging — secondary scope, TBD post-capability. OEM (China). RFQ sent 2026-04-15.
+  Quote pending. NDA shared with Xinrui Group — Plastic Housings.
+
+### Xinrui Group — Straps
+- status: RFQ Sent
+- nda: Signed
+- currency: USD
+- unit_cost: null
+- tooling_cost: null
+- last_outreach: 2026-04-15
+- open_ois: 0
+- next: Await quote from Asher (secondary scope)
+- blocker: null
+- notes: |
+  Straps — secondary scope, TBD post-capability. OEM (China). RFQ sent 2026-04-15.
+  Quote pending. NDA shared with Xinrui Group — Plastic Housings.
 
 ### Falcon Electronica
 - status: Contacted
@@ -278,9 +324,11 @@
 
 ## Summary
 
-- 25 suppliers total. 15 active (6 Quote Received, 5 RFQ Sent, 3 Contacted, 1 Identified),
-  10 rejected.
-- 10 NDAs signed (GAOYI, MCM, SHX Watch, Uartrónica, Vangest, JXwearable, Quantal,
-  Ribermold, TransPak, Xinrui). 3 not started (Cerler, Falcon, Sanmina). 2 not required
-  (Lihua, Novares). 5/5 part categories covered (Housings, PCBAs, Sheet Metal, Straps,
-  Packaging). Active strap pool: SHX Watch + JXwearable only.
+- 28 suppliers total. 18 active (8 Quote Received, 5 RFQ Sent, 1 Under Review, 3 Contacted,
+  1 Identified), 10 rejected.
+- NDAs signed (GAOYI, MCM, SHX Watch, Uartrónica, Vangest, JXwearable, Quantal, Ribermold,
+  TransPak, Xinrui Group [shared across 4 part splits]). 3 not started (Cerler, Falcon,
+  Sanmina). 2 not required (Lihua, Novares). 5/5 part categories covered (Housings,
+  PCBAs, Sheet Metal, Straps, Packaging). Active strap pool: SHX Watch + JXwearable.
+  Xinrui Group split into 4 part-specific pages (Plastic Housings, Sheet Metal,
+  Packaging, Straps) on 2026-04-30.

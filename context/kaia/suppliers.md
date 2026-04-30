@@ -1,5 +1,5 @@
 # Kaia Suppliers — Context File
-# Last synced: 2026-04-29T01:30
+# Last synced: 2026-04-30T22:00
 # Schema: v1
 # Note: All Kaia sourcing decisions gated on Caio + Max (memory `project_kaia_dependency`).
 

@@ -1,35 +1,35 @@
 {
-  "generated": "2026-04-29T01:30",
+  "generated": "2026-04-30T22:00",
   "projects": {
     "pulse": {
-      "last_synced": "2026-04-29T01:30",
+      "last_synced": "2026-04-30T22:00",
       "schema": "v1",
       "supplier_count_active": 2,
       "supplier_count_rejected": 11,
       "active_suppliers": ["Transtek Medical", "Urion Technology"],
       "cross_project_suppliers": [],
       "blocker_count": 3,
-      "top_deadline": "2026-04-29"
+      "top_deadline": "2026-04-17"
     },
     "kaia": {
-      "last_synced": "2026-04-29T01:30",
+      "last_synced": "2026-04-30T22:00",
       "schema": "v1",
       "supplier_count_active": 5,
       "supplier_count_rejected": 8,
-      "active_suppliers": ["Tiger Fitness", "Second Page Yoga", "ProImprint", "Nimbl", "4imprint"],
+      "active_suppliers": ["China Tiger Fitness / Happy Fitness", "Second Page Yoga", "ProImprint", "Nimbl", "4imprint"],
       "cross_project_suppliers": [],
-      "blocker_count": 1,
-      "top_deadline": "2026-04-30"
+      "blocker_count": 0,
+      "top_deadline": "2026-04-15"
     },
     "mband": {
-      "last_synced": "2026-04-29T01:30",
+      "last_synced": "2026-04-30T22:00",
       "schema": "v1",
-      "supplier_count_active": 15,
+      "supplier_count_active": 18,
       "supplier_count_rejected": 10,
-      "active_suppliers": ["Vangest", "SHX Watch", "MCM", "GAOYI", "Lihua", "Uartrónica", "Ribermold", "TransPak", "JXwearable", "Quantal", "Xinrui Group", "Falcon Electronica", "Sanmina", "Electronica Cerler", "Novares"],
+      "active_suppliers": ["Vangest", "SHX Watch", "MCM", "GAOYI", "Lihua", "Uartrónica", "Ribermold", "TransPak", "JXwearable", "Quantal", "Xinrui Group — Plastic Housings", "Xinrui Group — Sheet Metal", "Xinrui Group — Packaging", "Xinrui Group — Straps", "Falcon Electronica", "Sanmina", "Electronica Cerler", "Novares"],
       "cross_project_suppliers": [],
-      "blocker_count": 1,
-      "top_deadline": "2026-04-29"
+      "blocker_count": 0,
+      "top_deadline": "2026-04-22"
     },
     "bloompod": {
       "last_synced": "2026-04-23T23:45",
@@ -39,7 +39,7 @@
       "active_suppliers": [],
       "cross_project_suppliers": [],
       "blocker_count": 0,
-      "top_deadline": null
+      "top_deadline": "2026-04-24"
     }
   }
 }

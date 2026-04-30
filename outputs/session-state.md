@@ -2,66 +2,76 @@
 <!-- Auto-updated by /warm-up, /mail-scan, /log-sent, /wrap-up. Do not edit manually. -->
 
 ## Timestamps
-Last-Warm-Up: 2026-04-28T09:01 | Session: B (Light warm-up — post-compact, building on Session A 09:00 Full) (completed)
-Last-Mail-Scan: 2026-04-29T00:00 (Delta scan — 1 new OI: Unique Scales QTA no reply 8d. TransPak/Quantal/Transtek MSA already logged. Kaia pricing internal email noted.)
-Last-Log-Sent: 2026-04-28T14:00 (2 suppliers checked, 2 new milestones — Quantal follow-up Apr 28 20:02; Transtek MSA sent Apr 28 17:44)
+Last-Warm-Up: 2026-04-29T08:50 | Session: B (Light delta — 23min after Session A Full) (completed)
+Last-Mail-Scan: 2026-04-29T19:17 (Delta since 17:17; 0 NEW supplier emails.)
+Last-Log-Sent: 2026-04-30T11:23 (0 suppliers checked, 0 new milestones — no new sent emails to supplier domains since Apr 29 20:23)
 Last-Wrap-Up: 2026-04-29T01:30 (Apr 29 daily log created; context sync Pulse/M-Band/Kaia; commit pushed)
 Last-System-Session: 2026-04-20T09:00
-Last-Morning-Brief: 2026-04-23T08:58
+Last-Morning-Brief: 2026-04-29T08:40 (delivered via Slack draft + chat; 3 decisions, 5 overdue, 5 signals)
 
 ## Active Sessions
-(none — cleared by /wrap-up 2026-04-28)
+- Session A | Full warm-up | started 2026-04-29T08:27 BST
+- Session B | Light warm-up (delta) | started 2026-04-29T08:50 BST — sharing Session A crons (pre-cron guard)
 
-## Context Snapshot (Apr 28 09:00 Full warm-up)
+## Context Snapshot (Apr 29 08:27 Full warm-up)
 
 ### Live activity at warm-up moment
-- **Sarah Hamid posted Branded MSA draft** to #pulse-devices today 08:01 BST with open questions (Transtek as importer? UDI ownership? GUDID registration? avoid relabeler line?) — proposed call Wed AM with QARA + Supply Chain. Sarah at conference tomorrow → Aaron Melville (Legal) added to channel.
-- **Sofia QTAs sent for signature Apr 27 22:04 BST** — Mika Lu (Min Jiang signing) + Sword side via Dropbox/PDF. "Out for approval :crossed_fingers:".
-- **Mika asking for MSA** Apr 28 00:37 BST (Pulse Group DM) — overnight pressure; André replied "I'll get some sleep, won't be able to track."
-- **Paulo Alves email Apr 28 00:07 BST** "BPM & Smart scales Order Quantities" — Kevin-approved final quantities. André forwarded to Mika at 00:37 BST (sent thread `19dd16b441a11800`).
-- **Jorge DM Apr 27 17:20 BST** — confirmed PO approval flow (Márcio Colunas → Manuel Pacheco → Hugo Moreira); Andreia helping on points 1-3. André OK'd.
+- **Mika Lu reply Apr 29 01:15 BST** — added Lavi Yang (lavi.yang@transtekcorp.com) as Transtek project manager for SDK/APP integration questions. Loops Pedro Pereira directly with R&D.
+- **Paulo Alves DM Apr 29 00:44 BST** — confirmed Pulse Launch Weekly RESCHEDULED from Wed Apr 29 14:30 to Thu Apr 30 14:00 ("alterei para 5f"). Calendar updated. Reason: André onsite at Uartrónica Apr 29 13:30-15:30.
+- **André sent Marcio deck Apr 29 00:12 BST** to Jorge DM (Google Slides link).
+- **Branded MSA SENT to Mika Apr 28 17:44 BST** via email (subject "Master Supply Agreement (MSA) for the PLD") — Kevin authorized async on #pulse-devices Apr 28 14:30 over Sarah's preference for internal review first; flagged "not final yet". Sarah at conference Apr 29; Aaron Melville (Legal) added to channel.
+- **Sofia QTAs out for approval Apr 27 22:04** — Mika Lu (Min Jiang signing) + Sword side via Dropbox/PDF. Confirmed Apr 28 with Sofia.
+- **Wintech BOM teardown (Miguel DM Apr 28 19:20 BST)** — discrete RMB pricing per tier-part for the upcoming 12K PO: PCBA 230, Strap 15.9, Top Housing+Light Pipe 12.3, Packaging 8.70 RMB; Sheet metal + Bot Housing not discriminated. Used for cost-comparison vs M-Band E2E RFQ averages.
 
-### Carry-over from Apr 27 — still open
-- **Anand DM Apr 22 unanswered (6d)** — compliance risk on supplier actions without formal agreement. Plan: close after MSA signed Apr 29.
-- **Miguel Pais DM Apr 27 23:29 BST** — asked "is this J-style or M-band?" with image. UNANSWERED.
+### Today (Apr 29) — confirmed agenda
+- **13:30-15:30 Lisbon** — Uartrónica factory visit (Jorge organized). PCBA discussion likely. Andre may not be reachable mid-afternoon.
+- **No Pulse Launch Weekly today** — moved to Thu Apr 30 14:00.
+- **Branded MSA call (Sarah's request) — pending confirmation of Wed slot** since Sarah at conference. Aaron Melville covering.
+
+### Carry-over from Apr 28 — still open
+- **Anand DM Apr 22 unanswered (7d)** — compliance risk on supplier actions without formal agreement. Plan: close after MSA signed.
+- **Miguel Pais DM Apr 27 23:29 BST** — asked "is this J-style or M-band?" with image. UNANSWERED 1.5d.
 - **Carlos Matoso #pulse-isc Apr 21** — Move M-Band 5K Jan 21 ETA. Jorge owns; CC Paulo.
-- **Mariana #pm-npi-isc Apr 23 23:31** — hold Move M-Band stock for mid-Jun launch (packaging/support guides rework).
+- **Mariana Peixoto #pm-npi-isc Apr 23 23:31** — hold Move M-Band stock for mid-Jun launch (packaging/support guides rework).
 - **Daxin Apr 24** — Kerry asking which export country before quoting glucose meter (parked T2D).
-- **Transtek 5-track delivery plan** (Apr 24 Mika): OTS Stock ~50u BPM Jun 15; OTS Bulk 1-2k BPM+Scale Jun 30; PLD Std 3,952u Jul 10; PLD XL+Scale mid-August. Gates: SQA sign Apr 29 + UDI-DI Apr 29; PO + 50% deposit May 6.
+- **Transtek 5-track delivery plan** (Mika Apr 24): OTS Stock ~50u BPM Jun 15; OTS Bulk 1-2k BPM+Scale Jun 30; PLD Std 3,952u Jul 10; PLD XL+Scale mid-August. Gates: SQA sign Apr 29 + UDI-DI Apr 29; PO + 50% deposit May 6.
+- **Xinrui Asher questions (M-Band Group DM Apr 28 09:27)** — André pinged Miguel/Gustavo on YTZN strap material, TPU plug fixation method, sheet metal tolerance ±0.1mm. Awaiting engineering reply.
+- **Kaia decision drift** — context file still says "Awaiting Max thickness decision" but Apr 27 daily log highlights "Kaia 3mm DECIDED — Notion + Excel locked." Verify state vs context-doctor.
 
-### Decision Queue source counts
-- Overdue (deadline < Apr 28, status != Closed): 18 items
-- Today (Apr 28): 1 item — Cerler volumes + tech docs (André)
-- This week (Apr 29-May 5): 1 item — Pulse TCR (André→Sofia), due Apr 30
-- Blocked: 3 items (Transtek SCA, Legal/Finance PLD, Sarah labeler classification — 6-11d past deadline; not yet stale)
+### Decision Queue source counts (live query Apr 29 08:30)
+- Overdue (deadline < Apr 29, status != Closed): 19 items
+- Today (Apr 29): 0 items
+- This week (Apr 30-May 6): 1 item — Pulse TCR (André→Sofia), due Apr 30
+- Blocked: 3 items (Transtek SCA 12d past, Legal/Finance PLD 12d past, Sarah labeler classification 7d past — none yet stale)
 
 ### Email State
-Last inbox scan: 2026-04-28T09:00 (Full). Gmail MCP: OPERATIONAL. 4 supplier-relevant incoming threads since Apr 25; 1 internal email from Paulo (BPM order quantities). André sent 1 new thread to Mika overnight (BPM order quantities).
+Last inbox scan: 2026-04-29T08:32 (Full). Gmail MCP: OPERATIONAL. 1 NEW supplier-relevant incoming since Apr 29 00:00: Mika Lu Apr 29 01:15 (SDK thread). 0 NEW sent since Apr 29 00:00 (last sent: Kevin Dempsey TransPak reply Apr 28 23:21).
 
 ### Slack State
-Slack MCP operational. All 14 log=true contacts/channels scanned. Active threads on Pulse MSA timing (#pulse-devices, Pulse Group DM Kevin/Paulo). Jorge DM closed loop on PO approval. Sofia DM closed loop on QTA dispatch.
+Slack MCP operational. All 14 log=true contacts/channels scanned. NEW since Apr 29 00:00: Andre→Jorge deck link 00:12; Andre→Paulo Pulse Launch reschedule 00:31, Paulo confirmed 00:44.
 
 ## Upcoming Meetings
-- **Tue Apr 28 11:00-12:00** — Weekly Logistics & Purchasing (Jorge + team)
-- **Tue Apr 28 12:30-13:30** (Shanghai TZ → ~05:30 Lisbon, likely shifted) — Wintech / Sword Weekly
-- **Tue Apr 28 17:00-17:30** — Jorge / André 1:1 (rescheduled from Mon Apr 27 16:15)
-- **Tue Apr 28 18:30-18:50** — HR acquisitions <> André (José Alves)
-- **Wed Apr 29 14:30-15:00** — Pulse Launch Weekly (Paulo/Kevin/Anand/Bianca/Sofia)
-- **Wed Apr 29 (TBD)** — proposed MSA call, QARA + Supply Chain (Sarah's request)
+- **Wed Apr 29 13:30-15:30** — Uartrónica Visit (Jorge + Francisco Oliveira)
+- **Thu Apr 30 14:00-14:30** — Pulse Launch Weekly (Paulo/Kevin/Anand/Bianca/Sofia) — RESCHEDULED from Wed
 - **Thu Apr 30 16:00-16:15** — Brain Break (optional)
+- **Wed Apr 29 (TBD)** — proposed MSA call (QARA + Supply Chain) — Sarah at conference; Aaron covering. Time not on calendar yet.
 
 ## Pending Actions (for André)
-- **NOW** — Reply Miguel DM "is this J-style or M-band?" (image attached).
-- **TODAY** — Cerler volumes + tech docs (OI 344b4a7d…a9dc; Pedro PT trip until Apr 30).
-- **TODAY** — Confirm with Mika whether OTS-only MSA can move while Branded MSA waits for Sarah's Wed call (Mika is awaiting MSA per overnight DM).
-- **TODAY** — Internal alignment on Sarah's MSA open questions (Transtek importer? UDI? GUDID? relabeler line?) before Wed call.
-- **TODAY** — Push Sofia QTA acknowledgment from Transtek (Min Jiang).
+- **NOW** — Reply Miguel DM "is this J-style or M-band?" image (1.5d unanswered).
+- **TODAY** — Push Sofia/Bianca on QTA acknowledgment from Transtek (Min Jiang signature).
+- **TODAY** — Internal alignment on Sarah's MSA open questions (Transtek importer? UDI? GUDID? avoid relabeler line?) before Wed call. Check Aaron/Kevin status.
 - **TODAY** — Reply Daxin Apr 24 (export country) — low priority parked T2D.
-- **WED Apr 29** — MSA call (Sarah's request) + Pulse Launch Weekly + SQA sign + Transtek UDI-DI delivery.
+- **TODAY (afternoon prep)** — Uartrónica visit 13:30; bring PCBA tier-pricing discussion (re-quote due Apr 24 still pending).
+- **WED Apr 29 (gates)** — SQA sign + Transtek UDI-DI delivery (BPM + Scale).
+- **THU Apr 30** — Pulse Launch Weekly (rescheduled).
 - **MAY 6** — PO + 50% deposit Transtek payment milestone.
-- Anand DM 6d unanswered — close after MSA signed.
-- Kaia: blocked on Max thickness decision; ProImprint slot pressure.
-- M-Band: AMS-OSRAM 30wk PO overdue 23d; escalation gated on Jorge.
+- **Anand DM 7d unanswered** — close after MSA signed.
+- **Kaia** — verify thickness decision (Apr 27 daily log "DECIDED" vs context still "Awaiting"). Run `/context-doctor kaia` if drift confirmed.
+- **Kevin Wang T2D Expansion** — parked, weekly reminder.
+- **M-Band**: AMS-OSRAM 30wk PO overdue 24d; escalation gated on Jorge.
 
 ## Session Crons
-(none — cleared by /wrap-up 2026-04-28)
+f17ce6eb  (mail-scan every 2h at :17)
+4bb525a2  (log-sent every 3h at :23)
+c68d0247  (morning-brief weekdays 07:32, durable)
+# Session B sharing prior crons (registered 23min ago by Session A) — no new registration
