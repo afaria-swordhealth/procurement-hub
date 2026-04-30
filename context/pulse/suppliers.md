@@ -75,7 +75,7 @@
 
 ### Urion Technology
 - status: Quote Received
-- nda: Signed
+- nda: Not Required
 - currency: USD
 - unit_cost: 9.90
 - tooling_cost: null

@@ -19,6 +19,8 @@ Read `outputs/session-state.md`. Calculate age of Last-Warm-Up:
 - If 2–8h: use snapshot as baseline. Run delta scan for this task.
 - If > 8h or missing: warn André and recommend /warm-up before proceeding.
 
+Before starting, check `outputs/change-log.md` for an AUDIT REPORT entry today. If found, warn André and ask whether to re-run or skip.
+
 ## Steps
 
 ### Phase 1: DB Compliance

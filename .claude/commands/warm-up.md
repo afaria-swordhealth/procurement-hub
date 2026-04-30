@@ -67,12 +67,14 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 
 ### Phase 8: Start Session Crons
 
-**Pre-cron guard (concurrent warm-up).** Before calling CronCreate, read `outputs/session-state.md` sections `## Active Sessions` and `## Session Crons`. If ANOTHER session entry is listed with a start time within the last 30 min AND `## Session Crons` already contains ≥3 cron ID lines (non-comment): SKIP step 13 entirely — do NOT call CronCreate. Instead, append one line under `## Session Crons`: `# Session {role} sharing prior crons (registered {N}min ago) — no new registration`. Continue to Phase 9. This prevents duplicate registration when a second warm-up runs post-compact or in a parallel session. Wrap-up Phase 4b will tolerate the comment line (CronDelete on a non-ID skips silently).
+**Pre-cron guard (concurrent warm-up).** Before calling CronCreate, read `outputs/session-state.md` sections `## Active Sessions` and `## Session Crons`. If ANOTHER session entry is listed with a start time within the last 30 min AND `## Session Crons` already contains ≥5 cron ID lines (non-comment): SKIP step 13 entirely — do NOT call CronCreate. Instead, append one line under `## Session Crons`: `# Session {role} sharing prior crons (registered {N}min ago) — no new registration`. Continue to Phase 9. This prevents duplicate registration when a second warm-up runs post-compact or in a parallel session. Wrap-up Phase 4b will tolerate the comment line (CronDelete on a non-ID skips silently).
 
 13. Start in-session recurring tasks (CronCreate):
     - Every 2 hours: silent /mail-scan. Only notify Andre if new emails found.
     - Every 3 hours: silent /log-sent. Write outreach milestones directly (auto-approved). Only notify if entries were written.
     - **Morning brief (weekdays 07:32):** if `.claude/config/morning-brief-target.md` exists and contains a non-empty `channel_id` line, register cron `32 7 * * 1-5` → `/morning-brief` with `durable: true`. This is session-scoped per runtime constraints — re-register every warm-up.
+    - **Housekeeping (weekdays 18:00):** register cron `0 18 * * 1-5` → `/housekeeping` with `durable: true`. Silent — only notify André if NEEDS YOUR DECISION items are found.
+    - **Audit (Fridays 17:00):** register cron `0 17 * * 5` → `/audit` with `durable: true`. Silent — only notify André if compliance issues are found.
 13b. Immediately after CronCreate calls return: write the returned cron IDs to `outputs/session-state.md` under `## Session Crons` (create the section if absent). Format: one ID per line. Do NOT wait for Phase 10 — if the session crashes before Phase 10, cron IDs must already be persisted for wrap-up Phase 4b to clean up.
 14. Confirm crons started in the briefing.
 
@@ -99,7 +101,7 @@ Single briefing, organized by:
 5. TODAY: Meetings and deadlines
 6. PRIORITIES: Top 3 recommended actions for today
 7. MAINTENANCE: Unpushed commits, context staleness
-8. SESSION: Crons started (mail-scan every 2h, log-sent every 3h)
+8. SESSION: Crons started (mail-scan every 2h, log-sent every 3h, housekeeping weekdays 18h, audit Fridays 17h)
 
 ## Rules
 - Read-only. No writes until Andre approves actions from the briefing.

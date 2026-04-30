@@ -189,7 +189,12 @@
       "Read(//c/tmp/**)",
       "Bash(cp /tmp/uar_210k.pdf ./Sandbox/uar_210k.pdf)",
       "Bash(cp /tmp/uar_300k.pdf ./Sandbox/uar_300k.pdf)",
-      "Read(//c/Users/SWORD/Documents/GitHub/procurement-hub/Sandbox/**)"
+      "Read(//c/Users/SWORD/Documents/GitHub/procurement-hub/Sandbox/**)",
+      "Read(//g/My Drive/Projects/Pulse/Device Procurement/MSA/Transtek review v1/**)",
+      "mcp__ruflo__memory_search",
+      "Bash(where claude *)",
+      "Bash(wt --version)",
+      "PowerShell(Get-Command *)"
     ]
   },
   "enabledMcpjsonServers": [

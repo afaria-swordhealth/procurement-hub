@@ -9,7 +9,7 @@
 - status: Under Review
 - nda: Signed
 - currency: USD
-- unit_cost: 3.65
+- unit_cost: 2.80
 - tooling_cost: null
 - last_outreach: 2026-04-09
 - open_ois: 0
@@ -26,7 +26,7 @@
 - status: Under Review
 - nda: Signed
 - currency: USD
-- unit_cost: 3.39
+- unit_cost: 2.39
 - tooling_cost: null
 - last_outreach: 2026-04-09
 - open_ois: 0
@@ -54,7 +54,7 @@
 
 ### Nimbl
 - status: Shortlisted
-- nda: Signed
+- nda: Not Required
 - currency: USD
 - unit_cost: 13.15
 - tooling_cost: null
@@ -69,7 +69,7 @@
 
 ### 4imprint
 - status: Blocked
-- nda: Signed
+- nda: Not Required
 - currency: USD
 - unit_cost: 11.58
 - tooling_cost: null
