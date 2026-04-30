@@ -5,13 +5,12 @@
 Last-Warm-Up: 2026-04-29T08:50 | Session: B (Light delta — 23min after Session A Full) (completed)
 Last-Mail-Scan: 2026-04-29T19:17 (Delta since 17:17; 0 NEW supplier emails.)
 Last-Log-Sent: 2026-04-30T11:23 (0 suppliers checked, 0 new milestones — no new sent emails to supplier domains since Apr 29 20:23)
-Last-Wrap-Up: 2026-04-29T01:30 (Apr 29 daily log created; context sync Pulse/M-Band/Kaia; commit pushed)
+Last-Wrap-Up: 2026-04-30T00:00 (Apr 30 daily log created; context sync M-Band; commit 4e22a10 pushed)
 Last-System-Session: 2026-04-20T09:00
 Last-Morning-Brief: 2026-04-29T08:40 (delivered via Slack draft + chat; 3 decisions, 5 overdue, 5 signals)
 
 ## Active Sessions
-- Session A | Full warm-up | started 2026-04-29T08:27 BST
-- Session B | Light warm-up (delta) | started 2026-04-29T08:50 BST — sharing Session A crons (pre-cron guard)
+(none — cleared by /wrap-up 2026-04-30)
 
 ## Context Snapshot (Apr 29 08:27 Full warm-up)
 
@@ -71,7 +70,4 @@ Slack MCP operational. All 14 log=true contacts/channels scanned. NEW since Apr 
 - **M-Band**: AMS-OSRAM 30wk PO overdue 24d; escalation gated on Jorge.
 
 ## Session Crons
-f17ce6eb  (mail-scan every 2h at :17)
-4bb525a2  (log-sent every 3h at :23)
-c68d0247  (morning-brief weekdays 07:32, durable)
-# Session B sharing prior crons (registered 23min ago by Session A) — no new registration
+(none — cleared by /wrap-up 2026-04-30)
