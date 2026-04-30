@@ -1,201 +1,123 @@
-# Cross-Check Report
-**Generated:** 2026-04-27 (automated)
-**Coverage:** Apr 20–27, 2026 | All 4 projects | Gmail + Slack + Notion OI DB
+# Cross-Check Report — 2026-04-30 (Auto Run)
+
+**Run at:** 2026-04-30T07:37 UTC (André's local: ~08:37 BST)
+**Scan window:** 2026-04-23 → 2026-04-30 (7 days)
+**MCP status:** Gmail OK · Notion OK · Slack OK
+**Active suppliers checked:** Pulse 2 · Kaia 5 · M-Band 18
 
 ---
 
-## SCAN STATUS
+## CRITICAL — Decisions in Slack/Email Not in Notion
 
-| Phase | Status |
-|---|---|
-| Gmail — Pulse suppliers | ✅ Complete |
-| Gmail — Kaia suppliers | ✅ Complete |
-| Gmail — M-Band suppliers | ✅ Complete |
-| Gmail — André sent | ✅ Complete |
-| Slack DMs (log=true) | ✅ Complete (Jorge, Anand, Miguel, Paulo, Sofia, Bradley, Kevin, Caio) |
-| Slack Group DMs | ✅ Complete (M-Band Group DM empty this period; Pulse Group DM active) |
-| Slack Channels | ✅ Complete (#pulse-devices, #pm-npi-isc, #m-band_sourcing, #pulse-isc) |
-| Notion OI DB | ✅ Complete (25 open OIs scanned) |
-| Notion Supplier DBs | ✅ Complete (Pulse 2, Kaia 5, M-Band 15 active suppliers) |
+### 1. Transtek MSA → 0.05%/day interest grace period decision (Pulse Group DM, Apr 29 20:54 BST)
+- **Source:** Pulse Group DM (André + Paulo + Kevin), Apr 29 20:54 BST
+- **Content:** Kevin Wang opted for "10–15 day grace period" before the 0.05%/day interest clause kicks in. André presented Option A (accept as-is) vs Option B (10–15d grace). Kevin: "i think 10-15 is a better proposal" + "we don't do interest like this — no hardware vendors do this right?"
+- **Notion gap:** No OI for "MSA interest clause / payment grace period". Decision is captured in #pulse-devices comments via Sarah's Jira (LRE-1920) but not in Open Items DB or Transtek Outreach.
+- **Suggested action:** Create OI — "Transtek MSA — finalize 10–15d grace period for interest clause" · Owner Sarah Hamid · Deadline 2026-04-30. (Awaits André approval — not auto-written.)
 
-**Note:** Gmail token was flagged as expired in session-state but scans executed successfully. Urion thread (19c8c888) confirmed active through Apr 22 — the "expired" flag in session-state was stale from Apr 23.
+### 2. MSA Clause 2.4 (Changes to Products) — internal alignment
+- **Source:** #pulse-devices, Apr 30 00:14 BST (Kevin → Sofia); Apr 30 07:15 BST (Elena confirmed comfortable)
+- **Content:** Kevin asked Sofia for QARA sign-off on MSA clause 2.4 wording (supplier change notification language). Elena Cavallini confirmed "comfortable with 2.4 under PLD as well."
+- **Notion gap:** Internal alignment captured only in Slack/Jira; no Outreach milestone yet (Sarah/André haven't responded back to Mika with finalized clause). Will appear in Outreach once final position is sent to Transtek.
+- **Suggested action:** Defer until consolidated final position is sent to Mika; log to Outreach at that point.
+
+### 3. Kaia growth experiment (yoga mats reward)
+- **Source:** #pulse-isc, Apr 29 11:32 BST (Carlos Matoso → Jorge Garcia)
+- **Content:** Carlos Matoso requesting yoga mat inventory for new growth experiment (~1,000 units/month, members hitting 8 days activity). Jorge owns; mentions Carlos Neves, Paulo, Kevin.
+- **Notion gap:** No OI captured. This is a NEW demand signal that intersects with the active Kaia sourcing (Tiger/Second Page/ProImprint).
+- **Suggested action:** Create OI — "Kaia — Carlos Matoso growth experiment (~1k/month yoga mats)" · Owner Jorge Garcia · Deadline 2026-05-06 · Project Kaia. (Awaits André approval.)
 
 ---
 
-## PHASE 1 + OUTREACH GAPS — Already Fixed (Auto-approved)
+## WARNING — Outreach Gaps (Auto-Written)
 
-The following outreach milestones were missing from Notion and have been written:
+### Transtek Medical (Pulse) — 2 entries appended ✅
+- ✅ **Apr 29** — SDK thread: Mika added Lavi Yang (lavi.yang@transtekcorp.com) as Transtek SDK project manager; shared BIA algorithm files (C library + example) via WeTransfer. Pedro requested iOS-specific calculation guidance.
+- ✅ **Apr 30** — SDK iOS algorithm files delivered by Lavi via WeTransfer. Mika flagged Transtek Golden Week public holiday May 1–5; team resumes May 6.
 
-| Supplier | Project | Missing Entry | Written |
+All other supplier Outreach sections (Pulse, Kaia, M-Band) are **current** as of last log-sent 2026-04-30T11:23 UTC. No milestone entries pre-Apr 29 found missing.
+
+---
+
+## INFO — Slack Discussions Referencing Action
+
+### M-Band Group DM (C0AGZ2WNUEM)
+- **Apr 29 09:30 BST** — André pinged Gustavo Burmester on Xinrui magnet specs (strong/weak + nickel plating). No Notion entry yet; Asher (Xinrui) has open questions awaiting engineering reply per session-state. Once Gustavo answers, log Asher response in Xinrui Plastic Housings Outreach.
+- **Apr 28 09:27 BST** — André forwarded 3 Asher questions (YTZN strap material, TPU plug fixation, sheet metal tolerance ±0.1mm) to Miguel + Gustavo. Same — awaiting engineering. Already noted in session-state.
+
+### Pulse Group DM (C0AUDR0D5EX)
+- **Apr 29 12:15 BST** — André mapped MSA payment approval chain: Márcio Colunas → Manuel Pacheco → Hugo Moreira (FP&A). May 6 PO + 50% deposit gate (already in OI 33eb4a7d-7207-8174-b81b-c608a90e396f Transtek SCA — but distinct flow). Possible new OI for the approval chain.
+
+### #pulse-devices (C0ARTEJPMRC)
+- **Apr 29 14:02 BST** — Kevin loaded Transtek MSA returns into Jira LRE-1920; tagged Sarah for review. André tagged in ticket. Outreach will need an entry once Sarah sends back the final consolidated position.
+- **Apr 29 23:31 BST** — André pushed Sarah to send finalized MSA directly to Mika (mika.lu@transtekcorp.com) before Transtek's working day starts. Captured in Apr 30 Outreach entry implicitly.
+
+### #pm-npi-isc (C0AKYG8JR42)
+- **Apr 23 23:31 BST** — Mariana Peixoto confirmed Move M-band stock hold for mid-Jun launch (packaging/support guides rework). OI `Pulse M-Bands — hold 3,000 Move units as safety net` (deadline Apr 24, In Progress) is the same item. Status remains correct.
+
+---
+
+## Phase 4 — Project Pages Currency
+
+### Pulse — current ✅
+Single-supplier model (Transtek BPM + Scale) per Apr 23 Final Alignment is reflected in context. Unique Scales correctly in Rejected (dropped Apr 23).
+
+### Kaia — DRIFT FLAG ⚠
+- Context file `context/kaia/suppliers.md` (last synced 2026-04-30T22:00) likely still says "Awaiting Max thickness decision".
+- Apr 27 daily log highlights "Kaia 3mm DECIDED — Notion + Excel locked." (per session-state Pending Actions).
+- **Action:** Run `/context-doctor kaia` to verify and reconcile. Already in PENDING from last warm-up.
+
+### M-Band — current ✅
+Quote consolidation up to date (`M-Band Supplier Overview — Apr 2026`, Apr 23). All 18 active suppliers in context.
+
+---
+
+## Phase 5 — Open Items vs Email/Slack Activity
+
+OIs with new evidence in the last 7 days (NOT auto-written; require André approval before status change):
+
+| OI | Current Status | Evidence | Recommended |
 |---|---|---|---|
-| Ribermold | M-Band | Apr 24 follow-up sent on quote status post-meeting | ✅ |
-| TransPak | M-Band | Apr 20 Vin Mun confirmed white box receipt; samples in transit to Malaysia | ✅ |
-| Vangest | M-Band | Apr 17 Helmut chased; André replied reviewing internally. Quote expired Apr 14. | ✅ |
-| ProImprint | Kaia | Apr 21 James "final follow-up" — threatens to close order if no payment | ✅ |
-| Urion Technology | Pulse | Apr 21–22 DHL pickup follow-up + panel sample photo approved | ✅ |
+| `33eb4a7d-7207-81ab-b23f-ee791f5185dc` Transtek SQA template QARA review | Pending (Sofia) | Apr 27 22:04 Sofia: "QTAs are out for approval"; Apr 29 09:03 both sides signed (V signed twice — repeated due to title bug, both copies signed). | **Close** with Resolution: "Both QTAs signed via Dropbox Sign Apr 29 (Min Jiang for Transtek, V for Sword)." |
+| `33eb4a7d-7207-81d7-8057-d08bce2fc93c` Transtek Supplier Quality Agreement (SQA) | Pending (João Quirino) | Same as above (SQA = QTA in workspace nomenclature). | **Close** — duplicate of QTA closure; or re-scope if SQA is distinct from QTA in this DB. |
+| `343b4a7d-7207-81b0-a17a-dc6a37be4c39` Sarah labeler classification | Blocked | Apr 28 08:01 Sarah delivered assumptions (Transtek packaging/UDI/GUDID) + 3 open questions (Supply vs Quality alignment, relabeler line, Sword reopening packaging). | **Move to In Progress** — Sarah engaged; outstanding answers tracked in MSA review. |
+| `348b4a7d-7207-8155-bb53-e5df4ad5da68` Transtek initiate MSA | Pending | Apr 28 17:44 BST André sent draft MSA to Mika. | **Close** — initiation complete. |
+| `34fb4a7d-7207-81fb-8b99-f779be69c305` Transtek share branded MSA | Pending | Same Apr 28 17:44 BST send. | **Close** — duplicate of "initiate". |
+| `34bb4a7d-7207-81f3-9cec-ff9c26b39f61` Kevin — first 2 months volume estimates | Pending | Apr 27 18:12 Paulo confirmed Kevin-approved volumes (OTS 2k/2k, Branded 5k/4k/1k) in #pulse-devices. | **Close** — volumes confirmed; relayed to Mika Apr 28. |
+| `34bb4a7d-7207-81ca-a3c3-dbd8bb845238` André — send Kevin device specification decisions | Pending | Apr 27 19:31 BST André sent dates/decisions in #pulse-devices. | **Close**. |
+| `345b4a7d-7207-8159-99db-f22af5989e84` Transtek confirm ISTA packaging transit test capability | Pending (Mika) | Apr 20 Mika confirmed ISTA 2A passed (full carton); reports requested. | **Close** with Resolution: "Mika confirmed full carton ISTA 2A passed Apr 20; reports tracked separately." |
 
-`Last Outreach Date` DB field updated for all 5 suppliers.
-
-**Config note:** `databases.md` states the plain property name `Last Outreach Date` works for writes — this is incorrect. The API requires the expanded format `date:Last Outreach Date:start`. Fix needed in `databases.md` line 82.
-
----
-
-## CRITICAL GAPS — Action Required
-
-### C-1 · PULSE · Anand compliance escalation not in OI DB
-**Source:** Anand DM (D03SBA13QTY), 2026-04-22 11:34 BST
-**Signal:** Anand Singh wrote: *"Pulse - actions are being agreed with BP cuff and BIA scale suppliers without a formal agreement in place, exposing Sword to significant compliance risk."*
-**Gap:** This is a VP-level compliance escalation. The existing OI "Legal / Finance PLD model alignment" (Blocked, Apr 17) captures the structural blocker but not this specific escalation statement. No comment has been added.
-**Proposed action:** Add page comment to OI `33eb4a7d-7207-81e2-a4f7-d188be19cd40` (Legal/Finance PLD alignment):
-> *"Apr 22: Anand Singh escalated directly to André: 'Pulse - actions are being agreed with BP cuff and BIA scale suppliers without a formal agreement in place, exposing Sword to significant compliance risk.' This adds urgency — formal agreement must be in place before any further supplier commitments."*
-
-**Awaiting André approval.**
+**Stale / Overdue (no new evidence — escalation candidates):**
+- `33eb4a7d-7207-8161-8677-dff470972664` Kaia Max sample feedback — deadline Apr 15 (15d overdue). Caio confirmed Apr 14 Max on vacation; Caio relays to chase Max in person.
+- `33eb4a7d-7207-8146-bfba-ee8c60a08353` Kaia Nimbl decision — deadline Apr 17 (13d overdue). Same gating on Max.
+- `33eb4a7d-7207-81a1-882e-d26f594ed871` Ribermold quote follow-up — deadline Apr 22 (8d overdue). No Slack/email since Apr 9. **Action:** chase Filipe.
+- `33eb4a7d-7207-818d-b800-d7653fae491b` Uartrónica re-quote — deadline Apr 24 (6d overdue). No new email. **Action:** chase via supplier-chaser.
+- `344b4a7d-7207-81a9-a219-ceb9378fdc09` Cerler — send volumes + tech doc — deadline Apr 28 (2d overdue). No outgoing email found. **Action:** prepare Cerler RFQ package.
 
 ---
 
-### C-2 · KAIA · ProImprint order cancellation risk — no OI exists
-**Source:** Gmail, jgartrell@proimprint.com, 2026-04-21 14:10
-**Signal:** James Gartrell: *"This is my final follow-up regarding your approved order. We haven't received payment yet, so production hasn't started. If we don't hear back, we may need to close this order."*
-**Gap:** No OI exists for this supplier or this risk. Outreach entry added (auto). Decision has been gated on Max/Caio since mid-March. Max's OI deadline was Apr 15 (now 12 days overdue).
-**Proposed action:** Create new OI:
-- **Item:** Kaia — ProImprint order cancellation risk (payment overdue)
-- **Status:** Pending
-- **Type:** Blocker
-- **Owner:** André Faria
-- **Deadline:** 2026-04-28
-- **Project:** Kaia
-- **Supplier:** ProImprint
-- **Context:** James Gartrell (ProImprint) issued a "final follow-up" on Apr 21: payment still pending, production not started, threatens to close order. Decision to advance gated on Max Strobel sample feedback (OI 33eb4a7d…64, overdue since Apr 15) and Caio sourcing decision (OI 34ab4a7d…07, due Apr 30). No reply sent to James. If no response by ~Apr 28, ProImprint will likely cancel. Separate decision: Nimbl vs SV Direct fulfillment also pending Max/Caio.
+## Phase 6 — Unanswered Incoming Emails
 
-**Awaiting André approval.**
+No active-supplier incoming emails sit unanswered >48h within the 7-day window. All Mika replies (Apr 29 MSA + orders) handled by André/Sarah within hours; Lavi WeTransfer files Apr 30 require Pedro action (within 48h window).
 
 ---
 
-### C-3 · PULSE · QTA + MSA Apr 29 hard deadline not in any OI
-**Source:** Paulo Alves, #pulse-devices (C0ARTEJPMRC), 2026-04-24 14:54
-**Signal:** Paulo: *"Both timelines assume the QTA and MSA are signed by April 29. Every day we push past that date adds direct slippage to delivery."* OTS target: Jun 30 delivery. Branded target: Jul 10.
-**Gap:** No OI captures this Apr 29 hard deadline. The QTA OI (Pending, André/João) and SQA template OI (Pending, Sofia) don't reflect the Apr 29 gate. The MSA OI (Apr 27 deadline = today) is for initiating with Legal, not signing.
-**Proposed action:** Create new OI:
-- **Item:** Pulse — QTA + MSA signed by Apr 29 (delivery gate)
-- **Status:** Pending
-- **Type:** Blocker
-- **Owner:** André Faria (coordinator)
-- **Deadline:** 2026-04-29
-- **Project:** Pulse
-- **Context:** Paulo Alves confirmed in #pulse-devices Apr 24: QTA and MSA must both be signed by Apr 29 for OTS delivery Jun 30 and Branded delivery Jul 10. Each day past Apr 29 = direct delivery slippage. 4 documents to execute in parallel (QTA BPM OTS + QTA PLD + MSA Transtek + potentially QTA Scale). Sarah Hamid (Legal) confirmed she will review docs before the Apr 22 call but bandwidth flagged. Bianca drafting OTS QT (due Apr 28 per OI 34bb4a7d…abf).
+## NOTION WRITES THIS RUN
 
-**Awaiting André approval.**
+| Type | Page | Detail |
+|---|---|---|
+| Outreach milestone | Transtek Medical (`311b4a7d-7207-8110-83dc-ce0e90e4de5f`) | Apr 29 SDK Lavi intro entry appended |
+| Outreach milestone | Transtek Medical (`311b4a7d-7207-8110-83dc-ce0e90e4de5f`) | Apr 30 SDK files / Golden Week note appended |
+
+No other writes. OI status changes deferred to André per cross-check.md safety rules.
 
 ---
 
-## WARNING GAPS
+## RECOMMENDED NEXT ACTIONS (André, after Notion MCP confirmed live)
 
-### W-1 · M-BAND · Titoma rejection — no email sent
-**Source:** Jorge Garcia, #m-band_sourcing (C08170ETSKG), 2026-04-21 17:14
-**Signal:** Jorge: *"Titoma is not considered a good fit given their company size and the unit costs shared. I believe we should inform them that we are not moving forward. This would set the right expectations... Please let me know if you agree, and I can follow up with them."*
-**Gap:** No email to Titoma visible in any Gmail search. Jorge offered to handle the outreach. No confirmation that it happened. Titoma has not been formally closed out.
-**Action required:** Confirm with Jorge whether he sent the rejection email to Titoma. If not, send or assign. Update Titoma's Notion status to Rejected once confirmed.
-
----
-
-### W-2 · M-BAND · Uartrónica re-quote — 3 weeks silence, OI overdue
-**Source:** Gmail search (uartronica.pt, 21-day window) returned empty. OI `33eb4a7d-7207-818d-b800-d7653fae491b` Pending, deadline 2026-04-24 (3 days overdue).
-**Gap:** No email activity from Uartrónica in at least 3 weeks. Re-quote was requested Apr 10 with updated BOM and COO-X volumes. No response confirmed in session-state.
-**Action required:** Send chase email to Uartrónica (Sofia Amaro). This has been flagged in pending actions since Apr 24 with no confirmed send. Escalate via Miguel if no reply within 2 business days.
-
----
-
-### W-3 · M-BAND · Vangest quote expired Apr 14 — not formally extended
-**Source:** Vangest Notion page (confirmed); Apr 17 email thread
-**Signal:** Revised quote OP 26-0609 v01.1 (Apr 9) had validity until Apr 14. André replied Apr 17 (3 days after expiry) saying "still reviewing." No quote extension request sent.
-**Gap:** Quote is expired. No formal extension confirmed. If Vangest re-prices (e.g., material cost change), the EUR 3.080/unit figure is no longer binding.
-**Action required:** Send formal quote extension request to Helmut Schmid / Sónia Sequeira. Also note: this supplier needs a decision soon — M-Band tooling lead time is 16 weeks per their quote.
-
----
-
-### W-4 · M-BAND · All 15 M-Band active suppliers had NULL Last Outreach Date
-**Source:** Notion M-Band DB query
-**Gap:** Only 5 suppliers were updated today (Ribermold, TransPak, Vangest, Uartrónica, JXwearable) via today's auto-writes + prior logged activity. The remaining 10 (MCM, GAOYI, Lihua, JXwearable, Quantal, Xinrui Group, Falcon Electronica, Sanmina, Electronica Cerler, Novares, SHX Watch) also have NULL Last Outreach Date. This is a broader DB hygiene issue.
-**Action required:** Run `/log-sent` for M-Band to backfill Last Outreach Date from existing email history.
-
----
-
-### W-5 · KAIA · All 5 Kaia suppliers have NULL Last Outreach Date
-**Source:** Notion Kaia DB query
-**Gap:** Tiger Fitness, Second Page Yoga, ProImprint (now fixed), Nimbl, 4imprint — all NULL.
-**Action required:** Run `/log-sent` for Kaia after Max/Caio decision resolves.
-
----
-
-### W-6 · PULSE · Kevin's OTS volume decision — Slack only, no email
-**Source:** Pulse Group DM (C0AUDR0D5EX), 2026-04-24
-**Signal:** Kevin Wang: *"1k is sufficient i think for 2 months."* Paulo proposed 1k–2k minimum. André proposed 1,500–2,000. No email to Transtek with confirmed OTS volumes has been sent (the Apr 24 email to Mika asked about availability, not committed volumes).
-**Gap:** OTS volume decision is unconfirmed in any written external communication. Transtek does not yet have a formal OTS volume commitment.
-**Action required:** Send email to Mika confirming OTS intent (BPM quantity TBD between 1k–2k) to allow Transtek to plan production. Gated on Kevin's final number.
-
----
-
-## INFO
-
-### I-1 · PULSE · Bradley/Transtek NDA entity correction — OI comment added (auto)
-**Source:** Bradley DM (D08G5S3ERJ7), 2026-04-20–22
-**Action taken:** Comment added to Transtek SCA OI (`33eb4a7d…396f`): Bradley confirmed reviewing Apr 21 after entity correction submitted. No additional Notion write needed.
-
-### I-2 · PULSE · Kevin confirmed Transtek scales decision (Apr 22)
-**Source:** #pulse-devices, Paulo's Apr 22 12:48 message; Kevin: *"And I agree let's switch over to Transtek for the smart scales please."*
-**Gap:** This is a significant sourcing decision (Transtek over Unique Scales for BIA scale) made in Slack. The existing OI "Transtek — confirm OTS stock availability" is Pending. The scale decision is not formally captured in the Transtek Notion page or an OI.
-**Proposed action:** Add comment to OI `34bb4a7d-7207-81c8-8c7f-cf88373ccce3` (Transtek OTS stock): "Apr 22 — Kevin Wang confirmed in #pulse-devices: switching to Transtek for BIA scale (vs Unique Scales). 2,000 units. Lead time ~2 months (mass production only). Unique Scales MSA ticket LRE-1924 to be cancelled."
-
-### I-3 · SYSTEM · databases.md write format for Last Outreach Date is incorrect
-**Source:** API response, 2026-04-27
-**Gap:** `databases.md` line 82 states "writers use notion-update-page with property name `Last Outreach Date` (the unprefixed name is used for writes)". This is wrong — the API requires `date:Last Outreach Date:start`. All future writes by any skill using the plain name will fail.
-**Action required:** Fix `databases.md` note on line 82.
-
-### I-4 · PULSE · Urion custom sample — DHL pickup pending confirmation
-**Source:** Urion Gmail thread, Apr 22 (most recent)
-**Status:** Panel sample photo approved Apr 22. Miki will send video + confirm shipment date. DHL label already issued. No action needed until Miki confirms.
-
-### I-5 · M-BAND · Arrow Electronics / AMS-OSRAM PO — not the same track
-**Source:** Jorge DM + Miguel DM, Apr 20–21
-**Clarification:** The Arrow Electronics discussion in Jorge/André DM is about ordering tablet samples (K11/X11) for a separate project (Mind incentives) — NOT the AMS-OSRAM AS7058A component PO for M-Band. The M-Band Future Electronics / AMS-OSRAM OI (`345b4a7d…7f9`) remains unchanged — no new activity found in this period.
-
----
-
-## OI UPDATES NEEDED
-
-| OI | Owner | Deadline | Source | Proposed Action |
-|---|---|---|---|---|
-| Transtek SCA (`33eb4a7d…396f`) | André → Bradley | Apr 17 (overdue) | Bradley DM Apr 21 | ✅ Comment added. Propose Status: Blocked → In Progress |
-| Legal/Finance PLD (`33eb4a7d…cd40`) | Anand / Hugo / Aaron | Apr 17 (overdue) | Anand DM Apr 22 | Add comment (Anand escalation). Awaiting approval (C-1 above) |
-| Ribermold quote (`33eb4a7d…871`) | André | Apr 22 (overdue) | Gmail Apr 24 | Status: Pending → In Progress. Context: meeting held Apr 15, follow-up sent Apr 24 |
-| Transtek OTS stock (`34bb4a7d…ce3`) | André | Apr 24 (overdue) | Pulse Group DM Apr 24 | Add comment: Kevin confirmed Transtek scales Apr 22; OTS volumes 1k–2k pending final Kevin call |
-| NEW: ProImprint cancellation | André | Apr 28 | Gmail Apr 21 | Create new OI (C-2 above) |
-| NEW: QTA+MSA Apr 29 gate | André (coordinator) | Apr 29 | #pulse-devices Apr 24 | Create new OI (C-3 above) |
-
----
-
-## PHASE 4 — PROJECT PAGE CURRENCY (inferred from scan)
-
-| Project | Section | Status | Issue |
-|---|---|---|---|
-| Pulse | Shortlist | ⚠️ Stale | Unique Scales dropped Apr 23 but DB shows Status unchanged (not verified in DB) |
-| Pulse | OI list | ⚠️ Several OIs overdue by 3–10 days | See OI table above |
-| M-Band | Titoma status | ⚠️ Unconfirmed | Jorge decided Apr 21 to reject; status not confirmed |
-| Kaia | Sample feedback | 🔴 Blocked | Max sample OI 12 days overdue; ProImprint order at risk |
-| All projects | Last Outreach Date | ⚠️ M-Band / Kaia DBs largely NULL | Run /log-sent |
-
----
-
-## SUMMARY SCORECARD
-
-| Severity | Count | Auto-fixed | Pending approval |
-|---|---|---|---|
-| CRITICAL | 3 | 0 | 3 |
-| WARNING | 6 | 5 (outreach writes) | 1 (Titoma, Uartrónica, Vangest extension) |
-| INFO | 5 | 1 (SCA comment) | 4 |
-| OI updates | 6 | 1 (SCA comment) | 5 |
-
-**Top 3 actions for André today:**
-1. **Reply to ProImprint** (or confirm Max/Caio hold) — order cancellation risk by ~Apr 28
-2. **Send Uartrónica chase email** — 3 weeks silence, OI 3 days overdue
-3. **Confirm OTS volumes with Kevin** and send Transtek email — volumes unconfirmed externally
+1. `/ping` to verify all MCPs.
+2. `/log-sent` to catch any missed milestones since 11:23 UTC.
+3. Approve OI closures listed above (Phase 5 — 7 candidates closable, 1 to In Progress).
+4. `/context-doctor kaia` for thickness drift.
+5. Chase: Ribermold (8d overdue), Uartrónica (6d overdue), Cerler (RFQ package overdue).
+6. Reply to Anand Singh DM ping (Apr 30 00:28 — re: MSA changes-to-products clause comment).
