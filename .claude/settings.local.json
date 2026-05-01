@@ -194,7 +194,24 @@
       "mcp__ruflo__memory_search",
       "Bash(where claude *)",
       "Bash(wt --version)",
-      "PowerShell(Get-Command *)"
+      "PowerShell(Get-Command *)",
+      "WebFetch(domain:www.ecfr.gov)",
+      "WebFetch(domain:www.fda.gov)",
+      "WebFetch(domain:www.federalregister.gov)",
+      "WebFetch(domain:www.greenlight.guru)",
+      "WebFetch(domain:www.thefdagroup.com)",
+      "WebFetch(domain:www.law.cornell.edu)",
+      "WebFetch(domain:www.artfulcompliance.com)",
+      "WebFetch(domain:www.fdahelp.us)",
+      "WebFetch(domain:www.customsmobile.com)",
+      "WebFetch(domain:www.rcainc.com)",
+      "WebFetch(domain:expandable.com)",
+      "WebFetch(domain:content.govdelivery.com)",
+      "WebFetch(domain:www.transtekcorp.com)",
+      "WebFetch(domain:www.sushvin.com)",
+      "Bash(GIT_EDITOR=true git rebase --continue)",
+      "Bash(ls .git/rebase-merge/)",
+      "Bash(ls .git/rebase-apply/)"
     ]
   },
   "enabledMcpjsonServers": [

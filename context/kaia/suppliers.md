@@ -1,5 +1,5 @@
 # Kaia Suppliers — Context File
-# Last synced: 2026-04-30T22:00
+# Last synced: 2026-05-01T06:30
 # Schema: v1
 # Note: All Kaia sourcing decisions gated on Caio + Max (memory `project_kaia_dependency`).
 
@@ -7,7 +7,7 @@
 
 ### Tiger Fitness
 - status: Under Review
-- nda: Signed
+- nda: Not Required
 - currency: USD
 - unit_cost: 2.80
 - tooling_cost: null
@@ -24,7 +24,7 @@
 
 ### Second Page Yoga
 - status: Under Review
-- nda: Signed
+- nda: Not Required
 - currency: USD
 - unit_cost: 2.39
 - tooling_cost: null
