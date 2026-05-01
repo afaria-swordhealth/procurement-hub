@@ -5,13 +5,12 @@
 Last-Warm-Up: 2026-04-30T08:30 | Session: B (Light warm-up — delta to Session A 08:18) (completed)
 Last-Mail-Scan: 2026-05-01T00:30 (silent cron; MAJOR: QTA signed Mika+Luís, OTS+PLD MSA signatures started, Keenfinity meeting May 4)
 Last-Log-Sent: 2026-05-01T00:35 (silent cron; 1 supplier checked, 0 new milestones since 19:20 — all already logged)
-Last-Wrap-Up: 2026-04-30T02:23 (auto-fixed by session-doctor: original 23:00 was future-dated. Mini wrap-up — Notion MCP down; git-only.)
+Last-Wrap-Up: 2026-05-01T07:00 (wrap-up --force for 2026-04-30: daily log finalized, context resynced, push complete)
 Last-System-Session: 2026-04-20T09:00
 Last-Morning-Brief: 2026-04-29T08:40 (delivered via Slack draft + chat; 3 decisions, 5 overdue, 5 signals)
 
 ## Active Sessions
-Session A | started 2026-04-30T08:18 (Full warm-up after André typed /warm-up --full)
-Session B | started 2026-04-30T08:30 (Light warm-up — Notion MCP recovered between A and B)
+(none — cleared by /wrap-up 2026-04-30)
 
 ## ✅ Notion MCP recovered (2026-04-30 ~08:28)
 Notion MCP authorization restored after André reconnected the integration. Confirmed via /ping at 08:28 — Procurement Hub page accessible, OI DB schema verified. Pending tasks (now unblocked):
@@ -102,10 +101,4 @@ Pending André decisions:
 Chaser candidates: Uartrónica, GAOYI, SHX Watch, Urion Technology — run /supplier-chaser when ready.
 
 ## Session Crons
-1038ed04 (mail-scan every 2h at :07)
-e3ccc56a (log-sent every 3h at :13)
-25fefb73 (morning-brief weekdays 07:32 — durable requested but session reports session-only)
-7b7239ab (housekeeping weekdays 18:00 — durable requested but session reports session-only)
-63dd873b (audit Fridays 17:00 — durable requested but session reports session-only)
-# Note: CronCreate returned "Session-only (not written to disk)" for all 5 despite durable:true. Crons will die when Claude exits. Re-register on next warm-up.
-# Session B sharing prior crons (registered 12min ago by Session A) — no new registration (per pre-cron guard)
+# Cleared by /wrap-up 2026-04-30 — all session-only crons expired with prior session. Re-register on next /warm-up.
