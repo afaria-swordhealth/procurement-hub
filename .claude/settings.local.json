@@ -192,6 +192,11 @@
       "Read(//c/Users/SWORD/Documents/GitHub/procurement-hub/Sandbox/**)",
       "Read(//g/My Drive/Projects/Pulse/Device Procurement/MSA/Transtek review v1/**)",
       "mcp__ruflo__memory_search",
+      "mcp__ruflo__github_issue_track",
+      "mcp__ruflo__github_metrics",
+      "mcp__ruflo__github_pr_manage",
+      "mcp__ruflo__github_repo_analyze",
+      "mcp__ruflo__github_workflow",
       "Bash(where claude *)",
       "Bash(wt --version)",
       "PowerShell(Get-Command *)",
@@ -211,7 +216,11 @@
       "WebFetch(domain:www.sushvin.com)",
       "Bash(GIT_EDITOR=true git rebase --continue)",
       "Bash(ls .git/rebase-merge/)",
-      "Bash(ls .git/rebase-apply/)"
+      "Bash(ls .git/rebase-apply/)",
+      "mcp__claude_ai_Google_Calendar__delete_event",
+      "PowerShell(Get-Item C:\\\\Users\\\\SWORD\\\\Documents\\\\GitHub\\\\procurement-hub\\\\outputs\\\\session-state.md | Select-Object LastWriteTime, @{N='AgeMin';E={[int]\\(\\(Get-Date\\) - $_.LastWriteTime\\).TotalMinutes}})",
+      "PowerShell(Get-Item C:\\\\Users\\\\SWORD\\\\Documents\\\\GitHub\\\\procurement-hub\\\\outputs\\\\session-state.md | ForEach-Object { \"{0} | AgeMin: {1}\" -f $_.LastWriteTime, [int]\\(\\(Get-Date\\) - $_.LastWriteTime\\).TotalMinutes })",
+      "PowerShell(Get-Date -Format 'yyyy-MM-ddTHH:mm:ss'; \"---\"; Get-Item C:\\\\Users\\\\SWORD\\\\Documents\\\\GitHub\\\\procurement-hub\\\\outputs\\\\session-state.md | ForEach-Object { \"session-state mtime: {0}\" -f $_.LastWriteTime })"
     ]
   },
   "enabledMcpjsonServers": [

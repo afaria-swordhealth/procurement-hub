@@ -2,103 +2,90 @@
 <!-- Auto-updated by /warm-up, /mail-scan, /log-sent, /wrap-up. Do not edit manually. -->
 
 ## Timestamps
-Last-Warm-Up: 2026-04-30T08:30 | Session: B (Light warm-up — delta to Session A 08:18) (completed)
-Last-Mail-Scan: 2026-05-01T00:30 (silent cron; MAJOR: QTA signed Mika+Luís, OTS+PLD MSA signatures started, Keenfinity meeting May 4)
-Last-Log-Sent: 2026-05-01T00:35 (silent cron; 1 supplier checked, 0 new milestones since 19:20 — all already logged)
-Last-Wrap-Up: 2026-05-01T07:00 (wrap-up --force for 2026-04-30: daily log finalized, context resynced, push complete)
+Last-Warm-Up: 2026-05-04T08:30 | Session: A (Full warm-up after weekend gap; prior wrap-up 2026-05-01) (completed)
+Last-Mail-Scan: 2026-05-04T21:15 (delta: 0 actionable — Transtek OOO auto-reply + Lihua old Thrive thread; no writes)
+Last-Log-Sent: 2026-05-04T20:35 (0 suppliers checked, 0 new milestones — arrow.com out of domain filter; no supplier domain emails sent since 16:10)
+Last-Wrap-Up: 2026-05-04T21:30 (wrap-up 2026-05-04: daily log created, context synced, push complete)
 Last-System-Session: 2026-04-20T09:00
 Last-Morning-Brief: 2026-04-29T08:40 (delivered via Slack draft + chat; 3 decisions, 5 overdue, 5 signals)
 
 ## Active Sessions
-(none — cleared by /wrap-up 2026-04-30)
+(none — cleared by /wrap-up 2026-05-04)
 
-## ✅ Notion MCP recovered (2026-04-30 ~08:28)
-Notion MCP authorization restored after André reconnected the integration. Confirmed via /ping at 08:28 — Procurement Hub page accessible, OI DB schema verified. Pending tasks (now unblocked):
-- /log-sent — Session A cron fired at 08:45 and logged Transtek MSA milestone successfully
-- /daily-log — Apr 30 log not yet pushed to Notion (action for André)
-- Decision Queue (OI DB query) — Session B retrieved 25 open items via search; full structured query still pending (notion-query-data-sources tool not exposed in MCP, search-only fallback used)
+## Context Snapshot (May 4 Full warm-up — gap since Apr 30 EOD)
 
-## Context Snapshot (Apr 30 08:18 Full warm-up)
+### Critical state changes since Apr 30 EOD
+- **Transtek MSA — FULLY EXECUTED Apr 30**: MSA signed both ends, PO FULLY APPROVED, PO# **USI-PO-2026-000311** issued via NetSuite. 50% pre-payment scheduled for **TODAY May 4** (André agreed with Hugo Moreira in office Apr 30 20:09). Signed before Transtek Golden Week (May 1-5). Anand publicly thanked André + Bianca for the methodical sourcing approach.
+- **Jorge Garcia ON PTO 2 weeks** starting Apr 30/May 1 (~through May 14). Anand stepping in for several streams. Jorge declined: Tue Logistics & Purchasing Weekly, Wintech weekly. Today's André/Jorge 1:1 (12:00) likely will not happen — verify on calendar.
+- **NEW WORK STREAM: Phone Stand for Thrive (Susana Afonso, Thrive AGM)**. Jorge added André as PoC Apr 30 20:16 via Slack DM. André replied Susana May 1 07:14 + booked **today 14:00 alignment call**. ⚠️ Jorge said in Slack DM Apr 30 20:16: project just went **ON HOLD at Márcio's request** until he checks with V[itor]; Jorge instructed André to **talk to Anand FIRST** before starting. André may have moved before the freeze — needs to confirm with Anand before today's 14:00 sync.
+- **Carlos Matoso growth experiment Apr 29** (mat reward, ~1k mats/month): Anand picking it up since Jorge OOO. Awaiting specs/price from Carlos.
+- **Daniel Ledo (R&S) reviewing Uartrónica alt-component proposal** (thread "New order PCBA production cost_30K", Penny@Able-One, May 4 07:00). Daniel: Standard passives OK; some need quick validation; Critical (MCU/RF, IMU, power, sensor) need HW validation. Bottleneck = Tekscan FSR sensor unchanged. Daniel will revert with HW team. Lead time impact 24wk → 16wk only partial.
 
-### Live activity since last session
-- **Transtek MSA full negotiation cycle Apr 29 → Apr 30 03:33 BST**
-  - Apr 29 12:21 — Mika returned BOTH MSAs (PLD + COTS) with Transtek Legal annotations to Sarah Hamid.
-  - Apr 29 16:46 — Sarah ack'd, will revert.
-  - Apr 30 01:55 — André sent Mika a working draft (Sword side) with comments + rationale "to catch your working day", flagged as not 100% final.
-  - Apr 30 03:33 — Sarah sent latest changes; flagged a couple of open questions for internal Sword team; Sword call scheduled "tomorrow" (= today Apr 30).
-  - **Sword internal call NOW ON CALENDAR**: "Finalize Transtek MSAs" Thu Apr 30 15:30-15:55 New York time = **15:30-15:55 Lisbon** (Kevin organizer; Sarah accepted; André accepted).
-- **Pulse-devices channel Apr 29-30 escalation**
-  - Sarah Hamid Apr 28 08:01 — flagged 3 open questions before sending MSA (alignment with QTA; relabeler line; reopened packaging on receipt).
-  - Apr 29 14:02 — Kevin loaded MSAs to Jira LRE-1920 and asked Sarah to review/return same day.
-  - Apr 29 23:31 — André pinged Sarah directly on the China timeline window.
-  - Apr 29 23:57 — Kevin asked Anand/Jorge/André to confirm Supply Chain delivery wording (FOB Zhongshan Port + 3.5.4 carriage liability clause).
-  - Apr 30 00:14 — Kevin asked Sofia for QARA sign-off on PLD clause 2.4 (changes to Products).
-  - Apr 30 07:15 — Elena Cavallini confirmed "comfortable with 2.4 under PLD as well" (last action in channel).
-- **Transtek 0.05%/day late-payment interest decision (Group DM Pulse decisions Apr 29 20:54-20:57)** — André presented option A (accept) vs B (request 10-15d grace). Kevin replied Apr 29 20:56-20:57: "we don't do interest like this — no hardware vendors do this right? i think 10-15 is a better proposal." → Sword position = grace period required.
-- **Transtek SDK/APP integration thread Apr 29-30** — Mika added Lavi Yang as RPM Solution Delivery Supervisor; Pedro Pereira asked iOS-side calculation question Apr 29 12:03. Lavi sent WeTransfer file Apr 30 03:30. Loop on iOS calc still open. Note: Transtek on Chinese public holiday May 1-5; resume May 6.
-- **Transtek BPM & Smart Scales order (Apr 29 thread)** — André sent invoice billing address (Sword Health Inc., 169 Madison Ave, Suite 15501, NY). Mika confirmed QTA already signed by both parties.
-- **Sofia QTA Slack DM Apr 29 09:02-09:52** — re-signed QTAs (Transtek's 2nd attempt) processed; Transtek copy distribution noted.
-- **Pulse-isc — Carlos Matoso Apr 29 11:32** — kicked off "8-day activity reward" experiment (Carlos N./Paulo/Kevin CC'd). Asks Jorge for ~1,000 mats/month from existing stock + restock. Jorge has not yet replied (thread shows 2 replies). NOT a Kaia procurement RFQ — uses existing stock — but flag for Jorge.
-- **M-Band Group DM Apr 29 09:30** — André pinged Gustavo on Xinrui magnet specs (strong/weak? nickel plating?). Thread has 1 reply (Apr 29 12:58 — content not surfaced; check thread).
-- **#m-band_sourcing Apr 21 17:14** — Jorge proposed informing Titoma they are NOT moving forward (already noted in M-Band context). No new posts in channel since Apr 23.
-
-### Today (Apr 30) — calendar agenda
-- **14:00-14:30 Lisbon** — Pulse Launch Weekly (Paulo/Kevin/Anand/Sofia + Bianca needsAction). Conference: meet.google.com/wjk-fiub-vvb.
-- **15:30-15:55 Lisbon** — Finalize Transtek MSAs (Kevin organizer; Sarah/Anand needsAction; Sofia needsAction; André accepted). Conference: meet.google.com/yqj-mnyg-cwj. CRITICAL — closes the MSA window before Transtek's May 1-5 holiday.
-- **16:00-16:15** — Brain Break (optional).
-
-### Carry-over still open (from Apr 29 snapshot)
-- Anand DM Apr 22 — André replied Apr 30 00:28 BST (re: pulse-devices comment) — partially closed; Anand last reply Apr 22.
-- Miguel DM "is this J-style or M-band?" Apr 27 23:29 — André replied Apr 27 23:29 with "fartei-me de ver a novela" (closed informally).
-- Mariana Peixoto Apr 23 23:31 — hold Move M-Band stock for mid-Jun launch. NO action required from André; Jorge owns.
-- Carlos Matoso Apr 21 — 5K Move M-band ETA. Jorge owns. Now joined by NEW Carlos Matoso ask Apr 29 (mat reward experiment) — also Jorge.
-- Kaia decision drift — context still says "Awaiting Max thickness decision". Apr 27 daily log "Kaia 3mm DECIDED — Notion + Excel locked." Verify with `/context-doctor kaia` when Notion MCP is back.
-- Kevin Wang T2D — parked, weekly reminder.
-- AMS-OSRAM 30wk PO overdue ~25d — escalation gated on Jorge.
+### Carry-over items (still open)
+- **Notion MCP**: Operational (recovered Apr 30 ~08:28). Decision Queue + writes available.
+- **Daily logs gap**: No logs Apr 28, Apr 29, May 1, May 2, May 3 (Apr 27 + Apr 30 are the latest filled; weekend overlap explains May 1-3).
+- **Kaia decision drift**: Apr 27 daily log marked "Kaia 3mm DECIDED" but `context/kaia/suppliers.md` still says "Awaiting Max thickness decision". Run `/context-doctor kaia`.
+- **AMS-OSRAM 30wk PO**: ~25d overdue (escalation gated on Jorge — now blocked further by Jorge's PTO).
+- **Kevin Wang T2D**: parked, weekly reminder.
+- **Anand DM Apr 30 12:02-12:06**: Anand confirmed Transtek incoterm change FOB→DDP is fine. Closed.
+- **Bradley Bruchs**: Transtek NDA #3213 fully approved (already logged); Apr 22 thread last action.
 
 ### Email State
-Last inbox scan: 2026-04-30T08:18 (Full). Gmail MCP: OPERATIONAL. NEW supplier emails since Apr 29 19:17: only continuation of (a) Transtek MSA thread (Apr 30 01:55 + 03:33 — internal continuation), (b) Transtek SDK thread (Lavi WeTransfer Apr 30 03:30). 0 NEW from other suppliers.
+Last inbox scan: 2026-05-04T08:30 (Full, newer_than:3d). NEW since May 1:
+- **May 4 07:00 — Daniel Ledo** → Jorge/Penny: Uartrónica alt-component review (R&S input, HW validation needed for critical comps; Tekscan FSR remains bottleneck).
+- **May 1 19:26 — Luis Oliveira** R&S Weekly Update: notes "very competitive quotation from Portuguese supplier for M-Band; CM selection in following [weeks]" — Uartrónica visibility at exec level.
+- **May 1 19:06 — Anand Singh** ISC Weekly Update.
+- **May 2 09:53 — made-in-china promo** (ignore).
+- **May 1 07:14 — André → Susana (Thrive)**: replied requesting volume/timeline/budget; booked today 14:00 sync. ⚠️ Jorge says talk to Anand first.
+- **Apr 30 19:39 — Jorge → André** added as PoC for Phone Stand for Thrive thread.
 
 ### Slack State
-Slack MCP operational. All 14 log=true contacts/channels scanned. Major activity Apr 29 morning → Apr 30 03 BST is Transtek MSA negotiation across DMs (Kevin, Paulo, Anand, Sofia, Bradley) + #pulse-devices. Carlos Matoso opened a new ask in #pulse-isc (mat reward experiment).
+Slack MCP operational. Major threads:
+- **#pulse-devices Apr 30 18:53-20:09**: Transtek MSA signed both ends, PO fully approved (USI-PO-2026-000311), 50% prepayment Monday May 4. Anand publicly thanked André.
+- **Jorge DM Apr 30 20:16**: 3 delegations — (1) Arrow PO Zip follow-up with Mary Anne Martin; (2) Phone Stand for Thrive (talk to Anand first — on hold); (3) US Insurance for Nimbl (estimate charging + DFU station value with R&S).
+- **#pulse-isc Apr 30 21:36**: Anand picking up Carlos Matoso mat experiment while Jorge OOO.
+- **Pulse Group DM Apr 30 19:35-22:50**: PO USI-PO-2026-000311 chase: Marcio signed; Hugo will help w/ NetSuite; payment Monday.
+- **Sofia DM Apr 30 21:29-21:50**: QTA wrap-up via email/Dropbox sign — friendly close.
+- **M-Band Group DM Apr 28-29**: Miguel Pais shared Wintech tier pricing (PCBA 230 RMB / Strap 15.9 RMB / Top Housing+Light Pipe 12.3 RMB / Packaging 8.70 RMB). André pinged Gustavo Apr 29 09:30 on Xinrui magnet specs (strong/weak, nickel plating).
+- **Kevin Wang DM Apr 30 02:10-02:54**: late-night MSA exchange — closed Apr 30 EOD.
 
-### Notion MCP State
-**OPERATIONAL** (recovered 2026-04-30 ~08:28). Procurement Hub + OI DB acessíveis.
-
-## Upcoming Meetings
-- **Thu Apr 30 14:00-14:30** — Pulse Launch Weekly
-- **Thu Apr 30 15:30-15:55 Lisbon** — Finalize Transtek MSAs (CRITICAL — pre-China-holiday window)
-- **Mon May 4 12:00-12:30** — André / Jorge 1:1
-- **Tue May 5 11:00-12:00** — Weekly: Logistics & Purchasing (Jorge declined OOO; Andreia, Mariana, Mariana M, Fernando, Catarina accepted)
-- **Tue May 5 12:30-13:30 Shanghai (= 05:30-06:30 Lisbon)** — Wintech / Sword Weekly (Jorge declined OOO)
+## Upcoming Meetings (next 5 days)
+- **TODAY Mon May 4 12:00-12:30** — André / Jorge 1:1 (Jorge OOO — likely will not happen)
+- **TODAY Mon May 4 14:00-14:30** — Phone Stand for Thrive Alignment with Susana (André created May 1 — verify with Anand FIRST per Jorge's Apr 30 20:16 DM)
+- **Tue May 5 09:30** — [Placeholder] Keenfinity visit to POP (Pais organizer; agenda TBC; André accepted)
+- **Tue May 5 11:00-12:00** — Weekly: Logistics & Purchasing (Jorge declined OOO)
+- **Tue May 5 12:30 Shanghai (= 05:30 Lisbon)** — Wintech / Sword Weekly (Jorge declined OOO; André tentative)
+- **Wed May 6 14:30-15:00** — Pulse Launch Weekly (Paulo organizer; Kevin/Anand/Sofia accepted)
+- **Thu May 7 16:00** — Brain Break (optional)
+- **Fri May 8 16:30** — Sword All Hands
 
 ## Pending Actions (for André)
-- **NOW** — Reconnect Notion MCP integration so /log-sent + /daily-log can run.
-- **NOW** — Reply Sarah/Kevin in #pulse-devices on the FOB Zhongshan + carriage liability question (Kevin pinged you, Anand, Jorge Apr 29 23:57).
-- **TODAY** — Pulse Launch Weekly 14:00.
-- **TODAY 15:30** — Finalize Transtek MSAs internal call. Pre-read Sarah's Apr 30 03:33 latest changes + Transtek's Apr 29 annotations.
-- **TODAY** — Ensure Sword position on the 0.05%/day interest = grace period 10-15d (Kevin's call) is communicated to Sarah → Mika before Mika logs off Friday for May 1-5 holiday.
-- **TODAY** — Reply Daxin Apr 24 (export country) — low priority parked T2D.
-- **TODAY** — Verify Gustavo magnet-spec response in M-Band Group DM Apr 29 thread (1 reply not surfaced).
-- **MAY 6** — PO + 50% deposit Transtek payment milestone. Mika offline May 1-5; PO must clear by May 6 their time.
-- **Kaia** — verify thickness decision via /context-doctor kaia once Notion is back.
-- **M-Band** — AMS-OSRAM 30wk PO overdue (escalation gated on Jorge).
-- **Open**: Carlos Matoso #pulse-isc Apr 29 mat reward — Jorge to triage; flag if Carlos chases André.
+- **NOW** — Confirm with Anand on Phone Stand for Thrive status (Marcio's hold) BEFORE 14:00 Susana sync.
+- **NOW** — Verify Jorge 1:1 cancellation (Jorge OOO).
+- **TODAY** — Transtek 50% prepayment USI-PO-2026-000311 (agreed in office with Hugo Apr 30 20:09).
+- **TODAY** — Arrow Electronics PO Zip follow-up with Mary Anne Martin (Excel review, last item before signatures + share files in "RE: [External] Re: Thrive DHA OTS - RFQ Package - Arrow Electronics - Tablet Solutions").
+- **TODAY** — US Insurance for Nimbl: ask R&S for estimated value of charging stations + DFU stations (rough estimate based on equipment cost) per Jorge's DM.
+- **THIS WEEK** — Run `/context-doctor kaia` (Kaia 3mm decision context drift).
+- **MAY 6 (Wed)** — Pulse Launch Weekly attendance.
+- **AMS-OSRAM 30wk PO**: blocked while Jorge OOO; carry over.
+- **Kevin Wang T2D**: parked, weekly reminder.
 
 ## Housekeeping Run — 2026-04-30
 Status: COMPLETE (synthesis phase)
-Completed: 2026-04-30 (evening cron, Wave 1 + Phase 6b synthesis)
-Auto-executed: 10 outreach archives, 7 notes condensed, 9 Last Outreach Dates fixed, 15 OI overdue comments posted, 0 OIs closed.
-Pending André decisions:
+Pending André decisions still carried over from Apr 30 evening run:
 - Currency field read-only in Pulse + Kaia DBs — fix in Notion UI
-- Transtek Notes: "Q2 risk" flag may be stale (PO deposit milestone set May 6) — approve rewrite
-- 3 Kaia Last Outreach Dates (China Tiger Fitness Apr 9, Second Page Yoga Apr 9, Nimbl Mar 23) — approve to write
-- Sanmina Notes rewrite (from "No contact established" to enriched format) — approve to write
-- 4 stale OIs: Kaia/Max Nimbl vs SV Direct (13d), Kaia/Max sample feedback (15d), Transtek Qualio page (10d), Legal/Finance PLD model (13d) — decide: escalate or extend?
-- 6 propose-close OIs: Transtek MSA share, Transtek MSA initiate, Kevin device specs, Ribermold (In Progress + new deadline), Cerler volumes (Pedro back), BloomPod Coin Cell (Pedro back)
-- 2 HIGH context drifts: Kaia/Second Page Yoga + China Tiger Fitness NDA field mismatch (context=Signed, Notion=Not Required)
-- 1 MEDIUM context drift: Uartrónica tooling cost (context/DB show old €7,015; formal quote Apr 24 = €89,275 NRE)
-Chaser candidates: Uartrónica, GAOYI, SHX Watch, Urion Technology — run /supplier-chaser when ready.
+- Transtek Notes "Q2 risk" flag may be stale (PO deposit milestone NOW today May 4)
+- 3 Kaia Last Outreach Dates approve to write
+- Sanmina Notes rewrite
+- 4 stale OIs (Kaia/Max Nimbl 13d, Kaia/Max sample feedback 15d, Transtek Qualio 10d, Legal/Finance PLD 13d)
+- 6 propose-close OIs
+- 2 HIGH context drifts (Kaia Second Page Yoga + China Tiger NDA field)
+- 1 MEDIUM context drift (Uartrónica tooling cost: context €7,015 vs formal Apr 24 €89,275 NRE)
+Chaser candidates: Uartrónica, GAOYI, SHX Watch, Urion Technology.
 
 ## Session Crons
-# Cleared by /wrap-up 2026-04-30 — all session-only crons expired with prior session. Re-register on next /warm-up.
+72233195  # mail-scan every 2h at :07
+4e5d097a  # log-sent every 3h at :13
+417b7df5  # morning-brief weekdays 07:32 (durable)
+0a6c5ec6  # housekeeping weekdays 18:00 (durable)
+6ee37bad  # audit Fridays 17:00 (durable)

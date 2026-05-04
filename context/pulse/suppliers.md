@@ -1,5 +1,5 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-05-01T06:30
+# Last synced: 2026-05-04T21:30
 # Schema: v1
 
 ## Active (2)
@@ -10,10 +10,10 @@
 - currency: USD
 - unit_cost: 19.20 (BPM) / 13.30 (BIA Scale)
 - tooling_cost: null
-- last_outreach: 2026-04-28
+- last_outreach: 2026-05-04
 - open_ois: 8
-- next: SQA sign Apr 29; PO + 50% deposit May 6; Transtek UDI-DI (BPM + Scale) next week after Pulse Logo approval; Sarah OTS MSA Monday Apr 28; manufacturing site CONFIRMED (BPM+Scale same Guangdong Transtek Medical Electronics facility); Bianca XS cuff path; chase Sofia QTA 3 legal feedback points
-- blocker: UDI-DI availability (Transtek May); Sarah OTS MSA + QTA finalization; scale LT TBD
+- next: Scale artwork (distributed by label) → Bianca approval via Sofia; UDI-DI both BPM + Scale; track 5-track delivery plan (OTS Bulk Jun 30; PLD Jul 10/Aug)
+- blocker: Scale artwork approval (Bianca); UDI-DI both devices; Scale LT TBD
 - notes: |
   MANUFACTURER (Zhongshan, CN). Entity: Guangdong Transtek Medical Electronics Co., Ltd
   (corrected 2026-04-20, Bradley notified). BP cuff BB2284-AE01. FOB ZS @5K (reference):
@@ -148,6 +148,11 @@ Notes condensed (2-line max) on Xinrui, Yilai, Daxin, Zewa per 2026-04-09 audit.
   22-45, XS 16-36, XL 40-52) explicitly covered in cleared system. QARA flag remains on
   BB2284-AE01 (current model) vs TMB-2092-G (predicate in K241351). LoE (notarized) is
   Transtek-internal — FDA Device Listing verification still required to close QARA loop.
+
+  OTS MSA FULLY EXECUTED 2026-04-30. PO USI-PO-2026-000311 issued (NetSuite). 50%
+  pre-payment paid 2026-05-04 (agreed with Hugo Moreira Apr 30 20:09). BPM + Scale
+  artwork folders shared with Kevin 2026-05-04. Scale "distributed by" label pending
+  Bianca approval via Sofia.
 
 ## Open Actions (ISC-level)
 
