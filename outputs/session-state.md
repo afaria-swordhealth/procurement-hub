@@ -84,8 +84,4 @@ Pending André decisions still carried over from Apr 30 evening run:
 Chaser candidates: Uartrónica, GAOYI, SHX Watch, Urion Technology.
 
 ## Session Crons
-72233195  # mail-scan every 2h at :07
-4e5d097a  # log-sent every 3h at :13
-417b7df5  # morning-brief weekdays 07:32 (durable)
-0a6c5ec6  # housekeeping weekdays 18:00 (durable)
-6ee37bad  # audit Fridays 17:00 (durable)
+# (cleared by /wrap-up 2026-05-04)
