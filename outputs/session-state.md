@@ -5,12 +5,12 @@
 Last-Warm-Up: 2026-05-05T10:20 | Session: A (Light delta; prior 09:00 warm-up; crons re-registered after restart) (completed)
 Last-Mail-Scan: 2026-05-05T17:07 (0 new — Mika OOO auto-reply ignored; Xinrui calendar acceptance informational; all other results outside 3d window)
 Last-Log-Sent: 2026-05-05T23:30 (3 new milestones: Tiger Fitness May 05, Second Page Yoga May 05 x2)
-Last-Wrap-Up: 2026-05-04T21:55
+Last-Wrap-Up: 2026-05-05T23:45
 Last-System-Session: 2026-04-20T09:00
 Last-Morning-Brief: 2026-04-29T08:40 (delivered via Slack draft + chat; 3 decisions, 5 overdue, 5 signals)
 
 ## Active Sessions
-- Session A — started 2026-05-05T09:00, re-warmed 10:20 after restart (Light, /effort max)
+(none — cleared by /wrap-up 2026-05-05)
 
 ## Context Snapshot (May 5 10:20 Light delta — additive on 09:00 Full warm-up)
 
@@ -108,8 +108,4 @@ Status: COMPLETE (synthesis phase) — items still pending for André:
 Chaser candidates: Uartrónica, GAOYI, SHX Watch, Urion Technology.
 
 ## Session Crons
-1411b708  (mail-scan every 2h at :07)
-d7ac5a4f  (log-sent every 3h at :13)
-142bcc46  (morning-brief weekdays 07:32) durable
-cde32cc7  (housekeeping weekdays 18:00) durable
-c1db4a0b  (audit Fridays 17:00) durable
+(none — cleared by /wrap-up 2026-05-05)
