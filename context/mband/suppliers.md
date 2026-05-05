@@ -1,5 +1,5 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-05-04T21:30
+# Last synced: 2026-05-05T23:30
 # Schema: v1
 
 ## Active (18)
@@ -13,7 +13,7 @@
 - unit_cost_native: EUR 3.080
 - tooling_cost_native: EUR 429850
 - cost_basis: "@255K, converted USD at FX 1.087"
-- last_outreach: 2026-04-14
+- last_outreach: 2026-04-17
 - open_ois: 0
 - next: Deprioritized per André feedback (Helmut Schmid pushy pattern)
 - blocker: null
@@ -30,7 +30,7 @@
 - unit_cost: 1.360
 - tooling_cost: 0
 - cost_basis: "@200K+ (confirmed)"
-- last_outreach: 2026-04-11
+- last_outreach: 2026-04-16
 - open_ois: 0
 - next: Validate custom samples when delivered
 - blocker: null

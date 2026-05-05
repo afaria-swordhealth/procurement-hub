@@ -1,5 +1,5 @@
 # Kaia Suppliers — Context File
-# Last synced: 2026-05-04T21:30
+# Last synced: 2026-05-05T23:30
 # Schema: v1
 # Note: All Kaia sourcing decisions gated on Caio + Max (memory `project_kaia_dependency`).
 
@@ -11,7 +11,7 @@
 - currency: USD
 - unit_cost: 2.80
 - tooling_cost: null
-- last_outreach: 2026-04-09
+- last_outreach: 2026-05-05
 - open_ois: 0
 - next: Awaiting Max thickness decision; no active chase
 - blocker: Thickness decision (Max Strobel)
@@ -19,8 +19,7 @@
   MANUFACTURER (Shanghai, CN). PVC yoga mats. Pricing @5K EXW: 3mm $2.80, 6mm $3.65,
   8mm $4.55. Branded samples delivered NYC 2026-03-30. Carton dims received 2026-04-08:
   6mm 12pcs/ctn 48x38x63cm 13.7kg — shared with Fernando. Packing list received
-  2026-04-09 (3mm/6mm/8mm @5000pcs), André acknowledged. Audit: outreach archive toggle
-  created Mar 2026, PT entries translated, stale OI closed.
+  2026-04-09 (3mm/6mm/8mm @5000pcs), André acknowledged. New initiative RFQ sent 2026-05-05.
 
 ### Second Page Yoga
 - status: Under Review
@@ -28,14 +27,14 @@
 - currency: USD
 - unit_cost: 2.39
 - tooling_cost: null
-- last_outreach: 2026-04-09
+- last_outreach: 2026-05-05
 - open_ois: 0
 - next: Awaiting Max thickness decision; no active chase
 - blocker: Thickness decision (Max Strobel)
 - notes: |
   MANUFACTURER (Hefei, CN). PVC yoga mats. Pricing @5K EXW: 3mm $2.39, 6mm $3.39,
-  8mm $4.39. Sea freight DDP ~$1.25-$3.00/un. FLC 6mm @5k: ~$19-23. Jerry sent packing
-  details for 6mm/8mm 2026-04-09, shared with logistics for freight analysis.
+  8mm $4.39. Sea freight DDP ~$1.25-$3.00/un. Fernando FCL @5k $1.95/un confirmed
+  (lowest freight of CN suppliers). New initiative RFQ + lead time confirmation sent 2026-05-05.
 
 ### ProImprint
 - status: Under Review
@@ -60,7 +59,7 @@
 - tooling_cost: null
 - last_outreach: 2026-04-17
 - open_ois: 0
-- next: Confirm Kaia fulfillment transition plan
+- next: Fulfillment transition plan confirmed (OI closed 2026-05-05). Active fulfillment partner.
 - blocker: null
 - notes: |
   Fulfillment partner (Salt Lake City, US). Price range $13.15-$17.15/un. Saves $2.68/un

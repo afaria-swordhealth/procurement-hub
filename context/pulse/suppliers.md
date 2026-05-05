@@ -1,5 +1,5 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-05-04T21:30
+# Last synced: 2026-05-05T23:30
 # Schema: v1
 
 ## Active (2)
@@ -11,9 +11,9 @@
 - unit_cost: 19.20 (BPM) / 13.30 (BIA Scale)
 - tooling_cost: null
 - last_outreach: 2026-05-04
-- open_ois: 8
-- next: Scale artwork (distributed by label) → Bianca approval via Sofia; UDI-DI both BPM + Scale; track 5-track delivery plan (OTS Bulk Jun 30; PLD Jul 10/Aug)
-- blocker: Scale artwork approval (Bianca); UDI-DI both devices; Scale LT TBD
+- open_ois: 1
+- next: Qualio supplier page (In Progress); track 5-track delivery plan (OTS Bulk Jun 30; PLD Jul 10/Aug); XS cuff bundle = 1 BPM + 1 std cuff, single gift box (XS excl.)
+- blocker: null
 - notes: |
   MANUFACTURER (Zhongshan, CN). Entity: Guangdong Transtek Medical Electronics Co., Ltd
   (corrected 2026-04-20, Bradley notified). BP cuff BB2284-AE01. FOB ZS @5K (reference):
@@ -151,8 +151,11 @@ Notes condensed (2-line max) on Xinrui, Yilai, Daxin, Zewa per 2026-04-09 audit.
 
   OTS MSA FULLY EXECUTED 2026-04-30. PO USI-PO-2026-000311 issued (NetSuite). 50%
   pre-payment paid 2026-05-04 (agreed with Hugo Moreira Apr 30 20:09). BPM + Scale
-  artwork folders shared with Kevin 2026-05-04. Scale "distributed by" label pending
-  Bianca approval via Sofia.
+  artwork folders shared with Kevin 2026-05-04. Scale "distributed by" label: Bianca
+  approved, feedback sent to Transtek 2026-05-05. XS cuff bundle decision 2026-05-05:
+  single gift box (1 BPM + 1 std cuff; XS SKU excluded from bundle). 9 OIs closed
+  2026-05-05 (MSA, ISTA, SQA, UDI-DI, SCA, artwork, QT OTS, XS cuff). 1 OI open:
+  Qualio supplier page (In Progress).
 
 ## Open Actions (ISC-level)
 
