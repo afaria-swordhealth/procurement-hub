@@ -5,7 +5,7 @@
 Last-Warm-Up: 2026-05-06T13:57 | Session: A (Full warm-up after 27h gap; wrap-up was 12:00 today before this session) (completed)
 Last-Mail-Scan: 2026-05-06T13:58 (rolled into warm-up Full email scan; 7 inbox threads in last 2d, 3 actionable: Navan mileage follow-up, Rita Xu PVT 5100 invoice qty mismatch, PP Group yoga mat RFQ thread for Andreia)
 Last-Log-Sent: 2026-05-06T20:45 (0 new milestones — phone stand outreach to 5 new domains not in domains.md, skipped)
-Last-Wrap-Up: 2026-05-06T20:55
+Last-Wrap-Up: 2026-05-06T21:00 (--force timestamp refresh; full wrap-up already executed by parallel CCR session at 20:55)
 Last-System-Session: 2026-04-20T09:00
 Last-Morning-Brief: 2026-04-29T08:40 (delivered via Slack draft + chat; 3 decisions, 5 overdue, 5 signals)
 
