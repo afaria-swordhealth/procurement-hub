@@ -1,5 +1,5 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-05-06T12:00
+# Last synced: 2026-05-06T20:50
 # Schema: v1
 
 ## Active (18)
@@ -32,12 +32,14 @@
 - cost_basis: "@200K+ (confirmed)"
 - last_outreach: 2026-04-16
 - open_ois: 0
-- next: Validate custom samples when delivered
+- next: Validate custom samples when delivered (ISCSB-2832 inbound)
 - blocker: null
 - notes: |
   Straps. ~$1.36/strap MP (200k+/yr). Pull force confirmed >70N. Stock samples picked up
   2026-04-11. Custom samples in progress. DB fields EUR 1.250 / 0 @200K (reference
-  convention is @5K — needs re-quote or correction flag).
+  convention is @5K — needs re-quote or correction flag). Outbound ref samples: ISCSB-2831,
+  AWB 4221148783, Porto → SHX Watch, shipped 2026-05-06. Inbound custom samples: ISCSB-2832,
+  AWB 6410655355, SHX Watch → Porto, pickup scheduled 2026-05-07.
 
 ### MCM
 - status: Quote Received
@@ -99,9 +101,9 @@
 - unit_cost: null
 - tooling_cost: null
 - last_outreach: 2026-04-24
-- open_ois: 1
-- next: Clarification meeting 2026-04-22
-- blocker: Quote finalization (adhesive supplier consultation in progress)
+- open_ois: 0
+- next: Await quote
+- blocker: null
 - notes: |
   Plastic Housings (PT). Meeting 2026-04-15: magnets confirmed NdFeB N45 nickel-plated,
   automated assembly line in development (single-button operation), IP68 as primary
@@ -241,7 +243,7 @@
 - currency: EUR
 - unit_cost: null
 - tooling_cost: null
-- last_outreach: null
+- last_outreach: 2026-04-18
 - open_ois: 0
 - next: NDA setup if engagement progresses
 - blocker: null

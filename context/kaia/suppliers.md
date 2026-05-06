@@ -1,5 +1,5 @@
 # Kaia Suppliers — Context File
-# Last synced: 2026-05-06T12:00
+# Last synced: 2026-05-06T20:30
 # Schema: v1
 # Note: All Kaia sourcing decisions gated on Caio + Max (memory `project_kaia_dependency`).
 
@@ -13,8 +13,8 @@
 - tooling_cost: null
 - last_outreach: 2026-05-05
 - open_ois: 0
-- next: Awaiting Max thickness decision; no active chase
-- blocker: Thickness decision (Max Strobel)
+- next: 3mm confirmed (Max May 5). Pending supplier selection by Max/Caio.
+- blocker: null
 - notes: |
   MANUFACTURER (Shanghai, CN). PVC yoga mats. Pricing @5K EXW: 3mm $2.80, 6mm $3.65,
   8mm $4.55. Branded samples delivered NYC 2026-03-30. Carton dims received 2026-04-08:
@@ -29,8 +29,8 @@
 - tooling_cost: null
 - last_outreach: 2026-05-05
 - open_ois: 0
-- next: Awaiting Max thickness decision; no active chase
-- blocker: Thickness decision (Max Strobel)
+- next: 3mm confirmed (Max May 5). Pending supplier selection by Max/Caio.
+- blocker: null
 - notes: |
   MANUFACTURER (Hefei, CN). PVC yoga mats. Pricing @5K EXW: 3mm $2.39, 6mm $3.39,
   8mm $4.39. Sea freight DDP ~$1.25-$3.00/un. Fernando FCL @5k $1.95/un confirmed
@@ -87,9 +87,7 @@
 
 ## Key Decisions Pending
 
-- Max Strobel: thickness decision (3/6/8mm) — blocks Tiger Fitness + Second Page Yoga
-  selection.
-- Max/Caio: supplier selection + Nimbl transition.
+- Max/Caio: supplier selection (3mm confirmed May 5) + Nimbl transition.
 - Caio flagged UHC audit risk for China vendors.
 - Fernando: independent freight quotes for 6mm/8mm (carton dims available).
 

@@ -1,5 +1,5 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-05-06T12:00
+# Last synced: 2026-05-06T20:50
 # Schema: v1
 
 ## Active (2)
@@ -10,9 +10,9 @@
 - currency: USD
 - unit_cost: 19.20 (BPM) / 13.30 (BIA Scale)
 - tooling_cost: null
-- last_outreach: 2026-05-04
-- open_ois: 1
-- next: Qualio supplier page (In Progress); track 5-track delivery plan (OTS Bulk Jun 30; PLD Jul 10/Aug); XS cuff bundle = 1 BPM + 1 std cuff, single gift box (XS excl.)
+- last_outreach: 2026-05-06
+- open_ois: 0
+- next: Track 5-track delivery plan (OTS Bulk Jun 30; PLD Jul 10/Aug); XS cuff bundle = 1 BPM + 1 std cuff, single gift box (XS excl.)
 - blocker: null
 - notes: |
   MANUFACTURER (Zhongshan, CN). Entity: Guangdong Transtek Medical Electronics Co., Ltd
@@ -154,8 +154,8 @@ Notes condensed (2-line max) on Xinrui, Yilai, Daxin, Zewa per 2026-04-09 audit.
   artwork folders shared with Kevin 2026-05-04. Scale "distributed by" label: Bianca
   approved, feedback sent to Transtek 2026-05-05. XS cuff bundle decision 2026-05-05:
   single gift box (1 BPM + 1 std cuff; XS SKU excluded from bundle). 9 OIs closed
-  2026-05-05 (MSA, ISTA, SQA, UDI-DI, SCA, artwork, QT OTS, XS cuff). 1 OI open:
-  Qualio supplier page (In Progress).
+  2026-05-05 (MSA, ISTA, SQA, UDI-DI, SCA, artwork, QT OTS, XS cuff). Qualio OI
+  closed 2026-05-06. All Transtek OIs closed.
 
 ## Open Actions (ISC-level)
 
@@ -164,7 +164,7 @@ Notes condensed (2-line max) on Xinrui, Yilai, Daxin, Zewa per 2026-04-09 audit.
   contracts (per Jorge).
 - QTA vs SQA: PLD = critical supplier, needs both. Transtek SQA template already with
   Bianca.
-- Qualio page: Andreia to handle on return (now unblocked via Sofia + Elena sponsor).
+- Qualio page: OI closed 2026-05-06.
 - Finance: supplier records via ticket (Catarina to identify Finance stakeholder).
 - Design: Marta Valente engaged in #pulse-packaging-artwork. Manual artwork rules: keep
   functional content/layout, change logo/company only.

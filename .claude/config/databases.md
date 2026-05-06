@@ -10,6 +10,7 @@
 | Kaia | collection://046b6694-f178-47dc-aac1-26efbfc2ab20 | KAIA_DB |
 | M-Band | collection://311b4a7d-7207-80e7-8681-000b5f1cd0dd | MBAND_DB |
 | BloomPod | collection://272844ce-c924-426c-bd32-facef6bca7ca | BLOOMPOD_DB |
+| Phone Stand (Thrive) | collection://f63e8a81-3644-4539-b755-b9ef63401cf9 | PHONESTAND_DB |
 
 ## Other DBs
 
@@ -37,6 +38,7 @@
 | Kaia | context/kaia/suppliers.md |
 | M-Band | context/mband/suppliers.md |
 | BloomPod | (none — light scaffold, add when shortlist matures) |
+| Phone Stand | context/phonestand/suppliers.md |
 
 ## BLOCKED (never touch)
 
@@ -112,6 +114,7 @@ Name, Status, id, url
 - **M-Band** (`MBAND_DB`): `"Unit Cost (USD)"`, `"Tooling Cost (USD)"` — renamed ✅ 2026-04-28.
 - **Pulse** (`PULSE_DB`): fields not actively used — skip for price-compare.
 - **BloomPod** (`BLOOMPOD_DB`): fields not yet used (light scaffold) — skip.
+- **Phone Stand** (`PHONESTAND_DB`): `"Unit Price (USD)"`, `"Fully Loaded Cost (USD)"`, `"Fulfillment (USD)"`, `"FX Rate at Quote"`, `"Freight + Duties (USD)"` — populate on quote intake. Schema replicated from Kaia + added `"Samples Status"` field.
 
 ## M4 Field Setup — DONE
 
