@@ -1,6 +1,12 @@
 # Domain-to-Supplier Mapping + Gmail Patterns
 # Single source of truth. All commands reference this file instead of hardcoding domains.
 # If a new supplier is added, update HERE. Everything else inherits.
+#
+# INVARIANT — TABLE ↔ FILTER SYNC: when a domain is added/removed/modified in any project
+# table above, ALSO update the matching project line in §"Per-project domain filters" near
+# the bottom of this file. The two are coupled — `/log-sent` reads the table for domain
+# membership but `/mail-scan` reads the filter line for Gmail queries. Skipping the filter
+# update silently drops emails from new suppliers in mail-scan default mode.
 
 > **Note:** The Status column is informational only and may be stale. Always query Notion for authoritative supplier status. This file is the source of truth for DOMAINS and GMAIL PATTERNS only.
 
