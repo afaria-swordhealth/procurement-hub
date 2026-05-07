@@ -3,6 +3,8 @@
 # Resolved section is kept for retrospective (monthly session reads it for patterns).
 
 ## Pending
+- [ ] [2026-05-07] commands/warm-up.md (Light delta scan): session-state.md Pending Actions + Carry-over go stale during long days — items completed mid-day (e.g. 5 phone-stand domains today, Celestica file move) remain in Pending. Light re-warm refreshes the Delta block but doesn't reconcile Pending Actions/Carry-over against today's change-log. — mini
+- [ ] [2026-05-07] cron-architecture: session-scoped CronCreate jobs dropped 3+ times in one day on session restart (08:10 → 11:30 → ~13:30 → empty at 16:44). session-state.md keeps stale references claiming jobs "confirmed active". Fix is to migrate observability crons (mail-scan, log-sent, morning-brief, housekeeping, audit) from in-session CronCreate to remote scheduled agents via /schedule. Touches multiple files (commands/warm-up.md cron-registration phase, commands/wrap-up.md cron-cleanup phase, possibly safety.md). — structural
 
 ## Resolved
 - [x] [2026-05-07 → 2026-05-07] log-sent: Notion 429 silently skipped Phase 2 supplier-page query (Tiger Fitness 13:00) + Phase 5b OI cross-reference (Second Page Yoga 13:00). Application gap: Apr 24 mcp-error-policy.md mini-fix updated quote-intake/rfq-workflow/supplier-chaser but never propagated to log-sent. — micro — fixed in `.claude/commands/log-sent.md` (Phase 2 + Phase 5b error-handling blocks: reference mcp-error-policy.md, retry-once-on-429, must-log-skip).
