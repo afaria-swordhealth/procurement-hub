@@ -35,6 +35,8 @@ For each sent email, extract: recipient, subject, date, snippet.
 For each supplier that received an email, query the supplier page from the relevant DB (.claude/config/databases.md).
 Read the ## Outreach section. Find the last logged entry date.
 
+**Notion error handling** (per `.claude/procedures/mcp-error-policy.md` — batch loop): on Notion error querying a single supplier page, retry once after 2s. If still failing on a 429 / rate-limit, log `[Supplier] — Notion 429 in Phase 2, skipped` to change-log and **continue the loop**. Surface skipped suppliers in the Phase 5 summary table as `[MCP ERROR — retry next /log-sent]`. Do not silently drop: every skip must appear in change-log.
+
 ## Phase 3: Compare and Flag
 
 For each sent email, check against the existing Outreach entries fetched in Phase 2:
@@ -92,6 +94,8 @@ If relevant: propose a Notion page comment via notion-create-comment on that OI 
 If not relevant: skip silently.
 
 **Write permissions:** OI comments via notion-create-comment are auto-approved (per CLAUDE.md §5 Exception 2). Write them directly after the Outreach write summary. Log each to `outputs/change-log.md`.
+
+**Notion error handling** (per `.claude/procedures/mcp-error-policy.md` — batch loop): on `notion-query-data-sources` (OI lookup) or `notion-create-comment` failure, retry once after 2s. If still failing on a 429, log `[Supplier] — Notion 429 in Phase 5b OI cross-ref, skipped` to change-log and continue. Never silently skip: a skipped OI cross-reference is a deferred write that must be re-attempted next /log-sent run. Surface skipped OI checks in the Phase 5 summary table.
 
 If no open OIs exist for a supplier, skip silently — do not flag.
 
