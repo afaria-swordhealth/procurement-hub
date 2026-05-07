@@ -42,6 +42,8 @@
 | bwoohk.com | BWOO | (alt domain) |
 | lamicall.com | Lamicall | Contacted |
 | chengrongtech.com | Shenzhen Chengrong Technology | Contacted |
+| efast-tech.com | EFAST | Contacted |
+| nulaxy.com | Nulaxy | Contacted |
 | flyoung.en.made-in-china.com | Shenzhen Flyoung Technology | Contacted (via MIC platform) |
 | xinsurui.en.alibaba.com | Shenzhen Xinsurui Technology | Contacted (via Alibaba platform) |
 
