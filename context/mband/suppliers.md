@@ -1,5 +1,5 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-05-06T20:50
+# Last synced: 2026-05-08T00:15
 # Schema: v1
 
 ## Active (18)
@@ -30,16 +30,15 @@
 - unit_cost: 1.360
 - tooling_cost: 0
 - cost_basis: "@200K+ (confirmed)"
-- last_outreach: 2026-04-16
+- last_outreach: 2026-05-07
 - open_ois: 0
-- next: Validate custom samples when delivered (ISCSB-2832 inbound)
+- next: Validate custom samples when delivered (ISCSB-2832 inbound, pickup scheduled May 7)
 - blocker: null
 - notes: |
   Straps. ~$1.36/strap MP (200k+/yr). Pull force confirmed >70N. Stock samples picked up
-  2026-04-11. Custom samples in progress. DB fields EUR 1.250 / 0 @200K (reference
-  convention is @5K — needs re-quote or correction flag). Outbound ref samples: ISCSB-2831,
-  AWB 4221148783, Porto → SHX Watch, shipped 2026-05-06. Inbound custom samples: ISCSB-2832,
-  AWB 6410655355, SHX Watch → Porto, pickup scheduled 2026-05-07.
+  2026-04-11. Custom samples in progress. Outbound ref samples: ISCSB-2831,
+  AWB 4221148783, Porto → SHX Watch, shipped 2026-05-06. Inbound custom samples:
+  ISCSB-2832, AWB 6410655355, SHX Watch → Porto, pickup scheduled 2026-05-07.
 
 ### MCM
 - status: Quote Received
@@ -72,10 +71,8 @@
 - blocker: null
 - notes: |
   Packaging. Honda Holdings group. Quote 2026-04-09 (updated 2026-04-13): $0.803/set @5K.
-  DB fields €0.739 / 143 (FX 0.92). Re-quote sent 2026-04-14. Jessica asked about order
-  frequency + delivery address 2026-04-15; André replied frequency TBD, delivery address
-  to be discussed at Tangxia meeting. Full tiers received 2026-04-16 — internal review
-  in progress.
+  DB fields €0.739 / 143 (FX 0.92). Re-quote sent 2026-04-14. Full tiers received
+  2026-04-16 — internal review in progress.
 
 ### Lihua
 - status: Quote Received
@@ -89,10 +86,8 @@
 - next: Confirm with Jorge whether outreach remains "on hold"
 - blocker: Notion Outreach flagged "on hold — confirm with Jorge"
 - notes: |
-  Packaging. Quote 2026-04-13: $0.994/set @5K (Rigid Box Lid = bundle per quote note 6).
-  DB fields €0.915 / 0 (existing tooling). Re-quote sent 2026-04-14, bug fixed (Base/Trays
-  no longer TBC). Jessica flagged missing 50k/200k pricing 2026-04-15. Full tiers
-  (25K/50K/200K) received 2026-04-16 — internal review in progress.
+  Packaging. Quote 2026-04-13: $0.994/set @5K. Full tiers (25K/50K/200K) received
+  2026-04-16 — internal review in progress.
 
 ### Ribermold
 - status: RFQ Sent
@@ -106,10 +101,8 @@
 - blocker: null
 - notes: |
   Plastic Housings (PT). Meeting 2026-04-15: magnets confirmed NdFeB N45 nickel-plated,
-  automated assembly line in development (single-button operation), IP68 as primary
-  validation (no separate pull-force test), pin assembly method TBD (press-fit or adhesive).
-  Ribermold finalizing quote with adhesive supplier recs. OI 33eb4a7d…d871 — clarification
-  meeting 2026-04-22.
+  automated assembly line in development, IP68 as primary validation. Ribermold finalizing
+  quote. OI clarification meeting 2026-04-22 done.
 
 ### TransPak
 - status: Quote Received
@@ -126,7 +119,7 @@
   Packaging (SE Asia). Quote received 2026-04-28 from Kevin Dempsey. 6 tiers: 10K/30K/
   50K/100K/200K/300K EXW. LT: first order 30-45 WD, repeat 30-40 WD. Boxes received
   (Move+Mind) appear not to be latest dimension/artwork — quote based on white box dims
-  + RFQ artwork. Prices in attachment image, not yet entered into DB.
+  + RFQ artwork.
 
 ### JXwearable
 - status: Under Review
@@ -141,8 +134,7 @@
 - blocker: null
 - notes: |
   Straps. Quote JX20260429 (2026-04-29): nylon strap + TPU plug + SUS304 buckle + ABS
-  stopper. FOB tiers $1.94/$1.90/$1.85. Tooling $2,000. MOQ 3,000. LT 25-40d. T/T advance
-  or L/C at sight. +36% vs SHX silicone, different material category.
+  stopper. FOB tiers $1.94/$1.90/$1.85. Tooling $2,000. MOQ 3,000. LT 25-40d.
 
 ### Uartrónica
 - status: Quote Received
@@ -155,13 +147,12 @@
 - cost_basis: "@210K annual (closest to 200K), converted USD at FX 1.087"
 - last_outreach: 2026-04-24
 - open_ois: 1
-- next: Chase re-quote (deadline moved to Apr 24)
+- next: Chase re-quote (deadline moved to Apr 24); fresh re-quote still pending
 - blocker: null
 - notes: |
   PCBAs (PT). ~EUR 22.07/unit + EUR 7,112 tooling (Dec 2025 indicative). Sofia Amaro
-  confirmed re-quote delivery "early next week" (2026-04-17). OI 33eb4a7d…818d deadline
-  2026-04-24 (moved from Apr 22). DB promoted to Quote Received on indicative data; fresh
-  re-quote still pending.
+  confirmed re-quote delivery "early next week" (2026-04-17). DB promoted to Quote
+  Received on indicative data; fresh re-quote still pending.
 
 ### Quantal
 - status: RFQ Sent
@@ -174,8 +165,8 @@
 - next: Await quote from Miguel Costa
 - blocker: null
 - notes: |
-  Sheet Metal. NDA fully executed 2026-04-14. Zip #3006 fully approved 2026-04-14. RFQ
-  package sent to Miguel Costa 2026-04-14.
+  Sheet Metal. NDA fully executed 2026-04-14. Zip #3006 fully approved 2026-04-14.
+  RFQ package sent to Miguel Costa 2026-04-14.
 
 ### Xinrui Group — Plastic Housings
 - status: Quote Received
@@ -190,10 +181,8 @@
 - blocker: null
 - notes: |
   Plastic Housings. OEM (China), 21yr experience. PI XR260429002 (unit) + XR260429001
-  (tooling). Units EXW: $1.8982 @10K / $1.8065 @30K / $1.7494 @50K. Tooling NRE $41,261
-  (Pogo Pins Plate $3,861 + Top+Light Pipe $17,550 + Rear+Lens $19,850). T0: 35-40 days.
-  Mold life 300K. Post-processing excl. DFM: Light Pipe buckle positions need design mod.
-  Valid 30d (expires 2026-05-29). Payment units 50/50; tooling 50/30/20.
+  (tooling). Units EXW: $1.8982 @10K / $1.8065 @30K / $1.7494 @50K. Tooling NRE $41,261.
+  DFM: Light Pipe buckle positions need design mod. Valid until 2026-05-29.
 
 ### Xinrui Group — Sheet Metal
 - status: RFQ Sent
@@ -201,13 +190,13 @@
 - currency: USD
 - unit_cost: null
 - tooling_cost: null
-- last_outreach: 2026-04-15
+- last_outreach: 2026-04-16
 - open_ois: 0
 - next: Await quote from Asher
 - blocker: null
 - notes: |
   Sheet Metal. OEM (China). RFQ sent 2026-04-15. Quote pending. NDA shared with
-  Xinrui Group — Plastic Housings (SHUFENG ZHANG, Dropbox Sign, Zip #3146).
+  Xinrui Group — Plastic Housings.
 
 ### Xinrui Group — Packaging
 - status: RFQ Sent
@@ -251,7 +240,7 @@
   PCBAs (via Manuel Beito). No NDA yet.
 
 ### Sanmina
-- status: Contacted
+- status: Rejected
 - nda: Not Started
 - currency: USD
 - unit_cost: null
@@ -261,7 +250,7 @@
 - next: No active follow-up (OI closed 2026-04-13)
 - blocker: No contact established
 - notes: |
-  PCBAs. No contact established. OI closed 2026-04-13.
+  PCBAs. No contact established. OI closed 2026-04-13. Status per Notion: Rejected.
 
 ### Electronica Cerler
 - status: Contacted
@@ -284,16 +273,17 @@
 - tooling_cost: null
 - last_outreach: null
 - open_ois: 1
-- next: Direct-contact search (LinkedIn / Ribermold / MCM referrals) — deadline 2026-04-21 TODAY
+- next: Direct-contact search (LinkedIn / Ribermold / MCM referrals)
 - blocker: No direct contact established
 - notes: |
-  Plastic Housings. Re-engage pending. OI 33fb4a7d…c45c deadline 2026-04-21.
+  Plastic Housings. Re-engage pending. OI 33fb4a7d…c45c (overdue).
 
-## Rejected (10)
+## Rejected (11)
 
 - Braloba, 3DWays, TERA Plastics, Watts Electronics, Celoplas, Edaetech, Carfi Plastics,
   Kimball Electronics, AbleOne, CONKLY (rejected 2026-04-10 — TPU cannot be secured to
   strap; capability gap confirmed by Nikki; kept for future projects).
+- Sanmina (no contact established; status updated to Rejected per Notion DB).
 
 ## Key Decisions
 
@@ -326,11 +316,11 @@
 
 ## Summary
 
-- 28 suppliers total. 18 active (8 Quote Received, 5 RFQ Sent, 1 Under Review, 3 Contacted,
-  1 Identified), 10 rejected.
-- NDAs signed (GAOYI, MCM, SHX Watch, Uartrónica, Vangest, JXwearable, Quantal, Ribermold,
-  TransPak, Xinrui Group [shared across 4 part splits]). 3 not started (Cerler, Falcon,
-  Sanmina). 2 not required (Lihua, Novares). 5/5 part categories covered (Housings,
-  PCBAs, Sheet Metal, Straps, Packaging). Active strap pool: SHX Watch + JXwearable.
-  Xinrui Group split into 4 part-specific pages (Plastic Housings, Sheet Metal,
-  Packaging, Straps) on 2026-04-30.
+- 28 suppliers total (per Notion DB). 17 active (8 Quote Received, 5 RFQ Sent, 1 Under
+  Review, 2 Contacted, 1 Identified), 11 rejected (including Sanmina per Notion DB).
+- NDAs signed (GAOYI, MCM, SHX Watch, Uartrónica, Vangest, JXwearable, Quantal,
+  Ribermold, TransPak, Xinrui Group [shared across 4 part splits]). 2 not started
+  (Cerler, Falcon). 2 not required (Lihua, Novares). 5/5 part categories covered
+  (Housings, PCBAs, Sheet Metal, Straps, Packaging). Active strap pool: SHX Watch +
+  JXwearable. Xinrui Group split into 4 part-specific pages (Plastic Housings, Sheet
+  Metal, Packaging, Straps) on 2026-04-30.

@@ -1,8 +1,8 @@
 {
-  "generated": "2026-05-06T20:55",
+  "generated": "2026-05-07T23:55",
   "projects": {
     "pulse": {
-      "last_synced": "2026-05-06T20:50",
+      "last_synced": "2026-05-07T23:55",
       "schema": "v1",
       "supplier_count_active": 2,
       "supplier_count_rejected": 11,
@@ -12,7 +12,7 @@
       "top_deadline": "2026-05-08"
     },
     "kaia": {
-      "last_synced": "2026-05-06T20:30",
+      "last_synced": "2026-05-07T23:55",
       "schema": "v1",
       "supplier_count_active": 5,
       "supplier_count_rejected": 8,
@@ -22,11 +22,11 @@
       "top_deadline": "2026-04-30"
     },
     "mband": {
-      "last_synced": "2026-05-06T20:50",
+      "last_synced": "2026-05-07T23:55",
       "schema": "v1",
-      "supplier_count_active": 18,
-      "supplier_count_rejected": 10,
-      "active_suppliers": ["Vangest", "SHX Watch", "MCM", "GAOYI", "Lihua", "Uartrónica", "Ribermold", "TransPak", "JXwearable", "Quantal", "Xinrui Group — Plastic Housings", "Xinrui Group — Sheet Metal", "Xinrui Group — Packaging", "Xinrui Group — Straps", "Falcon Electronica", "Sanmina", "Electronica Cerler", "Novares"],
+      "supplier_count_active": 17,
+      "supplier_count_rejected": 11,
+      "active_suppliers": ["Vangest", "SHX Watch", "MCM", "GAOYI", "Lihua Direct", "Uartrónica", "Ribermold", "TransPak", "JXwearable", "Quantal", "Xinrui Group — Plastic Housings", "Xinrui Group — Sheet Metal", "Xinrui Group — Packaging", "Xinrui Group — Straps", "Falcon Electronica", "Electronica Cerler", "Novares"],
       "cross_project_suppliers": [],
       "blocker_count": 0,
       "top_deadline": null
@@ -40,6 +40,16 @@
       "cross_project_suppliers": [],
       "blocker_count": 0,
       "top_deadline": "2026-04-24"
+    },
+    "phonestand": {
+      "last_synced": "2026-05-07T23:45",
+      "schema": "v1",
+      "supplier_count_active": 9,
+      "supplier_count_rejected": 0,
+      "active_suppliers": ["BWOO (Guangzhou Wusen Electronic)", "Lamicall", "Shenzhen Chengrong Technology", "Shenzhen Flyoung Technology", "Shenzhen Xinsurui Technology", "EFAST", "Nulaxy", "YRightSZ", "J-Mold"],
+      "cross_project_suppliers": [],
+      "blocker_count": 0,
+      "top_deadline": "2026-05-09"
     }
   }
 }

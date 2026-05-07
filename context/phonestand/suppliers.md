@@ -1,11 +1,11 @@
 # Phone Stand (Thrive) Suppliers — Context File
-# Last synced: 2026-05-06T19:00
+# Last synced: 2026-05-07T23:45
 # Schema: v1
 # Note: New project kicked off 2026-05-06 via Susana Afonso meeting. Smartphone-based
 # Thrive PT solution. Volume target 50–100k units H2 2026. Initial PO 10–20k. RFQ
-# inquiries sent to 5 suppliers 2026-05-06; awaiting first replies.
+# inquiries sent to 5 suppliers 2026-05-06; 4 more added 2026-05-07 (total: 9).
 
-## Active (5)
+## Active (9)
 
 ### BWOO (Guangzhou Wusen Electronic)
 - status: Contacted
@@ -38,7 +38,7 @@
 - notes: |
   Established 2008, 17+ years phone-stand specialist. 136 patented designs. Aluminum
   desktop range. MOQ 100 (very low — strong for samples). OEM/private label. Direct
-  factory communication, no intermediaries. Brand-grade quality. Contact: service@lamicall.com.
+  factory communication, no intermediaries. Contact: service@lamicall.com.
 
 ### Shenzhen Chengrong Technology
 - status: Contacted
@@ -51,10 +51,9 @@
 - next: Await catalog match + custom-design proposal if standard catalog insufficient
 - blocker: null
 - notes: |
-  Founded 2016. Aluminum CNC specialist (laptop + phone stands). 20 CNC machines,
-  ISO9001, CE/RoHS/REACH/CA Prop65. Full OEM/ODM service incl. mold design, anodic
-  oxidation, spraying, metal stamping, injection molding, precision CNC. Contact:
-  Ms. Kiki Kuai, kiki@chengrongtech.com, +86-15818520453. Bao'an, Shenzhen.
+  Founded 2016. Aluminum CNC specialist. 20 CNC machines, ISO9001, CE/RoHS/REACH/CA
+  Prop65. Full OEM/ODM incl. mold design, anodizing, precision stamping, injection.
+  Contact: Ms. Kiki Kuai, kiki@chengrongtech.com, +86-15818520453.
 
 ### Shenzhen Flyoung Technology
 - status: Contacted
@@ -65,11 +64,11 @@
 - last_outreach: 2026-05-06
 - open_ois: 0
 - next: Await reply via Made-in-China platform; expect platform-forwarded email
-- blocker: No public direct email — first contact via MIC inquiry form only
+- blocker: No public direct email — contact via MIC Trade Manager only
 - notes: |
   Founded 2015. 2000+ m² factory. SGS + WCA audited. CNC + oxidation. MOQ 500-1000 OEM.
-  Aluminum desktop range: Pzy1 ventilated ($0.95-1.20/pc), Slim ergonomic dock
-  ($3-3.17/pc). Contact: Miss Grace (Sales Manager) via Made-in-China Trade Manager.
+  Aluminum desktop range: Pzy1 ($0.95-1.20/pc), Slim dock ($3-3.17/pc). Contact:
+  Miss Grace via Made-in-China Trade Manager.
 
 ### Shenzhen Xinsurui Technology
 - status: Contacted
@@ -80,31 +79,87 @@
 - last_outreach: 2026-05-06
 - open_ois: 0
 - next: Await reply via Alibaba Trade Manager; request direct email in first message
-- blocker: No public direct email — first contact via Alibaba TM only
+- blocker: No public direct email — contact via Alibaba TM only
 - notes: |
-  Original supplier of pre-identified models ZF135 Desktop 360 Rotation Phone Holder
-  + ZF26 Adjustable Height Desktop Phone Holder. 5 years on Alibaba. 4.8/5 rating
-  (45 reviews), 100% reorder rate, response ≤5h. Located Guangdong. Catalog: Mobile
-  Phone Holders, Laptop/Tablet Stands, Reading Stands, Bookends. Contact via
+  Original supplier of pre-identified models ZF135 Desktop 360 Rotation + ZF26 Adjustable
+  Height. 5yr Alibaba, 4.8/5, 100% reorder rate, response ≤5h. Contact via
   xinsurui.en.alibaba.com Trade Manager.
+
+### EFAST
+- status: Contacted
+- nda: Not Required
+- currency: USD
+- unit_cost: null
+- tooling_cost: null
+- last_outreach: 2026-05-06
+- open_ois: 0
+- next: Await reply
+- blocker: null
+- notes: |
+  MANUFACTURER (China). Phone Stand. First contact 2026-05-06 via direct email.
+  Contact: Samson, samson@efast-tech.com.
+
+### Nulaxy
+- status: Contacted
+- nda: Not Required
+- currency: USD
+- unit_cost: null
+- tooling_cost: null
+- last_outreach: 2026-05-06
+- open_ois: 0
+- next: Await reply
+- blocker: null
+- notes: |
+  MANUFACTURER (China). Phone Stand. First contact 2026-05-06 via direct email.
+  Contact: support@nulaxy.com.
+
+### YRightSZ
+- status: Contacted
+- nda: Not Required
+- currency: USD
+- unit_cost: null
+- tooling_cost: null
+- last_outreach: 2026-05-07
+- open_ois: 0
+- next: Review product portfolio/presentation (Sandy confirmed sending 2026-05-08)
+- blocker: null
+- notes: |
+  MANUFACTURER (China). Phone Stand. Referred by Andreia Gomes — long-term partner
+  (confirmed by Sandy 2026-05-07). Sandy replied warmly; will send portfolio tomorrow.
+  Warm contact. Contact: Sandy, sandy@yrightsz.com.
+
+### J-Mold
+- status: Contacted
+- nda: Not Required
+- currency: USD
+- unit_cost: null
+- tooling_cost: null
+- last_outreach: 2026-05-07
+- open_ois: 0
+- next: Await reply from Artemis
+- blocker: null
+- notes: |
+  MANUFACTURER (China). Phone Stand. First contact 2026-05-07 via direct email.
+  Contact: Artemis, artemis@j-mold.com.
 
 ## Rejected (0)
 
-(None yet — all 5 contacted suppliers active.)
+(None — all 9 contacted suppliers active.)
 
 ## Key Decisions Pending
 
-- Supplier shortlist (after first quote tier received, narrow to 2-3 for sample evaluation)
+- Supplier shortlist after first quote tiers received (narrow to 2-3 for sample evaluation)
 - Sample evaluation by Ricardo Carvalhinho + Pedro Santos (Thrive team, Porto)
 - Final supplier selection target: end of May 2026
+- OIS: ZF135 + ZF26 samples due 2026-05-09; deliver to Porto Thrive team 2026-05-11
 
 ## Open Actions (ISC-level)
 
-- Replies expected within 5-7 business days from 2026-05-06.
+- Replies expected within 5-7 business days from first contact date.
 - Run /mail-scan-deep until Flyoung/Xinsurui forward direct emails (platform-mediated).
+- YRightSZ portfolio/presentation expected 2026-05-08 (Sandy confirmed).
 - Update domains.md with direct supplier emails as they become known.
-- Pre-identified sample models for shortlisted suppliers: ZF135, ZF26 (Xinsurui),
-  BO-ZJ132 (BWOO), GF135 alternative (aluminum candidate).
+- Pre-identified sample models: ZF135, ZF26 (Xinsurui), BO-ZJ132 (BWOO).
 
 ## Stakeholders
 

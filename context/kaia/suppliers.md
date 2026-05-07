@@ -1,5 +1,5 @@
 # Kaia Suppliers — Context File
-# Last synced: 2026-05-06T20:30
+# Last synced: 2026-05-08T00:15
 # Schema: v1
 # Note: All Kaia sourcing decisions gated on Caio + Max (memory `project_kaia_dependency`).
 
@@ -11,15 +11,15 @@
 - currency: USD
 - unit_cost: 2.80
 - tooling_cost: null
-- last_outreach: 2026-05-05
+- last_outreach: 2026-05-07
 - open_ois: 0
-- next: 3mm confirmed (Max May 5). Pending supplier selection by Max/Caio.
+- next: Fabric mat RFQ active (new initiative). Eva requested mat image to assess production capability. PVC timeline still pending from André.
 - blocker: null
 - notes: |
   MANUFACTURER (Shanghai, CN). PVC yoga mats. Pricing @5K EXW: 3mm $2.80, 6mm $3.65,
-  8mm $4.55. Branded samples delivered NYC 2026-03-30. Carton dims received 2026-04-08:
-  6mm 12pcs/ctn 48x38x63cm 13.7kg — shared with Fernando. Packing list received
-  2026-04-09 (3mm/6mm/8mm @5000pcs), André acknowledged. New initiative RFQ sent 2026-05-05.
+  8mm $4.55. Branded samples delivered NYC 2026-03-30. New initiative fabric mat RFQ
+  sent 2026-05-05 (different product from PVC scope). Eva follow-up May 7: requesting
+  mat image + PVC timeline confirmation.
 
 ### Second Page Yoga
 - status: Under Review
@@ -27,14 +27,15 @@
 - currency: USD
 - unit_cost: 2.39
 - tooling_cost: null
-- last_outreach: 2026-05-05
+- last_outreach: 2026-05-07
 - open_ois: 0
-- next: 3mm confirmed (Max May 5). Pending supplier selection by Max/Caio.
+- next: Revised spec + updated pricing pending from Jerry. Budget target $5-7/mat (~50% below current quote) sent May 7.
 - blocker: null
 - notes: |
   MANUFACTURER (Hefei, CN). PVC yoga mats. Pricing @5K EXW: 3mm $2.39, 6mm $3.39,
   8mm $4.39. Sea freight DDP ~$1.25-$3.00/un. Fernando FCL @5k $1.95/un confirmed
-  (lowest freight of CN suppliers). New initiative RFQ + lead time confirmation sent 2026-05-05.
+  (lowest freight of CN suppliers). New initiative RFQ + budget target $5-7 sent
+  2026-05-07. PU material eliminated per André feedback. Revised pricing pending.
 
 ### ProImprint
 - status: Under Review
@@ -44,12 +45,12 @@
 - tooling_cost: null
 - last_outreach: 2026-04-21
 - open_ois: 0
-- next: Decision gated on Max/Caio 2026-04-21
+- next: Decision gated on Max/Caio
 - blocker: Production slot cannot be held indefinitely (James pressing)
 - notes: |
   US reseller. $9.99/un all-in (3mm only). James pressing for production decision
   2026-04-16 — slot cannot be held indefinitely. No reply sent — decision gated on
-  Max/Caio 2026-04-21 (TODAY).
+  Max/Caio.
 
 ### Nimbl
 - status: Shortlisted
@@ -57,9 +58,9 @@
 - currency: USD
 - unit_cost: 13.15
 - tooling_cost: null
-- last_outreach: 2026-04-17
+- last_outreach: 2026-05-07
 - open_ois: 0
-- next: Fulfillment transition plan confirmed (OI closed 2026-05-05). Active fulfillment partner.
+- next: Active fulfillment partner. Fulfillment transition plan confirmed (OI closed 2026-05-05).
 - blocker: null
 - notes: |
   Fulfillment partner (Salt Lake City, US). Price range $13.15-$17.15/un. Saves $2.68/un
@@ -96,3 +97,5 @@
 - Kaia sourcing gated on Caio/Max — André does not advance unilaterally (memory
   `project_kaia_dependency`).
 - Standing risk: thickness decision overdue; ProImprint slot pressure rising.
+- New initiative (fabric mat): budget target $5-7/mat sent to Second Page Yoga (May 7).
+  Tiger Fitness capability for fabric mat TBD (awaiting image review by Eva).

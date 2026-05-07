@@ -1,5 +1,5 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-05-06T20:50
+# Last synced: 2026-05-08T00:15
 # Schema: v1
 
 ## Active (2)
@@ -10,7 +10,7 @@
 - currency: USD
 - unit_cost: 19.20 (BPM) / 13.30 (BIA Scale)
 - tooling_cost: null
-- last_outreach: 2026-05-06
+- last_outreach: 2026-05-07
 - open_ois: 0
 - next: Track 5-track delivery plan (OTS Bulk Jun 30; PLD Jul 10/Aug); XS cuff bundle = 1 BPM + 1 std cuff, single gift box (XS excl.)
 - blocker: null
@@ -72,6 +72,19 @@
   "Pulse — Consolidated delivery plan | Sword x Transtek"). Jira: LRE-1920 flagged for
   Transtek Scale coverage; LRE-1924 (Unique Scales MSA) closed by Maggie — no longer
   needed.
+
+  OTS MSA FULLY EXECUTED 2026-04-30. PO USI-PO-2026-000311 issued (NetSuite). 50%
+  pre-payment paid 2026-05-04 (agreed with Hugo Moreira Apr 30 20:09). BPM + Scale
+  artwork folders shared with Kevin 2026-05-04. Scale "distributed by" label: Bianca
+  approved, feedback sent to Transtek 2026-05-05. XS cuff bundle decision 2026-05-05:
+  single gift box (1 BPM + 1 std cuff; XS SKU excluded from bundle). 9 OIs closed
+  2026-05-05 (MSA, ISTA, SQA, UDI-DI, SCA, artwork, QT OTS, XS cuff). Qualio OI
+  closed 2026-05-06. All Transtek OIs closed.
+
+  SDK/APP integration confirmed 2026-05-07 (Paulo Alves): both GBF-2008-B (scale) and
+  BB2284-AE01 (BPM) successfully integrated with Sword app. Mika requested MP process
+  confirmation — Paulo covered while Pedro on vacation. 50% deposit confirmed received
+  by Transtek (Mika, May 7).
 
 ### Urion Technology
 - status: Quote Received
@@ -156,6 +169,8 @@ Notes condensed (2-line max) on Xinrui, Yilai, Daxin, Zewa per 2026-04-09 audit.
   single gift box (1 BPM + 1 std cuff; XS SKU excluded from bundle). 9 OIs closed
   2026-05-05 (MSA, ISTA, SQA, UDI-DI, SCA, artwork, QT OTS, XS cuff). Qualio OI
   closed 2026-05-06. All Transtek OIs closed.
+- 2026-05-07: 50% deposit confirmed received by Transtek. SDK/APP integration confirmed
+  by Paulo Alves (both BPM + Scale integrated with Sword app).
 
 ## Open Actions (ISC-level)
 

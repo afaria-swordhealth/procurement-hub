@@ -47,3 +47,45 @@
 - 16:50 — /improve micro #3: added Notion error-handling blocks to `.claude/commands/log-sent.md` Phase 2 (supplier-page query) and Phase 5b (OI cross-reference). Both now reference `procedures/mcp-error-policy.md` batch-loop policy + retry-once-on-429 + must-log-skip rule. Closes silent-signal pattern observed today (Second Page Yoga OI cross-ref + Tiger Fitness page query). Application of Apr 24 mcp-error-policy.md fix that hadn't propagated to log-sent (per memory `feedback_rule_propagation`).
 - 16:55 — /improve persisted 2 unexecuted signals to `outputs/friction-signals.md` ## Pending: (a) warm-up Light doesn't reconcile session-state Pending Actions vs today's change-log → mini; (b) session-scoped crons dropped 3× today on restarts → structural (migrate to /schedule remote agents).
 - 17:25 — /improve micro #4: added INVARIANT block at top of `.claude/config/domains.md` documenting the table ↔ Gmail-filter sync rule. Pattern was missed twice today (09:30 EFAST/Nulaxy added to table only; 16:00 YRightSZ/J-Mold added to table only — Session A patched the filter at 17:05). Rule lived only in `supplier-onboarding/SKILL.md` line 77; ad-hoc edits bypassed it. Now visible at the point of edit. Staged only my hunk (git add -p) so Session A's pending table+filter additions stay in the working tree for /wrap-up.
+- ~17:30 — /daily-log: entry created in Notion Daily Logs DB (359b4a7d). Status: Complete. Covers Pulse/Kaia/M-Band/ISC.
+- ~17:45 — /weekly-report W18: entry created in Notion Weekly Reports DB (359b4a7d-8119). Status: Draft. Period: Apr 28 – May 4, 2026. Note: Apr 30 daily log found with non-ISO date format — will need date field normalisation on next housekeeping.
+- ~18:00 — /weekly-report W19: entry created in Notion Weekly Reports DB (359b4a7d-81f8). Status: Draft. Period: May 5–7, 2026 (partial — Thursday-to-Thursday cadence starts this report).
+- ~18:10 — /log-sent: 1 supplier checked, 1 new milestone written.
+  - Transtek Medical (Pulse): May 07 BGM & CGM inquiry entry written — first outreach to Transtek on T2D product category. Last Outreach Date already 2026-05-07.
+  - OI comment on Pulse T2D OI (34ab4a7d): inquiry sent to primary BPM supplier on glucometer/CGM sourcing.
+- ~17:35 — /daily-log addendum: 3 post-17:30 items appended to page body (359b4a7d): Transtek T2D Gmail draft, Daxin Health reply draft, Paulo box design Slack draft. Highlights property unchanged (CCR entry complete).
+- ~17:45 — T2D Notion audit (2 suppliers):
+  - T2D page (33eb4a7d): vendors list updated — Transtek (preferred) + Daxin Health added explicitly; Action Item #1 marked done (✅).
+  - Daxin Health (311b4a7d…5a8e): Last Outreach Date → 2026-04-11; Notes → added T2D BGM context (BPM rejection reason clarified, T2D track noted).
+  - Transtek (311b4a7d…3dc5): no changes needed — T2D email not yet sent, no new outreach to log.
+  - PENDING: Daxin Status (Rejected → Contacted) — awaiting André approval.
+- ~18:30 — Multi-update: 4 items processed (Transtek deposit, Kaia/Nimbl, Ribermold, Notion verification).
+  - Transtek (Pulse): Notes field updated — stale "⚠️ LT 12-16 wk, Q2 risk." removed → "PO USI-PO-2026-000311 issued Apr 30; 50% deposit confirmed by Transtek May 7."
+  - Transtek (Pulse): May 07 Outreach entry added — "50% deposit receipt confirmed by Transtek (Mika Lu). PO USI-PO-2026-000311 payment milestone closed."
+  - Nimbl (Kaia): May 07 Outreach entry added — fulfillment decision confirmed. Last Outreach Date → 2026-05-07.
+  - Savings answer (Nimbl vs SV Direct): $2.68/unit saving ($15.83–$19.83 → $13.15–$17.15). At 5K units: ~$13,400. Max's lifetime estimate: $10k–$15k.
+  - Second Page Yoga Notes: "Fernando FCL @5k $1.95/un confirmed — lowest freight of CN suppliers" — André's intentional manual edit, preserved.
+  - Ribermold quote: Gmail scan returned no new email (newer_than:2d, subject:quotation). Quote may not be indexed yet — recheck next /mail-scan.
+  - W19 weekly report (359b4a7d-81f8): updated — removed stale deposit concern from Bad + Worries; Xinrui call → 🟢; added 🟢 for deposit confirmed + Nimbl decision; Goals next week #4 updated (deposit done ✅, MSA pending).
+- ~17:50 — T2D project architecture setup (alinhamento com Phone Stand pattern):
+  - CREATED T2D Suppliers DB (collection://abb53cb5-f7a1-4b74-ada9-8d5f523f3d4a) como filho da página T2D (33eb4a7d). Schema: Name, Status, Device Type, Region, Website, Contact, Notes, FDA Clearance, NDA Status, Samples Status, Private Label, BLE/SDK, Unit Price (USD), Strip Cost (USD/mo), Last Outreach Date.
+  - CREATED Transtek Medical (359b4a7d…7825) in T2D DB: Contacted, BGM, China, NDA Signed. T2D inquiry drafted May 7 not yet sent.
+  - CREATED Daxin Health (359b4a7d…4d89) in T2D DB: Contacted, BGM, China, Last Outreach Date 2026-04-11. Clean separation: Rejected in Pulse BPM DB, Contacted in T2D DB.
+  - CREATED OI linked view on T2D page (view://359b4a7d-7207-8136). ⚠️ Project filter empty — André to set manually in Notion UI (filter OI DB by Project = "Pulse T2D — GM&CGM Devices").
+  - RESTRUCTURED T2D page body: --- + ## Open Items (OI view) + --- + ## Suppliers (T2D DB) added after ## Status. Matches Phone Stand architecture.
+  - UPDATED databases.md: T2D_DB row added + schema documented in Known DB Schemas section.
+- ~18:55 — W19 Snapshot fix: Pulse note updated — "Deposit in transit (trace open)" → "50% deposit confirmed received by Transtek" (deposit was confirmed by Mika Lu May 7; trace closed).
+- ~18:50 — W19 weekly report updated: LogMan DHL invoice reader added to Good > ISC; duties module test added to Goals next week #9.
+- ~18:45 — /housekeeping: Report complete (phases 1–6b). AUTO-EXECUTED: 5 Phone Stand Notes condensed (Flyoung, BWOO, Xinsurui, Chengrong, Lamicall); 2 overdue OI comments posted (BloomPod Apr 24, Kaia sourcing Apr 30). Currency auto-fix skipped on Pulse/Kaia/PhoneStand (column absent in those DBs). NEEDS YOUR DECISION: Sanmina Status inconsistency (Contacted + "no contact established" Notes + null Last Outreach Date — likely should be Identified). Context drift on all 3 context files (21h old, approaching 24h threshold; Transtek/Nimbl/Second Page Yoga/SHX Watch all updated today). 5 mail-scan recommendations still pending approval.
+- ~18:50 — /log-sent cron: 0 new milestones — YRightSZ + J-Mold outreach already written at ~16:00; Transtek T2D dedup skip.
+- ~18:50 — Weekly reports fixed (André correction): W18 period + title → "Apr 27–30, 2026"; W19 period + title → "May 4–7, 2026"; W19 "Partial week" note removed.
+- ~18:55 — /housekeeping cron: SKIPPED — already ran today at ~18:45. NEEDS YOUR DECISION items pending from that run.
+- ~19:00 — T2D page (33eb4a7d) cleanup (André: "está muito confusa"): (1) removed "Vendors to evaluate" bullet (mixed active suppliers with OTC retail brands); (2) removed "Key Decisions" section (verbatim duplicate of BGM section parameters); (3) deleted stray unnamed inline DB (untitled, empty).
+- ~19:10 — Sanmina (M-Band, 313b4a7d): Status → Rejected (André: não querem trabalhar connosco).
+- ~19:10 — Kaia sourcing OI (34ab4a7d) comment: Max considering 2K order from current supplier then switching; André pushing air freight (5-10d lead, ~20-25% freight savings). Supplier selection + budget negotiation still active. Second Page Yoga budget target ~$5-7/mat disclosed.
+- ~19:30 — Nimbl (Kaia, 318b4a7d): May 07 Outreach entry added — Zip #3460 Spending Auth + Legal approved; remaining Info Sec → Contract Signature → Vendor Portal.
+- ~19:30 — Second Page Yoga (Kaia, 318b4a7d): May 07 Outreach entry added — Jerry invoice confirms agreed unit price, no change.
+- ~19:45 — Gmail draft r4670251276041559909: agenda email to Mika Lu (mika.lu@transtekcorp.com) for Fri May 8 10:30 call. Topics: Prop 65, OTS+Branded roadmap, T2D BGM/CGM intro, Scale connectivity bug, Invoice PO USI-PO-2026-000311. Draft, not sent.
+- ~22:00 — Anand DM: André + Anand huddle. Discussed AI presentation (Marcio end-of-May): include Francisco's purchasing tool (Q2 launch, Anand to confirm tomorrow). Separate topic from main deck.
+- ~23:55 — /wrap-up: context sync complete (Pulse 2A/11R, Kaia 5A/8R, M-Band 17A/11R — Sanmina corrected to Rejected). context/index.json regenerated. Daily log exists (Complete at 17:30) — skipped. 0 new log-sent milestones. Crons stopped. Session closed.
+- ~19:35 — Phase 5b OI cross-ref (mail-scan "tudo" completion): Tiger Fitness → comment posted on "Kaia — Caio + Max sourcing decision" (34ab4a7d) — Eva inbound May 7, mat image + PVC timeline requested, André reply pending. Nimbl → no open Nimbl OI found, skipped.

@@ -50,6 +50,8 @@
 | chengrongtech.com | Shenzhen Chengrong Technology | Contacted |
 | efast-tech.com | EFAST | Contacted |
 | nulaxy.com | Nulaxy | Contacted |
+| yrightsz.com | YRightSZ | Contacted |
+| j-mold.com | J-Mold | Contacted |
 | flyoung.en.made-in-china.com | Shenzhen Flyoung Technology | Contacted (via MIC platform) |
 | xinsurui.en.alibaba.com | Shenzhen Xinsurui Technology | Contacted (via Alibaba platform) |
 
@@ -125,7 +127,7 @@ Kaia: from:(tigerfitness.net.cn OR proimprint.com OR secondpageyoga.com OR secon
 
 M-Band: from:(conkly.com OR jxwatchband.com OR watchstrapbands.com OR ribermold.pt OR vangest.com OR uartronica.pt OR mcm.com.pt OR quantal.pt OR transpak.com OR shxwatch.com OR lihuadirect.com OR sanmina.com OR gaoyipp.com OR hondaholdings.com OR xrmould.com)
 
-Phone Stand: from:(gzbwoo.com OR bwoohk.com OR lamicall.com OR chengrongtech.com)
+Phone Stand: from:(gzbwoo.com OR bwoohk.com OR lamicall.com OR chengrongtech.com OR efast-tech.com OR nulaxy.com OR yrightsz.com OR j-mold.com)
 ```
 
 ### Deep scan mode (for /mail-scan --deep)

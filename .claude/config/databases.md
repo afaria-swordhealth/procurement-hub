@@ -11,6 +11,7 @@
 | M-Band | collection://311b4a7d-7207-80e7-8681-000b5f1cd0dd | MBAND_DB |
 | BloomPod | collection://272844ce-c924-426c-bd32-facef6bca7ca | BLOOMPOD_DB |
 | Phone Stand (Thrive) | collection://f63e8a81-3644-4539-b755-b9ef63401cf9 | PHONESTAND_DB |
+| Pulse T2D | collection://abb53cb5-f7a1-4b74-ada9-8d5f523f3d4a | T2D_DB |
 
 ## Other DBs
 
@@ -82,6 +83,18 @@ Name, Status, Notes, Currency, Region, "NDA Status", "Samples Status",
 id, url
 ```
 Note: `"Unit Cost (EUR)"`, `"Tooling Cost (EUR)"`, and `"FX Rate at Quote"` are written by quote-intake Step 4. `"date:Last Outreach Date:start"` is live on all 4 Supplier DBs — writers use `notion-update-page` with property name `Last Outreach Date` (the unprefixed name is used for writes; the `date:` prefix is read-side only).
+
+**Pulse T2D Supplier DB (T2D_DB) — different schema from other Supplier DBs:**
+```
+Name, Status, "Device Type", Region, Website, Contact, Notes, "FDA Clearance",
+"NDA Status", "Samples Status", "Private Label", "BLE / SDK",
+"Unit Price (USD)", "Strip Cost (USD/mo)",
+"date:Last Outreach Date:start", "date:Last Outreach Date:end", "date:Last Outreach Date:is_datetime",
+id, url
+```
+Status options: Contacted, Under Review, Shortlisted, Quote Received, NDA Signed, Rejected
+Device Type options: BGM, CGM, Both
+Note: OI view on T2D project page (collection://505b7f08 filtered by Project = T2D) — filter must be set manually in Notion UI (relation filters not yet supported in create-view DSL).
 
 **Open Items DB:**
 ```
