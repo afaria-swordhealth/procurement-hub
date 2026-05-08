@@ -96,6 +96,8 @@ Wait for user approval before any writes. No exceptions.
 
 NEVER call Atlassian write tools (`addCommentToJiraIssue`, `editJiraIssue`, `transitionJiraIssue`, `createJiraIssue`) during this skill. Jira ticket IDs in emails are read-only reference data — all Jira workflow is André-manual. See `safety.md` Core Rule 5b.
 
+**Notion error handling** (per `.claude/procedures/mcp-error-policy.md` — batch loop): mail-scan does Notion writes per row when André approves. On any `notion-query-data-sources`, `notion-create-comment`, `notion-update-page`, or `notion-create-pages` failure, retry once after 2s. If still failing on a 429, log `[Supplier] — Notion 429 in {step}, skipped — defer to next /mail-scan or /log-sent` to change-log and continue with the next row. Never silently skip — every skip must appear in change-log so the deferred work is visible. Surface skipped rows in the post-execution summary as `[MCP ERROR — retry next run]`.
+
 ## Closing Prompt
 
 After presenting the output table, count rows where Recommendation ≠ "Ignore". Then:

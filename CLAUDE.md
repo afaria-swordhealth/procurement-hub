@@ -94,6 +94,8 @@ Domain-to-supplier table and Gmail scan patterns: `.claude/config/domains.md`.
 | Slack | Read + Draft (live send requires explicit user phrase per safety.md Core Rule 5b) |
 | ruflo | Non-critical: patterns, embeddings, aidefence, memory (audit/learning only) |
 
+**Skill-author requirement:** any new skill or command that calls `notion-create-comment`, `notion-create-pages`, `notion-update-page`, or `notion-query-data-sources` MUST include an explicit error-handling block referencing `.claude/procedures/mcp-error-policy.md`. The policy doesn't auto-apply — without an explicit block, a Notion 429 will silently skip and lose the deferred work. Pattern: see `commands/log-sent.md` Phase 2 + Phase 5b or `commands/mail-scan.md` Safety section. Adding new Notion-write surfaces without this block is a friction-signal pattern (3 occurrences logged Apr 24 → May 7 → May 8).
+
 ---
 
 # 8. Writing Style
