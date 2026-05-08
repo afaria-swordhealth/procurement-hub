@@ -1,5 +1,5 @@
 # Kaia Suppliers — Context File
-# Last synced: 2026-05-08T00:15
+# Last synced: 2026-05-08T23:30
 # Schema: v1
 # Note: All Kaia sourcing decisions gated on Caio + Max (memory `project_kaia_dependency`).
 
@@ -27,15 +27,16 @@
 - currency: USD
 - unit_cost: 2.39
 - tooling_cost: null
-- last_outreach: 2026-05-07
+- last_outreach: 2026-05-08
 - open_ois: 0
-- next: Revised spec + updated pricing pending from Jerry. Budget target $5-7/mat (~50% below current quote) sent May 7.
+- next: Order intent confirmed May 8 (7K units: 2K air + 5K sea; payment May 11). Await updated pricing + spec from Jerry.
 - blocker: null
 - notes: |
   MANUFACTURER (Hefei, CN). PVC yoga mats. Pricing @5K EXW: 3mm $2.39, 6mm $3.39,
   8mm $4.39. Sea freight DDP ~$1.25-$3.00/un. Fernando FCL @5k $1.95/un confirmed
   (lowest freight of CN suppliers). New initiative RFQ + budget target $5-7 sent
-  2026-05-07. PU material eliminated per André feedback. Revised pricing pending.
+  2026-05-07. PU material eliminated per André feedback. May 8: order intent confirmed
+  (7K units: 2K air + 5K sea; payment by May 11). Revised pricing pending from Jerry.
 
 ### ProImprint
 - status: Under Review

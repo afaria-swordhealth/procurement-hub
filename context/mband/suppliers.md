@@ -1,27 +1,8 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-05-08T00:15
+# Last synced: 2026-05-08T23:30
 # Schema: v1
 
-## Active (18)
-
-### Vangest
-- status: Quote Received
-- nda: Signed
-- currency: EUR
-- unit_cost: 3.348
-- tooling_cost: 467228
-- unit_cost_native: EUR 3.080
-- tooling_cost_native: EUR 429850
-- cost_basis: "@255K, converted USD at FX 1.087"
-- last_outreach: 2026-04-17
-- open_ois: 0
-- next: Deprioritized per André feedback (Helmut Schmid pushy pattern)
-- blocker: null
-- notes: |
-  Plastic Housings (PT). Revised quote 2026-04-09: EUR 3.080/unit @255k + EUR 429,850
-  tooling. Quote expired 2026-04-14. Consolidated inline in supplier page 2026-04-14
-  (sub-pages [MERGED]). Skip follow-ups in mail-scan/housekeeping per André memory
-  `feedback_vangest_deprioritized`.
+## Active (16)
 
 ### SHX Watch
 - status: Quote Received
@@ -90,19 +71,25 @@
   2026-04-16 — internal review in progress.
 
 ### Ribermold
-- status: RFQ Sent
+- status: Quote Received
 - nda: Signed
 - currency: EUR
-- unit_cost: null
-- tooling_cost: null
-- last_outreach: 2026-04-24
+- unit_cost: 1.522
+- tooling_cost: 115766
+- unit_cost_native: EUR 1.400
+- tooling_cost_native: EUR 106500
+- cost_basis: "@210K EXW (Top EUR 0.380 + Rear Pre-Assy EUR 1.020), converted USD at FX 1.087"
+- last_outreach: 2026-05-07
 - open_ois: 0
-- next: Await quote
+- next: Review vs Xinrui @200K tier (pending). Best PT plastic housing quote to date.
 - blocker: null
 - notes: |
-  Plastic Housings (PT). Meeting 2026-04-15: magnets confirmed NdFeB N45 nickel-plated,
-  automated assembly line in development, IP68 as primary validation. Ribermold finalizing
-  quote. OI clarification meeting 2026-04-22 done.
+  Plastic Housings (PT). Quote Orc_1142 (May 7): Top Housing EUR 0.380/part + Rear
+  Housing Pre-Assy EUR 1.020/part = EUR 1.400/set @210K EXW (flat @300K). Tooling NRE
+  EUR 106,500: mold 2603110 Top EUR 50k/14wk + mold 2603111 Rear EUR 48k/14wk + mold
+  2603111A Pogo Pins Plate EUR 8.5k/10wk. 2K injection (ABS/PC+PMMA+PC). Magnets NdFeB
+  N45 confirmed. IP68 primary validation. Not incl: Robot Hand EUR 8k, Assembly jig EUR
+  350k (est.), CMM JIGs EUR 8.5k. Approved Filipe Ribeiro.
 
 ### TransPak
 - status: Quote Received
@@ -175,7 +162,7 @@
 - unit_cost: 1.7494
 - tooling_cost: 41261
 - cost_basis: "@50K EXW (200K not quoted)"
-- last_outreach: 2026-04-29
+- last_outreach: 2026-05-08
 - open_ois: 0
 - next: DFM flag → Gustavo/Miguel (Light Pipe buckle positions). Request 200K tier from Asher.
 - blocker: null
@@ -239,19 +226,6 @@
 - notes: |
   PCBAs (via Manuel Beito). No NDA yet.
 
-### Sanmina
-- status: Rejected
-- nda: Not Started
-- currency: USD
-- unit_cost: null
-- tooling_cost: null
-- last_outreach: null
-- open_ois: 0
-- next: No active follow-up (OI closed 2026-04-13)
-- blocker: No contact established
-- notes: |
-  PCBAs. No contact established. OI closed 2026-04-13. Status per Notion: Rejected.
-
 ### Electronica Cerler
 - status: Contacted
 - nda: Not Started
@@ -278,12 +252,15 @@
 - notes: |
   Plastic Housings. Re-engage pending. OI 33fb4a7d…c45c (overdue).
 
-## Rejected (11)
+## Rejected (12)
 
 - Braloba, 3DWays, TERA Plastics, Watts Electronics, Celoplas, Edaetech, Carfi Plastics,
   Kimball Electronics, AbleOne, CONKLY (rejected 2026-04-10 — TPU cannot be secured to
   strap; capability gap confirmed by Nikki; kept for future projects).
-- Sanmina (no contact established; status updated to Rejected per Notion DB).
+- Sanmina (no contact established; NDA → Not Required per housekeeping 2026-05-08).
+- Vangest (REJECTED 2026-05-08 — not competitive vs shortlisted alternatives; rejection
+  email sent to Ana Fontes + Helmut Schmid + Sónia Sequeira; kept in DB for future
+  opportunities).
 
 ## Key Decisions
 
@@ -316,11 +293,12 @@
 
 ## Summary
 
-- 28 suppliers total (per Notion DB). 17 active (8 Quote Received, 5 RFQ Sent, 1 Under
-  Review, 2 Contacted, 1 Identified), 11 rejected (including Sanmina per Notion DB).
-- NDAs signed (GAOYI, MCM, SHX Watch, Uartrónica, Vangest, JXwearable, Quantal,
-  Ribermold, TransPak, Xinrui Group [shared across 4 part splits]). 2 not started
-  (Cerler, Falcon). 2 not required (Lihua, Novares). 5/5 part categories covered
-  (Housings, PCBAs, Sheet Metal, Straps, Packaging). Active strap pool: SHX Watch +
-  JXwearable. Xinrui Group split into 4 part-specific pages (Plastic Housings, Sheet
-  Metal, Packaging, Straps) on 2026-04-30.
+- 28 suppliers total (per Notion DB). 16 active (9 Quote Received, 4 RFQ Sent, 1 Under
+  Review, 2 Contacted, 1 Identified), 12 rejected (Vangest REJECTED May 8).
+  Note: Xinrui Housings Last Outreach Date updated 2026-05-08 (DFM file received).
+- NDAs signed (GAOYI, MCM, SHX Watch, Uartrónica, JXwearable, Quantal, Ribermold,
+  TransPak, Xinrui Group [shared across 4 part splits]). 2 not started (Cerler, Falcon).
+  3 not required (Lihua, Novares, Sanmina). 5/5 part categories covered (Housings, PCBAs,
+  Sheet Metal, Straps, Packaging). Active strap pool: SHX Watch + JXwearable.
+  Xinrui Group split into 4 part-specific pages (Plastic Housings, Sheet Metal, Packaging,
+  Straps) on 2026-04-30.

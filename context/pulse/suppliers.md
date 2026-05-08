@@ -1,5 +1,5 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-05-08T00:15
+# Last synced: 2026-05-08T23:30
 # Schema: v1
 
 ## Active (2)
@@ -10,7 +10,7 @@
 - currency: USD
 - unit_cost: 19.20 (BPM) / 13.30 (BIA Scale)
 - tooling_cost: null
-- last_outreach: 2026-05-07
+- last_outreach: 2026-05-08
 - open_ois: 0
 - next: Track 5-track delivery plan (OTS Bulk Jun 30; PLD Jul 10/Aug); XS cuff bundle = 1 BPM + 1 std cuff, single gift box (XS excl.)
 - blocker: null
@@ -85,6 +85,12 @@
   BB2284-AE01 (BPM) successfully integrated with Sword app. Mika requested MP process
   confirmation — Paulo covered while Pedro on vacation. 50% deposit confirmed received
   by Transtek (Mika, May 7).
+
+  BGM T2D track 2026-05-08: VGM04 BGM Kit quote received via Mika — $15.80@2K-9.9K /
+  $15.20@10K+; strips $4.60-$4.45; lancets $0.50-$0.42. CE+FDA only — no Health Canada/
+  UKCA. Follow-up sent: asked about HC+UKCA certification path for T2D Canadian + UK
+  market tracks. XL cuff artwork files received from Zhanna Du, shared with Sofia QA;
+  feedback due May 11.
 
 ### Urion Technology
 - status: Quote Received
@@ -171,6 +177,10 @@ Notes condensed (2-line max) on Xinrui, Yilai, Daxin, Zewa per 2026-04-09 audit.
   closed 2026-05-06. All Transtek OIs closed.
 - 2026-05-07: 50% deposit confirmed received by Transtek. SDK/APP integration confirmed
   by Paulo Alves (both BPM + Scale integrated with Sword app).
+- 2026-05-08: BGM/VGM04 T2D track — quote received (FOB ZS: $15.80@2K-9.9K / strips
+  $4.60; lancets $0.50). CE+FDA only. Follow-up sent to Mika re HC+UKCA certification
+  path for Canadian + UK market tracks. XL cuff artwork files received from Zhanna Du,
+  shared with Sofia QA; feedback due May 11.
 
 ## Open Actions (ISC-level)
 

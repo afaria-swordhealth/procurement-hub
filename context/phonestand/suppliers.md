@@ -1,5 +1,5 @@
 # Phone Stand (Thrive) Suppliers — Context File
-# Last synced: 2026-05-07T23:45
+# Last synced: 2026-05-08T23:30
 # Schema: v1
 # Note: New project kicked off 2026-05-06 via Susana Afonso meeting. Smartphone-based
 # Thrive PT solution. Volume target 50–100k units H2 2026. Initial PO 10–20k. RFQ
@@ -46,13 +46,14 @@
 - currency: USD
 - unit_cost: null
 - tooling_cost: null
-- last_outreach: 2026-05-06
+- last_outreach: 2026-05-08
 - open_ois: 0
-- next: Await catalog match + custom-design proposal if standard catalog insufficient
+- next: Awaiting reply to smartphone model type clarification + branding enquiry sent May 8
 - blocker: null
 - notes: |
   Founded 2016. Aluminum CNC specialist. 20 CNC machines, ISO9001, CE/RoHS/REACH/CA
   Prop65. Full OEM/ODM incl. mold design, anodizing, precision stamping, injection.
+  May 8: first reply received — asked smartphone type clarification + branding enquiry.
   Contact: Ms. Kiki Kuai, kiki@chengrongtech.com, +86-15818520453.
 
 ### Shenzhen Flyoung Technology
@@ -77,9 +78,9 @@
 - unit_cost: null
 - tooling_cost: null
 - last_outreach: 2026-05-06
-- open_ois: 0
-- next: Await reply via Alibaba Trade Manager; request direct email in first message
-- blocker: No public direct email — contact via Alibaba TM only
+- open_ois: 1
+- next: URGENT — ZF135 + ZF26 sample OI deadline 2026-05-09. Contact via Alibaba TM to confirm sample shipment immediately.
+- blocker: No public direct email — contact via Alibaba TM only; no response yet
 - notes: |
   Original supplier of pre-identified models ZF135 Desktop 360 Rotation + ZF26 Adjustable
   Height. 5yr Alibaba, 4.8/5, 100% reorder rate, response ≤5h. Contact via
@@ -119,14 +120,15 @@
 - currency: USD
 - unit_cost: null
 - tooling_cost: null
-- last_outreach: 2026-05-07
+- last_outreach: 2026-05-08
 - open_ois: 0
-- next: Review product portfolio/presentation (Sandy confirmed sending 2026-05-08)
+- next: Await reply to sample request sent May 8 (1x each model, DHL label offered)
 - blocker: null
 - notes: |
   MANUFACTURER (China). Phone Stand. Referred by Andreia Gomes — long-term partner
-  (confirmed by Sandy 2026-05-07). Sandy replied warmly; will send portfolio tomorrow.
-  Warm contact. Contact: Sandy, sandy@yrightsz.com.
+  (confirmed by Sandy 2026-05-07). Sandy replied warmly; sent portfolio May 8.
+  Sample request sent May 8: 1x each stand model, DHL label offered. Warm contact.
+  Contact: Sandy, sandy@yrightsz.com.
 
 ### J-Mold
 - status: Contacted
