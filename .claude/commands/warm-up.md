@@ -67,7 +67,15 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 
 ### Phase 8: Start Session Crons
 
-**Pre-cron guard (concurrent warm-up).** Before calling CronCreate, read `outputs/session-state.md` sections `## Active Sessions` and `## Session Crons`. If ANOTHER session entry is listed with a start time within the last 30 min AND `## Session Crons` already contains ≥5 cron ID lines (non-comment): SKIP step 13 entirely — do NOT call CronCreate. Instead, append one line under `## Session Crons`: `# Session {role} sharing prior crons (registered {N}min ago) — no new registration`. Continue to Phase 9. This prevents duplicate registration when a second warm-up runs post-compact or in a parallel session. Wrap-up Phase 4b will tolerate the comment line (CronDelete on a non-ID skips silently).
+**Pre-cron guard (live cron check).** Before calling CronCreate, call `CronList` and count live crons. Then read `## Session Crons` from `outputs/session-state.md` and count registered ID lines (non-comment lines only).
+
+| CronList live count | Session Crons IDs | Action |
+|---|---|---|
+| ≥ 3 live crons | any | **SKIP** — crons already running. Do NOT call CronCreate. Append one line: `# Session {role} reusing live crons (CronList={N}) — no new registration`. Continue to Phase 9. |
+| 0 live crons | ≥ 5 IDs | Session restarted after warm-up — IDs are stale. **Action (in this exact order):** (a) **delete every non-comment ID line under `## Session Crons` in `outputs/session-state.md` BEFORE calling CronCreate** (write the cleared file back; if the section becomes empty, leave the `## Session Crons` heading and one comment `# {old IDs cleared at {time} — session-restart, re-registering}`). (b) Proceed to step 13 (CronCreate). (c) Step 13b writes ONLY the new IDs. **Why this matters:** without explicit clearing, step 13b appends and the file ends up with stale IDs from the prior session next to the fresh ones — exactly the pileup observed 2026-05-08 (Session A 5 + Session B 4 = 9 IDs visible despite the second-row branch firing). |
+| 0 live crons | 0 IDs | Normal first warm-up. Proceed with registration (step 13). |
+
+This replaces the previous 30-minute time-window check, which silently failed when a second warm-up ran more than 30 minutes after the first (e.g., post-compact Session B). The CronList check is state-based and timing-independent. Wrap-up Phase 4b tolerates the comment line (CronDelete on a non-ID skips silently).
 
 13. Start in-session recurring tasks (CronCreate):
     - Every 2 hours: silent /mail-scan. Only notify Andre if new emails found.
