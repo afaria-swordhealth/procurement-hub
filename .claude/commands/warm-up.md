@@ -93,6 +93,9 @@ This replaces the previous 30-minute time-window check, which silently failed wh
     - Context Snapshot: carry-over items, new findings, email state (last scan time + unread count), Slack state
     - Upcoming Meetings: next 5 days
     - Pending Actions: items flagged for André's decision
+
+    **Reconcile before write.** Run the candidate `Pending Actions` and `Carry-over items` lists through `.claude/procedures/reconcile-pending.md` before writing. Reconcile drops items where the underlying state (file existence, config content, expired time window) shows the work is already done, and marks fuzzy "likely done" items for André to verify. This prevents the warm-up builder from re-emitting Apr/May TODOs that shipped days ago — a recurring friction observed 2026-05-07 (5 phone-stand domains TODO carried 7+ hours after fix landed) and 2026-05-08 (full warm-up rebuilt asserting 6 domains "missing" when all 6 were committed in domains.md).
+
     After writing, re-read the first 10 lines of `outputs/session-state.md` and verify the `## Timestamps` section is present. If missing or file is under 10 lines, retry the write. If retry fails, halt and report — do not present the briefing until session-state is confirmed written.
 
 ### Phase 9: Day Briefing
