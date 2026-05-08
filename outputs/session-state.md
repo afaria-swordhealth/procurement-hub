@@ -6,13 +6,12 @@ Last-Warm-Up: 2026-05-08T09:55 | Session: B (Full warm-up; auto-promoted from --
 Prior-Warm-Up: 2026-05-08T08:57 | Session: A (Full warm-up; OI DB Notion 429 — used yesterday's snapshot as baseline) (completed)
 Last-Mail-Scan: 2026-05-08T18:25 (delta since 15:15: 0 new supplier emails. Zip Credit Card bills EUR 3.34/5.71/6.57 — fully approved, no supplier match, ignored.)
 Last-Log-Sent: 2026-05-08T19:05 (1 supplier checked, 1 new milestone — Transtek: BGM HC/UKCA certification follow-up logged. Prior runs covered all others.)
-Last-Wrap-Up: 2026-05-07T23:55 (context synced: Pulse 2A/11R, Kaia 5A/8R, M-Band 17A/11R+1 file mismatch, Phone Stand 9A. Daily log Complete. 0 log-sent milestones. Crons stopped.)
+Last-Wrap-Up: 2026-05-08T23:30 (context synced: Pulse 2A/11R, Kaia 5A/8R, M-Band 16A/12R — Vangest rejected, Sanmina moved to Rejected, COUNT_MISMATCH resolved. Phone Stand 9A. Daily log Complete. Crons stopped.)
 Last-System-Session: 2026-04-20T09:00
 Last-Morning-Brief: 2026-04-29T08:40 (delivered via Slack draft + chat; 3 decisions, 5 overdue, 5 signals)
 
 ## Active Sessions
-- Session A — started 2026-05-08T08:57 (Full warm-up, completed)
-- Session B — started 2026-05-08T09:55 (Full warm-up; auto-promoted from --light because Last-Warm-Up was 22.5h old at start. Operator did not realize Session A was already running. CONFLICT: both sessions have crons registered — wrap-up Phase 4b must clean up duplicates.)
+(none — cleared by /wrap-up 2026-05-08)
 
 ## Context Snapshot (May 8 08:57 — Full warm-up)
 
@@ -108,14 +107,4 @@ Yesterday's open OIs (from session-state baseline):
 - **CARRY** — AMS-OSRAM 30wk PO: blocked while Jorge OOO; carry over.
 
 ## Session Crons
-# Session A (registered 08:57)
-30b52e3a (mail-scan every 2h at :13)
-4ec9b765 (log-sent every 3h at :21)
-81b5f73f (morning-brief weekdays 07:32)
-2b95fd6b (housekeeping weekdays 18:00)
-c7f2f1ab (audit Fridays 17:00)
-# Session B (registered 09:56) — DUPLICATES of A on mail-scan/log-sent/housekeeping/audit, no morning-brief
-13610f05 (mail-scan every 2h at :17)
-08b710fe (log-sent every 3h at :23)
-defb7c58 (housekeeping weekdays 18:03)
-0a691cd4 (audit Fridays 17:07)
+# Cleared by /wrap-up 2026-05-08T23:30 — all 5 Session A crons deleted; Session B crons already expired (post-compact)
