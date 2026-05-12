@@ -1,5 +1,5 @@
 # Phone Stand (Thrive) Suppliers — Context File
-# Last synced: 2026-05-08T23:30
+# Last synced: 2026-05-12T23:30
 # Schema: v1
 # Note: New project kicked off 2026-05-06 via Susana Afonso meeting. Smartphone-based
 # Thrive PT solution. Volume target 50–100k units H2 2026. Initial PO 10–20k. RFQ
@@ -46,14 +46,17 @@
 - currency: USD
 - unit_cost: null
 - tooling_cost: null
-- last_outreach: 2026-05-08
+- last_outreach: 2026-05-11
 - open_ois: 0
-- next: Awaiting reply to smartphone model type clarification + branding enquiry sent May 8
+- next: Reply to Kiki H12 + H18 proposal (unread since May 9). H12 $2.23 EXW MOQ 3K/color.
 - blocker: null
 - notes: |
   Founded 2016. Aluminum CNC specialist. 20 CNC machines, ISO9001, CE/RoHS/REACH/CA
   Prop65. Full OEM/ODM incl. mold design, anodizing, precision stamping, injection.
-  May 8: first reply received — asked smartphone type clarification + branding enquiry.
+  May 8: first reply from Kiki — asked for smartphone type clarification + branding
+  enquiry. Andre clarified smartphone focus, asked about personalization. May 9: Kiki
+  proposed H12 ($2.23 EXW, MOQ 3,000/color, hot seller with stock) + H18 options
+  (smaller form factor). No reply sent yet — unread 4d.
   Contact: Ms. Kiki Kuai, kiki@chengrongtech.com, +86-15818520453.
 
 ### Shenzhen Flyoung Technology
@@ -79,11 +82,11 @@
 - tooling_cost: null
 - last_outreach: 2026-05-06
 - open_ois: 1
-- next: URGENT — ZF135 + ZF26 sample OI deadline 2026-05-09. Contact via Alibaba TM to confirm sample shipment immediately.
+- next: URGENT — ZF135 + ZF26 sample OIs overdue. Contact via Alibaba TM immediately.
 - blocker: No public direct email — contact via Alibaba TM only; no response yet
 - notes: |
   Original supplier of pre-identified models ZF135 Desktop 360 Rotation + ZF26 Adjustable
-  Height. 5yr Alibaba, 4.8/5, 100% reorder rate, response ≤5h. Contact via
+  Height. 5yr Alibaba, 4.8/5, 100% reorder rate, response <=5h. Contact via
   xinsurui.en.alibaba.com Trade Manager.
 
 ### EFAST
@@ -92,13 +95,15 @@
 - currency: USD
 - unit_cost: null
 - tooling_cost: null
-- last_outreach: 2026-05-06
+- last_outreach: 2026-05-12
 - open_ois: 0
-- next: Await reply
+- next: DHL label sent May 12. Samson confirmed waiting for pickup.
 - blocker: null
 - notes: |
-  MANUFACTURER (China). Phone Stand. First contact 2026-05-06 via direct email.
-  Contact: Samson, samson@efast-tech.com.
+  MANUFACTURER (China). Phone Stand. Contact moved from Alibaba Chat to direct email
+  May 12. DHL shipping label sent May 12 for sample shipment. Samson (Sales Manager)
+  confirmed "Sure, I'll wait" — awaiting pickup confirmation.
+  Contact: Samson Qiu, samson@efast-tech.com.
 
 ### Nulaxy
 - status: Contacted
@@ -120,14 +125,16 @@
 - currency: USD
 - unit_cost: null
 - tooling_cost: null
-- last_outreach: 2026-05-08
+- last_outreach: 2026-05-11
 - open_ois: 0
-- next: Await reply to sample request sent May 8 (1x each model, DHL label offered)
-- blocker: null
+- next: Forward DHL label 6839657005 (ISCSB-2844 from Catarina) to Sandy for sample shipment.
+- blocker: Label received (ISCSB-2844) but not yet forwarded to Sandy
 - notes: |
   MANUFACTURER (China). Phone Stand. Referred by Andreia Gomes — long-term partner
-  (confirmed by Sandy 2026-05-07). Sandy replied warmly; sent portfolio May 8.
-  Sample request sent May 8: 1x each stand model, DHL label offered. Warm contact.
+  (confirmed by Sandy 2026-05-07). Sandy sent portfolio/quotation May 8 (EXW prices,
+  multiple models). Sample request sent May 8: 1x each stand model, DHL label offered.
+  Catarina issued DHL label 6839657005 (ISCSB-2844) May 12 — needs to be forwarded to
+  Sandy so she can ship.
   Contact: Sandy, sandy@yrightsz.com.
 
 ### J-Mold
@@ -136,13 +143,17 @@
 - currency: USD
 - unit_cost: null
 - tooling_cost: null
-- last_outreach: 2026-05-07
+- last_outreach: 2026-05-12
 - open_ois: 0
-- next: Await reply from Artemis
+- next: Receive DHL tracking number from Artemis once available.
 - blocker: null
 - notes: |
-  MANUFACTURER (China). Phone Stand. First contact 2026-05-07 via direct email.
-  Contact: Artemis, artemis@j-mold.com.
+  MANUFACTURER (China). Phone stand specialist. Direct email contact established May 7.
+  Artemis Wu is Account Manager for Sword Health account (confirmed May 11).
+  Sample request sent May 11 — one unit of each model to Porto address (Av. de Sidonio
+  Pais 153, Ed. A, Piso 5). May 12: Artemis confirmed samples prepared and shipped via
+  DHL express. Tracking number to be shared once available.
+  Contact: Artemis Wu, artemis@j-mold.com.
 
 ## Rejected (0)
 
@@ -153,13 +164,15 @@
 - Supplier shortlist after first quote tiers received (narrow to 2-3 for sample evaluation)
 - Sample evaluation by Ricardo Carvalhinho + Pedro Santos (Thrive team, Porto)
 - Final supplier selection target: end of May 2026
-- OIS: ZF135 + ZF26 samples due 2026-05-09; deliver to Porto Thrive team 2026-05-11
+- OIs: ZF135 + ZF26 samples overdue (deadlines 2026-05-09/2026-05-11 passed, blocked upstream)
 
 ## Open Actions (ISC-level)
 
-- Replies expected within 5-7 business days from first contact date.
+- YRightSZ: forward DHL label 6839657005 (ISCSB-2844) to Sandy immediately.
+- Chengrong / Kiki: reply to H12 + H18 proposal (May 9, unread 4d).
+- Xinsurui: push via Alibaba TM — ZF135 + ZF26 samples OI overdue.
+- J-Mold: receive tracking number from Artemis (samples shipped May 12 via DHL).
 - Run /mail-scan-deep until Flyoung/Xinsurui forward direct emails (platform-mediated).
-- YRightSZ portfolio/presentation expected 2026-05-08 (Sandy confirmed).
 - Update domains.md with direct supplier emails as they become known.
 - Pre-identified sample models: ZF135, ZF26 (Xinsurui), BO-ZJ132 (BWOO).
 
@@ -167,4 +180,4 @@
 
 - Product / Requirements: Susana Afonso (Sword)
 - Sample Evaluation: Ricardo Carvalhinho, Pedro Santos (Thrive team, Porto)
-- Sourcing Lead: André Faria (ISC)
+- Sourcing Lead: Andre Faria (ISC)

@@ -1,8 +1,8 @@
 {
-  "generated": "2026-05-08T23:30",
+  "generated": "2026-05-12T23:30",
   "projects": {
     "pulse": {
-      "last_synced": "2026-05-08T23:30",
+      "last_synced": "2026-05-12T23:30",
       "schema": "v1",
       "supplier_count_active": 2,
       "supplier_count_rejected": 11,
@@ -12,7 +12,7 @@
       "top_deadline": null
     },
     "kaia": {
-      "last_synced": "2026-05-08T23:30",
+      "last_synced": "2026-05-12T23:30",
       "schema": "v1",
       "supplier_count_active": 5,
       "supplier_count_rejected": 8,
@@ -22,7 +22,7 @@
       "top_deadline": "2026-04-30"
     },
     "mband": {
-      "last_synced": "2026-05-08T23:30",
+      "last_synced": "2026-05-12T23:30",
       "schema": "v1",
       "supplier_count_active": 16,
       "supplier_count_rejected": 12,
@@ -42,7 +42,7 @@
       "top_deadline": "2026-04-24"
     },
     "phonestand": {
-      "last_synced": "2026-05-08T23:30",
+      "last_synced": "2026-05-12T23:30",
       "schema": "v1",
       "supplier_count_active": 9,
       "supplier_count_rejected": 0,

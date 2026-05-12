@@ -1,5 +1,5 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-05-08T23:30
+# Last synced: 2026-05-12T23:30
 # Schema: v1
 
 ## Active (2)
@@ -10,7 +10,7 @@
 - currency: USD
 - unit_cost: 19.20 (BPM) / 13.30 (BIA Scale)
 - tooling_cost: null
-- last_outreach: 2026-05-08
+- last_outreach: 2026-05-11
 - open_ois: 0
 - next: Track 5-track delivery plan (OTS Bulk Jun 30; PLD Jul 10/Aug); XS cuff bundle = 1 BPM + 1 std cuff, single gift box (XS excl.)
 - blocker: null
@@ -177,6 +177,10 @@ Notes condensed (2-line max) on Xinrui, Yilai, Daxin, Zewa per 2026-04-09 audit.
   closed 2026-05-06. All Transtek OIs closed.
 - 2026-05-07: 50% deposit confirmed received by Transtek. SDK/APP integration confirmed
   by Paulo Alves (both BPM + Scale integrated with Sword app).
+- 2026-05-11: XL cuff artwork feedback due to Sofia QA (received from Zhanna Du May 8).
+- 2026-05-12: Zhanna Du (Transtek) requested DHL pickup for May 15 Beijing 18:00. Items:
+  2 BPMs (Pulse logo) + 2245 cuff + 2 scales (Pulse logo). NW 5.6kg. Quick-delivery
+  service requested. Pickup to be arranged by ISC (open ISCSB Jira + Catarina).
 - 2026-05-08: BGM/VGM04 T2D track — quote received (FOB ZS: $15.80@2K-9.9K / strips
   $4.60; lancets $0.50). CE+FDA only. Follow-up sent to Mika re HC+UKCA certification
   path for Canadian + UK market tracks. XL cuff artwork files received from Zhanna Du,

@@ -17,6 +17,13 @@ model: opus
 
 Rule: if `session-state.md` is missing, `Last-Warm-Up > 8h`, or `context/index.json` is missing/stale → auto-promote to Full and note it in the briefing.
 
+**Session role routing (overrides manual --light/--full flags and the auto-promote rule above):**
+- At warm-up start, read `## Active Sessions` in `outputs/session-state.md`.
+- **No active session** (section empty or `(none)`) → this is **Session A**: force `--full` mode; register crons in Phase 8.
+- **Session A already active** → this is **Session B**: force `--light` mode; skip Phase 8 (no crons). Record role as B in Phase 10.
+- **Both A and B active** (MULTI_SESSION) → warn André and proceed as Session B (light, no crons).
+- This routing takes precedence over any explicit `--light` or `--full` argument passed by the user.
+
 **Skips in Light:**
 - Phase 1: Do NOT read context files eagerly. Load per `context-loader.md` Layer 2 rules when the briefing references a specific project/supplier.
 - Phase 6: Skip change-log review (trust /wrap-up handoff).
@@ -66,6 +73,8 @@ Follow CLAUDE.md Safety Rules and Writing Style sections.
 12. Check context file "Last synced" headers for staleness (>24h = warn).
 
 ### Phase 8: Start Session Crons
+
+**Session B guard:** If this is Session B (determined in the Session role routing block above), skip Phase 8 entirely. Do NOT call CronCreate or CronList. Write one line to `outputs/session-state.md` under `## Session Crons`: `# Session B — no crons registered (cron-session is Session A)`. Continue to Phase 10.
 
 **Pre-cron guard (live cron check).** Before calling CronCreate, call `CronList` and count live crons. Then read `## Session Crons` from `outputs/session-state.md` and count registered ID lines (non-comment lines only).
 

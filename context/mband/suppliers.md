@@ -1,5 +1,5 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-05-08T23:30
+# Last synced: 2026-05-12T23:30
 # Schema: v1
 
 ## Active (16)
@@ -11,7 +11,7 @@
 - unit_cost: 1.360
 - tooling_cost: 0
 - cost_basis: "@200K+ (confirmed)"
-- last_outreach: 2026-05-07
+- last_outreach: 2026-05-11
 - open_ois: 0
 - next: Validate custom samples when delivered (ISCSB-2832 inbound, pickup scheduled May 7)
 - blocker: null

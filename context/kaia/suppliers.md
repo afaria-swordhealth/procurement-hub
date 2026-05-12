@@ -1,5 +1,5 @@
 # Kaia Suppliers — Context File
-# Last synced: 2026-05-08T23:30
+# Last synced: 2026-05-12T23:30
 # Schema: v1
 # Note: All Kaia sourcing decisions gated on Caio + Max (memory `project_kaia_dependency`).
 
@@ -27,9 +27,9 @@
 - currency: USD
 - unit_cost: 2.39
 - tooling_cost: null
-- last_outreach: 2026-05-08
+- last_outreach: 2026-05-11
 - open_ois: 0
-- next: Order intent confirmed May 8 (7K units: 2K air + 5K sea; payment May 11). Await updated pricing + spec from Jerry.
+- next: ZIP PO #3511 in progress (correct amount $100K → $16,730). LRE-1957 MSA filed. Jerry onboarding in Zip (bank data upload pending). 4imprint backup if delays.
 - blocker: null
 - notes: |
   MANUFACTURER (Hefei, CN). PVC yoga mats. Pricing @5K EXW: 3mm $2.39, 6mm $3.39,
@@ -37,6 +37,10 @@
   (lowest freight of CN suppliers). New initiative RFQ + budget target $5-7 sent
   2026-05-07. PU material eliminated per André feedback. May 8: order intent confirmed
   (7K units: 2K air + 5K sea; payment by May 11). Revised pricing pending from Jerry.
+  May 9: Jerry confirmed 12d air + 10d sea from payment. May 11: Andre emailed Jerry
+  re Zip vendor onboarding (bank data upload step). Caio opened Zip PO #3511 ($100K).
+  May 12: Max flagged ZIP amount correction needed ($100K → $16,730 per André Portugal).
+  LRE-1957 Jira MSA filed. Anand engaging finance. 4imprint backup track confirmed by Caio.
 
 ### ProImprint
 - status: Under Review

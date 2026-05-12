@@ -2,108 +2,114 @@
 <!-- Auto-updated by /warm-up, /mail-scan, /log-sent, /wrap-up. Do not edit manually. -->
 
 ## Timestamps
-Last-Warm-Up: 2026-05-11T10:18 | Session: A (Light warm-up; session-restart after 08:55 full → 5 crons dropped, re-registered with new IDs. Snapshot from 08:55 full warm-up reused as baseline; no email/Slack rescan.) (completed)
-Prior-Warm-Up: 2026-05-11T08:55 | Session: A (Full warm-up; 60h gap Fri→Mon; ACTIVE_PROJECT=phonestand. OI DB 5 OIs. Change-log auto-fixed from stale 2026-05-09 header.)
-Last-Mail-Scan: 2026-05-12T10:07 (cron pass; 0 new since 08:00 pass)
-Last-Log-Sent: 2026-05-12T10:40 (cron pass; 8 suppliers checked, 0 new milestones — all May 11 entries already logged)
+Last-Warm-Up: 2026-05-12T21:30 | Session: B (Full warm-up; same-day session-restart ~12h after morning Session A. Context files unchanged since 09:30 reload. OI DB query 429-rate-limited; using morning snapshot — 5 OIs unchanged per Slack/email signal review. Stale Session A cron IDs cleared; fresh 5 registered.) (completed)
+Prior-Warm-Up: 2026-05-12T09:30 | Session: A (Full warm-up; auto-promoted from --light due to >24h gap)
+Last-Mail-Scan: 2026-05-12T21:30 (Session B warm-up scan, 18h window — 6 new threads since Session A: Transtek Zhanna pickup-request May 15, J-Mold ship-confirmation, EFAST waiting on label, Zip #3511 Rúben+João Linhares comments, ISCSB-2844 DHL label, Melysse 1:1 invite)
+Last-Log-Sent: 2026-05-12T23:15 (4 suppliers checked, 0 new milestones — all May 12 sent emails previously reviewed or non-milestone)
 Last-Wrap-Up: 2026-05-12T15:00
 Last-System-Session: 2026-04-20T09:00
-Last-Morning-Brief: 2026-04-29T08:40 (delivered via Slack draft + chat; 3 decisions, 5 overdue, 5 signals)
+Last-Morning-Brief: 2026-04-29T08:40
 
 ## Active Sessions
-(none — cleared by /wrap-up 2026-05-12)
+- Session B: started 2026-05-12T21:30 (Full warm-up; session-restart from Session A)
 
-## Context Snapshot (May 11 — Full warm-up, Mon AM)
+## Context Snapshot (May 12 evening — Full warm-up, session-restart)
 
-### OI DB — 5 open OIs (unchanged from Friday)
-- **BloomPod — Coin Cell HW Investigation** (Pending, André, due 2026-04-24) — 17d overdue. Pedro Rodrigues PTO. Awaiting full specs.
-- **Kaia — Caio + Max sourcing decision** (Pending, Caio, due 2026-04-30) — 11d overdue. Second Page Yoga PO progressing (7K split 2K air + 5K sea); Max confirming payment route today.
-- **Pulse T2D — Kevin Wang re-engage glucometer/CGM** (Pending, Kevin Wang, due 2026-05-08) — 3d overdue. Mika BGM/VGM04 quote received Friday; Mika confirmed Sat: no HC/UKCA cert plans without committed orders.
-- **Thrive Phone Stand — request samples ZF135 + ZF26** (Pending, André, due 2026-05-09) — 2d overdue. Xinsurui still platform-only contact, no response. ⚠ stale fallback path needed.
-- **Thrive Phone Stand — deliver samples to Porto Thrive team** (Pending, André, due 2026-05-11) — DUE TODAY. Blocked by upstream (no samples received yet).
+### Delta since Session A (09:30) — what's new
 
-### Email scan (last ~60h, ~30 threads since Fri wrap-up)
+**Email (today AM, after Session A wrap):**
+- **Transtek / Zhanna Du (May 12 08:50 + 08:55)** 🆕: Pickup request for Pulse Logo Products ready May 15 18:00 Beijing — 2 BPMs (Pulse logo) + 2245 cuff + 2 scales (Pulse logo). NW 5.6kg. CC: Mika, Marta Valente, Sofia. Asked for quick-delivery service. → **Need to arrange DHL pickup for May 15.**
+- **J-Mold / Artemis Wu (May 12 08:52)**: Samples prepared, shipping today via DHL express, tracking to be shared. → Log milestone.
+- **EFAST / Samson (May 12 08:46)**: "Sure, I'll wait" re DHL label. → Still owing him label (André committed last night).
+- **Zip #3511 (May 12 08:06–08:38)**: Rúben Silva ("we always prefer the vendor to enter the information") + João Linhares ("the account proof shared does not contain SWIFT/BIC"). → Jerry needs to upload SWIFT/BIC banking proof.
+- **ISCSB-2844 YRight (May 12 09:06)**: Catarina shared DHL label 6839657005, status In Progress. → Forward to Sandy so she can ship 1-of-each samples.
+- **Calendar — Melysse Marques (May 12 09:06)** 🆕: 1:1 invite Tue May 12 17:00–17:45 WEST (today, likely already passed).
 
-**Awaiting André reply (TODAY):**
-- **Jenna Du (Transtek) — XL cuff package files** (chasing today 08:07): "awaiting your confirmation … reply by end of today". Originally sent May 8; shared with Sofia/Marta. Need their feedback first.
-- **Kiki Kuai (Chengrong)** May 9 07:58: suggested H12 ($2.23 EXW, MOQ 3K/color) + H18 (TBD) — smaller smartphone-only models. Reply needed.
-- **Mika Lu (Transtek BGM)** May 9 01:16: confirmed no HC/UKCA cert plans for VGM04 unless market demand. André reply pending (relay to Kevin? — gated on T2D track).
+**Slack (no new signals since Session A morning sweep):**
+- **Bradley DM**: last 23:17 yesterday ("let me review all of this") — **still no reply >22h**.
+- **Anand DM**: last 19:56 May 8 ("Let's talk Monday"); André pinged 00:08 today — **no reply 21h**.
+- **Caio DM**: last 22:04 yesterday ("vamos à carga") — quiet.
+- **#kaia-nimbl-fullfillment**: silent since 22:55 yesterday.
+- **#pulse-devices**: Andreia Gomes joined channel 09:39 today (no content), Rui Hipólito joined May 11 12:46. No new substantive messages since May 8.
 
-**Handled / FYI:**
-- **Mika (Transtek) — 12-Month Forecast for PLI** (May 9 06:42): André replied 20K/device May 10. Andreia confirmed receipt + forwarding internally May 11 01:55. Closed.
-- **Second Page Yoga (Jerry)** May 9 13:57/14:50: 2K air 12d after payment, 5K sea 15d after payment, pricing same. André acknowledged May 10 19:42. Awaiting Max confirmation re funds.
-- **Mika (FDA listing)** May 9 01:26: confirmed Excel received, Jenna + Senior Reg Affairs handling. Closed.
-- **Asher Xu (Xinrui)** May 8: DFM file delivered post-meeting. Flagged for Gustavo/Miguel review (Light Pipe buckle positions).
-- **Anand Forward — Rita Xu PO PTSA-PO-2026-000220 delay**: FYI, no action.
-- **Vara Cybart (CAC) / Nimbl insurance**: Francisco Oliveira confirmed inventory values May 8. Closed on André's side.
-- **Keenfinity 3rd round visit**: Miguel coordinating with Jaime Pereira (5 visitors total). André CC'd only.
-- **Daxin (Kerry)** Apr 24: asked which country for export — no reply (low priority, Pulse T2D parked).
+### OI DB — 5 open OIs (morning snapshot, no change signal)
+- **BloomPod — Coin Cell HW Investigation** (Pending, André, due 2026-04-24) — 18d overdue. Pedro Rodrigues PTO; awaiting full specs.
+- **Kaia — Caio + Max sourcing decision** (Pending, Caio, due 2026-04-30) — 12d overdue. Second Page Yoga payment unblock in flight (Zip #3511 + Jira LRE-1957 MSA), waiting on Bradley + Jerry SWIFT/BIC.
+- **Pulse T2D — Kevin Wang re-engage glucometer/CGM** (Pending, Kevin Wang, due 2026-05-08) — 4d overdue. No movement.
+- **Thrive Phone Stand — request samples ZF135 + ZF26** (Pending, André, due 2026-05-09) — 3d overdue. Xinsurui still platform-only contact. Jira ISCSB-2845 + 2844 opened.
+- **Thrive Phone Stand — deliver samples to Porto Thrive team** (Pending, André, due 2026-05-11) — 1d overdue. Blocked upstream (no samples received yet).
 
-### Slack scan (last ~60h, key DMs + channels)
+## Upcoming Meetings
 
-- **Jorge DM**: silent since May 8 — sent Tier Parts overview Friday, no reply (Jorge OOO until May 14).
-- **Anand DM** May 8 19:56: "Let's talk Monday and have a wonderful weekend!" — pencil chat for today. Also confirmed Marcio said AI Proficiency case studies = post-project — deferred.
-- **Miguel DM**: silent since May 8 (off-topic chitchat about whisperflow).
-- **Paulo DM**: silent since May 8 (chitchat). Earlier: Pulse welcome cards thread + Pedro backup.
-- **Sofia DM**: silent since May 6 (MAC certificates approved).
-- **Kevin DM**: silent since Apr 30.
-- **Caio DM**: silent since Apr 14.
-- **#pulse-devices (C0ARTEJPMRC)** May 8 — **3 open threads needing André attention:**
-  1. **Daniel Ledo (18:19)**: needs box docs/samples + QR code definitions + warranty/replacement agreement details + supplier complaint handling process. Multi-question DM expected.
-  2. **André (15:10)**: XS cuff bundle Options 1/2 — needs Kevin/Paulo decision + Bianca/Sofia regulatory check on Option 2 (label on excess cuff = repackaging risk).
-  3. **Sofia (11:25)** BLOCKING: Draco kit tool cannot include BPM + Body Fat scale (distributor cannot kit medical devices = repackager risk). Needs alignment with Kevin/Paulo + Anand.
-- **#pulse-isc** May 7: Anand handling 5K Yoga Blocks transfer Thrive→Pulse + CSV process with Carlos Neves. André visibility only.
-- **#kaia-nimbl-fullfillment** May 8-11 — **ACTIVE**: pro-forma sent to Max; 7K split confirmed by Jerry. Max confirming with Caio if approved 4imprint funds can cover or new PO needed (today 08:55). André replied "Ok please let me know on next steps" today 09:38.
-- **M-Band Group DM**: silent since Apr 29.
-- **Pulse Group DM**: Kevin May 8 15:41 "transtek should take you on a holiday in china" (chitchat). T2D specs question May 4 still open.
-- **#m-band_sourcing** May 8: Daniel Ledo posted Move→Pulse repack flow at SLC. Informational. 3K Lihua boxes (PLSEMB1-PCK-C01) needed for this process.
+### TODAY (May 12) — REMAINING
+- **17:00–17:45** — André / Melysse 1:1 (likely already passed at 21:30).
 
-## Upcoming Meetings (next 5 days)
+### WED May 13
+- **14:30–15:00** — Pulse Launch Weekly (Kevin, Paulo, Sofia, Bianca, Anand).
+- **18:00–20:30** — Reimagining Women's Health (SIM side event, Porto office, accepted).
 
-- **Mon May 11 12:00-12:30** — André / Jorge 1:1 — Jorge declined (OOO until May 14). Open slot.
-- **Mon May 11 12:30-14:00** — Porto Office Lunch.
-- **Tue May 12 11:00-12:00** — Weekly Logistics & Purchasing (Jorge declined OOO).
-- **Tue May 12 05:30-06:30 WEST** — Wintech / Sword Weekly (12:30 Shanghai). Tentative.
-- **Wed May 13 14:30-15:00** — Pulse Launch Weekly (Kevin, Paulo, Sofia, Bianca, Anand).
-- **Wed May 13 18:00-20:30** — Reimagining Women's Health [SIM side event, Porto office].
-- **Thu May 14 16:00-16:15** — Brain Break (optional).
-- **Thu May 14 18:00-20:00** — From Seed to Scale [SIM side event, Porto office].
-- **Fri May 15 12:30-14:00** — Porto Office Lunch.
-- **Fri May 15 16:00-17:00** — R&S / ISC / IT / Info Sec All Hands.
+### THU May 14
+- **16:00–16:15** — Brain Break (optional).
+- **18:00–20:00** — From Seed to Scale (DECLINED).
+- Jorge returns from OOO.
+
+### FRI May 15
+- **12:30–14:00** — Porto Office Lunch.
+- **16:30–17:30** — R&S/ISC/IT/Info Sec All Hands (Mariana Cabaço).
+- **Transtek pickup ready** — 18:00 Beijing time (DHL for Pulse Logo Products).
 
 ## Pending Actions (for André)
 
-### Phone Stand (active project for the day)
-- **TODAY** — OI **Deliver samples Porto Thrive team** due today; blocked upstream (no samples received). Action: chase Xinsurui (ZF135+ZF26 OI overdue 2d) via Alibaba TM; check DHL/logistics for any incoming Phone Stand boxes; if nothing inbound, push OI deadline + notify Ricardo/Pedro Santos.
-- **TODAY** — Reply to Kiki (Chengrong) re H12/H18 suggestions (May 9 07:58, 2d unread).
-- **TODAY** — Track YRightSZ sample request (sent May 8, no reply yet from Sandy).
-- **THIS WEEK** — Plan shortlist trim once 2-3 quote sets arrive. Decision target end of May.
+### TOMORROW AM
+- **Transtek pickup (May 15)**: arrange DHL/FedEx pickup for 2 BPMs + 2245 cuff + 2 scales (5.6kg) — Zhanna asked for quick-delivery. Open ISCSB Jira and book Catarina to coordinate.
+- **Bradley follow-up (>22h)**: nudge on Jira LRE-1957 + Zip #3511 MSA to unblock Second Page Yoga payment.
+- **Jerry SWIFT/BIC**: forward João Linhares's specific ask (account proof missing SWIFT/BIC) to Jerry — blocks Zip #3511 onboarding.
+- **YRightSZ DHL label 6839657005**: forward to Sandy so she can ship 1-of-each samples.
+- **J-Mold tracking**: receive tracking from Artemis and log Outreach milestone.
 
-### Pulse
-- **TODAY (by EOD)** — Jenna Du chasing XL cuff package files feedback. Need Sofia/Marta to clear queue first; relay once received.
-- **TODAY** — Reply on **3 open #pulse-devices threads**: XS cuff bundle Option 1/2 (Kevin/Paulo + Bianca/Sofia), Draco kit blocker (Sofia), Daniel Ledo questions on boxes/QR/warranty/complaints.
-- **TODAY/THIS WEEK** — Decide on Pulse T2D Mika BGM follow-up: relay HC/UKCA "no plans" to Kevin (T2D OI overdue 3d).
+### THIS WEEK — Phone Stand (ACTIVE_PROJECT)
+- Push **Xinsurui** via Alibaba TM (OI overdue 3d on ZF135+ZF26 samples).
+- Reply **Kiki / Chengrong** re H12 ($2.23 EXW MOQ 3K/color) + H18 options (4d unread).
+- Confirm shipping ETAs as samples arrive (J-Mold today, YRightSZ pending label, EFAST pending label).
+- Note: EFAST DHL label outreach milestone was logged today by Session A cron — but Samson AM ack ("Sure, I'll wait") suggests label not yet sent; verify in Notion.
 
-### Kaia
-- **TODAY** — Await Max confirmation on Second Page Yoga payment route (approved 4imprint funds vs new PO). Once cleared, request updated shipping quote from sword distribution team.
+### THIS WEEK — Pulse
+- Daniel Ledo three-question DM on boxes/QR/warranty/complaints — still open.
+- XS cuff bundle Opt 1/2 thread — chase Kevin/Paulo for choice + Sofia/Bianca for regulatory check on Option 2.
+- Draco kit blocker — confirm Anand's plan with Sofia.
+- Relay Transtek BGM "no HC/UKCA cert plans" decision to Kevin (T2D OI 4d overdue).
+- US importer details for FDA listing (Transtek Excel form) — Sofia + Bianca owe data.
 
-### Cross-project
-- **TODAY** — Sync with Anand (his May 8 "let's talk Monday"); Jorge OOO so 1:1 slot 12:00 is free, can use.
-- **THIS WEEK** — Follow up Arrow K11 ZIP review with Mary Anne Martin (Jorge delegation Apr 30).
-- **THIS WEEK** — US Insurance equipment values (charging + DFU stations) — chase Tevin Hiatt / Rui Hipolito.
-- **THIS WEEK** — Chase João Linhares for MT103 SWIFT/UETR on USI-PO-2026-000311.
-- **THIS WEEK** — Run /context-doctor mband (COUNT_MISMATCH 18 vs 17) and /context-doctor kaia (top_deadline stale 2026-04-30).
-- **THIS WEEK** — Daily logs gap: May 4-6 still owed; weekend May 9-10 (skip per convention).
-- **CARRY (Jorge-blocked, OOO until May 14)** — Wintech 102 units; AMS-OSRAM 30wk PO escalation.
-- **CARRY** — Navan PT mileage sheet ($42.01 Mar 20).
-- **CARRY** — Brian Rentas (Nimbl) CSV loading process.
-- **CARRY** — Nimbl boxes for TransPak (3 M-Band boxes).
-- **DEFERRED** — AI Proficiency presentation to Marcio: Anand confirmed Friday "let's do it post-project, leave for now". Park.
+### THIS WEEK — Kaia
+- Drive Second Page payment release this week OR fall back to 4imprint inventory (Caio agreed both tracks).
+- Confirm purchase ownership (Kaia process vs Sword inventory) once Anand replies.
+
+### CARRY (Jorge returns May 14)
+- Arrow K11 ZIP review with Mary Anne Martin (Jorge delegation Apr 30).
+- Wintech 102 units.
+- AMS-OSRAM 30wk PO escalation (gated on Jorge 1:1).
+- Nimbl boxes for TransPak (3 M-Band boxes).
+- Brian Rentas (Nimbl) CSV loading process.
+- Navan PT mileage sheet ($42.01 Mar 20).
+- US Insurance equipment values (charging + DFU stations) — chase Tevin Hiatt / Rui Hipolito.
+- João Linhares MT103 SWIFT/UETR on USI-PO-2026-000311.
+- Avnet Statement of Assurance non-activity confirmation.
+
+### MAINTENANCE
+- Daily log for May 11 (still owed if not pushed). May 4–7 backfill still owed.
+- Context files last synced 2026-05-08T23:30 → 4d stale. Run `/context-doctor mband` and `/context-doctor kaia` (top_deadline stale 2026-04-30). BloomPod index stale since 2026-04-22.
+- Uncommitted from morning session: settings.local.json + change-log.md + session-state.md.
+
+### DEFERRED
+- Marcio AI Proficiency presentation — Anand confirmed "post-project".
 
 ### Carry-over open items
-- **M-Band Xinrui DFM** (Light Pipe buckle positions) → flag for Gustavo/Miguel review.
-- **Stray file at repo root**: `C:Tempcelestica_bom.txt` — still untracked.
-- **BloomPod index stale**: last synced 2026-04-22.
+- M-Band Xinrui DFM (Light Pipe buckle positions) — flag for Gustavo/Miguel review.
+- Stray repo root file `C:Tempcelestica_bom.txt` — still untracked.
 
 ## Session Crons
-# Cleared by /wrap-up 2026-05-12T13:30 (5 crons stopped: 4d6883c6 mail-scan, 2666573f log-sent, c56a5b10 housekeeping, 3be6ec27 audit, a561a12b morning-brief)
+7979b3da (mail-scan every 2h at :07)
+287456f9 (log-sent every 3h at :13)
+1411d4c1 (morning-brief weekdays 07:32, durable)
+f57e0821 (housekeeping weekdays 18:00, durable)
+1d7d0d15 (audit Fridays 17:00, durable)
