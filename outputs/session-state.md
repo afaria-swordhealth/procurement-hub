@@ -2,109 +2,108 @@
 <!-- Auto-updated by /warm-up, /mail-scan, /log-sent, /wrap-up. Do not edit manually. -->
 
 ## Timestamps
-Last-Warm-Up: 2026-05-08T09:55 | Session: B (Full warm-up; auto-promoted from --light. Session A already completed at 08:57 — Session B layered on top. OI DB query succeeded second attempt: 4 OIs returned, no T2D OI found in fresh fetch.) (completed)
-Prior-Warm-Up: 2026-05-08T08:57 | Session: A (Full warm-up; OI DB Notion 429 — used yesterday's snapshot as baseline) (completed)
-Last-Mail-Scan: 2026-05-08T18:25 (delta since 15:15: 0 new supplier emails. Zip Credit Card bills EUR 3.34/5.71/6.57 — fully approved, no supplier match, ignored.)
-Last-Log-Sent: 2026-05-08T19:05 (1 supplier checked, 1 new milestone — Transtek: BGM HC/UKCA certification follow-up logged. Prior runs covered all others.)
-Last-Wrap-Up: 2026-05-08T23:30 (context synced: Pulse 2A/11R, Kaia 5A/8R, M-Band 16A/12R — Vangest rejected, Sanmina moved to Rejected, COUNT_MISMATCH resolved. Phone Stand 9A. Daily log Complete. Crons stopped.)
+Last-Warm-Up: 2026-05-11T10:18 | Session: A (Light warm-up; session-restart after 08:55 full → 5 crons dropped, re-registered with new IDs. Snapshot from 08:55 full warm-up reused as baseline; no email/Slack rescan.) (completed)
+Prior-Warm-Up: 2026-05-11T08:55 | Session: A (Full warm-up; 60h gap Fri→Mon; ACTIVE_PROJECT=phonestand. OI DB 5 OIs. Change-log auto-fixed from stale 2026-05-09 header.)
+Last-Mail-Scan: 2026-05-12T10:07 (cron pass; 0 new since 08:00 pass)
+Last-Log-Sent: 2026-05-12T10:40 (cron pass; 8 suppliers checked, 0 new milestones — all May 11 entries already logged)
+Last-Wrap-Up: 2026-05-12T13:30
 Last-System-Session: 2026-04-20T09:00
 Last-Morning-Brief: 2026-04-29T08:40 (delivered via Slack draft + chat; 3 decisions, 5 overdue, 5 signals)
 
 ## Active Sessions
-(none — cleared by /wrap-up 2026-05-08)
+(none — cleared by /wrap-up 2026-05-12)
 
-## Context Snapshot (May 8 08:57 — Full warm-up)
+## Context Snapshot (May 11 — Full warm-up, Mon AM)
 
-### OI DB — NOT FETCHED (Notion 429 on every retry)
-Three consecutive `mcp__claude_ai_Notion__notion-query-data-sources` calls against OI DB returned `validation_error 429`. Falling back to yesterday's full-warm snapshot (2026-05-07T11:30); verify in housekeeping.
+### OI DB — 5 open OIs (unchanged from Friday)
+- **BloomPod — Coin Cell HW Investigation** (Pending, André, due 2026-04-24) — 17d overdue. Pedro Rodrigues PTO. Awaiting full specs.
+- **Kaia — Caio + Max sourcing decision** (Pending, Caio, due 2026-04-30) — 11d overdue. Second Page Yoga PO progressing (7K split 2K air + 5K sea); Max confirming payment route today.
+- **Pulse T2D — Kevin Wang re-engage glucometer/CGM** (Pending, Kevin Wang, due 2026-05-08) — 3d overdue. Mika BGM/VGM04 quote received Friday; Mika confirmed Sat: no HC/UKCA cert plans without committed orders.
+- **Thrive Phone Stand — request samples ZF135 + ZF26** (Pending, André, due 2026-05-09) — 2d overdue. Xinsurui still platform-only contact, no response. ⚠ stale fallback path needed.
+- **Thrive Phone Stand — deliver samples to Porto Thrive team** (Pending, André, due 2026-05-11) — DUE TODAY. Blocked by upstream (no samples received yet).
 
-Yesterday's open OIs (from session-state baseline):
-- **BloomPod — Coin Cell HW Investigation** (Pending, André, due 2026-04-24) — 14d overdue. Pedro Rodrigues on PTO. Awaiting full specs.
-- **Kaia — Caio + Max sourcing decision** (Pending, Caio, due 2026-04-30) — 8d overdue. 3mm DECIDED May 5. Supplier choice (Tiger vs Second Page) still open. Max approved Second Page Yoga via Zip yesterday (PO request shared) — likely closes today.
-- **Pulse T2D — Kevin Wang re-engage glucometer/CGM** (Pending, Kevin Wang, due 2026-05-08) — DUE TODAY. André sent specs questions May 4 21:59 (Pulse Group DM). Paulo asked "T2D info" May 7 16:05 — will get back when free.
-- **Thrive Phone Stand — request samples ZF135 + ZF26** (Pending, André, due 2026-05-09) — due tomorrow.
-- **Thrive Phone Stand — deliver samples to Porto Thrive team** (Pending, André, due 2026-05-11) — due Mon.
+### Email scan (last ~60h, ~30 threads since Fri wrap-up)
 
-### Email scan (last 18h, ~30 threads)
-- **Mika Lu (Transtek) — 9am ZOOM TODAY** ⚠ NEW. Calendar invite created 07:47 today: "Sword Health & Transtek-Zoom Meeting" 09:00-09:45 WEST. André status = tentative. Replaces yesterday's 10:30 placeholder. Zoom link: https://us06web.zoom.us/j/85078748681 / pwd RE1Wbc1HwfuQbIirMKfbNbpFQ2oPar.1.
-- **Mika Lu (Transtek) URGENT 04:15** — "Urgent: Importer / Forwarder Information for FDA Listing". Sword shipment under FOB; Mika needs Sword's importer/forwarder contact to complete FDA listing. Action: relay to Logistics (Andreia/Catarina/Fernando) + share with Mika before/at 9am call.
-- **Mika declined "Sword transtek next steps" 5:30am EDT meeting** — separate ad-hoc meeting created last night was declined. The 9am Zoom is what stands.
-- **3 delivery failures to mika@transtekcorp.com (typo)** — correct address is mika.lu@transtekcorp.com. Audit any André-side automation/template.
-- **YRightSZ Sandy — Phone Stand quote received 07:47** ⚠ NEW. Mobile phone holder quote attached, EXW pricing. Phone Stand domain not yet in domains.md (yrightsz.com).
-- **Anand 20:49 — Pulse bundling thread** retracted at 21:07 ("ignore this email"). Marcelo Peixoto 21:46 reshared updated Pulse SKU configs; Paulo confirmed 00:21 m-band ships separately from BPM/scale.
-- **Andreia ↔ Wintech (Rita Xu) 09:21-16:10** — clarification on 42 PVT units payment scope. Andreia handling.
-- **Andreia ↔ Vítor/Ana Pinto 15:09** — Yoga blocks YB-TP-02 transfer Thrive→Pulse (5K units) for Pulse rewards. Andreia driving.
-- **Andreia ↔ Sophie 12:43-00:39** — Thrive Pad EU charger TypeC sourcing (BCT171EU equivalent). Sophie checking; Andreia leading.
-- **Max Strobel** added André as Zip follower on Nimbl request (yoga mat shipping). Approved by Rúben Silva (17:44) + Bradley Bruchs (19:58). Awaiting Filipe Santos InfoSec + Rúben final.
+**Awaiting André reply (TODAY):**
+- **Jenna Du (Transtek) — XL cuff package files** (chasing today 08:07): "awaiting your confirmation … reply by end of today". Originally sent May 8; shared with Sofia/Marta. Need their feedback first.
+- **Kiki Kuai (Chengrong)** May 9 07:58: suggested H12 ($2.23 EXW, MOQ 3K/color) + H18 (TBD) — smaller smartphone-only models. Reply needed.
+- **Mika Lu (Transtek BGM)** May 9 01:16: confirmed no HC/UKCA cert plans for VGM04 unless market demand. André reply pending (relay to Kevin? — gated on T2D track).
 
-### Sent email highlights (last 18h)
-- André sent Sandy (YRightSZ) follow-up 13:23 acknowledging her presentation deck; quote arrived this morning.
-- No supplier outreach today yet (pre-9am).
+**Handled / FYI:**
+- **Mika (Transtek) — 12-Month Forecast for PLI** (May 9 06:42): André replied 20K/device May 10. Andreia confirmed receipt + forwarding internally May 11 01:55. Closed.
+- **Second Page Yoga (Jerry)** May 9 13:57/14:50: 2K air 12d after payment, 5K sea 15d after payment, pricing same. André acknowledged May 10 19:42. Awaiting Max confirmation re funds.
+- **Mika (FDA listing)** May 9 01:26: confirmed Excel received, Jenna + Senior Reg Affairs handling. Closed.
+- **Asher Xu (Xinrui)** May 8: DFM file delivered post-meeting. Flagged for Gustavo/Miguel review (Light Pipe buckle positions).
+- **Anand Forward — Rita Xu PO PTSA-PO-2026-000220 delay**: FYI, no action.
+- **Vara Cybart (CAC) / Nimbl insurance**: Francisco Oliveira confirmed inventory values May 8. Closed on André's side.
+- **Keenfinity 3rd round visit**: Miguel coordinating with Jaime Pereira (5 visitors total). André CC'd only.
+- **Daxin (Kerry)** Apr 24: asked which country for export — no reply (low priority, Pulse T2D parked).
 
-### Slack scan (last 24h, key DMs + channels)
-- **Anand DM (Apr 30 → 22:34 May 7)** — Phone Stand HOLD lifted in spirit; AI Proficiency presentation thread active. Anand asked about Francisco Oliveira's purchasing tool inclusion in the AI presentation; will sync with Francisco today. Huddle held 22:00 last night.
-- **Jorge DM** — silent since Apr 30 20:16 (OOO until May 14).
-- **Paulo Alves DM (May 7 16:03-18:44)** — Active. André chasing T2D spec answers + box dimensions. Paulo apologized, will respond. André created 14:15-14:30 "Alignment shipping boxes" today to close box topic. Group DM also active on T2D + boxes.
-- **Sofia DM (May 6 15:39)** — silent since. MAC OK confirmed.
-- **Bradley DM (Apr 22 17:33)** — silent since Transtek HK→Guangdong correction. Approved Nimbl Zip yesterday.
-- **Caio DM (Apr 14 09:03)** — silent. Gated on Max.
-- **Kevin DM (Apr 30 02:54)** — silent.
-- **Miguel Pais DM (May 7 23:53-00:01)** — Active. Aligning on Bob (Wintech?) timing. Miguel asked Bob, expects answer today.
-- **#pulse-isc** — Anand 13:27 May 7: 5K Yoga Blocks transfer Thrive→Pulse confirmed (lead time 120d, will replenish via Pulse PO). Carlos Neves Pulse rewards thread (8 DWA implementation, ~3 weeks tech).
-- **#pulse-devices** — André 23:10 May 7 asked Kevin/Paulo: are cardio metabolic devices (BPM + scale) shipped without smartband? Awaiting reply.
-- **#kaia-nimbl-fullfillment** — Max approved Second Page Yoga PO via Zip (yesterday 15:26). André proposed split shipment air+sea (1-2k air + 3-4k sea). Max suggested 4imprint for immediate need + Second Page via sea. André asked May 8 00:39: "When are you running out of stock?"
-- **M-Band Group DM** — silent since Apr 29 09:30 (magnet specs).
-- **Pulse Group DM** — silent since André's T2D specs question May 4 21:59.
+### Slack scan (last ~60h, key DMs + channels)
 
-### Carry-over items (still open)
-- **Daily logs gap**: May 1, 2, 3 missing (weekend). May 4 stub. May 6 still owed. Notion 429 last warm-up — verify.
-- **Mika 9am call import**: relay Sword importer/forwarder info before/during call.
-- **Phone Stand domains** still missing from config/domains.md: yrightsz.com (NEW today), bwoo gzbwoo.com, lamicall.com, chengrongtech.com, efast-tech.com, nulaxy.com.
-- **AMS-OSRAM 30wk PO**: ~29d overdue, escalation gated on Jorge (PTO through May 14).
-- **Stray file at repo root**: `C:Tempcelestica_bom.txt` (untracked, malformed Windows path).
-- **Nimbl boxes for TransPak**: 3 M-Band boxes from Nimbl SLC for TransPak.
-- **AI Proficiency presentation to Marcio**: end-of-May 2026, with Mariana + Marlene. Mariana shared template May 7. Anand asked about Francisco's tool inclusion (last night).
-- **Brian Rentas (Nimbl) — CSV loading process**: still owed.
-- **M-Band context COUNT_MISMATCH**: file says 18 active, index says 17. Run /context-doctor mband.
-- **BloomPod index stale**: last synced 2026-04-22.
+- **Jorge DM**: silent since May 8 — sent Tier Parts overview Friday, no reply (Jorge OOO until May 14).
+- **Anand DM** May 8 19:56: "Let's talk Monday and have a wonderful weekend!" — pencil chat for today. Also confirmed Marcio said AI Proficiency case studies = post-project — deferred.
+- **Miguel DM**: silent since May 8 (off-topic chitchat about whisperflow).
+- **Paulo DM**: silent since May 8 (chitchat). Earlier: Pulse welcome cards thread + Pedro backup.
+- **Sofia DM**: silent since May 6 (MAC certificates approved).
+- **Kevin DM**: silent since Apr 30.
+- **Caio DM**: silent since Apr 14.
+- **#pulse-devices (C0ARTEJPMRC)** May 8 — **3 open threads needing André attention:**
+  1. **Daniel Ledo (18:19)**: needs box docs/samples + QR code definitions + warranty/replacement agreement details + supplier complaint handling process. Multi-question DM expected.
+  2. **André (15:10)**: XS cuff bundle Options 1/2 — needs Kevin/Paulo decision + Bianca/Sofia regulatory check on Option 2 (label on excess cuff = repackaging risk).
+  3. **Sofia (11:25)** BLOCKING: Draco kit tool cannot include BPM + Body Fat scale (distributor cannot kit medical devices = repackager risk). Needs alignment with Kevin/Paulo + Anand.
+- **#pulse-isc** May 7: Anand handling 5K Yoga Blocks transfer Thrive→Pulse + CSV process with Carlos Neves. André visibility only.
+- **#kaia-nimbl-fullfillment** May 8-11 — **ACTIVE**: pro-forma sent to Max; 7K split confirmed by Jerry. Max confirming with Caio if approved 4imprint funds can cover or new PO needed (today 08:55). André replied "Ok please let me know on next steps" today 09:38.
+- **M-Band Group DM**: silent since Apr 29.
+- **Pulse Group DM**: Kevin May 8 15:41 "transtek should take you on a holiday in china" (chitchat). T2D specs question May 4 still open.
+- **#m-band_sourcing** May 8: Daniel Ledo posted Move→Pulse repack flow at SLC. Informational. 3K Lihua boxes (PLSEMB1-PCK-C01) needed for this process.
 
 ## Upcoming Meetings (next 5 days)
 
-- **Fri May 8 09:00-09:45** — Sword Health & Transtek Zoom (Mika Lu) — TENTATIVE. Topics: Prop 65 docs, MSA PLD, OTS→Branded plan, T2D BGM/CGM intro, scale connectivity bug, importer/forwarder for FDA Listing.
-- **Fri May 8 10:00-10:30** — Nimbl alignment Kaia+Pulse (André host, Inês Almeida, Andreia optional). Meet: meet.google.com/tyf-nijd-fwi.
-- **Fri May 8 11:15-12:00** — Sword-Xinrui M-Band Plastic Parts (André host; Asher Xu, Gustavo, Miguel). Silicone plug enclosure + mold design. Meet: meet.google.com/ujn-znjn-wao.
-- **Fri May 8 12:30-14:00** — Porto Office Lunch.
-- **Fri May 8 14:15-14:30** — Alignment shipping boxes (André host, Paulo Alves). Meet: meet.google.com/fyo-gygc-cbp.
-- **Fri May 8 16:30-18:00** — Sword All Hands.
-- **Mon May 11 12:00-12:30** — André / Jorge 1:1 (Jorge OOO until May 14, may be declined).
+- **Mon May 11 12:00-12:30** — André / Jorge 1:1 — Jorge declined (OOO until May 14). Open slot.
+- **Mon May 11 12:30-14:00** — Porto Office Lunch.
 - **Tue May 12 11:00-12:00** — Weekly Logistics & Purchasing (Jorge declined OOO).
-- **Tue May 12 12:30-13:30 (Asia/Shanghai)** — Wintech / Sword Weekly. André tentative.
-- **Wed May 13 14:30-15:00** — Pulse Launch Weekly.
-- **Wed May 13 18:00-20:30** — Reimagining Women's Health (SIM side event, Porto office) — needsAction.
+- **Tue May 12 05:30-06:30 WEST** — Wintech / Sword Weekly (12:30 Shanghai). Tentative.
+- **Wed May 13 14:30-15:00** — Pulse Launch Weekly (Kevin, Paulo, Sofia, Bianca, Anand).
+- **Wed May 13 18:00-20:30** — Reimagining Women's Health [SIM side event, Porto office].
+- **Thu May 14 16:00-16:15** — Brain Break (optional).
+- **Thu May 14 18:00-20:00** — From Seed to Scale [SIM side event, Porto office].
+- **Fri May 15 12:30-14:00** — Porto Office Lunch.
+- **Fri May 15 16:00-17:00** — R&S / ISC / IT / Info Sec All Hands.
 
 ## Pending Actions (for André)
 
-- **NOW (before 9am)** — Find + relay Sword importer/forwarder info to Mika for FDA listing (Andreia / Catarina / Fernando). Share before/at 9am call.
-- **NOW (before 9am)** — Accept/decline Mika 9am Zoom invite (currently tentative).
-- **9:00-9:45** — Sword/Transtek Zoom: cover importer/forwarder, scale connectivity bug, T2D BGM/CGM intro, MSA/PLD timeline.
-- **10:00-10:30** — HOST Nimbl alignment Kaia+Pulse with Inês Almeida (Andreia optional).
-- **11:15-12:00** — HOST Xinrui M-Band Plastic Parts with Asher / Gustavo / Miguel.
-- **14:15-14:30** — HOST Alignment shipping boxes with Paulo (Pulse box dimensions / personalization).
-- **TODAY** — Reply to Brian Rentas (Nimbl) on CSV loading process (#kaia-nimbl-fullfillment) — owed since May 6 20:52.
-- **TODAY** — Reply to Max on Kaia mat stock/timing (asked "when running out of stock" 00:39); confirm 4imprint immediate + Second Page via sea split.
-- **TODAY** — Add 6 phone-stand domains to config/domains.md (yrightsz.com, gzbwoo.com, lamicall.com, chengrongtech.com, efast-tech.com, nulaxy.com).
-- **TODAY** — YRightSZ quote received → log to Notion Phone Stand DB + Outreach milestone.
-- **TODAY** — Reply to Kevin/Paulo in #pulse-devices on cardio devices ↔ smartband bundling (waiting from yesterday 23:10).
-- **TODAY** — Decision on AI Proficiency presentation: include Francisco's purchasing tool? Check with Francisco (Anand last night).
-- **TODAY** — Fill Navan PT mileage sheet ($42.01 Mar 20) and submit (carry).
+### Phone Stand (active project for the day)
+- **TODAY** — OI **Deliver samples Porto Thrive team** due today; blocked upstream (no samples received). Action: chase Xinsurui (ZF135+ZF26 OI overdue 2d) via Alibaba TM; check DHL/logistics for any incoming Phone Stand boxes; if nothing inbound, push OI deadline + notify Ricardo/Pedro Santos.
+- **TODAY** — Reply to Kiki (Chengrong) re H12/H18 suggestions (May 9 07:58, 2d unread).
+- **TODAY** — Track YRightSZ sample request (sent May 8, no reply yet from Sandy).
+- **THIS WEEK** — Plan shortlist trim once 2-3 quote sets arrive. Decision target end of May.
+
+### Pulse
+- **TODAY (by EOD)** — Jenna Du chasing XL cuff package files feedback. Need Sofia/Marta to clear queue first; relay once received.
+- **TODAY** — Reply on **3 open #pulse-devices threads**: XS cuff bundle Option 1/2 (Kevin/Paulo + Bianca/Sofia), Draco kit blocker (Sofia), Daniel Ledo questions on boxes/QR/warranty/complaints.
+- **TODAY/THIS WEEK** — Decide on Pulse T2D Mika BGM follow-up: relay HC/UKCA "no plans" to Kevin (T2D OI overdue 3d).
+
+### Kaia
+- **TODAY** — Await Max confirmation on Second Page Yoga payment route (approved 4imprint funds vs new PO). Once cleared, request updated shipping quote from sword distribution team.
+
+### Cross-project
+- **TODAY** — Sync with Anand (his May 8 "let's talk Monday"); Jorge OOO so 1:1 slot 12:00 is free, can use.
+- **THIS WEEK** — Follow up Arrow K11 ZIP review with Mary Anne Martin (Jorge delegation Apr 30).
+- **THIS WEEK** — US Insurance equipment values (charging + DFU stations) — chase Tevin Hiatt / Rui Hipolito.
 - **THIS WEEK** — Chase João Linhares for MT103 SWIFT/UETR on USI-PO-2026-000311.
-- **THIS WEEK** — Run `/context-doctor mband` (count mismatch 18 vs 17).
-- **THIS WEEK** — Run `/context-doctor kaia` (top_deadline stale 2026-04-30).
-- **THIS WEEK** — OI cleanup batch (housekeeping; verify yesterday's 5 OIs against fresh DB once Notion settles).
-- **THIS WEEK / Fri May 8** — Follow up Legal ZIP review on Arrow K11 with Mary Anne Martin per Jorge's delegation.
-- **THIS WEEK** — US Insurance equipment values: chase Tevin Hiatt + R&S/Rui Hipolito; feed back to Jorge.
-- **CARRY** — Wintech 102 outstanding units (Rita Xu Apr 30 proposal): Jorge OOO; carry over.
-- **CARRY** — AMS-OSRAM 30wk PO: blocked while Jorge OOO; carry over.
+- **THIS WEEK** — Run /context-doctor mband (COUNT_MISMATCH 18 vs 17) and /context-doctor kaia (top_deadline stale 2026-04-30).
+- **THIS WEEK** — Daily logs gap: May 4-6 still owed; weekend May 9-10 (skip per convention).
+- **CARRY (Jorge-blocked, OOO until May 14)** — Wintech 102 units; AMS-OSRAM 30wk PO escalation.
+- **CARRY** — Navan PT mileage sheet ($42.01 Mar 20).
+- **CARRY** — Brian Rentas (Nimbl) CSV loading process.
+- **CARRY** — Nimbl boxes for TransPak (3 M-Band boxes).
+- **DEFERRED** — AI Proficiency presentation to Marcio: Anand confirmed Friday "let's do it post-project, leave for now". Park.
+
+### Carry-over open items
+- **M-Band Xinrui DFM** (Light Pipe buckle positions) → flag for Gustavo/Miguel review.
+- **Stray file at repo root**: `C:Tempcelestica_bom.txt` — still untracked.
+- **BloomPod index stale**: last synced 2026-04-22.
 
 ## Session Crons
-# Cleared by /wrap-up 2026-05-08T23:30 — all 5 Session A crons deleted; Session B crons already expired (post-compact)
+# Cleared by /wrap-up 2026-05-12T13:30 (5 crons stopped: 4d6883c6 mail-scan, 2666573f log-sent, c56a5b10 housekeeping, 3be6ec27 audit, a561a12b morning-brief)
