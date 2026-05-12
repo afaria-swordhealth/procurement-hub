@@ -3,15 +3,15 @@
 
 ## Timestamps
 Last-Warm-Up: 2026-05-12T21:30 | Session: B (Full warm-up; same-day session-restart ~12h after morning Session A. Context files unchanged since 09:30 reload. OI DB query 429-rate-limited; using morning snapshot — 5 OIs unchanged per Slack/email signal review. Stale Session A cron IDs cleared; fresh 5 registered.) (completed)
+Last-Wrap-Up: 2026-05-13T00:30 (--force supplement; committed meeting-prep-anand-20260513.md + session-state cleanup. Prior wrap-up b055e38 at 23:55 May 12.)
 Prior-Warm-Up: 2026-05-12T09:30 | Session: A (Full warm-up; auto-promoted from --light due to >24h gap)
 Last-Mail-Scan: 2026-05-12T21:30 (Session B warm-up scan, 18h window — 6 new threads since Session A: Transtek Zhanna pickup-request May 15, J-Mold ship-confirmation, EFAST waiting on label, Zip #3511 Rúben+João Linhares comments, ISCSB-2844 DHL label, Melysse 1:1 invite)
 Last-Log-Sent: 2026-05-12T23:15 (4 suppliers checked, 0 new milestones — all May 12 sent emails previously reviewed or non-milestone)
-Last-Wrap-Up: 2026-05-12T15:00
 Last-System-Session: 2026-04-20T09:00
 Last-Morning-Brief: 2026-04-29T08:40
 
 ## Active Sessions
-- Session B: started 2026-05-12T21:30 (Full warm-up; session-restart from Session A)
+(none — cleared by /wrap-up 2026-05-12)
 
 ## Context Snapshot (May 12 evening — Full warm-up, session-restart)
 
@@ -108,8 +108,4 @@ Last-Morning-Brief: 2026-04-29T08:40
 - Stray repo root file `C:Tempcelestica_bom.txt` — still untracked.
 
 ## Session Crons
-7979b3da (mail-scan every 2h at :07)
-287456f9 (log-sent every 3h at :13)
-1411d4c1 (morning-brief weekdays 07:32, durable)
-f57e0821 (housekeeping weekdays 18:00, durable)
-1d7d0d15 (audit Fridays 17:00, durable)
+# Cleared by /wrap-up 2026-05-12T23:55 — all 5 Session B crons already dropped (session-restart)
