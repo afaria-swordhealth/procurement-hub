@@ -6,7 +6,7 @@ Last-Warm-Up: 2026-05-11T10:18 | Session: A (Light warm-up; session-restart afte
 Prior-Warm-Up: 2026-05-11T08:55 | Session: A (Full warm-up; 60h gap Fri→Mon; ACTIVE_PROJECT=phonestand. OI DB 5 OIs. Change-log auto-fixed from stale 2026-05-09 header.)
 Last-Mail-Scan: 2026-05-12T10:07 (cron pass; 0 new since 08:00 pass)
 Last-Log-Sent: 2026-05-12T10:40 (cron pass; 8 suppliers checked, 0 new milestones — all May 11 entries already logged)
-Last-Wrap-Up: 2026-05-12T13:30
+Last-Wrap-Up: 2026-05-12T15:00
 Last-System-Session: 2026-04-20T09:00
 Last-Morning-Brief: 2026-04-29T08:40 (delivered via Slack draft + chat; 3 decisions, 5 overdue, 5 signals)
 
