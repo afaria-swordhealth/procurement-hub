@@ -1,5 +1,5 @@
 # Pulse Suppliers — Context File
-# Last synced: 2026-05-12T23:30
+# Last synced: 2026-05-14T00:15
 # Schema: v1
 
 ## Active (2)
@@ -10,9 +10,9 @@
 - currency: USD
 - unit_cost: 19.20 (BPM) / 13.30 (BIA Scale)
 - tooling_cost: null
-- last_outreach: 2026-05-11
+- last_outreach: 2026-05-13
 - open_ois: 0
-- next: Track 5-track delivery plan (OTS Bulk Jun 30; PLD Jul 10/Aug); XS cuff bundle = 1 BPM + 1 std cuff, single gift box (XS excl.)
+- next: Track 5-track delivery plan (OTS Bulk Jun 30; PLD Jul 10/Aug); XS cuff bundle = 1 BPM + 1 std cuff, single gift box (XS excl.). May 13: delivery plan + CC troubleshooting guide request sent to Mika/Jenna; awaiting reply.
 - blocker: null
 - notes: |
   MANUFACTURER (Zhongshan, CN). Entity: Guangdong Transtek Medical Electronics Co., Ltd

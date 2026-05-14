@@ -1,25 +1,27 @@
 # Kaia Suppliers — Context File
-# Last synced: 2026-05-12T23:30
+# Last synced: 2026-05-14T00:15
 # Schema: v1
 # Note: All Kaia sourcing decisions gated on Caio + Max (memory `project_kaia_dependency`).
 
 ## Active (5)
 
 ### Tiger Fitness
-- status: Under Review
+- status: Under Review (pending de-facto rejection; status change deferred)
 - nda: Not Required
 - currency: USD
 - unit_cost: 2.80
 - tooling_cost: null
-- last_outreach: 2026-05-07
+- last_outreach: 2026-05-13
 - open_ois: 0
-- next: Fabric mat RFQ active (new initiative). Eva requested mat image to assess production capability. PVC timeline still pending from André.
-- blocker: null
+- next: Status update to Rejected pending. Rejection email sent May 13 (07:44 + 08:11) — both bounced (eva@tigerfitness.net.cn invalid). Decision communicated; no live channel to confirm receipt.
+- blocker: Eva's email address invalid; rejection cannot be delivered.
 - notes: |
   MANUFACTURER (Shanghai, CN). PVC yoga mats. Pricing @5K EXW: 3mm $2.80, 6mm $3.65,
   8mm $4.55. Branded samples delivered NYC 2026-03-30. New initiative fabric mat RFQ
   sent 2026-05-05 (different product from PVC scope). Eva follow-up May 7: requesting
-  mat image + PVC timeline confirmation.
+  mat image + PVC timeline confirmation. May 13: rejection email sent twice — both
+  bounced (eva@tigerfitness.net.cn no longer valid). De-facto rejected; DB status
+  remains Under Review until alternative contact or final decision logged.
 
 ### Second Page Yoga
 - status: Under Review

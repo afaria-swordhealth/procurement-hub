@@ -1,8 +1,8 @@
 # M-Band Suppliers — Context File
-# Last synced: 2026-05-12T23:30
+# Last synced: 2026-05-14T00:15
 # Schema: v1
 
-## Active (16)
+## Active (15)
 
 ### SHX Watch
 - status: Quote Received
@@ -13,13 +13,19 @@
 - cost_basis: "@200K+ (confirmed)"
 - last_outreach: 2026-05-11
 - open_ois: 0
-- next: Validate custom samples when delivered (ISCSB-2832 inbound, pickup scheduled May 7)
+- next: Send Doc 3 to Jason (consolidated reference specs + deviations + iteration-3 request, pre-tooling sample OR technical proposal). Gmail draft r-4941923704613077104 pending review. Doc 3 = Notion subpage 35fb4a7d-7207-8132-99a4-f2bed7f77da1, exportable to PDF.
 - blocker: null
 - notes: |
   Straps. ~$1.36/strap MP (200k+/yr). Pull force confirmed >70N. Stock samples picked up
   2026-04-11. Custom samples in progress. Outbound ref samples: ISCSB-2831,
   AWB 4221148783, Porto → SHX Watch, shipped 2026-05-06. Inbound custom samples:
   ISCSB-2832, AWB 6410655355, SHX Watch → Porto, pickup scheduled 2026-05-07.
+  May 13: Doc 3 created in Notion (subpage 35fb4a7d…99a4) — reference specs + observed
+  deviations + Sample Evolution table (Reference / 1st batch Option 3 / 2nd batch /
+  Trajectory). Iteration-3 ask: pre-tooling sample (preferred) OR written technical
+  proposal before tooling investment. Narrative framing: regression on Velcro density
+  (1st batch Option 3 was perfect match) rather than flat defect list. Gmail draft
+  r-4941923704613077104 awaiting André's review before send to jason@shxwatch.com.
 
 ### MCM
 - status: Quote Received
@@ -141,20 +147,6 @@
   confirmed re-quote delivery "early next week" (2026-04-17). DB promoted to Quote
   Received on indicative data; fresh re-quote still pending.
 
-### Quantal
-- status: RFQ Sent
-- nda: Signed
-- currency: EUR
-- unit_cost: null
-- tooling_cost: null
-- last_outreach: 2026-04-28
-- open_ois: 0
-- next: Await quote from Miguel Costa
-- blocker: null
-- notes: |
-  Sheet Metal. NDA fully executed 2026-04-14. Zip #3006 fully approved 2026-04-14.
-  RFQ package sent to Miguel Costa 2026-04-14.
-
 ### Xinrui Group — Plastic Housings
 - status: Quote Received
 - nda: Signed
@@ -252,7 +244,7 @@
 - notes: |
   Plastic Housings. Re-engage pending. OI 33fb4a7d…c45c (overdue).
 
-## Rejected (12)
+## Rejected (13)
 
 - Braloba, 3DWays, TERA Plastics, Watts Electronics, Celoplas, Edaetech, Carfi Plastics,
   Kimball Electronics, AbleOne, CONKLY (rejected 2026-04-10 — TPU cannot be secured to
@@ -261,6 +253,8 @@
 - Vangest (REJECTED 2026-05-08 — not competitive vs shortlisted alternatives; rejection
   email sent to Ana Fontes + Helmut Schmid + Sónia Sequeira; kept in DB for future
   opportunities).
+- Quantal (REJECTED 2026-05-13 — confirmed unable to manufacture M-Band sheet metal part;
+  part too small for production capabilities per Miguel Costa email May 12).
 
 ## Key Decisions
 
@@ -293,8 +287,8 @@
 
 ## Summary
 
-- 28 suppliers total (per Notion DB). 16 active (9 Quote Received, 4 RFQ Sent, 1 Under
-  Review, 2 Contacted, 1 Identified), 12 rejected (Vangest REJECTED May 8).
+- 28 suppliers total (per Notion DB). 15 active (9 Quote Received, 3 RFQ Sent, 1 Under
+  Review, 2 Contacted, 1 Identified), 13 rejected (Vangest REJECTED May 8; Quantal REJECTED May 13).
   Note: Xinrui Housings Last Outreach Date updated 2026-05-08 (DFM file received).
 - NDAs signed (GAOYI, MCM, SHX Watch, Uartrónica, JXwearable, Quantal, Ribermold,
   TransPak, Xinrui Group [shared across 4 part splits]). 2 not started (Cerler, Falcon).

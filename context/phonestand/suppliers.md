@@ -1,5 +1,5 @@
 # Phone Stand (Thrive) Suppliers — Context File
-# Last synced: 2026-05-12T23:30
+# Last synced: 2026-05-14T00:15
 # Schema: v1
 # Note: New project kicked off 2026-05-06 via Susana Afonso meeting. Smartphone-based
 # Thrive PT solution. Volume target 50–100k units H2 2026. Initial PO 10–20k. RFQ
@@ -95,14 +95,15 @@
 - currency: USD
 - unit_cost: null
 - tooling_cost: null
-- last_outreach: 2026-05-12
+- last_outreach: 2026-05-13
 - open_ois: 0
-- next: DHL label sent May 12. Samson confirmed waiting for pickup.
-- blocker: null
+- next: Tracking pending. May 13: commercial invoice request sent (Sword Health Inc, NY billing data) + dispatch urgency raised (no movement on tracking).
+- blocker: Sample not yet picked up despite DHL label issued May 12.
 - notes: |
   MANUFACTURER (China). Phone Stand. Contact moved from Alibaba Chat to direct email
   May 12. DHL shipping label sent May 12 for sample shipment. Samson (Sales Manager)
-  confirmed "Sure, I'll wait" — awaiting pickup confirmation.
+  confirmed "Sure, I'll wait". May 13: commercial invoice request sent + dispatch
+  urgency raised — tracking still shows no movement.
   Contact: Samson Qiu, samson@efast-tech.com.
 
 ### Nulaxy
