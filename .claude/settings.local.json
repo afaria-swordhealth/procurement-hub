@@ -220,7 +220,27 @@
       "mcp__claude_ai_Google_Calendar__delete_event",
       "PowerShell(Get-Item C:\\\\Users\\\\SWORD\\\\Documents\\\\GitHub\\\\procurement-hub\\\\outputs\\\\session-state.md | Select-Object LastWriteTime, @{N='AgeMin';E={[int]\\(\\(Get-Date\\) - $_.LastWriteTime\\).TotalMinutes}})",
       "PowerShell(Get-Item C:\\\\Users\\\\SWORD\\\\Documents\\\\GitHub\\\\procurement-hub\\\\outputs\\\\session-state.md | ForEach-Object { \"{0} | AgeMin: {1}\" -f $_.LastWriteTime, [int]\\(\\(Get-Date\\) - $_.LastWriteTime\\).TotalMinutes })",
-      "PowerShell(Get-Date -Format 'yyyy-MM-ddTHH:mm:ss'; \"---\"; Get-Item C:\\\\Users\\\\SWORD\\\\Documents\\\\GitHub\\\\procurement-hub\\\\outputs\\\\session-state.md | ForEach-Object { \"session-state mtime: {0}\" -f $_.LastWriteTime })"
+      "PowerShell(Get-Date -Format 'yyyy-MM-ddTHH:mm:ss'; \"---\"; Get-Item C:\\\\Users\\\\SWORD\\\\Documents\\\\GitHub\\\\procurement-hub\\\\outputs\\\\session-state.md | ForEach-Object { \"session-state mtime: {0}\" -f $_.LastWriteTime })",
+      "Bash(python -c \"import os, time; mtime = os.path.getmtime\\('.claude/scheduled_tasks.lock'\\); age = time.time\\(\\) - mtime; print\\(f'Lock age: {age:.0f}s \\({age/60:.1f}min\\)'\\)\")",
+      "Bash(ls -la .claude/scheduled_tasks.lock)",
+      "Bash(Get-Item \"C:\\\\Users\\\\SWORD\\\\.claude\\\\projects\\\\C--Users-SWORD-Documents-GitHub-procurement-hub\\\\d40c9aa1-1db5-4387-a4be-44aa0992dab9.jsonl\")",
+      "Bash(Select-Object -Property Length)",
+      "Bash(awk '/\\\\\"type\\\\\":\\\\\"assistant\\\\\"/{line=NR} /Tier parts supplier Overview|COO-X vs Wintech/{if\\(NR-line<100 && NR-line>-5\\) print NR}' \"C:\\\\Users\\\\SWORD\\\\.claude\\\\projects\\\\C--Users-SWORD-Documents-GitHub-procurement-hub\\\\d40c9aa1-1db5-4387-a4be-44aa0992dab9.jsonl\")",
+      "Bash(awk *)",
+      "mcp__claude_ai_Slack__slack_read_user_profile",
+      "PowerShell(cmd /c \"dir /b \"\"G:\\\\Shared drives\\\\R&S\\\\00 - M-Band\\\\02 - M-Band COO-X\\\\04_ISC\\\\Sourcing\\\\E2E\\\\Wintech\\\\10k Order\\\\\"\"\")",
+      "PowerShell(Out-Null *)",
+      "Bash(dir *)",
+      "PowerShell(New-Item *)",
+      "PowerShell(Get-Date *)",
+      "Bash(mv \"./C:Tempcelestica_bom.txt\" \"C:\\\\Users\\\\SWORD\\\\Documents\\\\celestica_bom_recovered_2026-05-06.txt\")",
+      "Read(//c/Users/SWORD/Documents/**)",
+      "Bash(git log *)",
+      "Bash(git status *)",
+      "mcp__claude_ai_Notion__notion-create-view",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\SWORD\\\\Documents\\\\GitHub\\\\procurement-hub\\\\.claude\" -Recurse -Name)",
+      "Bash(Select-String -Pattern \"schedule\" -CaseSensitive)",
+      "mcp__claude_ai_Atlassian__searchJiraIssuesUsingJql"
     ]
   },
   "enabledMcpjsonServers": [

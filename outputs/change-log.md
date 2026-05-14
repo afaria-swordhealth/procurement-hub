@@ -18,3 +18,9 @@
 
 **Report written:** outputs/cross-check-report.md (overwrite)
 **Pending approval (not written):** Tiger Fitness Status→Rejected; Kaia OI Context rewrite.
+
+### 2026-05-13 (post-EOD supplement, committed in d3d876b — see git log for detail)
+- OI comment 345b4a7d…81c3: Avnet+Nordic Semi escalation (LT 23 weeks).
+- OI comment 34ab4a7d…8106: Kaia Zip #3511 PO fully approved.
+- Daily Log 2026-05-13 (360b4a7d…497a): appended.
+- index.json: pulse.top_deadline → 2026-05-08.
