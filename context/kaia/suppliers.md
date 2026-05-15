@@ -1,5 +1,5 @@
 # Kaia Suppliers — Context File
-# Last synced: 2026-05-14T00:15
+# Last synced: 2026-05-15T20:30
 # Schema: v1
 # Note: All Kaia sourcing decisions gated on Caio + Max (memory `project_kaia_dependency`).
 
@@ -29,9 +29,9 @@
 - currency: USD
 - unit_cost: 2.39
 - tooling_cost: null
-- last_outreach: 2026-05-11
+- last_outreach: 2026-05-15
 - open_ois: 0
-- next: ZIP PO #3511 in progress (correct amount $100K → $16,730). LRE-1957 MSA filed. Jerry onboarding in Zip (bank data upload pending). 4imprint backup if delays.
+- next: Zip #3511 fully approved May 14 (Amy Liu resolved Bradley legal block). Shipping labels ISCSB-2859 + ISCSB-2860 raised May 15 for 2K air + 5K sea (SP20260508JERRY). Catarina processing DHL labels. Awaiting Jerry bank data + payment to start production.
 - blocker: null
 - notes: |
   MANUFACTURER (Hefei, CN). PVC yoga mats. Pricing @5K EXW: 3mm $2.39, 6mm $3.39,
@@ -65,9 +65,9 @@
 - currency: USD
 - unit_cost: 13.15
 - tooling_cost: null
-- last_outreach: 2026-05-07
+- last_outreach: 2026-05-14
 - open_ois: 0
-- next: Active fulfillment partner. Fulfillment transition plan confirmed (OI closed 2026-05-05).
+- next: Zip #3460 fully approved May 14 (Filipe Santos Info Sec + Rúben Silva). Vendor onboarding complete. Active fulfillment partner for Kaia yoga mat track.
 - blocker: null
 - notes: |
   Fulfillment partner (Salt Lake City, US). Price range $13.15-$17.15/un. Saves $2.68/un

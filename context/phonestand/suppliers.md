@@ -1,5 +1,5 @@
 # Phone Stand (Thrive) Suppliers — Context File
-# Last synced: 2026-05-14T00:15
+# Last synced: 2026-05-15T20:30
 # Schema: v1
 # Note: New project kicked off 2026-05-06 via Susana Afonso meeting. Smartphone-based
 # Thrive PT solution. Volume target 50–100k units H2 2026. Initial PO 10–20k. RFQ
@@ -46,17 +46,16 @@
 - currency: USD
 - unit_cost: null
 - tooling_cost: null
-- last_outreach: 2026-05-11
+- last_outreach: 2026-05-15
+- samples_status: Shipped
 - open_ois: 0
-- next: Reply to Kiki H12 + H18 proposal (unread since May 9). H12 $2.23 EXW MOQ 3K/color.
+- next: H12 + H18 + H23S samples in transit. AWB 1104668515 picked up Fri May 15 (PRG260515700434).
 - blocker: null
 - notes: |
   Founded 2016. Aluminum CNC specialist. 20 CNC machines, ISO9001, CE/RoHS/REACH/CA
   Prop65. Full OEM/ODM incl. mold design, anodizing, precision stamping, injection.
-  May 8: first reply from Kiki — asked for smartphone type clarification + branding
-  enquiry. Andre clarified smartphone focus, asked about personalization. May 9: Kiki
-  proposed H12 ($2.23 EXW, MOQ 3,000/color, hot seller with stock) + H18 options
-  (smaller form factor). No reply sent yet — unread 4d.
+  H12 $2.23 EXW MOQ 3K/color (hot seller with stock) + H18 + H23S confirmed.
+  Samples: ISCSB-2857 AWB 1104668515, pickup confirmed May 15. H12+H18+H23S $9.56 EXW.
   Contact: Ms. Kiki Kuai, kiki@chengrongtech.com, +86-15818520453.
 
 ### Shenzhen Flyoung Technology
@@ -80,14 +79,16 @@
 - currency: USD
 - unit_cost: null
 - tooling_cost: null
-- last_outreach: 2026-05-06
+- last_outreach: 2026-05-15
+- samples_status: Requested
 - open_ois: 1
-- next: URGENT — ZF135 + ZF26 sample OIs overdue. Contact via Alibaba TM immediately.
-- blocker: No public direct email — contact via Alibaba TM only; no response yet
+- next: Samples picked up via DHL — ISCSB-2858 AWB 7125316041, pickup rebooked May 16 (slipped from May 15 per Ailla). Direct email channel via Ailla@xinsurui.com established.
+- blocker: null
 - notes: |
   Original supplier of pre-identified models ZF135 Desktop 360 Rotation + ZF26 Adjustable
-  Height. 5yr Alibaba, 4.8/5, 100% reorder rate, response <=5h. Contact via
-  xinsurui.en.alibaba.com Trade Manager.
+  Height. 5yr Alibaba, 4.8/5, 100% reorder rate. 7 Z-models ordered $13.22 via Alibaba TA
+  #24580172501043587 (paid May 14). Samples: ISCSB-2858 AWB 7125316041, pickup May 16.
+  Contact: Ailla Song · Ailla@xinsurui.com (direct, previously Alibaba TM only).
 
 ### EFAST
 - status: Contacted
@@ -96,14 +97,14 @@
 - unit_cost: null
 - tooling_cost: null
 - last_outreach: 2026-05-13
+- samples_status: Requested
 - open_ois: 0
-- next: Tracking pending. May 13: commercial invoice request sent (Sword Health Inc, NY billing data) + dispatch urgency raised (no movement on tracking).
-- blocker: Sample not yet picked up despite DHL label issued May 12.
+- next: Samples confirmed for pickup Fri May 15 (after chase #3 May 14). AWB 1393292924.
+- blocker: null
 - notes: |
   MANUFACTURER (China). Phone Stand. Contact moved from Alibaba Chat to direct email
-  May 12. DHL shipping label sent May 12 for sample shipment. Samson (Sales Manager)
-  confirmed "Sure, I'll wait". May 13: commercial invoice request sent + dispatch
-  urgency raised — tracking still shows no movement.
+  May 12. Samples: ISCSB-2845 AWB 1393292924. Samson confirmed pickup Fri May 15
+  after chase #3 May 14. Commercial invoice (Sword Health Inc, NY) provided May 13.
   Contact: Samson Qiu, samson@efast-tech.com.
 
 ### Nulaxy
@@ -127,15 +128,14 @@
 - unit_cost: null
 - tooling_cost: null
 - last_outreach: 2026-05-11
+- samples_status: Shipped
 - open_ois: 0
-- next: Forward DHL label 6839657005 (ISCSB-2844 from Catarina) to Sandy for sample shipment.
-- blocker: Label received (ISCSB-2844) but not yet forwarded to Sandy
+- next: Samples in transit to Porto. ISCSB-2844 AWB 6839657005 picked up; processed HONG KONG May 14 22:04 (UTC+8).
+- blocker: null
 - notes: |
   MANUFACTURER (China). Phone Stand. Referred by Andreia Gomes — long-term partner
   (confirmed by Sandy 2026-05-07). Sandy sent portfolio/quotation May 8 (EXW prices,
-  multiple models). Sample request sent May 8: 1x each stand model, DHL label offered.
-  Catarina issued DHL label 6839657005 (ISCSB-2844) May 12 — needs to be forwarded to
-  Sandy so she can ship.
+  multiple models). Samples: ISCSB-2844 AWB 6839657005 picked up, processed HK May 14.
   Contact: Sandy, sandy@yrightsz.com.
 
 ### J-Mold
@@ -144,16 +144,15 @@
 - currency: USD
 - unit_cost: null
 - tooling_cost: null
-- last_outreach: 2026-05-12
+- last_outreach: 2026-05-15
+- samples_status: Shipped
 - open_ois: 0
-- next: Receive DHL tracking number from Artemis once available.
+- next: Samples in transit. AWB 8584496502 confirmed (J-Mold paid shipping), departed HONG KONG May 14 17:26. ISCSB-2861 raised May 15 for Sword-side tracking, In Progress (Catarina).
 - blocker: null
 - notes: |
-  MANUFACTURER (China). Phone stand specialist. Direct email contact established May 7.
-  Artemis Wu is Account Manager for Sword Health account (confirmed May 11).
-  Sample request sent May 11 — one unit of each model to Porto address (Av. de Sidonio
-  Pais 153, Ed. A, Piso 5). May 12: Artemis confirmed samples prepared and shipped via
-  DHL express. Tracking number to be shared once available.
+  MANUFACTURER (China). Phone stand specialist. Artemis Wu is Account Manager for
+  Sword Health account. Samples: DHL AWB 8584496502 (J-Mold paid shipping), departed
+  HK May 14 17:26, in transit to Porto. ISCSB-2861 raised May 15 for Sword tracking.
   Contact: Artemis Wu, artemis@j-mold.com.
 
 ## Rejected (0)
@@ -169,13 +168,11 @@
 
 ## Open Actions (ISC-level)
 
-- YRightSZ: forward DHL label 6839657005 (ISCSB-2844) to Sandy immediately.
-- Chengrong / Kiki: reply to H12 + H18 proposal (May 9, unread 4d).
-- Xinsurui: push via Alibaba TM — ZF135 + ZF26 samples OI overdue.
-- J-Mold: receive tracking number from Artemis (samples shipped May 12 via DHL).
-- Run /mail-scan-deep until Flyoung/Xinsurui forward direct emails (platform-mediated).
-- Update domains.md with direct supplier emails as they become known.
-- Pre-identified sample models: ZF135, ZF26 (Xinsurui), BO-ZJ132 (BWOO).
+- Samples in transit / shipped: YRightSZ (AWB 6839657005, processed HK May 14), J-Mold (AWB 8584496502, departed HK May 14), Chengrong (AWB 1104668515, picked up May 15), EFAST (AWB 1393292924, pickup May 15), Xinsurui (AWB 7125316041, pickup May 16).
+- Schedule physical inspection meeting in Porto once all samples land (André + Susana Afonso + Ricardo Carvalhinho + Pedro Santos).
+- Flyoung: still platform-only (Made-in-China TM), no direct email yet — keep mail-scan-deep watching.
+- Pre-identified sample models tracked: ZF135, ZF26 (Xinsurui), BO-ZJ132 (BWOO), H12+H18+H23S (Chengrong).
+- Awaiting first-round quote tiers from BWOO, Lamicall, Flyoung, Nulaxy (no pricing yet).
 
 ## Stakeholders
 

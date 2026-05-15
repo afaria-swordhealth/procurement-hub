@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-14T01:10",
+  "generated": "2026-05-15T20:30",
   "projects": {
     "pulse": {
       "last_synced": "2026-05-14T01:10",
@@ -12,11 +12,11 @@
       "top_deadline": "2026-05-08"
     },
     "kaia": {
-      "last_synced": "2026-05-14T01:10",
+      "last_synced": "2026-05-15T20:30",
       "schema": "v1",
       "supplier_count_active": 5,
       "supplier_count_rejected": 8,
-      "active_suppliers": ["Tiger Fitness", "Second Page Yoga", "ProImprint", "Nimbl", "4imprint"],
+      "active_suppliers": ["China Tiger Fitness / Happy Fitness", "Second Page Yoga", "ProImprint", "Nimbl", "4imprint"],
       "cross_project_suppliers": [],
       "blocker_count": 0,
       "top_deadline": "2026-04-30"
@@ -42,7 +42,7 @@
       "top_deadline": "2026-04-24"
     },
     "phonestand": {
-      "last_synced": "2026-05-14T01:10",
+      "last_synced": "2026-05-15T20:30",
       "schema": "v1",
       "supplier_count_active": 9,
       "supplier_count_rejected": 0,
