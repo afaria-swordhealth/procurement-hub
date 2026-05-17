@@ -3,6 +3,7 @@
 # Resolved section is kept for retrospective (monthly session reads it for patterns).
 
 ## Pending
+- [ ] [2026-05-17] config/fx-rates.md: rates stale 33d (last updated 2026-04-14, threshold 30d). Rule: refresh on 1st of each month. Cannot execute autonomously — financial data sites return 403 in managed environment. André: fetch EUR→USD and EUR→CNY from ECB reference rates (ecb.europa.eu) and update the three pairs + change-log entry in config/fx-rates.md. — micro
 
 ## Resolved
 - [x] [2026-05-17 → 2026-05-17] session-doctor/SKILL.md Step 2: context/phonestand/suppliers.md missing from file list — 9 active suppliers (project added 2026-05-06) were never checked for staleness or COUNT_MISMATCH — micro — fixed in .claude/skills/session-doctor/SKILL.md (Step 2 file list, added phonestand entry)
