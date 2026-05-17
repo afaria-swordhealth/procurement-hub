@@ -83,6 +83,7 @@ Read the first 6 lines of each context file (captures `# Last synced:` header an
 - `context/pulse/suppliers.md`
 - `context/kaia/suppliers.md`
 - `context/mband/suppliers.md`
+- `context/phonestand/suppliers.md`
 
 | Condition | Action |
 |-----------|--------|
